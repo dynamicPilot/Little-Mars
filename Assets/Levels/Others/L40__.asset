@@ -1,0 +1,181 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3a9157f60dcb64b97653684f5ac14b, type: 3}
+  m_Name: L40__
+  m_EditorClassIdentifier: 
+  levelName: No Keeping!
+  number: 40
+  startIcon: {fileID: -1698118926978975151, guid: b2fe90ad038c4eb499c845c6dfe703e1, type: 3}
+  winningIcon: {fileID: -4304233737815414182, guid: b2fe90ad038c4eb499c845c6dfe703e1, type: 3}
+  sceneName: L0
+  levelsToBecomeAvailable: []
+  autoMap: 0
+  customeAutoMap: {fileID: 11400000, guid: 04e6adfd2907e27439bbabc02a2c4e9a, type: 2}
+  rowCounter: 5
+  columnCounter: 6
+  autoFields: 0
+  fields: []
+  defaultBuildingTypes: 00000000010000000500000003000000020000000400000006000000
+  buildings:
+  - item: {fileID: 11400000, guid: ecc33b0eb28625843915001fcf359898, type: 2}
+    amount: 4
+    multiplier: 1
+  - item: {fileID: 11400000, guid: b4b55858f76e37d4982733feeda8cb7c, type: 2}
+    amount: 2
+    multiplier: 1
+  - item: {fileID: 11400000, guid: fb29e24389e096046aaf509353d4d8b1, type: 2}
+    amount: 2
+    multiplier: 1
+  - item: {fileID: 11400000, guid: 1a35971a4ec93834b9f66c850ba7a6b9, type: 2}
+    amount: 4
+    multiplier: 1
+  - item: {fileID: 11400000, guid: db67976fd613d84418e2ae01eaaf9e2f, type: 2}
+    amount: 2
+    multiplier: 1
+  - item: {fileID: 11400000, guid: 6f101e3dbc79d4242b2084fd3fcf541e, type: 2}
+    amount: 1
+    multiplier: 1
+  - item: {fileID: 11400000, guid: ca9cfa0ec9a6e854f90282c202ff2258, type: 2}
+    amount: 3
+    multiplier: 1
+  - item: {fileID: 11400000, guid: 575273e416a01bb4f81d70a67a8ae8ff, type: 2}
+    amount: 3
+    multiplier: 1
+  startResources:
+  - resourseType: 0
+    dayAmount: 730
+    nightAmount: 0
+    multiplier: 1
+  - resourseType: 1
+    dayAmount: 115
+    nightAmount: 0
+    multiplier: 1
+  - resourseType: 2
+    dayAmount: 5
+    nightAmount: 0
+    multiplier: 1
+  - resourseType: 3
+    dayAmount: 127
+    nightAmount: 0
+    multiplier: 1
+  - resourseType: 4
+    dayAmount: 0
+    nightAmount: 0
+    multiplier: 1
+  - resourseType: 5
+    dayAmount: 0
+    nightAmount: 0
+    multiplier: 1
+  - resourseType: 6
+    dayAmount: 0
+    nightAmount: 0
+    multiplier: 1
+  tradePrices: []
+  needWaitingBeforeWinning: 0
+  winningLimit:
+    isBuildingNumber: 1
+    buildings:
+    - item: {fileID: 11400000, guid: 6f101e3dbc79d4242b2084fd3fcf541e, type: 2}
+      amount: 1
+      multiplier: 1
+    timerInHours: 40
+    isBuildingNumberLimitFullDescription:
+      stories:
+      - lang: 0
+        description: Make a Large Mine and have less than 200 metalls in storage.
+      - lang: 1
+        description: "\u041F\u043E\u0441\u0442\u0440\u043E\u0438\u0442\u044C \u0411\u043E\u043B\u044C\u0448\u0443\u044E
+          \u0428\u0430\u0445\u0442\u0443 \u0438 \u0438\u043C\u0435\u0442\u044C \u043D\u0435
+          \u0431\u043E\u043B\u0435\u0435 200 \u043C\u0435\u0442\u0430\u043B\u043B\u043E\u0432
+          \u0432 \u0437\u0430\u043F\u0430\u0441\u0435."
+      defaultLang: 0
+    isBuildingNumberTimeLimitFullDescription:
+      stories:
+      - lang: 0
+        description: Keep it turned on continuously for 40 hours.
+      - lang: 1
+        description: "\u0414\u0435\u0440\u0436\u0430\u0442\u044C \u0435\u0435 \u0432\u043A\u043B\u044E\u0447\u0435\u043D\u043D\u043E\u0439
+          \u043D\u0435\u043F\u0440\u0435\u0440\u044B\u0432\u043D\u043E \u0432 \u0442\u0435\u0447\u0435\u043D\u0438\u0435
+          40 \u0447\u0430\u0441\u043E\u0432."
+      defaultLang: 0
+    isResourcesNumber: 0
+    resources: []
+    isResourcesNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isProductionNumber: 0
+    production: []
+    isProductionNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isProductionInSumNumber: 0
+    productionInSum: []
+    isProductionInSumNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isMapSlotNumber: 0
+    slots: 0
+    isMapSlotNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isDayNumber: 0
+    days: 0
+    isDayNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+  endOfLevelLimit:
+    isBuildingNumber: 0
+    buildings: []
+    timerInHours: 0
+    isBuildingNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isBuildingNumberTimeLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isResourcesNumber: 1
+    resources:
+    - resourseType: 1
+      dayAmount: 200
+      nightAmount: 200
+      multiplier: 1
+    isResourcesNumberLimitFullDescription:
+      stories:
+      - lang: 0
+        description: Have less than 200 metalls in storage.
+      - lang: 1
+        description: "\u0418\u043C\u0435\u0442\u044C \u043D\u0435 \u0431\u043E\u043B\u0435\u0435
+          200 \u043C\u0435\u0442\u0430\u043B\u043B\u043E\u0432 \u0432 \u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0435."
+      defaultLang: 0
+    isProductionNumber: 0
+    production: []
+    isProductionNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isProductionInSumNumber: 0
+    productionInSum: []
+    isProductionInSumNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isMapSlotNumber: 0
+    slots: 0
+    isMapSlotNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isDayNumber: 0
+    days: 0
+    isDayNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+  trainingStory:
+    stories: []
+    defaultLang: 0

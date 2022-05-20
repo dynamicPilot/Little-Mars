@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60ebdd5736abca84cb63e97ccdd57a46, type: 3}
+  m_Name: StoryLevel3_eng
+  m_EditorClassIdentifier: 
+  lang: 0
+  pieces:
+  - header: Dome
+    description: Dome is a special type of building. Being turn on ones it cannot
+      be turn off. If you turn off a dome and not turn it on for 10 seconds, you
+      lose.
+    icon: {fileID: -1219754591375343444, guid: 47999fa38e337e745b2152f425999857, type: 3}
+    animatorController: {fileID: 9100000, guid: 8e2e712f0a0a5984983590cbbb83c777, type: 2}
+  - header: Connections
+    description: Dome, like some other buildings, must be connected with the special
+      types of building. All necessary connections are shown on the building slot
+      in the menu.
+    icon: {fileID: -513623689635786620, guid: 47999fa38e337e745b2152f425999857, type: 3}
+    animatorController: {fileID: 9100000, guid: 8e2e712f0a0a5984983590cbbb83c777, type: 2}
+  - header: Connected Slots
+    description: 'Note, two building are connected, if they are sharing one side
+      of their map slots, so building, placed on the diagonal slots, are not connected. '
+    icon: {fileID: -2892027084017477539, guid: 47999fa38e337e745b2152f425999857, type: 3}
+    animatorController: {fileID: 9100000, guid: 8e2e712f0a0a5984983590cbbb83c777, type: 2}

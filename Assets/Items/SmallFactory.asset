@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a365c67a5a842124fb9b9fbb61fdd010, type: 3}
+  m_Name: SmallFactory
+  m_EditorClassIdentifier: 
+  itemName: Small Factory
+  itemNameByLangs:
+    stories:
+    - lang: 0
+      description: Factory
+    - lang: 1
+      description: "\u0424\u0430\u0431\u0440\u0438\u043A\u0430"
+    defaultLang: 0
+  icon: {fileID: 5231429416509325250, guid: 0e2b0fd898e75ba4a97c91e3e051fc76, type: 3}
+  isAvailable: 0
+  availableAmount: 0
+  multiplier: 1
+  priority: 3
+  buildingNeeds:
+  - resourseType: 0
+    dayAmount: 40
+    nightAmount: 0
+    multiplier: 1
+  - resourseType: 1
+    dayAmount: 15
+    nightAmount: 0
+    multiplier: 1
+  - resourseType: 3
+    dayAmount: 10
+    nightAmount: 0
+    multiplier: 1
+  type: 4
+  resourceField: 8
+  iconParts:
+  - icons:
+    - {fileID: 5231429416509325250, guid: 0e2b0fd898e75ba4a97c91e3e051fc76, type: 3}
+    animator:
+    - {fileID: 9100000, guid: fcdc6e6051ad63b45b88d2b20675223a, type: 2}
+  connectionTypes: 02000000
+  ways:
+  - way:
+    - stepDirection: 0
+      isBackStep: 0
+      isSingleSlotBuilding: 1
+    iconParts:
+    - icons:
+      - {fileID: 5231429416509325250, guid: 0e2b0fd898e75ba4a97c91e3e051fc76, type: 3}
+      animator:
+      - {fileID: 9100000, guid: fcdc6e6051ad63b45b88d2b20675223a, type: 2}
+  isNightSwitchAvailable: 1
+  production:
+  - resourseType: 3
+    dayAmount: 2
+    nightAmount: 2
+    multiplier: 1
+  hourlyNeeds:
+  - resourseType: 4
+    dayAmount: 20
+    nightAmount: 20
+    multiplier: 0
+  - resourseType: 1
+    dayAmount: 4
+    nightAmount: 4
+    multiplier: 0
+  hoursToActivateTradeNeeds: 
+  tradeNeeds: []
+  iconWhenDrag: {fileID: 0}

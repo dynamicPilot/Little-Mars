@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a365c67a5a842124fb9b9fbb61fdd010, type: 3}
+  m_Name: MediumSupplyPlant
+  m_EditorClassIdentifier: 
+  itemName: Medium Supply Plant
+  itemNameByLangs:
+    stories:
+    - lang: 0
+      description: Supply Plant
+    - lang: 1
+      description: "\u0423\u0441\u0442-\u043A\u0430 \u0441\u043D\u0430\u0431\u0436\u0435\u043D\u0438\u044F"
+    defaultLang: 0
+  icon: {fileID: 6159653198437313653, guid: aeed0e02c87b8b647a6979b81a10c81e, type: 3}
+  isAvailable: 1
+  availableAmount: 1
+  multiplier: 1
+  priority: 1
+  buildingNeeds:
+  - resourseType: 0
+    dayAmount: 32
+    nightAmount: 0
+    multiplier: 1
+  - resourseType: 1
+    dayAmount: 4
+    nightAmount: 0
+    multiplier: 1
+  - resourseType: 3
+    dayAmount: 8
+    nightAmount: 0
+    multiplier: 1
+  type: 5
+  resourceField: 8
+  iconParts:
+  - icons:
+    - {fileID: 8255314341044953143, guid: 0e2b0fd898e75ba4a97c91e3e051fc76, type: 3}
+    - {fileID: 9203031185429786614, guid: aeed0e02c87b8b647a6979b81a10c81e, type: 3}
+    animator:
+    - {fileID: 9100000, guid: dd0d41ac3fa045f4aa9861d25d0826ff, type: 2}
+    - {fileID: 9100000, guid: 2c349ebc0898c6d43ae1a0483665ae07, type: 2}
+  connectionTypes: 
+  ways:
+  - way:
+    - stepDirection: 0
+      isBackStep: 0
+      isSingleSlotBuilding: 0
+    iconParts:
+    - icons:
+      - {fileID: 8255314341044953143, guid: 0e2b0fd898e75ba4a97c91e3e051fc76, type: 3}
+      - {fileID: 9203031185429786614, guid: aeed0e02c87b8b647a6979b81a10c81e, type: 3}
+      animator:
+      - {fileID: 9100000, guid: dd0d41ac3fa045f4aa9861d25d0826ff, type: 2}
+      - {fileID: 9100000, guid: 2c349ebc0898c6d43ae1a0483665ae07, type: 2}
+  isNightSwitchAvailable: 1
+  production:
+  - resourseType: 6
+    dayAmount: 24
+    nightAmount: 24
+    multiplier: 1
+  hourlyNeeds:
+  - resourseType: 4
+    dayAmount: 8
+    nightAmount: 8
+    multiplier: 0
+  hoursToActivateTradeNeeds: 
+  tradeNeeds: []
+  iconWhenDrag: {fileID: 5608695732372189285, guid: aeed0e02c87b8b647a6979b81a10c81e, type: 3}

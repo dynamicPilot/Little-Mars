@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60ebdd5736abca84cb63e97ccdd57a46, type: 3}
+  m_Name: StoryLevel7_eng
+  m_EditorClassIdentifier: 
+  lang: 0
+  pieces:
+  - header: Cosmodrome
+    description: Martian goods are very desirable on Earth. So let's make a cosmodrome
+      to deliver them and earn some money to the colony. Cosmodrome is a special
+      building, that allows you to take a rocket.
+    icon: {fileID: 2843898101078120038, guid: 8eb4a8c3b8b65604e9e899b8eb2bd659, type: 3}
+    animatorController: {fileID: 9100000, guid: 2aaaeb460aa2e6045a274503778b0f75, type: 2}
+  - header: Rocket
+    description: The rocket arrives and departs once a day and carries just a limited
+      amount of the Martian goods. Usually it arriving at the morning and leaving
+      the Mars at the evening. So be ready to trade you goods!
+    icon: {fileID: 8259249691149790374, guid: 8eb4a8c3b8b65604e9e899b8eb2bd659, type: 3}
+    animatorController: {fileID: 9100000, guid: 2aaaeb460aa2e6045a274503778b0f75, type: 2}

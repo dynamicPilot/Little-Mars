@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60ebdd5736abca84cb63e97ccdd57a46, type: 3}
+  m_Name: StoryLevel16_eng
+  m_EditorClassIdentifier: 
+  lang: 0
+  pieces:
+  - header: Areas for Specific Buildings
+    description: Sometimes there are already predefined areas on the map for the
+      certain type (or types) of buildings.
+    icon: {fileID: 1277378816724487807, guid: 8eb4a8c3b8b65604e9e899b8eb2bd659, type: 3}
+    animatorController: {fileID: 9100000, guid: bef9ca0d6abd0ea4c82e0558362d971f, type: 2}
+  - header: Areas for Specific Buildings
+    description: Buildings of the specified type can only be built in these specially
+      defined areas and nowhere else.
+    icon: {fileID: 5904827827902744988, guid: 8eb4a8c3b8b65604e9e899b8eb2bd659, type: 3}
+    animatorController: {fileID: 9100000, guid: bef9ca0d6abd0ea4c82e0558362d971f, type: 2}
+  - header: Areas for Specific Buildings
+    description: To fulfill the condition, it is sufficient that at least one slot
+      of the building is located in the specified area.
+    icon: {fileID: 906750069299461084, guid: 8eb4a8c3b8b65604e9e899b8eb2bd659, type: 3}
+    animatorController: {fileID: 9100000, guid: bef9ca0d6abd0ea4c82e0558362d971f, type: 2}
+  - header: Areas for Specific Buildings
+    description: However, other types of buildings can be built anywhere, including
+      these specified areas.
+    icon: {fileID: 906750069299461084, guid: 8eb4a8c3b8b65604e9e899b8eb2bd659, type: 3}
+    animatorController: {fileID: 9100000, guid: bef9ca0d6abd0ea4c82e0558362d971f, type: 2}

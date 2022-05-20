@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60ebdd5736abca84cb63e97ccdd57a46, type: 3}
+  m_Name: StoryLevel1_eng
+  m_EditorClassIdentifier: 
+  lang: 0
+  pieces:
+  - header: Make Building
+    description: "Drag a building from a building menu and drop it to a map slot.
+      \nPress the checkmark button to build it. "
+    icon: {fileID: -1673441830410384327, guid: 47999fa38e337e745b2152f425999857, type: 3}
+    animatorController: {fileID: 9100000, guid: 6d10139106af3e847987cbd0e28fd32c, type: 2}
+  - header: Make Building
+    description: You may rotate the building or decline to make it by the corresponding
+      buttons during the building process.
+    icon: {fileID: -6579869212320808748, guid: 47999fa38e337e745b2152f425999857, type: 3}
+    animatorController: {fileID: 9100000, guid: 6d10139106af3e847987cbd0e28fd32c, type: 2}
+  - header: Building Production And Needs
+    description: Every building has its own production level and hourly needs. You
+      may observe them by pressing on the building in the building menu.
+    icon: {fileID: 2530235967243248710, guid: 47999fa38e337e745b2152f425999857, type: 3}
+    animatorController: {fileID: 9100000, guid: 6d10139106af3e847987cbd0e28fd32c, type: 2}
+  - header: Menus
+    description: Press button in the upper left corner to see your current production
+      and needs balance by an hour. Or press another button - in the right side -
+      to refresh your level goals or quit to the game menu.
+    icon: {fileID: 2267409557455862042, guid: 47999fa38e337e745b2152f425999857, type: 3}
+    animatorController: {fileID: 9100000, guid: 6d10139106af3e847987cbd0e28fd32c, type: 2}

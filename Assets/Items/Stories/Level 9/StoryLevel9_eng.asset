@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60ebdd5736abca84cb63e97ccdd57a46, type: 3}
+  m_Name: StoryLevel9_eng
+  m_EditorClassIdentifier: 
+  lang: 0
+  pieces:
+  - header: Blocked Map Slots
+    description: Sometimes there are slots with the "X" symbol on the map - these
+      are blocked slots. The construction of any type of buildings is prohibited
+      here.
+    icon: {fileID: -4826722777172993132, guid: 987176a3aa4ee3f429792ff96906e6c5, type: 3}
+    animatorController: {fileID: 9100000, guid: 928f4ed3022bc5f41ab02a2e844832e2, type: 2}

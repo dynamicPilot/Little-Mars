@@ -1,0 +1,183 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3a9157f60dcb64b97653684f5ac14b, type: 3}
+  m_Name: L39
+  m_EditorClassIdentifier: 
+  levelName: Two Workshops And A Mine
+  number: 39
+  startIcon: {fileID: -6933934529716846700, guid: 6dfc9672df1d5ca42945eb7570208946, type: 3}
+  winningIcon: {fileID: 8761953396565549043, guid: b2fe90ad038c4eb499c845c6dfe703e1, type: 3}
+  sceneName: L0
+  levelsToBecomeAvailable: []
+  autoMap: 0
+  customeAutoMap: {fileID: 11400000, guid: 21c379ed498905546a774c375a490259, type: 2}
+  rowCounter: 4
+  columnCounter: 4
+  autoFields: 0
+  fields:
+  - resourseType: 1
+    buildingType: 9
+    way:
+    - stepDirection: 0
+      isBackStep: 0
+      isSingleSlotBuilding: 0
+    - stepDirection: 1
+      isBackStep: 0
+      isSingleSlotBuilding: 0
+  defaultBuildingTypes: 05000000010000000200000004000000000000000300000006000000
+  buildings:
+  - item: {fileID: 11400000, guid: b4b55858f76e37d4982733feeda8cb7c, type: 2}
+    amount: 1
+    multiplier: 1
+  - item: {fileID: 11400000, guid: ca9cfa0ec9a6e854f90282c202ff2258, type: 2}
+    amount: 2
+    multiplier: 1
+  - item: {fileID: 11400000, guid: 575273e416a01bb4f81d70a67a8ae8ff, type: 2}
+    amount: 2
+    multiplier: 1
+  - item: {fileID: 11400000, guid: ecc33b0eb28625843915001fcf359898, type: 2}
+    amount: 2
+    multiplier: 1
+  - item: {fileID: 11400000, guid: fb29e24389e096046aaf509353d4d8b1, type: 2}
+    amount: 1
+    multiplier: 1
+  - item: {fileID: 11400000, guid: 1a35971a4ec93834b9f66c850ba7a6b9, type: 2}
+    amount: 2
+    multiplier: 1
+  - item: {fileID: 11400000, guid: db67976fd613d84418e2ae01eaaf9e2f, type: 2}
+    amount: 1
+    multiplier: 1
+  - item: {fileID: 11400000, guid: 1c02d0f19c6aebd4cb2f3f682b0578a8, type: 2}
+    amount: 1
+    multiplier: 1
+  startResources:
+  - resourseType: 0
+    dayAmount: 490
+    nightAmount: 0
+    multiplier: 1
+  - resourseType: 1
+    dayAmount: 98
+    nightAmount: 0
+    multiplier: 1
+  - resourseType: 3
+    dayAmount: 82
+    nightAmount: 0
+    multiplier: 1
+  - resourseType: 2
+    dayAmount: 5
+    nightAmount: 0
+    multiplier: 1
+  - resourseType: 4
+    dayAmount: 0
+    nightAmount: 0
+    multiplier: 1
+  - resourseType: 5
+    dayAmount: 0
+    nightAmount: 0
+    multiplier: 1
+  - resourseType: 6
+    dayAmount: 0
+    nightAmount: 0
+    multiplier: 1
+  tradePrices: []
+  needWaitingBeforeWinning: 0
+  winningLimit:
+    isBuildingNumber: 1
+    buildings:
+    - item: {fileID: 11400000, guid: 575273e416a01bb4f81d70a67a8ae8ff, type: 2}
+      amount: 2
+      multiplier: 0
+    timerInHours: 0
+    isBuildingNumberLimitFullDescription:
+      stories:
+      - lang: 0
+        description: Make and turn on two Workshops.
+      - lang: 1
+        description: "\u041F\u043E\u0441\u0442\u0440\u043E\u0438\u0442\u044C \u0438
+          \u0437\u0430\u043F\u0443\u0441\u0442\u0438\u0442\u044C \u0434\u0432\u0435
+          \u041C\u0430\u0441\u0442\u0435\u0440\u0441\u043A\u0438\u0445."
+      defaultLang: 0
+    isBuildingNumberTimeLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isResourcesNumber: 1
+    resources:
+    - resourseType: 5
+      dayAmount: 40
+      nightAmount: 40
+      multiplier: 1
+    isResourcesNumberLimitFullDescription:
+      stories:
+      - lang: 0
+        description: Have 40 goods in storage.
+      - lang: 1
+        description: "\u0418\u043C\u0435\u0442\u044C 40 \u043C\u0430\u0440\u0441\u0438\u0430\u043D\u0441\u043A\u0438\u0445
+          \u0442\u043E\u0432\u0430\u0440\u043E\u0432 \u0432 \u0437\u0430\u043F\u0430\u0441\u0435."
+      defaultLang: 0
+    isProductionNumber: 0
+    production: []
+    isProductionNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isProductionInSumNumber: 0
+    productionInSum: []
+    isProductionInSumNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isMapSlotNumber: 0
+    slots: 0
+    isMapSlotNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isDayNumber: 0
+    days: 0
+    isDayNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+  endOfLevelLimit:
+    isBuildingNumber: 0
+    buildings: []
+    timerInHours: 0
+    isBuildingNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isBuildingNumberTimeLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isResourcesNumber: 0
+    resources: []
+    isResourcesNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isProductionNumber: 0
+    production: []
+    isProductionNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isProductionInSumNumber: 0
+    productionInSum: []
+    isProductionInSumNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isMapSlotNumber: 0
+    slots: 0
+    isMapSlotNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isDayNumber: 0
+    days: 0
+    isDayNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+  trainingStory:
+    stories: []
+    defaultLang: 0

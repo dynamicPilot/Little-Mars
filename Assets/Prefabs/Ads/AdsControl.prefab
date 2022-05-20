@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8073017456058459156
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8073017456058459178}
+  - component: {fileID: 8073017456058459179}
+  - component: {fileID: 8073017456058459177}
+  m_Layer: 7
+  m_Name: AdsControl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8073017456058459178
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8073017456058459156}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8073017456058459179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8073017456058459156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 057a43b91c34e1448b38843b89808a5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameID: 4298193
+  placementID: Interstitial_Android
+  testMode: 1
+  panel: {fileID: 0}
+--- !u!114 &8073017456058459177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8073017456058459156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c3939c13f47e8b43b5fd87687bf568c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelsWhenAdAfter: 0e00000018000000
+  needSpecialAfterLastLevel: 1
+  notificationUI: {fileID: 0}
+  finalHeaderLabel:
+    labels:
+    - lang: 0
+      label: THIS WAS THE LAST LEVEL...
+    - lang: 1
+      label: "\u042D\u0422\u041E \u0411\u042B\u041B \u041F\u041E\u0421\u041B\u0415\u0414\u041D\u0418\u0419
+        \u0423\u0420\u041E\u0412\u0415\u041D\u042C..."
+    defaultLang: 0
+  finalDetailsLabel:
+    labels:
+    - lang: 0
+      label: 'Congratulations! You finish the game! Ya-ah!
+
+        If you enjoy
+        it, please, spend a few seconds to support the developer by watching a short
+        ad :)'
+    - lang: 1
+      label: "\u041F\u043E\u0437\u0434\u0440\u0430\u0432\u043B\u044F\u0435\u043C!
+        \u042D\u0442\u043E \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0438\u0439
+        \u0443\u0440\u043E\u0432\u0435\u043D\u044C \u0438\u0433\u0440\u044B! \u0423\u0440\u0430!\n\u0415\u0441\u043B\u0438
+        \u0432\u0430\u043C \u043F\u043E\u043D\u0440\u0430\u0432\u0438\u043B\u0430\u0441\u044C
+        \u0438\u0433\u0440\u0430, \u043F\u043E\u0436\u0430\u043B\u0443\u0439\u0441\u0442\u0430,
+        \u043F\u043E\u0434\u0434\u0435\u0440\u0436\u0438\u0442\u0435 \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A\u0430,
+        \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0432 \u043A\u043E\u0440\u043E\u0442\u043A\u0443\u044E
+        \u0440\u0435\u043A\u043B\u0430\u043C\u0443 :)"
+    defaultLang: 0
+  levelHeaderLabel:
+    labels:
+    - lang: 0
+      label: "THANK YOU \nFOR GAMING!"
+    - lang: 1
+      label: "\u0421\u041F\u0410\u0421\u0418\u0411\u041E,\n\u0427\u0422\u041E \u0418\u0413\u0420\u0410\u0415\u0422\u0415!"
+    defaultLang: 0
+  levelDetailsLabel:
+    labels:
+    - lang: 0
+      label: If you enjoy it, please, spend a few seconds to support the developer
+        by watching a short ad :)
+    - lang: 1
+      label: "\u0415\u0441\u043B\u0438 \u0432\u0430\u043C \u043F\u043E\u043D\u0440\u0430\u0432\u0438\u043B\u0430\u0441\u044C
+        \u0438\u0433\u0440\u0430, \u043F\u043E\u0436\u0430\u043B\u0443\u0439\u0441\u0442\u0430,
+        \u043F\u043E\u0434\u0434\u0435\u0440\u0436\u0438\u0442\u0435 \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A\u0430,
+        \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0432 \u043A\u043E\u0440\u043E\u0442\u043A\u0443\u044E
+        \u0440\u0435\u043A\u043B\u0430\u043C\u0443 :)"
+    defaultLang: 0
+  gameMaster: {fileID: 0}

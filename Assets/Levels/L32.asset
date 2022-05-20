@@ -1,0 +1,165 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3a9157f60dcb64b97653684f5ac14b, type: 3}
+  m_Name: L32
+  m_EditorClassIdentifier: 
+  levelName: Four Domes
+  number: 32
+  startIcon: {fileID: -6933934529716846700, guid: 6dfc9672df1d5ca42945eb7570208946, type: 3}
+  winningIcon: {fileID: -1666949876999033779, guid: b2fe90ad038c4eb499c845c6dfe703e1, type: 3}
+  sceneName: L0
+  levelsToBecomeAvailable: []
+  autoMap: 0
+  customeAutoMap: {fileID: 11400000, guid: 7bb329b084e977048897e3020357d881, type: 2}
+  rowCounter: 4
+  columnCounter: 5
+  autoFields: 0
+  fields: []
+  defaultBuildingTypes: 00000000010000000500000003000000
+  buildings:
+  - item: {fileID: 11400000, guid: ecc33b0eb28625843915001fcf359898, type: 2}
+    amount: 4
+    multiplier: 1
+  - item: {fileID: 11400000, guid: 4044104cb47fe184da75b3c30ec3a962, type: 2}
+    amount: 2
+    multiplier: 1
+  - item: {fileID: 11400000, guid: 1a35971a4ec93834b9f66c850ba7a6b9, type: 2}
+    amount: 1
+    multiplier: 1
+  - item: {fileID: 11400000, guid: fb29e24389e096046aaf509353d4d8b1, type: 2}
+    amount: 1
+    multiplier: 1
+  - item: {fileID: 11400000, guid: b4b55858f76e37d4982733feeda8cb7c, type: 2}
+    amount: 1
+    multiplier: 1
+  - item: {fileID: 11400000, guid: db67976fd613d84418e2ae01eaaf9e2f, type: 2}
+    amount: 1
+    multiplier: 1
+  startResources:
+  - resourseType: 0
+    dayAmount: 390
+    nightAmount: 0
+    multiplier: 1
+  - resourseType: 1
+    dayAmount: 113
+    nightAmount: 0
+    multiplier: 1
+  - resourseType: 2
+    dayAmount: 5
+    nightAmount: 0
+    multiplier: 1
+  - resourseType: 3
+    dayAmount: 80
+    nightAmount: 0
+    multiplier: 1
+  - resourseType: 4
+    dayAmount: 0
+    nightAmount: 0
+    multiplier: 1
+  - resourseType: 5
+    dayAmount: 0
+    nightAmount: 0
+    multiplier: 1
+  - resourseType: 6
+    dayAmount: 0
+    nightAmount: 0
+    multiplier: 1
+  tradePrices: []
+  needWaitingBeforeWinning: 0
+  winningLimit:
+    isBuildingNumber: 1
+    buildings:
+    - item: {fileID: 11400000, guid: ecc33b0eb28625843915001fcf359898, type: 2}
+      amount: 4
+      multiplier: 1
+    timerInHours: 10
+    isBuildingNumberLimitFullDescription:
+      stories:
+      - lang: 0
+        description: Make and turn on four Domes.
+      - lang: 1
+        description: "\u041F\u043E\u0441\u0442\u0440\u043E\u0438\u0442\u044C \u0438
+          \u0437\u0430\u043F\u0443\u0441\u0442\u0438\u0442\u044C \u0447\u0435\u0442\u044B\u0440\u0435
+          \u041A\u0443\u043F\u043E\u043B\u0430."
+      defaultLang: 0
+    isBuildingNumberTimeLimitFullDescription:
+      stories:
+      - lang: 0
+        description: Keep them turned on continuously for 10 hours.
+      - lang: 1
+        description: "\u0414\u0435\u0440\u0436\u0430\u0442\u044C \u0438\u0445 \u0432\u043A\u043B\u044E\u0447\u0435\u043D\u043D\u044B\u043C\u0438
+          \u043D\u0435\u043F\u0440\u0435\u0440\u044B\u0432\u043D\u043E \u0432 \u0442\u0435\u0447\u0435\u043D\u0438\u0435
+          10 \u0447\u0430\u0441\u043E\u0432."
+      defaultLang: 0
+    isResourcesNumber: 0
+    resources: []
+    isResourcesNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isProductionNumber: 0
+    production: []
+    isProductionNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isProductionInSumNumber: 0
+    productionInSum: []
+    isProductionInSumNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isMapSlotNumber: 0
+    slots: 0
+    isMapSlotNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isDayNumber: 0
+    days: 0
+    isDayNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+  endOfLevelLimit:
+    isBuildingNumber: 0
+    buildings: []
+    timerInHours: 0
+    isBuildingNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isBuildingNumberTimeLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isResourcesNumber: 0
+    resources: []
+    isResourcesNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isProductionNumber: 0
+    production: []
+    isProductionNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isProductionInSumNumber: 0
+    productionInSum: []
+    isProductionInSumNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isMapSlotNumber: 0
+    slots: 0
+    isMapSlotNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+    isDayNumber: 0
+    days: 0
+    isDayNumberLimitFullDescription:
+      stories: []
+      defaultLang: 0
+  trainingStory:
+    stories: []
+    defaultLang: 0

@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a365c67a5a842124fb9b9fbb61fdd010, type: 3}
+  m_Name: SmallSolarPowerPlant
+  m_EditorClassIdentifier: 
+  itemName: Solar Power Plant
+  itemNameByLangs:
+    stories:
+    - lang: 0
+      description: Power Plant
+    - lang: 1
+      description: "\u042D\u043B\u0435\u043A\u0442\u0440\u043E\u0441\u0442\u0430\u043D\u0446\u0438\u044F"
+    defaultLang: 0
+  icon: {fileID: 6625692385018236696, guid: 0e2b0fd898e75ba4a97c91e3e051fc76, type: 3}
+  isAvailable: 1
+  availableAmount: 3
+  multiplier: 1
+  priority: 1
+  buildingNeeds:
+  - resourseType: 0
+    dayAmount: 10
+    nightAmount: 0
+    multiplier: 1
+  - resourseType: 1
+    dayAmount: 5
+    nightAmount: 0
+    multiplier: 1
+  - resourseType: 3
+    dayAmount: 2
+    nightAmount: 0
+    multiplier: 1
+  type: 1
+  resourceField: 8
+  iconParts:
+  - icons:
+    - {fileID: 6625692385018236696, guid: 0e2b0fd898e75ba4a97c91e3e051fc76, type: 3}
+    animator:
+    - {fileID: 9100000, guid: 4709805db80f98d439bc4096861acbd8, type: 2}
+  connectionTypes: 
+  ways:
+  - way:
+    - stepDirection: 0
+      isBackStep: 0
+      isSingleSlotBuilding: 1
+    iconParts:
+    - icons:
+      - {fileID: 6625692385018236696, guid: 0e2b0fd898e75ba4a97c91e3e051fc76, type: 3}
+      animator:
+      - {fileID: 9100000, guid: 4709805db80f98d439bc4096861acbd8, type: 2}
+  isNightSwitchAvailable: 1
+  production:
+  - resourseType: 4
+    dayAmount: 20
+    nightAmount: 0
+    multiplier: 1
+  hourlyNeeds: []
+  hoursToActivateTradeNeeds: 
+  tradeNeeds: []
+  iconWhenDrag: {fileID: 0}
