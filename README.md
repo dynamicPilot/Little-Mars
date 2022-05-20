@@ -1,5 +1,5 @@
 # Little Mars
- Liitle Mars: puzzle game with resource management and Mars.
+ Little Mars: puzzle game with resource management and Mars.
 
 ## Intro
 
@@ -29,4 +29,5 @@ Atmospheric pixel graphics that fit well into the concept of the game.
 ## Try it
 
 Available for free on Google Play: https://play.google.com/store/apps/details?id=com.DynamicPilotStudio.LittleMars
+
 Thanks for paying attention … And have a good game!
