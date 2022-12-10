@@ -48,6 +48,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -316,6 +317,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      level_images_three_domes: -1666949876999033779
+      level_images_man_noCargo: -1698118926978975151
+      level_images_robot_cargo: 8761953396565549043
+      level_images_4_winning: 7288127829497365631
+      level_images_man_cargo: 7783697490668850122
+      level_images_robot_noCargo: -6978760466545007897
+      level_images_mine: -4304233737815414182
+      level_images_metals: 9140034174522297836
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1

@@ -63,6 +63,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -72,8 +73,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -436,6 +437,20 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      buildings_cosmodrome_rocket_12: -8320877517387622509
+      buildings_cosmodrome_rocket_2: -8598185863341533756
+      buildings_cosmodrome_rocket_5: 8066576239448317827
+      buildings_cosmodrome_rocket_7: -8504594664839561319
+      buildings_cosmodrome_rocket_8: 8807489786978468608
+      buildings_cosmodrome_rocket_6: -7744672837544394397
+      buildings_cosmodrome_rocket_10: 743697972010105183
+      buildings_cosmodrome_rocket_4: 5723496063484404659
+      buildings_cosmodrome_rocket_1: 113422502748645167
+      buildings_cosmodrome_rocket_11: -6087713083971291813
+      buildings_cosmodrome_rocket_0: -2429796157279975892
+      buildings_cosmodrome_rocket_9: 8345772804785964878
+      buildings_cosmodrome_rocket_3: 937511120455508204
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1

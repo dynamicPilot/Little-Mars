@@ -114,6 +114,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -844,6 +845,37 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      training_level_1_3: -6579869212320808748
+      training_level_2_2: -1373022471669790
+      training_level_1_4: -3945363212325619950
+      training_level_1_6: 4718666441789809567
+      training_level_2_0: -5406687889059021176
+      training_level_1_7: 2530235967243248710
+      training_level_3_3: -2892027084017477539
+      training_level_1_12: -1496624848530197507
+      training_level_3_2: -3439322713787217517
+      training_level_3_1: -513623689635786620
+      training_level_1_2: 3139837501687825136
+      training_level_3_5: -1265427070167498302
+      training_level_2_6: -7060663558534779124
+      training_level_3_0: -1219754591375343444
+      training_level_2_8: 1879191689608541482
+      training_level_2_7: -1252896900824217843
+      training_level_1_29: -2580471472497121455
+      training_level_1_11: 6012598705812425218
+      training_level_1_13: 7303317891845548479
+      training_level_1_9: -8167287245649143288
+      training_level_1_10: -7022328382166504263
+      training_level_1_1: -7414496445425602227
+      training_level_1_0: -1673441830410384327
+      training_level_1_5: -6668431836281528875
+      training_level_3_4: -7750086551570720989
+      training_level_1_8: 2267409557455862042
+      training_level_2_1: 2581910523136469977
+      training_level_2_3: -9202406838437110904
+      training_level_2_5: -5855112183542277659
+      training_level_2_4: -122160169007015669
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1

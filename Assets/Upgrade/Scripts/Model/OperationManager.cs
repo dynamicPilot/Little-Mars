@@ -1,0 +1,105 @@
+﻿using LittleMars.Buildings;
+using LittleMars.Common;
+using LittleMars.Common.Interfaces;
+using LittleMars.Common.Signals;
+using LittleMars.Map;
+using LittleMars.Model.Interfaces;
+using System.Collections;
+using System.Drawing;
+using UnityEngine;
+using Zenject;
+
+namespace LittleMars.Models
+{
+    public class OperationManager
+    {
+        Period _period;
+        IProduction _production;
+        SignalBus _signalBus;
+
+        public OperationManager(IProduction production, SignalBus signalBus)
+        {
+            _production = production;
+            _signalBus = signalBus;
+        }
+
+        public void OnPeriodChanged(Period period)
+        {
+            if (_period == period) return;
+            _period = period;
+        }
+
+        public void TryChangeBuildingState(IBuildingFacade building, ProductionState state, OperationMode mode)
+        {
+            Debug.Log($"Try change state for building. To: {state}. Mode: {mode}.");
+
+            if (state == ProductionState.on && CheckForTurnOn(building, mode))
+                ChangeBuildingStateTo(building, state, mode);
+            else if (state == ProductionState.off && CheckForTurnOff(building, mode))
+                ChangeBuildingStateTo(building, state, mode);
+        }
+
+        private bool CheckForTurnOn(IBuildingFacade building, OperationMode mode)
+        {
+            Debug.Log($"Check for TURN ON.");
+
+            // if the building was turned off by user -> not turn is on by auto
+            if (building.OperationMode() == OperationMode.manual
+                && mode != OperationMode.manual)
+            {
+                Debug.Log($"The building was turned off by user -> not turn is on by auto");
+                return false;
+            }
+
+            // if building has all connections to other buildings to be on
+            if (!building.HasAllConnections())
+            {
+                Debug.Log($"The building does not have all connections.");
+                return false;
+            }
+
+            // if building sould be turn off for this period by timetable
+            if (building.StateForPeriod(_period) == ProductionState.off 
+                && building.State() == ProductionState.on)
+            {
+                // turn off
+                Debug.Log($"The building sould be turn off for this period by timetable.");
+                return false;
+            }
+
+            if (building.State() == ProductionState.on)
+            {
+                Debug.Log($"The building is already turn on.");
+                return false;
+            }
+
+            return _production.HasResourcesForBuildingToOn(building.Needs());
+        }
+
+        private bool CheckForTurnOff(IBuildingFacade building, OperationMode mode)
+        {
+            Debug.Log($"Check for TURN OFF.");
+            if (building.State() == ProductionState.off) return false;
+
+            return true;
+        }
+
+        private void ChangeBuildingStateTo(IBuildingFacade building, ProductionState state,
+            OperationMode mode)
+        {
+
+            _production.UpdateProduction(building.Production(), state);
+            _production.UpdateNeeds(building.Needs(), state);
+
+            // set new operation mode -> turn on always auto
+            if (state == ProductionState.on) mode = OperationMode.auto;            
+            
+            building.ChangeState(state, mode);
+
+            // raise event is needed
+            Debug.Log($"Change state for building to {state}.");
+            _signalBus.TryFire(new BuildingStateChangedSignal { BuildingFacade = building });
+        }
+
+    }
+}

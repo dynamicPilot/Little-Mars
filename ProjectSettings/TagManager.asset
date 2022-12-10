@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - AdLoadingPanel
+  - MapSlot
   layers:
   - Default
   - TransparentFX
@@ -39,6 +40,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3322361541
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: MapSlots
+    uniqueID: 3441686281
+    locked: 0
+  - name: Buildings
+    uniqueID: 1039299845
+    locked: 0
+  - name: ViewSlotsUI
+    uniqueID: 3785474917
     locked: 0

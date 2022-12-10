@@ -105,6 +105,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -772,6 +773,34 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      buildings_farm_1: 7643761922474946111
+      buildings_farm_effect: -5308527982003062785
+      buildings_factory: 5231429416509325250
+      buildings_mine_1: -7916908332688520428
+      buildings_supply_plant: 8255314341044953143
+      buildings_solar_plant: 6625692385018236696
+      buildings_workshop_1: 3116890992287099372
+      buildings_background: 1168926902407322946
+      buildings_mine_3: -250298321781293072
+      buildings_factory_3: 7728155859371869844
+      buildings_supply_plant_effect: -4401666002738899813
+      buildings_factory_1: 2704936167174187159
+      buildings_solar_plant_effect: 1775660474302345089
+      buildings_solar_plant_1: 3247767813255465682
+      buildings_mine_effect: -3636880086547968531
+      buildings_factory_2: 2982747736380097290
+      buildings_farm: -7657187661756687099
+      buildings_mine: -8922806545422484088
+      buildings_workshop_2: -1982699832059996296
+      buildings_workshop_effect: -949520196465937679
+      buildings_supply_plant_2: -7025564087743128460
+      buildings_workshop_3: -2372858853108239839
+      buildings_supply_plant_1: -2434219546015377611
+      buildings_factory_effect: 7853409770426767552
+      buildings_workshop: -8408605906689737264
+      buildings_empty: 1859044697333390108
+      buildings_mine_2: 961677336216162819
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1

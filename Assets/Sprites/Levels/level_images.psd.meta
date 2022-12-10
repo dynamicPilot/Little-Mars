@@ -48,6 +48,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -196,7 +197,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e888af2bd5b3afb40800000000000000
-      internalID: 5474753570643019918
+      internalID: 7829307810736791919
       vertices: []
       indices: 
       edges: []
@@ -316,6 +317,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      level_image_3_start: 7787343451972466102
+      level_images_gameOver_0: -134980840314816576
+      level_images_gameOver_1: 1239188294998045630
+      level_image_2_winning: -6559670230340714738
+      level_images_gameOver_2: -4371220594416084257
+      level_image_1_winning: 7829307810736791919
+      level_image_1_start: -6933934529716846700
+      level_image_3_winning: -5003087959020400790
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1

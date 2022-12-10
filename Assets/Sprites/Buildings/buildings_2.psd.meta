@@ -72,6 +72,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -382,6 +383,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      buildings_medium_supply_plant: 6159653198437313653
+      buildings_medium_supply_plant_1: 5494566201023737199
+      buildings_medium_supply_plant_0: 9203031185429786614
+      buildings_medium_supply_plant_2: -6010635651413413969
+      buildings_cosmodrome_0_drag: 2507891631091962604
+      buildings_medium_solar_power_plant_drag: -7898103950652877547
+      buildings_medium_solar_plant_1: 5400440510195485793
+      buildings_medium_solar_power_plant: -5517107695020307742
+      buildings_medium_supply_plant_drag: 5608695732372189285
+      buildings_medium_solar_plant_0: 5851348231708954513
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1

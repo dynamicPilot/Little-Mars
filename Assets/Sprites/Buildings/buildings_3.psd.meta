@@ -96,6 +96,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -700,6 +701,31 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      buildings_large_mine_up_1: -2354930303784320707
+      buildings_large_mine_up_2: 3405665483527537271
+      buildings_large_mine_middle_3: 2419594952025123939
+      buildings_large_mine_left_0: -8204081830798343900
+      buildings_large_mine: -8124754704208401071
+      buildings_large_mine_middle_0: 7198738877674185893
+      buildings_large_mine_up_3: 6821413390203441576
+      buildings_large_mine_middle_1: 1556478553166661495
+      buildings_large_mine_left_2: -5061958952613881411
+      buildings_large_mine_middle_2: -3590274509766585615
+      buildings_medium_farm_0: 2260443549857574013
+      buildings_medium_farm_1: -4541573645850273433
+      buildings_medium_farm: 5601096052599890657
+      buildings_medium_mine_drag: -1309684736726537689
+      buildings_medium_mine_up_3: 989062375956911499
+      buildings_large_mine_left_1: -8553308384845999394
+      buildings_large_mine_left_3: -4797422268651920246
+      buildings_medium_mine_up_1: 9027775601611827991
+      buildings_medium_mine_up_2: 348532605614938064
+      buildings_large_mine_up_0: 6997157849988108206
+      buildings_medium_mine_up_0: 5732905251506741450
+      buildings_medium_mine: -4458999924573698663
+      buildings_large_mine_drag: -282489923095636349
+      buildings_medium_farm_drag: 732300943563176212
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1
