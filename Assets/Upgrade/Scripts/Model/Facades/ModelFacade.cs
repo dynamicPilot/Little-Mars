@@ -15,18 +15,21 @@ namespace LittleMars.Models.Facades
         MapManager _mapManager;
         BuildingManager _buildingManager;
         PlacementManager _placementManager;
+        ConstructionHelper _constructionHelper;
 
         public ModelFacade(MapManager mapManager, BuildingManager buildingManager,
-            PlacementManager placementManager)
+            PlacementManager placementManager, ConstructionHelper constructionHelper)
         {
             _mapManager = mapManager;
             _buildingManager = buildingManager;
             _placementManager = placementManager;
+            _constructionHelper = constructionHelper;
         }
 
         public void StartBuildingPlacement(BuildingObject buildingObject, Indexes indexes, Vector2 position)
         {
-            _placementManager.StartPlacement(buildingObject, indexes, position);
+            if (_constructionHelper.CheckResources(buildingObject))
+                _placementManager.StartPlacement(buildingObject, indexes, position);
         }
 
         public List<List<MapSlotExtended>> MapSlots()

@@ -11,6 +11,6 @@ namespace LittleMars.Model.Interfaces
     {
         public void UpdateProduction(Dictionary<Resource, Dictionary<Period, float>> production, ProductionState state);
         public void UpdateNeeds(ResourceUnit<float>[] needs, ProductionState state);
-        public bool HasResourcesForBuildingToOn(ResourceUnit<float>[] needs);
+        public bool HasResources(ResourceUnit<float>[] needs);
     }
 }

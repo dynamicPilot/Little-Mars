@@ -3,6 +3,7 @@ using LittleMars.Buildings.States;
 using LittleMars.Buildings.View;
 using LittleMars.Common;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,16 +13,18 @@ namespace LittleMars.Buildings
 {
     public class Building
     {
-        private List<BuildingFacade> _neighbors;
+        readonly BuildingType[] _connections;
+        IEnumerable<Indexes> _mapSlots;
 
-        //public Building(BuildingView.Factory factory)
-        //{
-        //    factory.Create();
-        //}
+        public IEnumerable<Indexes> MapSlotIndexes { get => _mapSlots; set => _mapSlots = value; }
+        public BuildingType[] Connections => _connections;
 
-        public bool HasAllConnections()
+        public Building(BuildingObject buildingObject)
         {
-            return true;
+            _connections = buildingObject.Operation.Connections;
+            _mapSlots = new List<Indexes>();
         }
+
+        
     }
 }

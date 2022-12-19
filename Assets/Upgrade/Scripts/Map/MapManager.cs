@@ -51,6 +51,38 @@ namespace LittleMars.Map
                 _slots[index.Row][index.Column].ChangeBuilding(type);
         }
 
+        public void RemoveBuildingFromSlots(IEnumerable<Indexes> indexes)
+        {
+            foreach (Indexes index in indexes)
+                _slots[index.Row][index.Column].ChangeBuilding(BuildingType.none);
+        }
+
+        public IEnumerable<BuildingType> GetConnectionsForSlots(IEnumerable<Indexes> indexes)
+        {
+            List<BuildingType> connections = new();
+            List<MapSlotExtended> checkedSlots = new();
+
+            foreach(Indexes index in indexes)
+            {
+                var slot = _slots[index.Row][index.Column];
+                
+                for (int i = 0; i < 4; i++)
+                {
+                    var neighbor = slot.GetNeighbor((Direction)i);
+
+                    if (checkedSlots.Contains(neighbor)) continue;
+                    else checkedSlots.Add(neighbor);
+
+                    var type = neighbor.HasBuildingOfType;
+
+                    if (type == BuildingType.none) continue;
+                    else if (!connections.Contains(type)) connections.Add(type);
+                }
+            }
+
+            return connections;
+        }
+
 
         [Serializable]
         public class Settings

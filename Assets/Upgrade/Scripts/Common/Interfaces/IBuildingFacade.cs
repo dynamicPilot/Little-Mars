@@ -15,9 +15,11 @@ namespace LittleMars.Common.Interfaces
         Dictionary<Resource, Dictionary<Period, float>> Production();
         ResourceUnit<float>[] Needs();
         void ChangeState(ProductionState state, OperationMode mode);
-        bool HasAllConnections();
         bool HasNeedForThisResource(Resource resource, Period period);
         ProductionState StateForPeriod(Period period);
+        IEnumerable<Indexes> MapSlotIndexes();
+        void SetMapSlotIndexes(IEnumerable<Indexes> indexes);
+        BuildingType[] Connections();
     }
 
 

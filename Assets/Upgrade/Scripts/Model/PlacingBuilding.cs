@@ -18,7 +18,6 @@ namespace LittleMars.Model
 
         int _rotationCount;        
         List<Indexes> _slotIndexes;
-
         public int RotationCount { get => _rotationCount; set => _rotationCount = value; }
         public List<Indexes> SlotIndexes { get => _slotIndexes; set => _slotIndexes = value; }
         public BuildingType Type { get => _type; }

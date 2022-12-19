@@ -3,6 +3,7 @@ using LittleMars.Common;
 using LittleMars.Common.Interfaces;
 using LittleMars.Common.Signals;
 using LittleMars.Map;
+using LittleMars.Model;
 using LittleMars.Model.Interfaces;
 using System.Collections;
 using System.Drawing;
@@ -16,11 +17,13 @@ namespace LittleMars.Models
         Period _period;
         IProduction _production;
         SignalBus _signalBus;
+        OperationHelper _helper;
 
-        public OperationManager(IProduction production, SignalBus signalBus)
+        public OperationManager(IProduction production, SignalBus signalBus, OperationHelper helper)
         {
             _production = production;
             _signalBus = signalBus;
+            _helper = helper;
         }
 
         public void OnPeriodChanged(Period period)
@@ -52,7 +55,7 @@ namespace LittleMars.Models
             }
 
             // if building has all connections to other buildings to be on
-            if (!building.HasAllConnections())
+            if (!_helper.HasAllConnections(building))
             {
                 Debug.Log($"The building does not have all connections.");
                 return false;
@@ -73,7 +76,7 @@ namespace LittleMars.Models
                 return false;
             }
 
-            return _production.HasResourcesForBuildingToOn(building.Needs());
+            return _production.HasResources(building.Needs());
         }
 
         private bool CheckForTurnOff(IBuildingFacade building, OperationMode mode)

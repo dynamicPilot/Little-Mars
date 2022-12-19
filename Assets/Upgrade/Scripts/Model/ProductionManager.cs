@@ -58,7 +58,13 @@ namespace LittleMars.Models
 
         }
 
-        public bool HasResourcesForBuildingToOn(ResourceUnit<float>[] needs)
+        public void UpdateResourcesAmount(ResourceUnit<float>[] needs, ProductionState state)
+        {
+            var multiplier = (state == ProductionState.on) ? 1 : -1;
+            foreach (ResourceUnit<float> unit in needs) _resourcesBalance[unit.Type] += multiplier * unit.Amount;
+        }
+
+        public bool HasResources(ResourceUnit<float>[] needs)
         {
             Debug.Log("ProductionManager: Check resources.");
             foreach (ResourceUnit<float> unit in needs)

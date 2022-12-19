@@ -1,24 +1,14 @@
-using LittleMars.Models.Grid;
-using LittleMars.Models.Creators;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 using System;
 using LittleMars.Slots;
-using LittleMars.Settings;
-using LittleMars.Slots.States;
 using LittleMars.Map;
 using LittleMars.Map.States;
 using LittleMars.Common.Signals;
 using LittleMars.Models.Facades;
 using LittleMars.Common;
-using System.Runtime.CompilerServices;
-using Zenject.Asteroids;
-using LittleMars.Slots.Views;
 using LittleMars.Map.Routers;
 using LittleMars.Buildings;
-using LittleMars.Buildings.Parts;
 using LittleMars.Models;
 using LittleMars.Common.Interfaces;
 using LittleMars.Model.Interfaces;
@@ -77,13 +67,17 @@ namespace LittleMars.Installers
             Container.Bind<BuildingCatalogue>().AsSingle();
             Container.Bind<ResourcesBalanceHelper>().AsSingle();
             Container.Bind<ProductionHelper>().AsSingle();
+            Container.Bind<ConstructionHelper>().AsSingle();
+            Container.Bind<OperationHelper>().AsSingle();
             Container.Bind<MapRouter>().AsSingle();
             Container.Bind<OperationManager>().AsSingle();
             Container.Bind<PlacementManager>().AsSingle();
+            Container.Bind<ProductionManager>().AsSingle();
 
             Container.Bind<IModelFacade>().To<ModelFacade>().AsSingle();
+
             Container.Bind<IPlacement>().To<PlacementManager>().FromResolve();
-            Container.Bind<IProduction>().To<ProductionManager>().AsSingle();
+            Container.Bind<IProduction>().To<ProductionManager>().FromResolve();
 
             Container.BindFactory<BuildingType, Size, Path, Vector2, PlacingBuilding, PlacingBuilding.Factory>()
                 .WhenInjectedInto<PlacementManager>();
