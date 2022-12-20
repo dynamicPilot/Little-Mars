@@ -5,6 +5,7 @@ using LittleMars.Common.Signals;
 using LittleMars.Map;
 using LittleMars.Model;
 using LittleMars.Model.Interfaces;
+using System;
 using System.Collections;
 using System.Drawing;
 using UnityEngine;
@@ -12,34 +13,65 @@ using Zenject;
 
 namespace LittleMars.Models
 {
-    public class OperationManager
+    public class OperationManager : IDisposable, IInitializable
     {
         Period _period;
-        IProduction _production;
+        ProductionManager _production;
         SignalBus _signalBus;
         OperationHelper _helper;
 
-        public OperationManager(IProduction production, SignalBus signalBus, OperationHelper helper)
+        public OperationManager(ProductionManager production, SignalBus signalBus, OperationHelper helper)
         {
             _production = production;
             _signalBus = signalBus;
             _helper = helper;
         }
-
-        public void OnPeriodChanged(Period period)
+        public void Initialize()
         {
+            _signalBus.Subscribe<PeriodChangeSignal>(OnPeriodChanged);
+            _signalBus.Subscribe<TryChangeBuildingStateSignal>(OnTryChangeState);
+        }
+
+        public void Dispose()
+        {
+            _signalBus.TryUnsubscribe<PeriodChangeSignal>(OnPeriodChanged);
+            _signalBus.TryUnsubscribe<TryChangeBuildingStateSignal>(OnTryChangeState);
+        }
+
+        private void OnPeriodChanged(PeriodChangeSignal arg)
+        {
+            var period = arg.Period;
             if (_period == period) return;
             _period = period;
         }
 
-        public void TryChangeBuildingState(IBuildingFacade building, ProductionState state, OperationMode mode)
+        public void OnBuildingTimetableChange(IBuildingFacade building)
+        {
+            if (building.StateForPeriod(_period) != building.State())
+                TryChangeBuildingState(building, building.StateForPeriod(_period), OperationMode.auto);
+        }
+
+        private void OnTryChangeState(TryChangeBuildingStateSignal arg)
+        {
+            TryChangeBuildingState(arg.BuildingFacade, arg.State, arg.Mode);
+        }
+
+        public bool TryChangeBuildingState(IBuildingFacade building, ProductionState state, OperationMode mode)
         {
             Debug.Log($"Try change state for building. To: {state}. Mode: {mode}.");
 
             if (state == ProductionState.on && CheckForTurnOn(building, mode))
+            {
                 ChangeBuildingStateTo(building, state, mode);
+                return true;
+            }                
             else if (state == ProductionState.off && CheckForTurnOff(building, mode))
+            {
                 ChangeBuildingStateTo(building, state, mode);
+                return true;
+            }
+
+            return false;
         }
 
         private bool CheckForTurnOn(IBuildingFacade building, OperationMode mode)
@@ -90,7 +122,6 @@ namespace LittleMars.Models
         private void ChangeBuildingStateTo(IBuildingFacade building, ProductionState state,
             OperationMode mode)
         {
-
             _production.UpdateProduction(building.Production(), state);
             _production.UpdateNeeds(building.Needs(), state);
 

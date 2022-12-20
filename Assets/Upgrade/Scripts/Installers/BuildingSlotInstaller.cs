@@ -1,5 +1,5 @@
 ﻿using LittleMars.Common;
-using LittleMars.UI.BuildingsSlots;
+using LittleMars.UI.BuildingSlots;
 using System;
 using System.Collections.Generic;
 using System.Linq;

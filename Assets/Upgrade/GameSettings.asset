@@ -19,6 +19,13 @@ MonoBehaviour:
       BuildingSlotPrefab: {fileID: 94072137087876132, guid: 571df7573188cb546a843af7f91d5a83, type: 3}
     SpawnerSettings:
       Size: 0.22
+  Time:
+    ManagerSettings:
+      GameMinutesPerSecond: 20
+      NightStartHour: 18
+      NightEndHour: 24
+    UpdaterSettings:
+      UpdateTime: 1
   Catalogue:
     Catalogue:
       Catalogue: {fileID: 11400000, guid: 2cfcb0c6ecefb024a91899b08e4d7c3d, type: 2}

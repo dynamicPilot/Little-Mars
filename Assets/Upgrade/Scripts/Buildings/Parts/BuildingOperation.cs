@@ -15,7 +15,7 @@ namespace LittleMars.Buildings.Parts
         readonly BuildingObject.OperationSettings _settings;
 
         Dictionary<Resource, Dictionary<Period, float>> _production;
-
+        List<Resource> _needs;
         public Dictionary<Resource, Dictionary<Period, float>> Production { 
             get
             {
@@ -28,6 +28,7 @@ namespace LittleMars.Buildings.Parts
         {
             _settings = buildingObject.Operation;
             _production = null;
+            _needs = null;
         }
 
         //public BuildingOperation(BuildingCatalogue cataloque, BuildingType type, Size size)
@@ -36,10 +37,10 @@ namespace LittleMars.Buildings.Parts
         //    _production = null;
         //}
 
-        public bool HasNeedForThisResource(Resource resource, Period period)
+        public bool HasNeedForThisResource(Resource resource)
         {
-            if (!_production.ContainsKey(resource)) return false;
-            return _production[resource].ContainsKey(period);
+            if (_needs == null) FillNeeds();
+            return _needs.Contains(resource);
         }
 
         public ResourceUnit<float>[] Needs() => _settings.Needs;
@@ -49,6 +50,16 @@ namespace LittleMars.Buildings.Parts
             _production = new Dictionary<Resource, Dictionary<Period, float>>();
             ProductionForPeriod(Period.day, _settings.DayProduction);
             ProductionForPeriod(Period.night, _settings.NightProduction);
+        }
+
+        private void FillNeeds()
+        {
+            _needs = new List<Resource>();
+
+            for (int i = 0; i < _settings.Needs.Length; i++)
+            {
+                _needs.Add(_settings.Needs[i].Type);
+            }
         }
 
         private void ProductionForPeriod(Period period, ResourceUnit<float>[] production)

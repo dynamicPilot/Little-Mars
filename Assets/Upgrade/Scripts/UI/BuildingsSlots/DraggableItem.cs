@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Zenject;
 
-namespace LittleMars.UI.BuildingsSlots
+namespace LittleMars.UI.BuildingSlots
 {
     /// <summary>
     /// This is a script for Draggable items. 

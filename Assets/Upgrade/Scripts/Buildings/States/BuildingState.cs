@@ -39,6 +39,13 @@ namespace LittleMars.Buildings.States
             _buildingState.OnClickPerformed();
         }
 
+        public void ChangeStateForPeriod(Period period)
+        {
+            var newState = (_timetable[period] == ProductionState.on) ?
+                ProductionState.off : ProductionState.on;
+            _timetable[period] = newState;
+        }
+
         public void ChangeState(ProductionState state, OperationMode mode)
         {
             if (_state == state) return;

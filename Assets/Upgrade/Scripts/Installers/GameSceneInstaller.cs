@@ -12,15 +12,18 @@ using LittleMars.Buildings;
 using LittleMars.Models;
 using LittleMars.Common.Interfaces;
 using LittleMars.Model.Interfaces;
-using LittleMars.UI.BuildingsSlots;
 using LittleMars.UI.BuildingSlots;
 using LittleMars.Model;
 using LittleMars.UI;
+using UnityEngine.PlayerLoop;
+using LittleMars.Model.TimeUpdate;
 
 namespace LittleMars.Installers
 {
     public class GameSceneInstaller : MonoInstaller
     {
+        [SerializeField] private TimeUpdater _timeUpdater;
+
         [Inject]
         Settings _settings = null;
 
@@ -64,20 +67,23 @@ namespace LittleMars.Installers
 
         public void InstallModel()
         {
-            Container.Bind<BuildingCatalogue>().AsSingle();
-            Container.Bind<ResourcesBalanceHelper>().AsSingle();
+            Container.BindInstance(_timeUpdater);
+
+            Container.BindInterfacesAndSelfTo<OperationManager>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ResourcesBalancer>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ProductionManager>().AsSingle();
+
+            Container.Bind<TimeManager>().AsSingle();
+            Container.Bind<BuildingCatalogue>().AsSingle();            
             Container.Bind<ProductionHelper>().AsSingle();
             Container.Bind<ConstructionHelper>().AsSingle();
             Container.Bind<OperationHelper>().AsSingle();
             Container.Bind<MapRouter>().AsSingle();
-            Container.Bind<OperationManager>().AsSingle();
             Container.Bind<PlacementManager>().AsSingle();
-            Container.Bind<ProductionManager>().AsSingle();
 
             Container.Bind<IModelFacade>().To<ModelFacade>().AsSingle();
 
             Container.Bind<IPlacement>().To<PlacementManager>().FromResolve();
-            Container.Bind<IProduction>().To<ProductionManager>().FromResolve();
 
             Container.BindFactory<BuildingType, Size, Path, Vector2, PlacingBuilding, PlacingBuilding.Factory>()
                 .WhenInjectedInto<PlacementManager>();
@@ -131,10 +137,17 @@ namespace LittleMars.Installers
         {
             SignalBusInstaller.Install(Container);
             Container.DeclareSignal<MapSlotsAreReadySignal>();
+
             Container.DeclareSignal<AddBuildingSignal>();
             Container.DeclareSignal<RemoveBuildingSignal>();
+
             Container.DeclareSignal<BuildingStateChangedSignal>();
+            Container.DeclareSignal<TryChangeBuildingStateSignal>();
+
             Container.DeclareSignal<StartBuildingPlacementSignal>();
+
+            Container.DeclareSignal<PeriodChangeSignal>();
+            Container.DeclareSignal<HourlySignal>();
         }
 
         [Serializable]

@@ -1,7 +1,6 @@
 ﻿using LittleMars.Map;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Xml.Serialization;
 
 namespace LittleMars.Common.Interfaces
 {
@@ -9,7 +8,7 @@ namespace LittleMars.Common.Interfaces
     {
         List<List<MapSlotExtended>> MapSlots();
         void StartBuildingPlacement(BuildingObject buildingObject, Indexes indexes, Vector2 position);
-        void TryChangeBuildingState(IBuildingFacade building, ProductionState state);
+        void StartBuildingControl(IBuildingFacade building);
     }
 
     public interface IViewSlotFacade

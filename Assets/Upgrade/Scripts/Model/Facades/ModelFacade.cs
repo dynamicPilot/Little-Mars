@@ -13,17 +13,17 @@ namespace LittleMars.Models.Facades
     public class ModelFacade : IModelFacade
     {
         MapManager _mapManager;
-        BuildingManager _buildingManager;
         PlacementManager _placementManager;
         ConstructionHelper _constructionHelper;
+        BuildingController _controller;
 
-        public ModelFacade(MapManager mapManager, BuildingManager buildingManager,
-            PlacementManager placementManager, ConstructionHelper constructionHelper)
+        public ModelFacade(MapManager mapManager, PlacementManager placementManager, 
+            ConstructionHelper constructionHelper, BuildingController controller)
         {
             _mapManager = mapManager;
-            _buildingManager = buildingManager;
             _placementManager = placementManager;
             _constructionHelper = constructionHelper;
+            _controller = controller;
         }
 
         public void StartBuildingPlacement(BuildingObject buildingObject, Indexes indexes, Vector2 position)
@@ -37,9 +37,9 @@ namespace LittleMars.Models.Facades
             return _mapManager.Slots;
         }
 
-        public void TryChangeBuildingState(IBuildingFacade building, ProductionState state)
+        public void StartBuildingControl(IBuildingFacade building)
         {
-            _buildingManager.TryChangeBuildingState(building, state);
+            _controller.StartController(building);
         }
     }
 }

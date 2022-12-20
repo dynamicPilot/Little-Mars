@@ -1,6 +1,5 @@
 ﻿using LittleMars.Common;
 using LittleMars.Common.Interfaces;
-using LittleMars.UI.BuildingsSlots;
 
 namespace LittleMars.UI.BuildingSlots
 {

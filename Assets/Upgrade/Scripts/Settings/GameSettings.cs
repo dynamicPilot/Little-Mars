@@ -1,6 +1,7 @@
 ﻿using LittleMars.Buildings;
 using LittleMars.Common;
 using LittleMars.Installers;
+using LittleMars.Model.TimeUpdate;
 using LittleMars.Slots;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace LittleMars.Settings
     public class GameSettings : ScriptableObjectInstaller<GameSettings>
     {
         public ViewSettings View;
+        public TimeSettings Time;
         public CatalogueSettings Catalogue;
 
         [Serializable]
@@ -23,6 +25,13 @@ namespace LittleMars.Settings
         {
             public GameSceneInstaller.Settings SlotPrefab;
             public ViewSlotFactory.Settings SpawnerSettings;
+        }
+
+        [Serializable]
+        public class TimeSettings
+        {
+            public TimeManager.Settings ManagerSettings;
+            public TimeUpdater.Settings UpdaterSettings;
         }
 
         [Serializable]
@@ -38,6 +47,8 @@ namespace LittleMars.Settings
             Container.BindInstance(View.SlotPrefab);
             Container.BindInstance(View.SpawnerSettings);
             Container.BindInstance(Catalogue.Catalogue);
+            Container.BindInstance(Time.ManagerSettings);
+            Container.BindInstance(Time.UpdaterSettings);
         }
     }
 }

@@ -42,9 +42,9 @@ namespace LittleMars.Buildings
             _state.ChangeState(state, mode);
         }
 
-        public bool HasNeedForThisResource(Resource resource, Period period)
+        public bool HasNeedForThisResource(Resource resource)
         {
-            return _operation.HasNeedForThisResource(resource, period);
+            return _operation.HasNeedForThisResource(resource);
         }
 
         public ProductionState StateForPeriod(Period period)
@@ -52,7 +52,11 @@ namespace LittleMars.Buildings
             return _state.StateForPeriod(period);
         }
 
-        
+        public void ChangeStateForPeriod(Period period)
+        {
+            _state.ChangeStateForPeriod(period);
+        }
+
 
         public WithSizeUnit<BuildingType, Size> Info()
         {

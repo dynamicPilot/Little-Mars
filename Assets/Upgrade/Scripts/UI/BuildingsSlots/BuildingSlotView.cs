@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace LittleMars.UI.BuildingsSlots
+namespace LittleMars.UI.BuildingSlots
 {
     public class BuildingSlotView : MonoBehaviour
     {

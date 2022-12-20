@@ -12,7 +12,8 @@ namespace LittleMars.Buildings.States
         readonly BuildingView _view;
         readonly BuildingFacade _building;
         readonly IModelFacade _model;
-        public BuildingOnState(BuildingView view, IModelFacade model, BuildingFacade building)
+        public BuildingOnState(BuildingView view, IModelFacade model, 
+            BuildingFacade building, BuildingState state)
         {
             _view = view;
             _building = building;
@@ -25,14 +26,19 @@ namespace LittleMars.Buildings.States
         }
         public void OnClickPerformed()
         {
-            _model.TryChangeBuildingState(_building, Common.ProductionState.off);
+            _model.StartBuildingControl(_building);
+        }
+
+
+        public void OnRemove()
+        {
+            
         }
 
         public void SetView()
         {
             _view.OnView();
         }
-
 
         public class Factory : PlaceholderFactory<BuildingOnState>
         {

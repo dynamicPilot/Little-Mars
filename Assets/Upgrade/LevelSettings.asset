@@ -18,7 +18,7 @@ MonoBehaviour:
       - Type: 0
         Amount: 10
       - Type: 6
-        Amount: 50
+        Amount: 20
       BuildingTypes:
       - Type: 0
         Size: 0

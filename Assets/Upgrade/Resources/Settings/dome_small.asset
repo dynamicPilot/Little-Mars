@@ -16,7 +16,9 @@ MonoBehaviour:
     Type: 0
     Size: 0
   Construction:
-    ResourcesForBuilding: []
+    ResourcesForBuilding:
+    - Type: 0
+      Amount: 10
     ResourcesInMap: 
     BuildingPath:
       Type: 0
@@ -29,7 +31,7 @@ MonoBehaviour:
     NightProduction:
     - Type: 1
       Amount: 1
-    Connections: 05000000
+    Connections: 
     Needs:
     - Type: 6
       Amount: 10

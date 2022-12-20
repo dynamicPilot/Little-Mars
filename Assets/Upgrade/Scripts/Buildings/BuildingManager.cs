@@ -3,12 +3,8 @@ using LittleMars.Common.Interfaces;
 using LittleMars.Common.Signals;
 using LittleMars.Map;
 using LittleMars.Models;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Zenject;
 using LittleMars.Model;
 
@@ -33,6 +29,7 @@ namespace LittleMars.Buildings
         public void Initialize()
         {
             _signalBus.Subscribe<BuildingStateChangedSignal>(OnBuildingStateChanged);
+            _signalBus.Subscribe<PeriodChangeSignal>(OnPeriodChanged);
         }
 
         public void AddBuilding(PlacingBuilding placingBuilding)
@@ -50,14 +47,13 @@ namespace LittleMars.Buildings
 
         }
 
-        public void TryChangeBuildingState(IBuildingFacade building, ProductionState state)
+        public void TryChangeBuildingState(IBuildingFacade building, ProductionState state, OperationMode mode)
         {
-            _operation.TryChangeBuildingState(building, state, OperationMode.manual);
+            _operation.TryChangeBuildingState(building, state, mode);
         }
 
-        public void OnPeriodChanged(Period period)
+        public void OnPeriodChanged(PeriodChangeSignal arg)
         {
-            _operation.OnPeriodChanged(period);
             DoBuildingsCheck(null);
         }
 

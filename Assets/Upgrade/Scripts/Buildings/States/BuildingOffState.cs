@@ -25,13 +25,19 @@ namespace LittleMars.Buildings.States
 
         public void OnClickPerformed()
         {
-            _model.TryChangeBuildingState(_building, Common.ProductionState.on);
+            _model.StartBuildingControl(_building);
         }
 
         public void SetView()
         {
             _view.OffView();
         }
+
+        public void OnRemove()
+        {
+
+        }
+
 
         public class Factory : PlaceholderFactory<BuildingOffState>
         {

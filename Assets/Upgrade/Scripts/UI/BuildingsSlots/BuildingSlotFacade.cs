@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
-namespace LittleMars.UI.BuildingsSlots
+namespace LittleMars.UI.BuildingSlots
 {
     /// <summary>
     /// Class to control all Building slot components.
@@ -20,7 +20,7 @@ namespace LittleMars.UI.BuildingsSlots
             gameObject.SetActive(state == ProductionState.on);
         }
 
-        public class Factory: PlaceholderFactory<BuildingType, Size, BuildingSlotFacade>
+        public class Factory : PlaceholderFactory<BuildingType, Size, BuildingSlotFacade>
         {
 
         }
