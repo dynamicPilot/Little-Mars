@@ -15,10 +15,10 @@ namespace LittleMars.Buildings
         Size _size;
         BuildingState _state;
         BuildingOperation _operation;
-        Building _data;
+        BuildingData _data;
 
         [Inject]
-        public void Constructor(BuildingState state, BuildingOperation operation, Building data,
+        public void Constructor(BuildingState state, BuildingOperation operation, BuildingData data,
             BuildingType type, Size size)
         {
             _state = state;
@@ -28,6 +28,13 @@ namespace LittleMars.Buildings
             _data = data;
         }
 
+        public void OnStart()
+        {
+            _state.OnStart();
+            _data.OnStart();
+        }
+
+        public void OnRemove() => _state.OnRemove();
         public Priority Priority() => Common.Priority.ultimate;
         public OperationMode OperationMode() => _state.OperationMode;
         public ProductionState State() => _state.State;
@@ -36,7 +43,6 @@ namespace LittleMars.Buildings
         public IEnumerable<Indexes> MapSlotIndexes() => _data.MapSlotIndexes;
         public void SetMapSlotIndexes(IEnumerable<Indexes> indexes) => _data.MapSlotIndexes = indexes;
         public BuildingType[] Connections() => _data.Connections;
-
         public void ChangeState(ProductionState state, OperationMode mode)
         {
             _state.ChangeState(state, mode);
@@ -56,7 +62,6 @@ namespace LittleMars.Buildings
         {
             _state.ChangeStateForPeriod(period);
         }
-
 
         public WithSizeUnit<BuildingType, Size> Info()
         {

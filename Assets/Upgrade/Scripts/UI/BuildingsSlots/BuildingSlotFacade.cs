@@ -17,6 +17,7 @@ namespace LittleMars.UI.BuildingSlots
     {
         public void SetActiveState(ProductionState state)
         {
+            Debug.Log("Set active state : " + (state == ProductionState.on));
             gameObject.SetActive(state == ProductionState.on);
         }
 

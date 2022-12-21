@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 186644902}
   - component: {fileID: 186644901}
   - component: {fileID: 186644900}
+  - component: {fileID: 186644903}
   m_Layer: 5
   m_Name: 'NightStateButton '
   m_TagString: Untagged
@@ -321,6 +322,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 186644898}
   m_CullTransparentMesh: 1
+--- !u!114 &186644903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186644898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a381d89da42c39a4fa125a9c7398036d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 186644900}
 --- !u!1 &400968568
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,6 +809,7 @@ GameObject:
   - component: {fileID: 1062403497}
   - component: {fileID: 1062403499}
   - component: {fileID: 1062403500}
+  - component: {fileID: 1062403501}
   - component: {fileID: 1062403498}
   m_Layer: 0
   m_Name: GameUI
@@ -833,6 +848,7 @@ MonoBehaviour:
   _components:
   - {fileID: 1062403499}
   - {fileID: 1062403500}
+  - {fileID: 1062403501}
   _identifier: 
   _useSceneContext: 0
   _context: {fileID: 1382059589}
@@ -867,6 +883,23 @@ MonoBehaviour:
   _rotateButton: {fileID: 1505686484}
   _removeButton: {fileID: 1896043337}
   _panel: {fileID: 2081728180}
+--- !u!114 &1062403501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062403496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af99f1e04a5a8e549bee5bab5c98e91f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stateButton: {fileID: 1090779201}
+  _removeButton: {fileID: 1185348370}
+  _dayStateButton: {fileID: 1623003202}
+  _nightStateButton: {fileID: 186644903}
+  _panel: {fileID: 1963417097}
 --- !u!1 &1090779196
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,6 +912,7 @@ GameObject:
   - component: {fileID: 1090779200}
   - component: {fileID: 1090779199}
   - component: {fileID: 1090779198}
+  - component: {fileID: 1090779201}
   m_Layer: 5
   m_Name: StateButton
   m_TagString: Untagged
@@ -989,6 +1023,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1090779196}
   m_CullTransparentMesh: 1
+--- !u!114 &1090779201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090779196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a381d89da42c39a4fa125a9c7398036d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 1090779198}
 --- !u!1 &1114138116
 GameObject:
   m_ObjectHideFlags: 0
@@ -2049,6 +2096,7 @@ GameObject:
   - component: {fileID: 1623003201}
   - component: {fileID: 1623003200}
   - component: {fileID: 1623003199}
+  - component: {fileID: 1623003202}
   m_Layer: 5
   m_Name: DayStateButton
   m_TagString: Untagged
@@ -2159,6 +2207,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1623003197}
   m_CullTransparentMesh: 1
+--- !u!114 &1623003202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623003197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a381d89da42c39a4fa125a9c7398036d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 1623003199}
 --- !u!1 &1783043332
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,7 +25,7 @@ namespace LittleMars.Buildings.States
 
         public void OnClickPerformed()
         {
-            _model.StartBuildingControl(_building);
+            _model.CallBuildingController(_building);
         }
 
         public void SetView()
@@ -33,9 +33,15 @@ namespace LittleMars.Buildings.States
             _view.OffView();
         }
 
+        public void OnStart()
+        {
+            _view.SetViewActiveState(true);
+        }
+
+
         public void OnRemove()
         {
-
+            _view.SetViewActiveState(false);
         }
 
 

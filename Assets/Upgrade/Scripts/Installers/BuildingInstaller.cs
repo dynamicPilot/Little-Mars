@@ -1,19 +1,11 @@
-﻿using LittleMars.Settings;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using Zenject;
 using UnityEngine;
 using LittleMars.Buildings.States;
-using LittleMars.Slots.UI;
 using LittleMars.Common;
 using LittleMars.Buildings.Parts;
 using LittleMars.Buildings.View;
 using LittleMars.Buildings;
-using LittleMars.Slots.Views;
-using LittleMars.Common.Interfaces;
 
 namespace LittleMars.Installers
 {
@@ -28,9 +20,8 @@ namespace LittleMars.Installers
         {
             Container.Bind<BuildingStateManager>().AsSingle();
             Container.Bind<BuildingOperation>().AsSingle();
-            Container.Bind<Building>().AsSingle();
-
-            Container.BindInterfacesAndSelfTo<BuildingState>().AsSingle();
+            Container.Bind<BuildingData>().AsSingle();
+            Container.Bind<BuildingState>().AsSingle();
 
             Container.BindFactory<BuildingOnState, BuildingOnState.Factory>().WhenInjectedInto<BuildingStateManager>();
             Container.BindFactory<BuildingOffState, BuildingOffState.Factory>().WhenInjectedInto<BuildingStateManager>();

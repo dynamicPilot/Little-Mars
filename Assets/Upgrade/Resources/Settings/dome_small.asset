@@ -32,6 +32,4 @@ MonoBehaviour:
     - Type: 1
       Amount: 1
     Connections: 
-    Needs:
-    - Type: 6
-      Amount: 10
+    Needs: []

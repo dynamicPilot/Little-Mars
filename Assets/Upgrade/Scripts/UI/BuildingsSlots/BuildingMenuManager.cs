@@ -4,6 +4,7 @@ using LittleMars.Common.Interfaces;
 using LittleMars.Common.Signals;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,6 +38,7 @@ namespace LittleMars.UI.BuildingSlots
         {
             CreateSlots();
             _signalBus.Subscribe<AddBuildingSignal>(OnAddBuildingToMap);
+            _signalBus.Subscribe<RemoveBuildingSignal>(OnRemoveBuildingFromMap);
         }
 
         public void OnAddBuildingToMap(AddBuildingSignal args)
@@ -46,10 +48,11 @@ namespace LittleMars.UI.BuildingSlots
             OnAmountChanged(info.Type, info.Size, ProductionState.off);
         }
 
-        public void OnRemoveBuildingFromMap(IBuildingFacade building)
+        public void OnRemoveBuildingFromMap(RemoveBuildingSignal args)
         {
             // update amount -> more
-            var info = building.Info();
+            Debug.Log("Remove building");
+            var info = args.BuildingFacade.Info();
             OnAmountChanged(info.Type, info.Size, ProductionState.on);
         }
 
@@ -57,6 +60,7 @@ namespace LittleMars.UI.BuildingSlots
         {
             if (_amounts == null) FillAmounts();
             bool needSlotChange = UpdateAmount(type, size, state);
+            Debug.Log("OnAmountChange: need update? " + needSlotChange);
             if (needSlotChange) ChangeSlotState(type, size, state);                
         }
 
@@ -97,7 +101,7 @@ namespace LittleMars.UI.BuildingSlots
         {
             if (!_amounts.ContainsKey(type)) return false;
             if (!_amounts[type].ContainsKey(size)) return false;
-            if (_amounts[type][size] == 0) return false;
+            if (_amounts[type][size] == 0  && state == ProductionState.off) return false;
 
             var multiplier = (state == ProductionState.on) ? 1 : -1;
             var amount = _amounts[type][size];

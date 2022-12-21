@@ -5,7 +5,7 @@ using Zenject;
 
 namespace LittleMars.Buildings.States
 {
-    public class BuildingState: IInitializable
+    public class BuildingState
     {
         ProductionState _state;
         OperationMode _mode;
@@ -21,17 +21,14 @@ namespace LittleMars.Buildings.States
 
         public BuildingState(BuildingStateManager manager)
         {
-            _manager = manager;
-            _timetable = new Dictionary<Period, ProductionState>
-            {
-                [Period.day] = ProductionState.on,
-                [Period.night] = ProductionState.on
-            };
+            _manager = manager;            
         }
 
-        public void Initialize()
-        {
+        public void OnStart()
+        {            
             ChangeState(ProductionState.off, OperationMode.forcedAuto);
+            ResetTimetable();
+            _buildingState.OnStart();
         }
 
         public void OnClickPerformed()
@@ -39,11 +36,17 @@ namespace LittleMars.Buildings.States
             _buildingState.OnClickPerformed();
         }
 
+        public void OnRemove()
+        {            
+            _buildingState.OnRemove();
+        }
+
         public void ChangeStateForPeriod(Period period)
         {
             var newState = (_timetable[period] == ProductionState.on) ?
                 ProductionState.off : ProductionState.on;
             _timetable[period] = newState;
+            Debug.Log("New period timetable " + _timetable[period]);
         }
 
         public void ChangeState(ProductionState state, OperationMode mode)
@@ -59,6 +62,14 @@ namespace LittleMars.Buildings.States
             _buildingState.SetView();
         }
 
+        private void ResetTimetable()
+        {
+            _timetable = new Dictionary<Period, ProductionState>
+            {
+                [Period.day] = ProductionState.on,
+                [Period.night] = ProductionState.on
+            };
+        }
 
     }
 

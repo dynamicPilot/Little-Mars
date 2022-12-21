@@ -12,6 +12,11 @@ namespace LittleMars.Common.Signals
 
     public struct StartBuildingPlacementSignal { }
 
+    public struct BuildingControllerSignal
+    {
+        public IBuildingFacade BuildingFacade { get; set; }
+    }
+
     public struct AddBuildingSignal
     {
         public IBuildingFacade BuildingFacade { get; set; }

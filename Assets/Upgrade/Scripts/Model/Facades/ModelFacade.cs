@@ -37,9 +37,9 @@ namespace LittleMars.Models.Facades
             return _mapManager.Slots;
         }
 
-        public void StartBuildingControl(IBuildingFacade building)
+        public void CallBuildingController(IBuildingFacade building)
         {
-            _controller.StartController(building);
+            _controller.CallController(building);
         }
     }
 }

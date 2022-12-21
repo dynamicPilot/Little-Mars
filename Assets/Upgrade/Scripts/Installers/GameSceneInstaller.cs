@@ -80,6 +80,7 @@ namespace LittleMars.Installers
             Container.Bind<OperationHelper>().AsSingle();
             Container.Bind<MapRouter>().AsSingle();
             Container.Bind<PlacementManager>().AsSingle();
+            Container.Bind<BuildingController>().AsSingle();
 
             Container.Bind<IModelFacade>().To<ModelFacade>().AsSingle();
 
@@ -95,7 +96,8 @@ namespace LittleMars.Installers
         public void InstallBuildings()
         {
             Container.BindInterfacesAndSelfTo<BuildingManager>().AsSingle();
-            Container.Bind<BuildingFactory>().AsSingle();
+            Container.Bind<BuildingStorage>().AsSingle();
+            Container.Bind<BuildingProvider>().AsSingle();
 
             Container.BindFactory<BuildingType, Size, BuildingFacade, BuildingFacade.Factory>()
                 .FromSubContainerResolve()
@@ -145,6 +147,7 @@ namespace LittleMars.Installers
             Container.DeclareSignal<TryChangeBuildingStateSignal>();
 
             Container.DeclareSignal<StartBuildingPlacementSignal>();
+            Container.DeclareSignal<BuildingControllerSignal>();
 
             Container.DeclareSignal<PeriodChangeSignal>();
             Container.DeclareSignal<HourlySignal>();

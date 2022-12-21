@@ -1,8 +1,6 @@
 ﻿using LittleMars.Buildings.View;
 using LittleMars.Common.Interfaces;
 using System;
-using UnityEngine;
-using UnityEngine.EventSystems;
 using Zenject;
 
 namespace LittleMars.Buildings.States
@@ -26,13 +24,18 @@ namespace LittleMars.Buildings.States
         }
         public void OnClickPerformed()
         {
-            _model.StartBuildingControl(_building);
+            _model.CallBuildingController(_building);
+        }
+
+        public void OnStart()
+        {
+            _view.SetViewActiveState(true);
         }
 
 
         public void OnRemove()
         {
-            
+            _view.SetViewActiveState(false);
         }
 
         public void SetView()

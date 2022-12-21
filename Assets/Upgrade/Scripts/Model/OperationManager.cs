@@ -45,7 +45,7 @@ namespace LittleMars.Models
             _period = period;
         }
 
-        public void OnBuildingTimetableChange(IBuildingFacade building)
+        public void OnBuildingTimetableChanged(IBuildingFacade building)
         {
             if (building.StateForPeriod(_period) != building.State())
                 TryChangeBuildingState(building, building.StateForPeriod(_period), OperationMode.auto);

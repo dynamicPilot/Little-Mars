@@ -8,6 +8,8 @@ namespace LittleMars.Common.Interfaces
     /// </summary>
     public interface IBuildingFacade
     {
+        void OnRemove();
+        void OnStart();
         WithSizeUnit<BuildingType, Size> Info();
         OperationMode OperationMode();
         Priority Priority();

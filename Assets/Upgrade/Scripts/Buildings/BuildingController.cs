@@ -2,52 +2,45 @@
 using LittleMars.Common.Interfaces;
 using LittleMars.Common.Signals;
 using LittleMars.Models;
-using LittleMars.UI;
 using Zenject;
 
 namespace LittleMars.Buildings
 {
     public class BuildingController
     {
-        IBuildingFacade _building;
         readonly OperationManager _operation;
         readonly BuildingManager _manager;
+        readonly SignalBus _signalBus;
 
-        public BuildingController(OperationManager operation, BuildingManager manager)
+        public BuildingController(OperationManager operation, BuildingManager manager, SignalBus signalBus)
         {
             _operation = operation;
             _manager = manager;
+            _signalBus = signalBus;
         }
 
-        public void StartController(IBuildingFacade building)
+        public void CallController(IBuildingFacade building)
         {
-            if (_building != null) EndController();
-            _building = building;
+            if (building == null) return;
+            _signalBus.Fire(new BuildingControllerSignal { BuildingFacade = building });
         }
 
-        public void TryChangeState()
+        public void TryChangeState(IBuildingFacade building)
         {
-            var newState = (_building.State() == ProductionState.on) ? ProductionState.off : ProductionState.on;
-            _operation.TryChangeBuildingState(_building, newState, OperationMode.manual);
+            var newState = (building.State() == ProductionState.on) ? ProductionState.off : ProductionState.on;
+            _operation.TryChangeBuildingState(building, newState, OperationMode.manual);
         }
 
-        public void ChangeTimetable(Period period)
+        public void ChangeTimetable(IBuildingFacade building, Period period)
         {
             // change timetable in building
-            _building.ChangeStateForPeriod(period);
-            _operation.OnBuildingTimetableChange(_building);
-        } 
-
-        public void Remove()
-        {
-            _manager.RemoveBuilding(_building);
-            EndController();
+            building.ChangeStateForPeriod(period);
+            _operation.OnBuildingTimetableChanged(building);
         }
 
-        public void EndController()
+        public void Remove(IBuildingFacade building)
         {
-            _building = null;
+            _manager.RemoveBuilding(building);
         }
-
     }
 }

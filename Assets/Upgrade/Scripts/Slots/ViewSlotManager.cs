@@ -10,7 +10,7 @@ namespace LittleMars.Slots
     /// <summary>
     /// Control scripts for all slots in View.
     /// </summary>
-    public class ViewSlotManager : IInitializable
+    public class ViewSlotManager : IInitializable, IDisposable
     {
         List<List<ViewSlotFacade>> _slots = new List<List<ViewSlotFacade>>();
         readonly ViewSlotFactory _factory;
@@ -26,6 +26,14 @@ namespace LittleMars.Slots
         {
             // spawn slots
             _signalBus.Subscribe<MapSlotsAreReadySignal>(SpawnSlots);
+            _signalBus.Subscribe<AddBuildingSignal>(OnAddBuilding);
+            _signalBus.Subscribe<RemoveBuildingSignal>(OnRemoveBuilding);
+        }
+
+        public void Dispose()
+        {
+            _signalBus.TryUnsubscribe<AddBuildingSignal>(OnAddBuilding);
+            _signalBus.TryUnsubscribe<RemoveBuildingSignal>(OnRemoveBuilding);
         }
 
         private void SpawnSlots()
@@ -34,22 +42,27 @@ namespace LittleMars.Slots
             _signalBus.Unsubscribe<MapSlotsAreReadySignal>(SpawnSlots);
         }
 
-        public void PlacingBuildingInSlots(List<Indexes> indexes)
+        private void OnAddBuilding(AddBuildingSignal arg)
+        {
+            ChangeSlotStates(arg.BuildingFacade.MapSlotIndexes(), SlotStates.building);
+        }
+
+        private void OnRemoveBuilding(RemoveBuildingSignal arg)
+        {
+            RemoveBuildingFromSlots(arg.BuildingFacade.MapSlotIndexes());
+        }
+
+        public void PlacingBuildingInSlots(IEnumerable<Indexes> indexes)
         {
             ChangeSlotStates(indexes, SlotStates.placing);
         }
 
-        public void RemoveBuildingFromSlots(List<Indexes> indexes)
+        public void RemoveBuildingFromSlots(IEnumerable<Indexes> indexes)
         {
             ChangeSlotStates(indexes, SlotStates.empty);
         }
 
-        public void AddBuildingToSlots(List<Indexes> indexes, BuildingType type)
-        {
-            ChangeSlotStates(indexes, SlotStates.building);
-        }
-
-        private void ChangeSlotStates(List<Indexes> indexes, SlotStates state)
+        private void ChangeSlotStates(IEnumerable<Indexes> indexes, SlotStates state)
         {
             foreach (Indexes ind in indexes)
                 _slots[ind.Row][ind.Column].ChangeSlotStateTo(state);

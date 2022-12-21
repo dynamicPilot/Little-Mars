@@ -58,24 +58,24 @@ namespace LittleMars.Models
 
         private void UpdateBalance()
         {
-            Debug.Log("------------- Update Balance -----------------");
+            //Debug.Log("------------- Update Balance -----------------");
 
             for (int i = 0; i < (int) Resource.all; i++)
             {
                 var resource = (Resource)i;
-                Debug.Log($" Update {resource}. Before {_resourcesBalance[resource]}");
+                //Debug.Log($" Update {resource}. Before {_resourcesBalance[resource]}");
                 var delta = _production[resource][_period] - _needs[resource];
 
                 if (_resourcesBalance[resource] + delta < 0)
                 {
-                    Debug.Log("Need balance resource : " + resource);
+                    //Debug.Log("Need balance resource : " + resource);
                     BalanceResource(resource);
                     return;
                 }
                 else
                 {
                     _resourcesBalance[resource] += delta;
-                    Debug.Log($" Update {resource}. After {_resourcesBalance[resource]}");
+                    //Debug.Log($" Update {resource}. After {_resourcesBalance[resource]}");
                 }
 
             }

@@ -93,9 +93,9 @@ namespace LittleMars.Model
 
         public void Accept()
         {
-            _viewSlotManager.AddBuildingToSlots(_placingBuilding.SlotIndexes, _placingBuilding.Type);
+            //_viewSlotManager.AddBuildingToSlots(_placingBuilding.SlotIndexes, _placingBuilding.Type);
             // map manager -> add building to slots
-            _mapManager.AddBuildingToSlots(_placingBuilding.SlotIndexes, _placingBuilding.Type);
+            //_mapManager.AddBuildingToSlots(_placingBuilding.SlotIndexes, _placingBuilding.Type);
             // building manager -> add building
             _buildingManager.AddBuilding(_placingBuilding);
             EndPlacement();

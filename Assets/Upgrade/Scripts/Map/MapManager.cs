@@ -11,7 +11,7 @@ using Zenject;
 
 namespace LittleMars.Map
 {
-    public class MapManager : IInitializable
+    public class MapManager : IInitializable, IDisposable
     {
         List<List<MapSlotExtended>> _slots = new List<List<MapSlotExtended>>();
         public List<List<MapSlotExtended>> Slots { get => _slots; }
@@ -33,6 +33,14 @@ namespace LittleMars.Map
         public void Initialize()
         {
             CreateMapSlots();
+            _signalBus.Subscribe<AddBuildingSignal>(OnAddBuilding);
+            _signalBus.Subscribe<RemoveBuildingSignal>(OnRemoveBuilding);
+        }
+
+        public void Dispose()
+        {
+            _signalBus.TryUnsubscribe<AddBuildingSignal>(OnAddBuilding);
+            _signalBus.TryUnsubscribe<RemoveBuildingSignal>(OnRemoveBuilding);
         }
 
         private void CreateMapSlots()
@@ -45,13 +53,24 @@ namespace LittleMars.Map
             _signalBus.Fire<MapSlotsAreReadySignal>();
         }
 
+        private void OnAddBuilding(AddBuildingSignal arg)
+        {
+            AddBuildingToSlots(arg.BuildingFacade.MapSlotIndexes(),
+                arg.BuildingFacade.Info().Type);
+        }
+
+        private void OnRemoveBuilding(RemoveBuildingSignal arg)
+        {
+            RemoveBuildingFromSlots(arg.BuildingFacade.MapSlotIndexes());
+        }
+
         public void AddBuildingToSlots(IEnumerable<Indexes> indexes, BuildingType type)
         {
             foreach (Indexes index in indexes)
                 _slots[index.Row][index.Column].ChangeBuilding(type);
         }
 
-        public void RemoveBuildingFromSlots(IEnumerable<Indexes> indexes)
+        private void RemoveBuildingFromSlots(IEnumerable<Indexes> indexes)
         {
             foreach (Indexes index in indexes)
                 _slots[index.Row][index.Column].ChangeBuilding(BuildingType.none);
@@ -70,7 +89,8 @@ namespace LittleMars.Map
                 {
                     var neighbor = slot.GetNeighbor((Direction)i);
 
-                    if (checkedSlots.Contains(neighbor)) continue;
+                    if (neighbor == null) continue;
+                    else if (checkedSlots.Contains(neighbor)) continue;
                     else checkedSlots.Add(neighbor);
 
                     var type = neighbor.HasBuildingOfType;

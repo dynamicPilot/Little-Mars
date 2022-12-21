@@ -8,7 +8,7 @@ namespace LittleMars.Common.Interfaces
     {
         List<List<MapSlotExtended>> MapSlots();
         void StartBuildingPlacement(BuildingObject buildingObject, Indexes indexes, Vector2 position);
-        void StartBuildingControl(IBuildingFacade building);
+        void CallBuildingController(IBuildingFacade building);
     }
 
     public interface IViewSlotFacade

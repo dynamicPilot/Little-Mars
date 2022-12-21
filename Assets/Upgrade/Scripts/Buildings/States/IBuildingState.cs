@@ -11,6 +11,7 @@ namespace LittleMars.Buildings.States
     {
         void OnClickPerformed();
         void SetView();
+        void OnStart();
         void OnRemove();
     }
 }

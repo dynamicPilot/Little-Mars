@@ -27,6 +27,11 @@ namespace LittleMars.Buildings.View
             _state.OnClickPerformed();
         }
 
+        public void SetViewActiveState(bool activeState)
+        {
+            _view.gameObject.SetActive(activeState);
+        }
+
         public void OnView()
         {
             Debug.Log("OnView");
