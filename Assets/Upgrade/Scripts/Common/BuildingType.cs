@@ -68,5 +68,18 @@
         right,
         down
     }
+
+    public enum GoalType
+    {
+        resources,
+        production,
+        building
+    }
+
+    public enum ResultType
+    {
+        win,
+        lose
+    }
 }
 

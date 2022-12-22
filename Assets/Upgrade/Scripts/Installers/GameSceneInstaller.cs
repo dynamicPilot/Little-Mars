@@ -17,6 +17,8 @@ using LittleMars.Model;
 using LittleMars.UI;
 using UnityEngine.PlayerLoop;
 using LittleMars.Model.TimeUpdate;
+using LittleMars.Common.LevelGoal;
+using LittleMars.Model.Trackers;
 
 namespace LittleMars.Installers
 {
@@ -31,6 +33,7 @@ namespace LittleMars.Installers
         {
             InstallMap();
             InstallModel();
+            InstallTrackers();
             InstallBuildings();
             InstallViewSlots();
             InstallBuildingSlots();
@@ -91,6 +94,24 @@ namespace LittleMars.Installers
             Container.BindFactory<MapRouterCheck, MapRouterCheck.Factory>().WhenInjectedInto<FieldManager>();
             Container.BindFactory<BuildingObject, MapRouterCheckForBuilding, MapRouterCheckForBuilding.Factory>()
                 .WhenInjectedInto<PlacementManager>();
+        }
+
+        public void InstallTrackers()
+        {
+            Container.BindInterfacesAndSelfTo<GoalsManager>().AsSingle();
+
+            // Container.BindFactory<IPathFindingStrategy, PathFindingStrategyFactory>().To<AStarPathFindingStrategy>();
+            //Container.BindFactory<BuildingUnit<int>, IGoalTracker, TrackerFactory<BuildingUnit<int>>().To<BuildingGoalTracker>();
+            Container.BindFactory<GoalsTrackerProvider<BuildingUnit<int>>, GoalsTrackerProvider<BuildingUnit<int>>.Factory>().WhenInjectedInto<GoalsManager>();
+            Container.BindFactory<GoalsTrackerProvider<ResourceUnit<float>>, GoalsTrackerProvider<ResourceUnit<float>>.Factory>().WhenInjectedInto<GoalsManager>();
+
+            Container.BindFactory<Goal<BuildingUnit<int>>, IGoalTracker, TrackerFactory<BuildingUnit<int>>>()
+                .To<BuildingGoalTracker>()
+                .WhenInjectedInto<GoalsTrackerProvider<BuildingUnit<int>>>();
+            
+            Container.BindFactory<GoalWithTime<BuildingUnit<int>>, IGoalTracker, TrackerFactoryWithTimer<BuildingUnit<int>>>()
+                .To<BuildingGoalTrackerWithTimer>()
+                .WhenInjectedInto<GoalsTrackerProvider<BuildingUnit<int>>>(); ;
         }
 
         public void InstallBuildings()

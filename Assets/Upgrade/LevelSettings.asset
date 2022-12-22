@@ -40,3 +40,22 @@ MonoBehaviour:
           Units:
           - Direction: 0
             IsBackStep: 0
+  Goals:
+    GoalsSettings:
+      HasBuildingGoals: 1
+      BuildingGoals:
+        NoTimeGoals:
+        - Type: 0
+          Unit:
+            Type: 0
+            Size: 0
+            Amount: 1
+        TimeGoal: []
+      HasResourcesGoals: 0
+      ResourceGoals:
+        NoTimeGoals: []
+        TimeGoal: []
+      HasProductionGoals: 0
+      ProductionGoals:
+        NoTimeGoals: []
+        TimeGoal: []

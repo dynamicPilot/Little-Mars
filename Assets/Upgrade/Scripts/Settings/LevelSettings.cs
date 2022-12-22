@@ -1,10 +1,7 @@
 ﻿using LittleMars.Common;
+using LittleMars.Common.LevelGoal;
 using LittleMars.Map;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
@@ -15,6 +12,7 @@ namespace LittleMars.Settings
     {
         public LevelConditionsSettings Conditions;
         public MapSettings Map;
+        public LevelGoalsSettings Goals;
 
         [Serializable]
         public class LevelConditionsSettings
@@ -29,11 +27,18 @@ namespace LittleMars.Settings
             public FieldManager.Settings Fields;
 
         }
+
+        [Serializable]
+        public class LevelGoalsSettings
+        {
+            public GoalsManager.Settings GoalsSettings;
+        }
         public override void InstallBindings()
         {
             Container.BindInstance(Conditions.InitialConditions);
             Container.BindInstance(Map.Lines);
             Container.BindInstance(Map.Fields);
+            Container.BindInstance(Goals.GoalsSettings);
         }
     }
 }
