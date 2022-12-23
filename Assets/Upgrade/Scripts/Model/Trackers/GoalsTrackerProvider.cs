@@ -1,5 +1,7 @@
 ﻿using LittleMars.Common.LevelGoal;
+using LittleMars.Model.Interfaces;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -12,45 +14,51 @@ namespace LittleMars.Model.Trackers
     public class GoalsTrackerProvider<T> : IDisposable
     {
         readonly TrackerFactory<T> _trackerFactory;
-        readonly TrackerFactoryWithTimer<T> _withTimeTrackerFactory;
-
-        public GoalsTrackerProvider(TrackerFactory<T> trackerFactory, TrackerFactoryWithTimer<T> withTimeTrackerFactory)
+        readonly TrackerFactoryWithTimer<T> _trackerFactoryWithTimer;
+        public GoalsTrackerProvider(TrackerFactory<T> trackerFactory,
+            TrackerFactoryWithTimer<T> trackerFactoryWithTimer = null)
         {
             _trackerFactory = trackerFactory;
-            _withTimeTrackerFactory = withTimeTrackerFactory;
+            _trackerFactoryWithTimer = trackerFactoryWithTimer;
         }
 
-        public void Create(Goals<T> goals)
+        public List<IGoalTracker> CreateTrackers(Goals<T> goals)
         {
-            if (goals.NoTimeGoals != null && goals.NoTimeGoals.Length > 0)
-                CreateNoTimeTrackers(goals);
+            if (goals.GoalsArray == null || goals.GoalsArray.Length == 0) return null;
 
-            if (goals.TimeGoal != null && goals.TimeGoal.Length > 0)
-                CreateTimeSensitiveTrackers(goals);
-        }
+            var trackers = new List<IGoalTracker>();
 
-        private void CreateNoTimeTrackers(Goals<T> goals)
-        {
-            for (int i = 0; i < goals.NoTimeGoals.Length; i++)
+            for (int i = 0; i < goals.GoalsArray.Length; i++)
             {
-                _trackerFactory.Create(goals.NoTimeGoals[i]);
+                trackers.Add(_trackerFactory.Create(goals.GoalsArray[i]));
+
                 Debug.Log("Create tracker for goal");
-            }           
+            }
+
+            return trackers;
         }
 
-        private void CreateTimeSensitiveTrackers(Goals<T> goals)
+        public List<IGoalTracker> CreateTrackersWithTimer(GoalsWithTimer<T> goals)
         {
-            for (int i = 0; i < goals.TimeGoal.Length; i++)
+            if (goals.GoalsArray == null || goals.GoalsArray.Length == 0 ||
+                _trackerFactoryWithTimer == null) return null;
+
+            var trackers = new List<IGoalTracker>();
+            for (int i = 0; i < goals.GoalsArray.Length; i++)
             {
-                _withTimeTrackerFactory.Create(goals.TimeGoal[i]);
-                Debug.Log("Create tracker for goal with timer");
-            }            
+                trackers.Add(_trackerFactoryWithTimer.Create(goals.GoalsArray[i]));
+
+                Debug.Log("Create tracker for goal");
+            }
+
+            return trackers;
         }
 
         public void Dispose()
         {
             _trackerFactory.Dispose();
-            _withTimeTrackerFactory.Dispose();
+            if (_trackerFactoryWithTimer != null)
+                _trackerFactoryWithTimer.Dispose();
         }
 
         public class Factory : PlaceholderFactory<GoalsTrackerProvider<T>>

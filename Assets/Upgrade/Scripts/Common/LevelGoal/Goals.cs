@@ -6,9 +6,13 @@ namespace LittleMars.Common.LevelGoal
     public class Goals<T>
     {
         // no time goals
-        public Goal<T>[] NoTimeGoals;
-
+        public Goal<T>[] GoalsArray;
+   
+    }
+    [Serializable]
+    public class GoalsWithTimer<T>
+    {
         // goals with time
-        public GoalWithTime<T>[] TimeGoal;
+        public GoalWithTime<T>[] GoalsArray;
     }
 }

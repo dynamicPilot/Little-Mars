@@ -1,5 +1,8 @@
-﻿using LittleMars.Model.Trackers;
+﻿using LittleMars.Common.Interfaces;
+using LittleMars.Model.Interfaces;
+using LittleMars.Model.Trackers;
 using System;
+using System.Collections.Generic;
 using Zenject;
 
 namespace LittleMars.Common.LevelGoal
@@ -10,6 +13,7 @@ namespace LittleMars.Common.LevelGoal
         readonly GoalsTrackerProvider<BuildingUnit<int>>.Factory _buildingProviderFactory;
         readonly GoalsTrackerProvider<ResourceUnit<float>>.Factory _resourcesProviderFactory;
 
+        List<IGoalTracker> _trackers;
         public GoalsManager(Settings settings,
             GoalsTrackerProvider<BuildingUnit<int>>.Factory buildingProviderFactory,
             GoalsTrackerProvider<ResourceUnit<float>>.Factory resourcesProviderFactory)
@@ -17,6 +21,8 @@ namespace LittleMars.Common.LevelGoal
             _settings = settings;
             _buildingProviderFactory = buildingProviderFactory;
             _resourcesProviderFactory = resourcesProviderFactory;
+
+            _trackers = new();
         }
 
         public void Initialize()
@@ -26,22 +32,26 @@ namespace LittleMars.Common.LevelGoal
 
         private void CreateTrackers()
         {
-            if (_settings.HasBuildingGoals)
+            if (_settings.HasBuildingGoals || _settings.HasBuildingGoalsWithTimer)
             {
                 using var buildingProvider = _buildingProviderFactory.Create();
-                buildingProvider.Create(_settings.BuildingGoals);
+
+                if (_settings.HasBuildingGoals)
+                    _trackers.AddRange(buildingProvider.CreateTrackers(_settings.BuildingGoals));
+
+                if (_settings.HasBuildingGoalsWithTimer)
+                    _trackers.AddRange(buildingProvider.CreateTrackersWithTimer(_settings.BuildingGoalsWithTimers));
             }
 
-            if (_settings.HasProductionGoals)
+            if (_settings.HasProductionGoals || _settings.HasResourcesGoals)
             {
                 using var productionProvider = _resourcesProviderFactory.Create();
-                productionProvider.Create(_settings.ProductionGoals);
-            }
 
-            if (_settings.HasResourcesGoals)
-            {
-                using var productionProvider = _resourcesProviderFactory.Create();
-                productionProvider.Create(_settings.ResourceGoals);
+                if (_settings.HasProductionGoals)
+                    _trackers.AddRange(productionProvider.CreateTrackers(_settings.ProductionGoals));
+
+                if (_settings.HasResourcesGoals)
+                    _trackers.AddRange(productionProvider.CreateTrackers(_settings.ResourceGoals));
             }
         }
 
@@ -52,6 +62,9 @@ namespace LittleMars.Common.LevelGoal
             // building goals
             public bool HasBuildingGoals = false;
             public Goals<BuildingUnit<int>> BuildingGoals;
+
+            public bool HasBuildingGoalsWithTimer = false;
+            public GoalsWithTimer<BuildingUnit<int>> BuildingGoalsWithTimers;
 
             // resources goals
             public bool HasResourcesGoals = false;

@@ -42,20 +42,21 @@ MonoBehaviour:
             IsBackStep: 0
   Goals:
     GoalsSettings:
-      HasBuildingGoals: 1
+      HasBuildingGoals: 0
       BuildingGoals:
-        NoTimeGoals:
+        GoalsArray: []
+      HasBuildingGoalsWithTimer: 1
+      BuildingGoalsWithTimers:
+        GoalsArray:
         - Type: 0
           Unit:
             Type: 0
             Size: 0
             Amount: 1
-        TimeGoal: []
+          Time: 2
       HasResourcesGoals: 0
       ResourceGoals:
-        NoTimeGoals: []
-        TimeGoal: []
+        GoalsArray: []
       HasProductionGoals: 0
       ProductionGoals:
-        NoTimeGoals: []
-        TimeGoal: []
+        GoalsArray: []

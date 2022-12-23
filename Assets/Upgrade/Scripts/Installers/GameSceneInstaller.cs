@@ -108,10 +108,10 @@ namespace LittleMars.Installers
             Container.BindFactory<Goal<BuildingUnit<int>>, IGoalTracker, TrackerFactory<BuildingUnit<int>>>()
                 .To<BuildingGoalTracker>()
                 .WhenInjectedInto<GoalsTrackerProvider<BuildingUnit<int>>>();
-            
+
             Container.BindFactory<GoalWithTime<BuildingUnit<int>>, IGoalTracker, TrackerFactoryWithTimer<BuildingUnit<int>>>()
                 .To<BuildingGoalTrackerWithTimer>()
-                .WhenInjectedInto<GoalsTrackerProvider<BuildingUnit<int>>>(); ;
+                .WhenInjectedInto<GoalsTrackerProvider<BuildingUnit<int>>>();
         }
 
         public void InstallBuildings()
@@ -172,6 +172,8 @@ namespace LittleMars.Installers
 
             Container.DeclareSignal<PeriodChangeSignal>();
             Container.DeclareSignal<HourlySignal>();
+
+            Container.DeclareSignal<GoalToWinIsDoneSignal>();
         }
 
         [Serializable]

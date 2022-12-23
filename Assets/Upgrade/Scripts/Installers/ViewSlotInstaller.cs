@@ -3,7 +3,6 @@ using LittleMars.Slots;
 using LittleMars.Slots.States;
 using LittleMars.Slots.UI;
 using LittleMars.Slots.Views;
-using LittleMars.View;
 using System;
 using UnityEngine;
 using Zenject;

@@ -1,9 +1,4 @@
-﻿using LittleMars.Common;
-using LittleMars.Map.Helpers;
-using LittleMars.Models.Common;
-using System.Collections.Generic;
-using UnityEngine;
-using Zenject;
+﻿using Zenject;
 
 namespace LittleMars.Map.States
 {
