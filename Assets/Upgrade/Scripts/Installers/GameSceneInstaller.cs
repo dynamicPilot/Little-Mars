@@ -19,6 +19,8 @@ using UnityEngine.PlayerLoop;
 using LittleMars.Model.TimeUpdate;
 using LittleMars.Common.LevelGoal;
 using LittleMars.Model.Trackers;
+using LittleMars.UI.ResourceSlots;
+using LittleMars.Slots.UI;
 
 namespace LittleMars.Installers
 {
@@ -37,7 +39,7 @@ namespace LittleMars.Installers
             InstallBuildings();
             InstallViewSlots();
             InstallBuildingSlots();
-            InstallUI();
+            InstallUIAndManagers();
             InstallSignals();
             InstallExecutionOrder();
         }
@@ -77,7 +79,7 @@ namespace LittleMars.Installers
             Container.BindInterfacesAndSelfTo<ProductionManager>().AsSingle();
 
             Container.Bind<TimeManager>().AsSingle();
-            Container.Bind<BuildingCatalogue>().AsSingle();            
+            Container.Bind<IconsCatalogue>().AsSingle();            
             Container.Bind<ProductionHelper>().AsSingle();
             Container.Bind<ConstructionHelper>().AsSingle();
             Container.Bind<OperationHelper>().AsSingle();
@@ -151,9 +153,16 @@ namespace LittleMars.Installers
                 //.UnderTransformGroup("Buildings");
         }
 
-        private void InstallUI()
+        private void InstallUIAndManagers()
         {
             // PlacementMenuUI, GameUI -> bind via ZenjectBuinding Component -> GameUI object
+
+            Container.Bind<ResourceSlotMenuManager>().AsSingle();
+            Container.Bind<ResourceSlotUIFactory>().AsSingle();
+
+            Container.BindFactory<UI.ResourceSlots.ResourceSlotUI, UI.ResourceSlots.ResourceSlotUI.Factory>()
+                .FromComponentInNewPrefab(_settings.ResourceSlotPrefab)
+                .WithGameObjectName("ResourceSlot");
         }
 
         private void InstallSignals()
@@ -182,6 +191,7 @@ namespace LittleMars.Installers
             public GameObject SlotPrefab;
             public GameObject BuildingPrefab;
             public GameObject BuildingSlotPrefab;
+            public GameObject ResourceSlotPrefab;
         }
     }
 }

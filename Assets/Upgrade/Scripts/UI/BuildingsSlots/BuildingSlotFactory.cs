@@ -18,6 +18,7 @@ namespace LittleMars.UI.BuildingSlots
         {
             var slot = _factory.Create(type, size);
             slot.transform.SetParent(_gameUI.BuildingSlotParent());
+            slot.transform.localScale = new UnityEngine.Vector3(1f, 1f, 1f);
             return slot;
         }
     }

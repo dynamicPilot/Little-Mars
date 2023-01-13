@@ -38,7 +38,7 @@ namespace LittleMars.Settings
 
         public class CatalogueSettings
         {
-            public BuildingCatalogue.Settings Catalogue;
+            public IconsCatalogue.Settings Catalogue;
         }
 
 

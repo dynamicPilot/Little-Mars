@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae5ee23f2094cf409e904250f189611, type: 3}
   m_Name: Catalogue
   m_EditorClassIdentifier: 
-  Dome:
-    Small: {fileID: 11400000, guid: 49519339a048e754ead31fc8c32d60a2, type: 2}
-  Mine:
-    Small: {fileID: 11400000, guid: b9c7330f2d75b6747b683c7c5a8c01c1, type: 2}
+  Icons:
+    Energy: {fileID: 425383175, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
+    Supply: {fileID: -1036831400, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
+    Food: {fileID: 955785522, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
+    Metals: {fileID: 62905270, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
+    Machines: {fileID: 308360067, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
+    Goods: {fileID: -1938603965, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
+    Money: {fileID: -1619362539, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
