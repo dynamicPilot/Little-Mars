@@ -47,6 +47,8 @@ namespace LittleMars.Installers
         void InstallExecutionOrder()
         {
             Container.BindExecutionOrder<ViewSlotManager>(-20);
+            Container.BindExecutionOrder<ResourceSlotMenuManager>(-20);
+
             Container.BindExecutionOrder<MapManager>(-10);
         }
 
@@ -157,11 +159,20 @@ namespace LittleMars.Installers
         {
             // PlacementMenuUI, GameUI -> bind via ZenjectBuinding Component -> GameUI object
 
-            Container.Bind<ResourceSlotMenuManager>().AsSingle();
-            Container.Bind<ResourceSlotUIFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ResourceSlotMenuManager>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ResourcesBalanceMenuManager>().AsSingle();
+            //Container.Bind<ResourceSlotUIFactory>().AsSingle();
 
-            Container.BindFactory<UI.ResourceSlots.ResourceSlotUI, UI.ResourceSlots.ResourceSlotUI.Factory>()
+            Container.Bind<SlotUIFactory<ResourceSlotUI>>().AsSingle().NonLazy();
+            Container.Bind<SlotUIFactory<ResourceBalanceSlotUI>>().AsSingle().NonLazy();
+            //Container.Bind(typeof(SlotUIFactory<>)).AsSingle().NonLazy();
+
+            Container.BindFactory<ResourceSlotUI, PlaceholderFactory<ResourceSlotUI>>()
                 .FromComponentInNewPrefab(_settings.ResourceSlotPrefab)
+                .WithGameObjectName("ResourceSlot");
+
+            Container.BindFactory<ResourceBalanceSlotUI, PlaceholderFactory<ResourceBalanceSlotUI>>()
+                .FromComponentInNewPrefab(_settings.ResourceBalanceSlotPrefab)
                 .WithGameObjectName("ResourceSlot");
         }
 
@@ -183,6 +194,10 @@ namespace LittleMars.Installers
             Container.DeclareSignal<HourlySignal>();
 
             Container.DeclareSignal<GoalToWinIsDoneSignal>();
+
+            Container.DeclareSignal<ResourcesBalanceUpdatedSignal>();
+            Container.DeclareSignal<ResourcesProductionChangedSignal>();
+            Container.DeclareSignal<ResourcesNeedsChangedSignal>();
         }
 
         [Serializable]
@@ -192,6 +207,7 @@ namespace LittleMars.Installers
             public GameObject BuildingPrefab;
             public GameObject BuildingSlotPrefab;
             public GameObject ResourceSlotPrefab;
+            public GameObject ResourceBalanceSlotPrefab;
         }
     }
 }

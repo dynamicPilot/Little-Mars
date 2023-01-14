@@ -5,9 +5,8 @@ using Zenject;
 
 namespace LittleMars.UI.ResourceSlots
 {
-    public class ResourceSlotUI : MonoBehaviour
+    public class ResourceSlotUI : SlotUI
     {
-        [SerializeField] private Image _sign;
         [SerializeField] private TextMeshProUGUI _counter;
 
         private void OnValidate()
@@ -15,16 +14,15 @@ namespace LittleMars.UI.ResourceSlots
             _sign.enabled = false;
         }
 
-        public void SetSlot(Sprite icon)
+        public override void SetSlot(Sprite icon)
         {
-            _sign.enabled = true;
-            _sign.sprite = icon;
+            base.SetSlot(icon);
             _counter.text = "0";
         }
 
-        public void UpdateSlot(string number)
+        public void UpdateSlot(float number)
         {
-            _counter.text = number;
+            _counter.text = number.ToString("F0");
         }
 
         public class Factory : PlaceholderFactory<ResourceSlotUI>

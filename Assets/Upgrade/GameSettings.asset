@@ -18,6 +18,7 @@ MonoBehaviour:
       BuildingPrefab: {fileID: 3795598343861758890, guid: c5d4688165195a4478535b58e3595fc6, type: 3}
       BuildingSlotPrefab: {fileID: 94072137087876132, guid: 571df7573188cb546a843af7f91d5a83, type: 3}
       ResourceSlotPrefab: {fileID: 6007240029504381487, guid: 01d0e302a9e99574691d9de1260aca80, type: 3}
+      ResourceBalanceSlotPrefab: {fileID: 9181916343601165624, guid: 68be7413f49d03f4aa95a4c341dcdc0f, type: 3}
     SpawnerSettings:
       Size: 0.22
   Time:
