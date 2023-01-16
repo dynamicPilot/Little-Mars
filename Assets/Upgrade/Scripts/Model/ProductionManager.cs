@@ -18,7 +18,12 @@ namespace LittleMars.Models
         ResourcesBalancer _balancer;
         LevelConditions.Settings _settings;
         SignalBus _signalBus;
+
         Period _period;
+
+        ResourcesBalanceUpdatedSignal _balanceSignal;
+        ResourcesProductionChangedSignal _productionSignal;
+        ResourcesNeedsChangedSignal _needsSignal;
 
         int _count = 0;
         public ProductionManager(ProductionHelper helper, 
@@ -40,8 +45,17 @@ namespace LittleMars.Models
             _signalBus.Subscribe<PeriodChangeSignal>(OnPeriodChanged);
             _signalBus.Subscribe<HourlySignal>(UpdateBalance);
 
+            // signals
+            _balanceSignal = new ResourcesBalanceUpdatedSignal { ResourcesBalance = _resourcesBalance };
+            _productionSignal = new ResourcesProductionChangedSignal
+            {
+                Period = _period,
+                Production = _production
+            };
+            _needsSignal = new ResourcesNeedsChangedSignal { Needs = _needs };
+
             //Debug.Log("End init");
-            _signalBus.Fire(new ResourcesBalanceUpdatedSignal { ResourcesBalance = _resourcesBalance });
+            OnBalanceChanged();
         }
 
         public void Dispose()
@@ -55,6 +69,8 @@ namespace LittleMars.Models
             var period = arg.Period;
             if (_period == period) return;
             _period = period;
+
+            OnProductionChnaged();
         }
 
         private void UpdateBalance()
@@ -92,7 +108,7 @@ namespace LittleMars.Models
             _balancer.HelpBalanceResource(resource);
             UpdateBalance();
 
-            if (_count > 10)
+            if (_count > 100)
             {
                 //Debug.Log("ProductionManager: FORCE STOP");
                 return;
@@ -108,6 +124,9 @@ namespace LittleMars.Models
                 foreach (Period period in production[resource].Keys)
                     _production[resource][period] += multiplier * production[resource][period];
             }
+
+            OnProductionChnaged();
+
         }
 
         public void UpdateNeeds(ResourceUnit<float>[] needs, ProductionState state)
@@ -115,6 +134,8 @@ namespace LittleMars.Models
             //Debug.Log("ProductionManager: update needs.");
             var multiplier = (state == ProductionState.on) ? 1 : -1;
             foreach(ResourceUnit<float> unit in needs) _needs[unit.Type] += multiplier * unit.Amount;
+
+            _signalBus.Fire(_needsSignal);
 
         }
 
@@ -127,7 +148,18 @@ namespace LittleMars.Models
                 //Debug.Log($"ProductionManager: update {unit.Type} amount to {_resourcesBalance[unit.Type]}");
             }
 
-            _signalBus.Fire(new ResourcesBalanceUpdatedSignal { ResourcesBalance = _resourcesBalance });
+            OnBalanceChanged();
+        }
+
+        private void OnProductionChnaged()
+        {
+            _productionSignal.Period = _period;
+            _signalBus.Fire(_productionSignal);
+        }
+
+        private void OnBalanceChanged()
+        {
+            _signalBus.Fire(_balanceSignal);
         }
 
         public bool HasResources(ResourceUnit<float>[] needs)

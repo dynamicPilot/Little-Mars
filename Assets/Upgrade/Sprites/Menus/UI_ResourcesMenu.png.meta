@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4f5230a931ccc27448d8dc1bdc84708e
+guid: e130d78f3a571584aa092c6055807fcc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,43 +117,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_SlotBackground_0
+      name: UI_ResourcesMenu
       rect:
         serializedVersion: 2
-        x: 0
-        y: 12
-        width: 32
-        height: 20
+        x: 9
+        y: 36
+        width: 102
+        height: 88
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 3, y: 0, z: 4, w: 0}
+      border: {x: 10, y: 35, z: 12, w: 28}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e09120215165524caed4ca70cb60ac8
-      internalID: 2074528684
+      spriteID: d9d07d0ef9d3a354a8ea2977f50b7c96
+      internalID: -1916642677
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_SlotBackground_1
+      name: UI_ResourcesMenu_InnerShadow
       rect:
         serializedVersion: 2
-        x: 0
-        y: 9
-        width: 32
-        height: 23
+        x: 9
+        y: 4
+        width: 84
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 3, y: 7, z: 4, w: 0}
+      border: {x: 4, y: 2, z: 2, w: 4}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 855c04300954fc34a8e241fa20a0a22f
-      internalID: 897017176
+      spriteID: bbb91a21841e2b2499306f916fea4c72
+      internalID: 1325244636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Line
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 1
+        width: 51
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 6, y: 0, z: 7, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed1522fa7bbc29041a048012d436956d
+      internalID: -381966047
       vertices: []
       indices: 
       edges: []
@@ -169,8 +190,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_SlotBackground_1: 897017176
-      UI_SlotBackground_0: 2074528684
+      UI_ResourcesMenu_InnerShadow: 1325244636
+      UI_Line: -381966047
+      UI_ResourcesMenu: -1916642677
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

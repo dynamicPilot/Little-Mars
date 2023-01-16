@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0a74198d479128e41af0fddad4aa6d14
+guid: 4f5230a931ccc27448d8dc1bdc84708e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -49,7 +49,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -117,64 +117,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_ResourcesMenu
+      name: UI_SlotBackground_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 44
-        width: 102
-        height: 84
+        x: 0
+        y: 12
+        width: 32
+        height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 10, y: 33, z: 12, w: 25}
+      border: {x: 3, y: 0, z: 4, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f13250a8e5c1904eabe38e20251b2f8
-      internalID: 522105043
+      spriteID: 5e09120215165524caed4ca70cb60ac8
+      internalID: 2074528684
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_ResourcesMenu_InnerShadow
+      name: UI_SlotBackground_1
       rect:
         serializedVersion: 2
-        x: 9
-        y: 5
-        width: 84
-        height: 29
+        x: 0
+        y: 9
+        width: 32
+        height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 4, y: 2, z: 2, w: 4}
+      border: {x: 3, y: 7, z: 4, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cac3ae297d2aee9499ea49ee084073bc
-      internalID: 192050558
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Line
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 2
-        width: 51
-        height: 1
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 6, y: 0, z: 7, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 84bbbf9ce8d44764cb634bd72929841d
-      internalID: -1237591880
+      spriteID: 855c04300954fc34a8e241fa20a0a22f
+      internalID: 897017176
       vertices: []
       indices: 
       edges: []
@@ -190,12 +169,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_ResourcesMenu_InnerShadow: 192050558
-      UI_Line: -1237591880
-      UI_ResourcesMenu: 522105043
+      UI_SlotBackground_1: 897017176
+      UI_SlotBackground_0: 2074528684
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 1
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

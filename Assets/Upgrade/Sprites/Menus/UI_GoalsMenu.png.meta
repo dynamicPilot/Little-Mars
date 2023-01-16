@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9f7d4464cf8daa5418920d6909679740
+guid: dbe6ac507015cf74783c0a07c3eacbae
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -49,7 +49,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -117,148 +117,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_Sign_meal
+      name: UI_GoalsMenu
       rect:
         serializedVersion: 2
-        x: 2
-        y: 19
-        width: 11
-        height: 11
+        x: 12
+        y: 20
+        width: 141
+        height: 88
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 12, y: 35, z: 11, w: 33}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce0f0dee35b9c3447b1089a76f5d26be
-      internalID: 955785522
+      spriteID: f7856b60310ce904fb1a40e283f7e841
+      internalID: 1587081041
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Sign_energy
+      name: UI_GoalSlot
       rect:
         serializedVersion: 2
-        x: 21
-        y: 19
-        width: 11
-        height: 11
+        x: 165
+        y: 92
+        width: 32
+        height: 6
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 11, y: 0, z: 4, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91ed6ed424d5c63448bb6ef14df140a5
-      internalID: 425383175
+      spriteID: f2aabe10c3f454e429895796d1e5b018
+      internalID: 571457744
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Sign_money
+      name: UI_LightLine_on
       rect:
         serializedVersion: 2
-        x: 32
-        y: 19
-        width: 11
-        height: 11
+        x: 212
+        y: 60
+        width: 28
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 11, y: 12, z: 11, w: 11}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 793ee4bba921e984fb0033aafcc83e9b
-      internalID: -1619362539
+      spriteID: 4991af92f3951c8499fcccc9b278b99f
+      internalID: -1649054203
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Sign_metal
+      name: UI_LightLine_off
       rect:
         serializedVersion: 2
-        x: 44
-        y: 19
-        width: 11
-        height: 11
+        x: 212
+        y: 17
+        width: 28
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 11, y: 12, z: 11, w: 11}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09922f8b350f04e40b1fed0ad138ebd7
-      internalID: 62905270
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Sign_machines
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 6
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d644945d2324f80488f8918888f970e2
-      internalID: 308360067
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Sign_box
-      rect:
-        serializedVersion: 2
-        x: 14
-        y: 6
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6cffbb61bce9b374bbd32d631bdb1584
-      internalID: -1938603965
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Sign_water
-      rect:
-        serializedVersion: 2
-        x: 28
-        y: 6
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 62b6a4e89b320a44594e526ae3a84513
-      internalID: -1036831400
+      spriteID: 58727e62374cf0c41a811f5f257f8a25
+      internalID: 1214099453
       vertices: []
       indices: 
       edges: []
@@ -274,17 +211,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_Sign_metal: 62905270
-      UI_Sign_machines: 308360067
-      UI_Sign_meal: 955785522
-      UI_Sign_water: -1036831400
-      UI_Sign_energy: 425383175
-      UI_ResourcesSign_1: 1196477478
-      UI_Sign_box: -1938603965
-      UI_Sign_money: -1619362539
+      UI_GoalSlot: 571457744
+      UI_GoalsMenu: 1587081041
+      UI_LightLine_off: 1214099453
+      UI_LightLine_on: -1649054203
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 1
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

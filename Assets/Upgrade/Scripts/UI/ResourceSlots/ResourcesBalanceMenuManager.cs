@@ -47,22 +47,22 @@ namespace LittleMars.UI.ResourceSlots
         {
             if (_slots == null) return;
 
-            //foreach (Resource resource in args.ResourcesBalance.Keys)
-            //{
-            //    if (!_slots.ContainsKey(resource)) continue;
-            //    _slots[resource].UpdateSlot(args.ResourcesBalance[resource]);
-            //}
+            foreach (Resource resource in args.Production.Keys)
+            {
+                if (!_slots.ContainsKey(resource)) continue;
+                _slots[resource].UpdatePlusValue(args.Production[resource][args.Period]);
+            }
         }
 
         private void UpdateNeedsForSlots(ResourcesNeedsChangedSignal args)
         {
             if (_slots == null) return;
 
-            //foreach (Resource resource in args.ResourcesBalance.Keys)
-            //{
-            //    if (!_slots.ContainsKey(resource)) continue;
-            //    _slots[resource].UpdateSlot(args.ResourcesBalance[resource]);
-            //}
+            foreach (Resource resource in args.Needs.Keys)
+            {
+                if (!_slots.ContainsKey(resource)) continue;
+                _slots[resource].UpdateMinusValue(args.Needs[resource]);
+            }
         }
     }
 }

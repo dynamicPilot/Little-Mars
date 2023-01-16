@@ -26,4 +26,39 @@ namespace LittleMars.UI.ResourceSlots
             return slot;
         }
     }
+
+    public interface ISetSlot
+    {
+        void SetSlot(SlotUI slot, int type);
+    }
+
+    public class ResourceSlotUISetter : ISetSlot
+    {
+        readonly IconsCatalogue _catalogue;
+
+        public ResourceSlotUISetter(IconsCatalogue catalogue)
+        {
+            _catalogue = catalogue;
+        }
+
+        public void SetSlot(SlotUI slot, int typeIndex)
+        {
+            slot.SetSlot(_catalogue.ResourceIcon((Resource)typeIndex));
+        }
+    }
+
+    public class BuildingSlotUISetter : ISetSlot
+    {
+        readonly IconsCatalogue _catalogue;
+
+        public BuildingSlotUISetter(IconsCatalogue catalogue)
+        {
+            _catalogue = catalogue;
+        }
+
+        public void SetSlot(SlotUI slot, int typeIndex)
+        {
+            //slot.SetSlot(_catalogue.ResourceIcon((Resource)typeIndex));
+        }
+    }
 }

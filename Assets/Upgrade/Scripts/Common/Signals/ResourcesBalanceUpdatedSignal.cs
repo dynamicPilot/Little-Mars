@@ -10,6 +10,7 @@ namespace LittleMars.Common.Signals
     public struct ResourcesProductionChangedSignal
     {
         public Dictionary<Resource, Dictionary<Period, float>> Production;
+        public Period Period;
     }
 
     public struct ResourcesNeedsChangedSignal
