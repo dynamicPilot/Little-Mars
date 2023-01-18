@@ -14,16 +14,25 @@ namespace LittleMars.Model.Trackers
         readonly Goal<BuildingUnit<int>> _goal;
         
         List<IBuildingFacade> _buildings;
+        GoalUpdatedSignal _onUpdateSignal;
+        //int _index = 0;
 
-        public BuildingGoalTracker(Goal<BuildingUnit<int>> goal, SignalBus signalBus)
+        public BuildingGoalTracker(Goal<BuildingUnit<int>> goal, int index, SignalBus signalBus)
         {
             _goal = goal;
+            //_index = index;
             _signalBus = signalBus;
 
             _isDone = false;
             _buildings = new List<IBuildingFacade>();
             _signalBus.Subscribe<BuildingStateChangedSignal>(OnBuildingStateChanged);
             _signalBus.Subscribe<RemoveBuildingSignal>(OnRemoveBuilding);
+
+            _onUpdateSignal = new GoalUpdatedSignal
+            {
+                Index = index,
+                Values = new float[1] { 0 }
+            };
         }
 
         private void OnBuildingStateChanged(BuildingStateChangedSignal args)
@@ -35,7 +44,7 @@ namespace LittleMars.Model.Trackers
 
             if (building.State() == ProductionState.on && !_buildings.Contains(building))
             {
-                _buildings.Add(building);
+                _buildings.Add(building);                
             }
             else if (building.State() == ProductionState.off && _buildings.Contains(building)
                 && info.Type == BuildingType.dome)
@@ -45,6 +54,7 @@ namespace LittleMars.Model.Trackers
             }
             else return;
 
+            OnGoalUpdated();
             CheckIsDone(_buildings.Count >= _goal.Unit.Amount);
         }
 
@@ -55,7 +65,15 @@ namespace LittleMars.Model.Trackers
             if (!_buildings.Contains(building)) return;
 
             _buildings.Remove(building);
+            OnGoalUpdated();
             CheckIsDone(_buildings.Count >= _goal.Unit.Amount);
+        }
+
+        public override void OnGoalUpdated()
+        {
+            Debug.Log("Fire Signal for index " + _onUpdateSignal.Index);
+            _onUpdateSignal.Values[0] = _buildings.Count;
+            _signalBus.Fire(_onUpdateSignal);
         }
     }
 }

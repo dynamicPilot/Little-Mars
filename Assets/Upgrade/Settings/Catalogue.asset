@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae5ee23f2094cf409e904250f189611, type: 3}
   m_Name: Catalogue
   m_EditorClassIdentifier: 
-  Icons:
+  Resources:
     Energy: {fileID: 425383175, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
     Supply: {fileID: -1036831400, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
     Food: {fileID: 955785522, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
@@ -20,3 +20,11 @@ MonoBehaviour:
     Machines: {fileID: 308360067, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
     Goods: {fileID: -1938603965, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
     Money: {fileID: -1619362539, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
+  Buildings:
+    Dome: {fileID: 1937459234, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
+    SolarPlant: {fileID: 1047183583, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
+    SupplyUnit: {fileID: -1542091369, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
+    Farm: {fileID: -1590278226, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
+    Mine: {fileID: 1093994708, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
+    Factory: {fileID: 1219344384, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
+    Workshop: {fileID: 1395761084, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}

@@ -21,6 +21,8 @@ using LittleMars.Common.LevelGoal;
 using LittleMars.Model.Trackers;
 using LittleMars.UI.ResourceSlots;
 using LittleMars.Slots.UI;
+using LittleMars.UI.SlotUIFactories;
+using LittleMars.UI.GoalSlots;
 
 namespace LittleMars.Installers
 {
@@ -109,11 +111,11 @@ namespace LittleMars.Installers
             Container.BindFactory<GoalsTrackerProvider<BuildingUnit<int>>, GoalsTrackerProvider<BuildingUnit<int>>.Factory>().WhenInjectedInto<GoalsManager>();
             Container.BindFactory<GoalsTrackerProvider<ResourceUnit<float>>, GoalsTrackerProvider<ResourceUnit<float>>.Factory>().WhenInjectedInto<GoalsManager>();
 
-            Container.BindFactory<Goal<BuildingUnit<int>>, IGoalTracker, TrackerFactory<BuildingUnit<int>>>()
+            Container.BindFactory<Goal<BuildingUnit<int>>, int, IGoalTracker, TrackerFactory<BuildingUnit<int>>>()
                 .To<BuildingGoalTracker>()
                 .WhenInjectedInto<GoalsTrackerProvider<BuildingUnit<int>>>();
 
-            Container.BindFactory<GoalWithTime<BuildingUnit<int>>, IGoalTracker, TrackerFactoryWithTimer<BuildingUnit<int>>>()
+            Container.BindFactory<GoalWithTime<BuildingUnit<int>>, int, IGoalTracker, TrackerFactoryWithTimer<BuildingUnit<int>>>()
                 .To<BuildingGoalTrackerWithTimer>()
                 .WhenInjectedInto<GoalsTrackerProvider<BuildingUnit<int>>>();
         }
@@ -159,21 +161,48 @@ namespace LittleMars.Installers
         {
             // PlacementMenuUI, GameUI -> bind via ZenjectBuinding Component -> GameUI object
 
+            Container.Bind<ResourceSlotUISetter>().AsCached();
+            Container.Bind<BuildingSlotUISetter>().AsCached();
+
+            Container.Bind<ISetSlot>().To<ResourceSlotUISetter>().WhenInjectedInto<SlotUIFactory<ResourceSlotUI>>();            
+            Container.Bind<ISetSlot>().To<ResourceSlotUISetter>().WhenInjectedInto<SlotUIFactory<ResourceBalanceSlotUI>>();
+            Container.Bind<ISetSlot>().To<ResourceSlotUISetter>().WhenInjectedInto<SlotUIFactory<ResourceGoalSlotUI>>();
+
+            Container.Bind<ISetSlot>().To<BuildingSlotUISetter>().WhenInjectedInto<SlotUIFactory<GoalSlotUI>>();
+
             Container.BindInterfacesAndSelfTo<ResourceSlotMenuManager>().AsSingle();
             Container.BindInterfacesAndSelfTo<ResourcesBalanceMenuManager>().AsSingle();
-            //Container.Bind<ResourceSlotUIFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GoalSlotMenuManager>().AsSingle();
+
+            Container.Bind<GoalSlotsUIFactory>().AsSingle();
 
             Container.Bind<SlotUIFactory<ResourceSlotUI>>().AsSingle().NonLazy();
             Container.Bind<SlotUIFactory<ResourceBalanceSlotUI>>().AsSingle().NonLazy();
-            //Container.Bind(typeof(SlotUIFactory<>)).AsSingle().NonLazy();
+            Container.Bind<SlotUIFactory<GoalSlotUI>>().AsSingle().NonLazy();
+            Container.Bind<SlotUIFactory<ResourceGoalSlotUI>>().AsSingle().NonLazy();
+
+            Container.BindFactory<BuildingGoalSlotsUIFactory, BuildingGoalSlotsUIFactory.Factory>().AsSingle();
+            Container.BindFactory<ResourceGoalSlotsUIFactory, ResourceGoalSlotsUIFactory.Factory>().AsSingle();
 
             Container.BindFactory<ResourceSlotUI, PlaceholderFactory<ResourceSlotUI>>()
                 .FromComponentInNewPrefab(_settings.ResourceSlotPrefab)
-                .WithGameObjectName("ResourceSlot");
+                .WithGameObjectName("ResourceSlot")
+                .WhenInjectedInto<SlotUIFactory<ResourceSlotUI>>();
 
             Container.BindFactory<ResourceBalanceSlotUI, PlaceholderFactory<ResourceBalanceSlotUI>>()
                 .FromComponentInNewPrefab(_settings.ResourceBalanceSlotPrefab)
-                .WithGameObjectName("ResourceSlot");
+                .WithGameObjectName("ResourceSlot")
+                .WhenInjectedInto<SlotUIFactory<ResourceBalanceSlotUI>>();
+
+            Container.BindFactory<GoalSlotUI, PlaceholderFactory<GoalSlotUI>>()
+                .FromComponentInNewPrefab(_settings.BuildingGoalSlotPrefab)
+                .WithGameObjectName("BuildingGoalSlot")
+                .WhenInjectedInto<SlotUIFactory<GoalSlotUI>>();
+
+            Container.BindFactory<ResourceGoalSlotUI, PlaceholderFactory<ResourceGoalSlotUI>>()
+                .FromComponentInNewPrefab(_settings.ResourceGoalSlotPrefab)
+                .WithGameObjectName("ResourceGoalSlot")
+                .WhenInjectedInto<SlotUIFactory<ResourceGoalSlotUI>>();
         }
 
         private void InstallSignals()
@@ -194,6 +223,7 @@ namespace LittleMars.Installers
             Container.DeclareSignal<HourlySignal>();
 
             Container.DeclareSignal<GoalToWinIsDoneSignal>();
+            Container.DeclareSignal<GoalUpdatedSignal>();
 
             Container.DeclareSignal<ResourcesBalanceUpdatedSignal>();
             Container.DeclareSignal<ResourcesProductionChangedSignal>();
@@ -208,6 +238,8 @@ namespace LittleMars.Installers
             public GameObject BuildingSlotPrefab;
             public GameObject ResourceSlotPrefab;
             public GameObject ResourceBalanceSlotPrefab;
+            public GameObject BuildingGoalSlotPrefab;
+            public GameObject ResourceGoalSlotPrefab;
         }
     }
 }

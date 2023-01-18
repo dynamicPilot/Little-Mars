@@ -1,6 +1,6 @@
 ﻿using LittleMars.Common;
-using LittleMars.Common.LevelGoal;
 using LittleMars.Map;
+using LittleMars.Model;
 using System;
 using UnityEngine;
 using Zenject;

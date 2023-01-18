@@ -15,7 +15,13 @@ namespace LittleMars.Common
 
         public Sprite ResourceIcon(Resource type)
         {
-            return _settings.Catalogue.ResourceIcon(type);
+            return _settings.Catalogue.Icon((int)type, IconType.resource);
+        }
+
+        public Sprite BuildingIcon(BuildingType type)
+        {
+            Debug.Log("Need buildingIcon " + type);
+            return _settings.Catalogue.Icon((int)type, IconType.building);
         }
 
         [Serializable]

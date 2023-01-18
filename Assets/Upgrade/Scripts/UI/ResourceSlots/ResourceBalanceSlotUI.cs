@@ -19,7 +19,7 @@ namespace LittleMars.UI.ResourceSlots
             _minusCounter.text = "-0";
         }
 
-        public void UpdateSlot(float plusNumber, float minusNumber)
+        public virtual void UpdateSlot(float plusNumber, float minusNumber)
         {
             UpdatePlusValue(plusNumber);
             UpdateMinusValue(minusNumber);
@@ -33,11 +33,6 @@ namespace LittleMars.UI.ResourceSlots
         public void UpdateMinusValue(float number)
         {
             _minusCounter.text = string.Format($"{_minusPrefix}{number.ToString(_format)}");
-        }
-
-        public class Factory : PlaceholderFactory<ResourceBalanceSlotUI>
-        {
-
         }
     }
 }

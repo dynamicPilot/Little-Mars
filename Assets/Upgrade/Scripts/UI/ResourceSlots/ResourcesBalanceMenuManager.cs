@@ -1,5 +1,6 @@
 ﻿using LittleMars.Common;
 using LittleMars.Common.Signals;
+using LittleMars.UI.SlotUIFactories;
 using System;
 using System.Collections.Generic;
 using Zenject;
@@ -39,7 +40,7 @@ namespace LittleMars.UI.ResourceSlots
             _slots = new Dictionary<Resource, ResourceBalanceSlotUI>();
 
             for (int i = 0; i < (int)Resource.all; i++)
-                _slots.Add((Resource)i, _factory.CreateSlot((Resource)i, _gameUI.ResourceBalanceSlotParent));
+                _slots.Add((Resource)i, _factory.CreateSlot(i, _gameUI.ResourceBalanceSlotParent));
         }
 
 

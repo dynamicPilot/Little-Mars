@@ -81,5 +81,11 @@
         win,
         lose
     }
+
+    public enum IconType
+    {
+        resource,
+        building
+    }
 }
 

@@ -1,11 +1,13 @@
-﻿using LittleMars.Common.Interfaces;
+﻿using LittleMars.Common;
+using LittleMars.Common.Interfaces;
+using LittleMars.Common.LevelGoal;
 using LittleMars.Model.Interfaces;
 using LittleMars.Model.Trackers;
 using System;
 using System.Collections.Generic;
 using Zenject;
 
-namespace LittleMars.Common.LevelGoal
+namespace LittleMars.Model
 {
     public class GoalsManager : IInitializable
     {
@@ -14,6 +16,7 @@ namespace LittleMars.Common.LevelGoal
         readonly GoalsTrackerProvider<ResourceUnit<float>>.Factory _resourcesProviderFactory;
 
         List<IGoalTracker> _trackers;
+
         public GoalsManager(Settings settings,
             GoalsTrackerProvider<BuildingUnit<int>>.Factory buildingProviderFactory,
             GoalsTrackerProvider<ResourceUnit<float>>.Factory resourcesProviderFactory)
@@ -32,26 +35,27 @@ namespace LittleMars.Common.LevelGoal
 
         private void CreateTrackers()
         {
+            int currentIndex = 0;
             if (_settings.HasBuildingGoals || _settings.HasBuildingGoalsWithTimer)
             {
                 using var buildingProvider = _buildingProviderFactory.Create();
 
                 if (_settings.HasBuildingGoals)
-                    _trackers.AddRange(buildingProvider.CreateTrackers(_settings.BuildingGoals));
+                    _trackers.AddRange(buildingProvider.CreateTrackers(_settings.BuildingGoals, ref currentIndex));
 
                 if (_settings.HasBuildingGoalsWithTimer)
-                    _trackers.AddRange(buildingProvider.CreateTrackersWithTimer(_settings.BuildingGoalsWithTimers));
+                    _trackers.AddRange(buildingProvider.CreateTrackersWithTimer(_settings.BuildingGoalsWithTimers, ref currentIndex));
             }
 
             if (_settings.HasProductionGoals || _settings.HasResourcesGoals)
             {
-                using var productionProvider = _resourcesProviderFactory.Create();
+                //using var productionProvider = _resourcesProviderFactory.Create();
 
-                if (_settings.HasProductionGoals)
-                    _trackers.AddRange(productionProvider.CreateTrackers(_settings.ProductionGoals));
+                //if (_settings.HasProductionGoals)
+                //    _trackers.AddRange(productionProvider.CreateTrackers(_settings.ProductionGoals));
 
-                if (_settings.HasResourcesGoals)
-                    _trackers.AddRange(productionProvider.CreateTrackers(_settings.ResourceGoals));
+                //if (_settings.HasResourcesGoals)
+                //    _trackers.AddRange(productionProvider.CreateTrackers(_settings.ResourceGoals));
             }
         }
 

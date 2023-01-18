@@ -14,11 +14,14 @@ namespace LittleMars.Model.Trackers
 
         List<IBuildingFacade> _buildings;
 
+        int _index = 0;
         float _timer = 0f;
         bool _hasEnoughBuildings = false;
-        public BuildingGoalTrackerWithTimer(GoalWithTime<BuildingUnit<int>> goal, SignalBus signalBus)
+
+        public BuildingGoalTrackerWithTimer(GoalWithTime<BuildingUnit<int>> goal, int index, SignalBus signalBus)
         {
             _goal = goal;
+            _index = index; 
             _signalBus = signalBus;
 
             _buildings = new List<IBuildingFacade>();

@@ -22,7 +22,7 @@ namespace LittleMars.Model.Trackers
             _trackerFactoryWithTimer = trackerFactoryWithTimer;
         }
 
-        public List<IGoalTracker> CreateTrackers(Goals<T> goals)
+        public List<IGoalTracker> CreateTrackers(Goals<T> goals, ref int currentIndex)
         {
             if (goals.GoalsArray == null || goals.GoalsArray.Length == 0) return null;
 
@@ -30,15 +30,15 @@ namespace LittleMars.Model.Trackers
 
             for (int i = 0; i < goals.GoalsArray.Length; i++)
             {
-                trackers.Add(_trackerFactory.Create(goals.GoalsArray[i]));
-
+                trackers.Add(_trackerFactory.Create(goals.GoalsArray[i], currentIndex));
+                currentIndex++;
                 Debug.Log("Create tracker for goal");
             }
 
             return trackers;
         }
 
-        public List<IGoalTracker> CreateTrackersWithTimer(GoalsWithTimer<T> goals)
+        public List<IGoalTracker> CreateTrackersWithTimer(GoalsWithTimer<T> goals, ref int currentIndex)
         {
             if (goals.GoalsArray == null || goals.GoalsArray.Length == 0 ||
                 _trackerFactoryWithTimer == null) return null;
@@ -46,8 +46,8 @@ namespace LittleMars.Model.Trackers
             var trackers = new List<IGoalTracker>();
             for (int i = 0; i < goals.GoalsArray.Length; i++)
             {
-                trackers.Add(_trackerFactoryWithTimer.Create(goals.GoalsArray[i]));
-
+                trackers.Add(_trackerFactoryWithTimer.Create(goals.GoalsArray[i], currentIndex));
+                currentIndex++;
                 Debug.Log("Create tracker for goal");
             }
 

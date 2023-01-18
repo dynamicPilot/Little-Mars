@@ -5,4 +5,9 @@
         bool Check();
     }
 
+    public interface IOnGoalUpdated
+    {
+        void OnGoalUpdated();
+    }
+
 }

@@ -20,14 +20,9 @@ namespace LittleMars.UI.ResourceSlots
             _counter.text = "0";
         }
 
-        public void UpdateSlot(float number)
+        public virtual void UpdateSlot(float number)
         {
             _counter.text = number.ToString("F0");
-        }
-
-        public class Factory : PlaceholderFactory<ResourceSlotUI>
-        {
-
         }
     }
 }
