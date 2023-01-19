@@ -33,6 +33,11 @@ namespace LittleMars.UI.GoalSlots
                     slots.AddRange(buildingFactory.CreateSlots(_settings.BuildingGoals, container, ref siblingIndex));
                 }
 
+                if (_settings.HasBuildingGoalsWithTimer)
+                {
+                    slots.AddRange(buildingFactory.CreateWithTimeSlots(_settings.BuildingGoalsWithTimers, container, ref siblingIndex));
+                }
+
             }
 
             if (_settings.HasProductionGoals || _settings.HasResourcesGoals)

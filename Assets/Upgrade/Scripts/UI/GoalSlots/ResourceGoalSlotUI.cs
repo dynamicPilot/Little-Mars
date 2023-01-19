@@ -1,15 +1,17 @@
-﻿using LittleMars.Common;
+﻿using LittleMars.UI.SlotUIFactories;
 using Zenject;
+using UnityEngine;
 
 namespace LittleMars.UI.GoalSlots
 {
     public class ResourceGoalSlotUI : GoalSlotUI
     {
-        public void SetGoalType(GoalType type)
+        [SerializeField] private SlotUI _goalTypeSlot;
+        public void SetGoalType(ISetSlot setter, int type)
         {
-
+            setter.SetSlot(_goalTypeSlot, type);
         }
-        public new class Factory : PlaceholderFactory<ResourceGoalSlotUI>
+        public class Factory : PlaceholderFactory<ResourceGoalSlotUI>
         {
         }
     }

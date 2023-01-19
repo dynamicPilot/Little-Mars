@@ -73,7 +73,8 @@
     {
         resources,
         production,
-        building
+        building,
+        time
     }
 
     public enum ResultType
@@ -85,7 +86,14 @@
     public enum IconType
     {
         resource,
-        building
+        building,
+        goalType
+    }
+
+    public enum MenuInitType
+    {
+        resources,
+        goals
     }
 }
 

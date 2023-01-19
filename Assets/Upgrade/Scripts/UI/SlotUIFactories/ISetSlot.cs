@@ -1,4 +1,6 @@
-﻿namespace LittleMars.UI.SlotUIFactories
+﻿using UnityEngine;
+
+namespace LittleMars.UI.SlotUIFactories
 {
     public interface ISetSlot
     {

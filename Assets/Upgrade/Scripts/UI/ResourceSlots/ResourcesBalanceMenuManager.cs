@@ -12,7 +12,9 @@ namespace LittleMars.UI.ResourceSlots
         readonly SlotUIFactory<ResourceBalanceSlotUI> _factory;
         readonly SignalBus _signalBus;
         readonly GameUI _gameUI;
+
         Dictionary<Resource, ResourceBalanceSlotUI> _slots = null;
+        MenuInitType _initType = MenuInitType.resources;
 
         public ResourcesBalanceMenuManager(SlotUIFactory<ResourceBalanceSlotUI> factory, 
             SignalBus signalBus, GameUI gameUI)
@@ -24,15 +26,25 @@ namespace LittleMars.UI.ResourceSlots
 
         public void Initialize()
         {
-            CreateSlots();
+            //CreateSlots();
             _signalBus.Subscribe<ResourcesProductionChangedSignal>(UpdateProductionForSlots);
             _signalBus.Subscribe<ResourcesNeedsChangedSignal>(UpdateNeedsForSlots);
+
+            _signalBus.Subscribe<NeedMenuInitSignal>(OnNeedInit);
         }
 
         public void Dispose()
         {
             _signalBus.TryUnsubscribe<ResourcesProductionChangedSignal>(UpdateProductionForSlots);
             _signalBus.TryUnsubscribe<ResourcesNeedsChangedSignal>(UpdateNeedsForSlots);
+        }
+
+        private void OnNeedInit(NeedMenuInitSignal args)
+        {
+            if (args.Type != _initType) return;
+
+            CreateSlots();
+            _signalBus.Unsubscribe<NeedMenuInitSignal>(OnNeedInit);
         }
 
         private void CreateSlots()

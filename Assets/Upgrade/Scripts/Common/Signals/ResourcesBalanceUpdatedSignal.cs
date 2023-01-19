@@ -17,4 +17,9 @@ namespace LittleMars.Common.Signals
     {
         public Dictionary<Resource, float> Needs;
     }
+
+    public struct TotalProductionChangedSignal
+    {
+        public Dictionary<Resource, float> TotalProdution;
+    }
 }

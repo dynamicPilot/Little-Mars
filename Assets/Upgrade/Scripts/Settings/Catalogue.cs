@@ -10,9 +10,11 @@ namespace LittleMars.Common
     {
         [SerializeField] private ResourceIconsSettings Resources;
         [SerializeField] private BuildingIconsSettings Buildings;
+        [SerializeField] private GoalTypeIconsSetting Goal;
 
         private Dictionary<int, Sprite> _resourceIcons = null;
         private Dictionary<int, Sprite> _buildingIcons = null;
+        private Dictionary<int, Sprite> _goalTypeIcons = null;
 
         [Serializable]
         public class ResourceIconsSettings
@@ -36,6 +38,14 @@ namespace LittleMars.Common
             public Sprite Mine;
             public Sprite Factory;
             public Sprite Workshop;
+        }
+
+        [Serializable]
+        public class GoalTypeIconsSetting
+        {
+            public Sprite Storage;
+            public Sprite Production;
+            public Sprite Time;
         }
 
         private void CreateResourceDictionary()
@@ -64,6 +74,15 @@ namespace LittleMars.Common
 
         }
 
+        private void CreateGoalTypeDictionary()
+        {
+            _goalTypeIcons = new Dictionary<int, Sprite>();
+
+            _goalTypeIcons.Add((int) GoalType.resources, Goal.Storage);
+            _goalTypeIcons.Add((int)GoalType.production, Goal.Production);
+            _goalTypeIcons.Add((int)GoalType.time, Goal.Time);
+        }
+
         public Sprite Icon(int index, IconType type)
         {
             if (type == IconType.resource)
@@ -75,6 +94,11 @@ namespace LittleMars.Common
             {
                 if (_buildingIcons == null) CreateBuildingDictionary();
                 return GetIcon(index, _buildingIcons);
+            }
+            else if (type == IconType.goalType)
+            {
+                if (_goalTypeIcons == null) CreateGoalTypeDictionary();
+                return GetIcon(index, _goalTypeIcons);
             }
             else
             {

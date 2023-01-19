@@ -7,4 +7,9 @@ namespace LittleMars.UI.GoalSlots
         void UpdateSlot(GoalUpdatedSignal args);
     }
 
+    public interface ISetSize
+    {
+        void SetSize(int index);
+    }
+
 }

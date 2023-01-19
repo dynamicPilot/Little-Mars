@@ -32,7 +32,6 @@ namespace LittleMars.UI.ResourceSlots
             _signalBus.TryUnsubscribe<ResourcesBalanceUpdatedSignal>(UpdateSlots);
         }
 
-
         private void CreateSlots()
         {
             _slots = new Dictionary<Resource, ResourceSlotUI>();
@@ -41,7 +40,6 @@ namespace LittleMars.UI.ResourceSlots
                 _slots.Add((Resource)i, _factory.CreateSlot(i, _gameUI.ResourceSlotParent));
             }
         }
-
 
         private void UpdateSlots(ResourcesBalanceUpdatedSignal args)
         {

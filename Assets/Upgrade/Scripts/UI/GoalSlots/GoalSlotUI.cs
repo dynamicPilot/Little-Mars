@@ -1,5 +1,5 @@
-using LittleMars.Common;
 using LittleMars.Common.Signals;
+using LittleMars.UI.Effects;
 using LittleMars.UI.ResourceSlots;
 using TMPro;
 using UnityEngine;
@@ -11,6 +11,7 @@ namespace LittleMars.UI.GoalSlots
     {
         // icon, current number - resource slot
         [SerializeField] private TextMeshProUGUI _targetCounter;
+        [SerializeField] private ProgressIndicatorUI _indicator;
         // indicator
         float _targetValue;
         string _format = "F0";
@@ -20,24 +21,20 @@ namespace LittleMars.UI.GoalSlots
             _targetValue = targetValue;
             _targetCounter.text = _targetValue.ToString(_format);
             // update indicator
-        }
-
-        public override void UpdateSlot(float number)
-        {
-            base.UpdateSlot(number);
-
+            _indicator.SetTargetValue(targetValue);
         }
 
         public void UpdateSlot(GoalUpdatedSignal args)
         {
             if (args.Values.Length == 0) return;
-            Debug.Log("UPDATE!!!");
-            UpdateSlot(args.Values[0]);
+
+            base.UpdateSlot(args.Values[0]);
+            _indicator.UpdateIndicator(args.Values[0]);
         }
 
-        public class Factory : PlaceholderFactory<GoalSlotUI>
-        {
-        }
+        //public class Factory : PlaceholderFactory<GoalSlotUI>
+        //{
+        //}
     }
 
     

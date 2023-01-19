@@ -3,59 +3,19 @@ using LittleMars.Common.LevelGoal;
 using LittleMars.UI.SlotUIFactories;
 using System;
 using System.Collections.Generic;
-using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using Zenject;
 
 namespace LittleMars.UI.GoalSlots
 {
-    public class BuildingGoalSlotsUIFactory : IDisposable
-    {
-        readonly SlotUIFactory<GoalSlotUI> _factory;
-
-        public BuildingGoalSlotsUIFactory(SlotUIFactory<GoalSlotUI> factory)
-        {
-            _factory = factory;
-        }
-
-        public List<GoalSlotUI> CreateSlots(Goals<BuildingUnit<int>> goals, RectTransform container, 
-            ref int siblingIndex)
-        {
-            if (goals.GoalsArray == null || goals.GoalsArray.Length == 0) return null;
-
-            var slots = new List<GoalSlotUI>();
-
-            for (int i = 0; i < goals.GoalsArray.Length; i++)
-            {
-                slots.Add(CreateSlot(goals.GoalsArray[i], container, siblingIndex));
-                siblingIndex++;
-            }
-
-            return slots;
-        }
-
-        public GoalSlotUI CreateSlot(Goal<BuildingUnit<int>> goal, RectTransform container, int siblingIndex)
-        {
-            var slot = _factory.CreateSlot((int)goal.Unit.Type, container, siblingIndex);
-            slot.SetTargetValue(goal.Unit.Amount);
-            return slot;
-        }
-
-        public void Dispose()
-        {
-        }
-
-        public class Factory : PlaceholderFactory<BuildingGoalSlotsUIFactory>
-        { }
-    }
-
     public class ResourceGoalSlotsUIFactory : IDisposable
     {
         readonly SlotUIFactory<ResourceGoalSlotUI> _factory;
-
-        public ResourceGoalSlotsUIFactory(SlotUIFactory<ResourceGoalSlotUI> factory)
+        readonly ISetSlot _goalTypeSetter;
+        public ResourceGoalSlotsUIFactory(SlotUIFactory<ResourceGoalSlotUI> factory, ISetSlot goalTypeSetter)
         {
             _factory = factory;
+            _goalTypeSetter = goalTypeSetter;
         }
 
         public List<GoalSlotUI> CreateSlots(Goals<ResourceUnit<float>> goals, GoalType type, 
@@ -79,7 +39,7 @@ namespace LittleMars.UI.GoalSlots
         {
             var slot = _factory.CreateSlot((int)goal.Unit.Type, container, siblingIndex);
             slot.SetTargetValue(goal.Unit.Amount);
-            slot.SetGoalType(type);
+            slot.SetGoalType(_goalTypeSetter, (int) goal.Type);
             return slot;
         }
 

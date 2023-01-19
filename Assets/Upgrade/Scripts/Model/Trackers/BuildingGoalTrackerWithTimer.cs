@@ -2,26 +2,26 @@
 using LittleMars.Common.Interfaces;
 using LittleMars.Common.LevelGoal;
 using LittleMars.Common.Signals;
+using System;
 using System.Collections.Generic;
 using Zenject;
 
 namespace LittleMars.Model.Trackers
 {
-    public class BuildingGoalTrackerWithTimer : GoalTracker
+    public class BuildingGoalTrackerWithTimer : GoalTracker, IDisposable
     {
         readonly GoalWithTime<BuildingUnit<int>> _goal;
         readonly SignalBus _signalBus;
 
         List<IBuildingFacade> _buildings;
+        GoalUpdatedSignal _onUpdateSignal;
 
-        int _index = 0;
         float _timer = 0f;
         bool _hasEnoughBuildings = false;
 
         public BuildingGoalTrackerWithTimer(GoalWithTime<BuildingUnit<int>> goal, int index, SignalBus signalBus)
         {
             _goal = goal;
-            _index = index; 
             _signalBus = signalBus;
 
             _buildings = new List<IBuildingFacade>();
@@ -29,6 +29,12 @@ namespace LittleMars.Model.Trackers
             _hasEnoughBuildings = false;
 
             _signalBus.Subscribe<BuildingStateChangedSignal>(OnBuildingStateChanged);
+
+            _onUpdateSignal = new GoalUpdatedSignal
+            {
+                Index = index,
+                Values = new float[2] { 0f, 0f }
+            };
         }
 
 
@@ -49,6 +55,7 @@ namespace LittleMars.Model.Trackers
             }
             else return;
 
+            OnGoalUpdated();
             CheckBuildingCount();
         }
 
@@ -57,6 +64,7 @@ namespace LittleMars.Model.Trackers
         {
             _timer += 1f;
 
+            OnGoalUpdated();
             CheckIsDone(_timer >= _goal.Time);
             if (_isDone) StopTimer();
         }
@@ -70,6 +78,13 @@ namespace LittleMars.Model.Trackers
         private void StopTimer()
         {
             _signalBus.Unsubscribe<HourlySignal>(OnHourlySignal);
+        }
+
+        public override void OnGoalUpdated()
+        {
+            _onUpdateSignal.Values[0] = _buildings.Count;
+            _onUpdateSignal.Values[1] = _timer;
+            _signalBus.Fire(_onUpdateSignal);
         }
 
         private void CheckBuildingCount()
@@ -88,6 +103,11 @@ namespace LittleMars.Model.Trackers
             {
                 StopTimer();
             }
+        }
+
+        public void Dispose()
+        {
+            _signalBus.TryUnsubscribe<BuildingStateChangedSignal>(OnBuildingStateChanged);
         }
     }
 }

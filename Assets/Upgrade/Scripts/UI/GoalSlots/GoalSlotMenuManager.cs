@@ -24,7 +24,6 @@ namespace LittleMars.UI.GoalSlots
         public void Initialize()
         {
             _slots = _factory.CreateSlots(_gameUI.GoalsSlotParent);
-
             _signalBus.Subscribe<GoalUpdatedSignal>(OnGoalUpdated);
         }
         public void Dispose()

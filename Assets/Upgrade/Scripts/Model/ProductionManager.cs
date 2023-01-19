@@ -13,6 +13,7 @@ namespace LittleMars.Models
         Dictionary<Resource, float> _needs = null;
         Dictionary<Resource, Dictionary<Period, float>> _production = null;
         Dictionary<Resource, float> _resourcesBalance = null;
+        Dictionary<Resource, float> _totalProduction = null;
 
         ProductionHelper _helper;
         ResourcesBalancer _balancer;
@@ -39,6 +40,7 @@ namespace LittleMars.Models
         public void Initialize()
         {
             _helper.FillProduction(out _production);
+            _helper.FillResourceDict(out _totalProduction);
             _helper.FillResourceDict(out _needs);
             _helper.FillResourceDictWithResourceUnits(_settings.Resources, out _resourcesBalance);
 
@@ -96,6 +98,7 @@ namespace LittleMars.Models
                         Type = (Resource)i,
                         Amount = delta
                     };
+                    _totalProduction[(Resource)i] += _production[resource][_period];
                     //Debug.Log($" Update {resource}. After {_resourcesBalance[resource]}");
                 }
             }

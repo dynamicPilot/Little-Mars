@@ -108,16 +108,29 @@ namespace LittleMars.Installers
 
             // Container.BindFactory<IPathFindingStrategy, PathFindingStrategyFactory>().To<AStarPathFindingStrategy>();
             //Container.BindFactory<BuildingUnit<int>, IGoalTracker, TrackerFactory<BuildingUnit<int>>().To<BuildingGoalTracker>();
-            Container.BindFactory<GoalsTrackerProvider<BuildingUnit<int>>, GoalsTrackerProvider<BuildingUnit<int>>.Factory>().WhenInjectedInto<GoalsManager>();
-            Container.BindFactory<GoalsTrackerProvider<ResourceUnit<float>>, GoalsTrackerProvider<ResourceUnit<float>>.Factory>().WhenInjectedInto<GoalsManager>();
+            Container.BindFactory<GoalsTrackerProvider<BuildingUnit<int>, BuildingGoalTracker>, GoalsTrackerProvider<BuildingUnit<int>, BuildingGoalTracker>.Factory>().WhenInjectedInto<GoalsManager>();
+            
+            Container.BindFactory<GoalsTrackerProvider<ResourceUnit<float>, ResourceProductionGoalTracker>, 
+                GoalsTrackerProvider<ResourceUnit<float>, ResourceProductionGoalTracker>.Factory>().WhenInjectedInto<GoalsManager>();
+            
+            Container.BindFactory<GoalsTrackerProvider<ResourceUnit<float>, ResourceBalanceGoalTracker>,
+                GoalsTrackerProvider<ResourceUnit<float>, ResourceBalanceGoalTracker>.Factory>().WhenInjectedInto<GoalsManager>();
 
             Container.BindFactory<Goal<BuildingUnit<int>>, int, IGoalTracker, TrackerFactory<BuildingUnit<int>>>()
                 .To<BuildingGoalTracker>()
-                .WhenInjectedInto<GoalsTrackerProvider<BuildingUnit<int>>>();
+                .WhenInjectedInto<GoalsTrackerProvider<BuildingUnit<int>, BuildingGoalTracker>>();
 
             Container.BindFactory<GoalWithTime<BuildingUnit<int>>, int, IGoalTracker, TrackerFactoryWithTimer<BuildingUnit<int>>>()
                 .To<BuildingGoalTrackerWithTimer>()
-                .WhenInjectedInto<GoalsTrackerProvider<BuildingUnit<int>>>();
+                .WhenInjectedInto<GoalsTrackerProvider<BuildingUnit<int>, BuildingGoalTracker>>();
+
+            Container.BindFactory<Goal<ResourceUnit<float>>, int, IGoalTracker, TrackerFactory<ResourceUnit<float>>>()
+                .To<ResourceProductionGoalTracker>()
+                .WhenInjectedInto<GoalsTrackerProvider<ResourceUnit<float>, ResourceProductionGoalTracker>>();
+
+            Container.BindFactory<Goal<ResourceUnit<float>>, int, IGoalTracker, TrackerFactory<ResourceUnit<float>>>()
+                .To<ResourceBalanceGoalTracker>()
+                .WhenInjectedInto<GoalsTrackerProvider<ResourceUnit<float>, ResourceBalanceGoalTracker>>();
         }
 
         public void InstallBuildings()
@@ -168,7 +181,10 @@ namespace LittleMars.Installers
             Container.Bind<ISetSlot>().To<ResourceSlotUISetter>().WhenInjectedInto<SlotUIFactory<ResourceBalanceSlotUI>>();
             Container.Bind<ISetSlot>().To<ResourceSlotUISetter>().WhenInjectedInto<SlotUIFactory<ResourceGoalSlotUI>>();
 
-            Container.Bind<ISetSlot>().To<BuildingSlotUISetter>().WhenInjectedInto<SlotUIFactory<GoalSlotUI>>();
+            Container.Bind<ISetSlot>().To<BuildingSlotUISetter>().WhenInjectedInto<SlotUIFactory<BuildingGoalSlotUI>>();
+            Container.Bind<ISetSlot>().To<BuildingSlotUISetter>().WhenInjectedInto<SlotUIFactory<BuildingGoalWithTimerSlotUI>>();
+            
+            Container.Bind<ISetSlot>().To<GoalTypeUISetter>().WhenInjectedInto<ResourceGoalSlotsUIFactory>();
 
             Container.BindInterfacesAndSelfTo<ResourceSlotMenuManager>().AsSingle();
             Container.BindInterfacesAndSelfTo<ResourcesBalanceMenuManager>().AsSingle();
@@ -178,7 +194,9 @@ namespace LittleMars.Installers
 
             Container.Bind<SlotUIFactory<ResourceSlotUI>>().AsSingle().NonLazy();
             Container.Bind<SlotUIFactory<ResourceBalanceSlotUI>>().AsSingle().NonLazy();
-            Container.Bind<SlotUIFactory<GoalSlotUI>>().AsSingle().NonLazy();
+
+            Container.Bind<SlotUIFactory<BuildingGoalSlotUI>>().AsSingle().NonLazy();
+            Container.Bind<SlotUIFactory<BuildingGoalWithTimerSlotUI>>().AsSingle().NonLazy();
             Container.Bind<SlotUIFactory<ResourceGoalSlotUI>>().AsSingle().NonLazy();
 
             Container.BindFactory<BuildingGoalSlotsUIFactory, BuildingGoalSlotsUIFactory.Factory>().AsSingle();
@@ -194,10 +212,15 @@ namespace LittleMars.Installers
                 .WithGameObjectName("ResourceSlot")
                 .WhenInjectedInto<SlotUIFactory<ResourceBalanceSlotUI>>();
 
-            Container.BindFactory<GoalSlotUI, PlaceholderFactory<GoalSlotUI>>()
+            Container.BindFactory<BuildingGoalSlotUI, PlaceholderFactory<BuildingGoalSlotUI>>()
                 .FromComponentInNewPrefab(_settings.BuildingGoalSlotPrefab)
                 .WithGameObjectName("BuildingGoalSlot")
-                .WhenInjectedInto<SlotUIFactory<GoalSlotUI>>();
+                .WhenInjectedInto<SlotUIFactory<BuildingGoalSlotUI>>();
+
+            Container.BindFactory<BuildingGoalWithTimerSlotUI, PlaceholderFactory<BuildingGoalWithTimerSlotUI>>()
+                .FromComponentInNewPrefab(_settings.BuildingWithTimerGoalSlotPrefab)
+                .WithGameObjectName("BuildingGoalSlot")
+                .WhenInjectedInto<SlotUIFactory<BuildingGoalWithTimerSlotUI>>();
 
             Container.BindFactory<ResourceGoalSlotUI, PlaceholderFactory<ResourceGoalSlotUI>>()
                 .FromComponentInNewPrefab(_settings.ResourceGoalSlotPrefab)
@@ -228,6 +251,8 @@ namespace LittleMars.Installers
             Container.DeclareSignal<ResourcesBalanceUpdatedSignal>();
             Container.DeclareSignal<ResourcesProductionChangedSignal>();
             Container.DeclareSignal<ResourcesNeedsChangedSignal>();
+
+            Container.DeclareSignal<NeedMenuInitSignal>();
         }
 
         [Serializable]
@@ -240,6 +265,7 @@ namespace LittleMars.Installers
             public GameObject ResourceBalanceSlotPrefab;
             public GameObject BuildingGoalSlotPrefab;
             public GameObject ResourceGoalSlotPrefab;
+            public GameObject BuildingWithTimerGoalSlotPrefab;
         }
     }
 }

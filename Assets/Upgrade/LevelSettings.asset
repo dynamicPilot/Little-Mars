@@ -42,7 +42,7 @@ MonoBehaviour:
             IsBackStep: 0
   Goals:
     GoalsSettings:
-      HasBuildingGoals: 1
+      HasBuildingGoals: 0
       BuildingGoals:
         GoalsArray:
         - Type: 0
@@ -50,7 +50,7 @@ MonoBehaviour:
             Type: 0
             Size: 0
             Amount: 1
-      HasBuildingGoalsWithTimer: 0
+      HasBuildingGoalsWithTimer: 1
       BuildingGoalsWithTimers:
         GoalsArray:
         - Type: 0

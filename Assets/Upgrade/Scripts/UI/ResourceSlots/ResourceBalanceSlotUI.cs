@@ -1,6 +1,5 @@
 ﻿using TMPro;
 using UnityEngine;
-using Zenject;
 
 namespace LittleMars.UI.ResourceSlots
 {
@@ -11,12 +10,11 @@ namespace LittleMars.UI.ResourceSlots
         [SerializeField] private string _plusPrefix = "+";
         [SerializeField] private string _minusPrefix = "-";
 
-        string _format = "F0";
+        protected string _format = "F0";
         public override void SetSlot(Sprite icon)
         {
             base.SetSlot(icon);
-            _plusCounter.text = "+0";
-            _minusCounter.text = "-0";
+            UpdateSlot(0f ,0f);
         }
 
         public virtual void UpdateSlot(float plusNumber, float minusNumber)

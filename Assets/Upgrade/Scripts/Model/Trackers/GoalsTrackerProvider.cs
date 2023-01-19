@@ -10,19 +10,19 @@ namespace LittleMars.Model.Trackers
     /// <summary>
     /// Provider class for the trackers creation.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public class GoalsTrackerProvider<T> : IDisposable
+    /// <typeparam name="T1"></typeparam>
+    public class GoalsTrackerProvider<T1, T2> : IDisposable where T2 : GoalTracker
     {
-        readonly TrackerFactory<T> _trackerFactory;
-        readonly TrackerFactoryWithTimer<T> _trackerFactoryWithTimer;
-        public GoalsTrackerProvider(TrackerFactory<T> trackerFactory,
-            TrackerFactoryWithTimer<T> trackerFactoryWithTimer = null)
-        {
+        readonly TrackerFactory<T1> _trackerFactory;
+        readonly TrackerFactoryWithTimer<T1> _trackerFactoryWithTimer;
+        public GoalsTrackerProvider(TrackerFactory<T1> trackerFactory,
+            TrackerFactoryWithTimer<T1> trackerFactoryWithTimer = null)
+        { 
             _trackerFactory = trackerFactory;
             _trackerFactoryWithTimer = trackerFactoryWithTimer;
         }
 
-        public List<IGoalTracker> CreateTrackers(Goals<T> goals, ref int currentIndex)
+        public List<IGoalTracker> CreateTrackers(Goals<T1> goals, ref int currentIndex)
         {
             if (goals.GoalsArray == null || goals.GoalsArray.Length == 0) return null;
 
@@ -38,7 +38,7 @@ namespace LittleMars.Model.Trackers
             return trackers;
         }
 
-        public List<IGoalTracker> CreateTrackersWithTimer(GoalsWithTimer<T> goals, ref int currentIndex)
+        public List<IGoalTracker> CreateTrackersWithTimer(GoalsWithTimer<T1> goals, ref int currentIndex)
         {
             if (goals.GoalsArray == null || goals.GoalsArray.Length == 0 ||
                 _trackerFactoryWithTimer == null) return null;
@@ -61,7 +61,7 @@ namespace LittleMars.Model.Trackers
                 _trackerFactoryWithTimer.Dispose();
         }
 
-        public class Factory : PlaceholderFactory<GoalsTrackerProvider<T>>
+        public class Factory : PlaceholderFactory<GoalsTrackerProvider<T1, T2>>
         { }
     }
 }

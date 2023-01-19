@@ -1,7 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using Zenject;
 
 namespace LittleMars.UI.ResourceSlots
 {

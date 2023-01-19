@@ -2,13 +2,14 @@
 using LittleMars.Common.Interfaces;
 using LittleMars.Common.LevelGoal;
 using LittleMars.Common.Signals;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
 namespace LittleMars.Model.Trackers
 {
-    public class BuildingGoalTracker : GoalTracker
+    public class BuildingGoalTracker : GoalTracker, IDisposable
     {
         readonly SignalBus _signalBus;
         readonly Goal<BuildingUnit<int>> _goal;
@@ -74,6 +75,12 @@ namespace LittleMars.Model.Trackers
             Debug.Log("Fire Signal for index " + _onUpdateSignal.Index);
             _onUpdateSignal.Values[0] = _buildings.Count;
             _signalBus.Fire(_onUpdateSignal);
+        }
+
+        public void Dispose()
+        {
+            _signalBus.TryUnsubscribe<BuildingStateChangedSignal>(OnBuildingStateChanged);
+            _signalBus.TryUnsubscribe<RemoveBuildingSignal>(OnRemoveBuilding);
         }
     }
 }
