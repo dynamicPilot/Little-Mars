@@ -6,7 +6,7 @@ using Zenject;
 
 namespace LittleMars.UI.GoalSlots
 {
-    public class GoalSlotMenuManager : IInitializable, IDisposable
+    public class GoalSlotMenuManager : SideMenu, IInitializable, IDisposable
     {
         readonly GoalSlotsUIFactory _factory;
         readonly SignalBus _signalBus;
@@ -15,6 +15,7 @@ namespace LittleMars.UI.GoalSlots
         List<IGoalSlot> _slots = null;
 
         public GoalSlotMenuManager(GoalSlotsUIFactory factory, SignalBus signalBus, GameUI gameUI)
+            : base(Common.MenuInitType.goals)
         {
             _factory = factory;
             _signalBus = signalBus;
@@ -23,12 +24,25 @@ namespace LittleMars.UI.GoalSlots
 
         public void Initialize()
         {
-            _slots = _factory.CreateSlots(_gameUI.GoalsSlotParent);
-            _signalBus.Subscribe<GoalUpdatedSignal>(OnGoalUpdated);
+            _signalBus.Subscribe<NeedMenuInitSignal>(OnNeedInit);            
         }
         public void Dispose()
         {
             _signalBus.TryUnsubscribe<GoalUpdatedSignal>(OnGoalUpdated);
+        }
+
+        public override void OnNeedInit(NeedMenuInitSignal args)
+        {
+            base.OnNeedInit(args);
+            CreateSlots();
+
+            _signalBus.Unsubscribe<NeedMenuInitSignal>(OnNeedInit);
+            _signalBus.Subscribe<GoalUpdatedSignal>(OnGoalUpdated);
+        }
+
+        private void CreateSlots()
+        {
+            _slots = _factory.CreateSlots(_gameUI.GoalsSlotParent);
         }
 
         private void OnGoalUpdated(GoalUpdatedSignal args)

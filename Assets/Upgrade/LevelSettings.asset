@@ -22,7 +22,7 @@ MonoBehaviour:
       BuildingTypes:
       - Type: 0
         Size: 0
-        Amount: 1
+        Amount: 2
       TradeUnits: []
   Map:
     Lines:
@@ -59,13 +59,9 @@ MonoBehaviour:
             Size: 0
             Amount: 1
           Time: 2
-      HasResourcesGoals: 1
+      HasResourcesGoals: 0
       ResourceGoals:
-        GoalsArray:
-        - Type: 0
-          Unit:
-            Type: 0
-            Amount: 10
+        GoalsArray: []
       HasProductionGoals: 0
       ProductionGoals:
         GoalsArray: []

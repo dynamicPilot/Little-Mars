@@ -993,7 +993,7 @@ GameObject:
   - component: {fileID: 5099023451349232491}
   - component: {fileID: 6318180172299891319}
   m_Layer: 5
-  m_Name: WithTimerGoalSlot
+  m_Name: UI_WithTimerGoalSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

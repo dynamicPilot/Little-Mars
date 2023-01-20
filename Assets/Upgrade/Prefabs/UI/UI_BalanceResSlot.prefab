@@ -511,7 +511,7 @@ GameObject:
   - component: {fileID: 9181916343601165631}
   - component: {fileID: 3884314026897283508}
   m_Layer: 5
-  m_Name: BalanceResSlot
+  m_Name: UI_BalanceResSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

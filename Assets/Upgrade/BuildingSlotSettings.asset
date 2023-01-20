@@ -15,3 +15,5 @@ MonoBehaviour:
   Folders:
     Installer:
       BuildingObjectFolderPath: Settings/
+      ResourceListSlotPrefab: {fileID: 6394964419672730296, guid: e1c312104c0cc8d4a9dac5becc62d2a2, type: 3}
+      ConnectionListSlotPrefab: {fileID: 8907451138946302747, guid: 78edc6b9f4338f445ae380750674c3e9, type: 3}

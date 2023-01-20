@@ -28,6 +28,11 @@ namespace LittleMars.Common
             return _settings.Catalogue.Icon((int)type, IconType.goalType);
         }
 
+        public Sprite FieldTypeIcon(Resource type)
+        {
+            return _settings.Catalogue.Icon((int)type, IconType.field);
+        }
+
         [Serializable]
         public class Settings
         {

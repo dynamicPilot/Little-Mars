@@ -246,7 +246,7 @@ namespace LittleMars.Installers
             Container.DeclareSignal<HourlySignal>();
 
             Container.DeclareSignal<GoalToWinIsDoneSignal>();
-            Container.DeclareSignal<GoalUpdatedSignal>();
+            Container.DeclareSignal<GoalUpdatedSignal>().OptionalSubscriber();
 
             Container.DeclareSignal<ResourcesBalanceUpdatedSignal>();
             Container.DeclareSignal<ResourcesProductionChangedSignal>();

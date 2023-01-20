@@ -87,13 +87,21 @@
     {
         resource,
         building,
-        goalType
+        goalType,
+        field
     }
 
     public enum MenuInitType
     {
         resources,
         goals
+    }
+
+    public enum Identifiers
+    {
+        buildingSlot,
+        fieldSlot,
+        connectionSlot
     }
 }
 

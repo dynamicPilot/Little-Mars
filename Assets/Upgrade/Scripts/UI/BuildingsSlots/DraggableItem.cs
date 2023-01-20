@@ -3,6 +3,7 @@ using LittleMars.Slots;
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using Zenject;
 
 namespace LittleMars.UI.BuildingSlots
@@ -15,12 +16,16 @@ namespace LittleMars.UI.BuildingSlots
         [SerializeField] private RectTransform _canvas;
         [SerializeField] private CanvasGroup _canvasGroup;
         [SerializeField] private RectTransform _rectTransform;
+        [SerializeField] private Image _image;
 
         Vector2 _initialLocalObjectPosition;
         Vector2 _initialLocalPointerPosition;
         BuildingObject _buildingObject;
 
-        //public event Action OnEndDragAction;
+        //private void OnValidate()
+        //{
+        //    _image.maskable = true;
+        //}
 
         [Inject]
         public void Constructor(GameUI gameUI, BuildingObject buildingObject)
@@ -31,6 +36,7 @@ namespace LittleMars.UI.BuildingSlots
 
         public void OnBeginDrag(PointerEventData eventData)
         {
+            Debug.Log("OnStartDrag");
             _initialLocalObjectPosition = _rectTransform.localPosition;
 
             // set local pointer position to word position
@@ -38,11 +44,12 @@ namespace LittleMars.UI.BuildingSlots
                 eventData.position, eventData.pressEventCamera, out _initialLocalPointerPosition);
 
             _canvasGroup.blocksRaycasts = false;
+            _image.maskable = false;
         }
 
         public void OnDrag(PointerEventData eventData)
         {
-
+            Debug.Log("OntDrag");
             Vector2 localPointerPosition;
             if (RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvas,
                 eventData.position, eventData.pressEventCamera, out localPointerPosition))
@@ -57,9 +64,11 @@ namespace LittleMars.UI.BuildingSlots
 
         public void OnEndDrag(PointerEventData eventData)
         {
+            Debug.Log("OnEndDrag");
             RaycastAndGetTarget(eventData.position);
             _rectTransform.localPosition = _initialLocalObjectPosition;
             _canvasGroup.blocksRaycasts = true;
+            _image.maskable = true;
         }
 
         private void RaycastAndGetTarget(Vector2 pointerPosition)

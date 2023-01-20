@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 5721848243774097207}
   - component: {fileID: 2543956851559097307}
   m_Layer: 5
-  m_Name: SizePanel
+  m_Name: UI_SizePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

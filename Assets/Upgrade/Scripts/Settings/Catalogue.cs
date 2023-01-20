@@ -11,10 +11,12 @@ namespace LittleMars.Common
         [SerializeField] private ResourceIconsSettings Resources;
         [SerializeField] private BuildingIconsSettings Buildings;
         [SerializeField] private GoalTypeIconsSetting Goal;
+        [SerializeField] private FieldInconsSettings Fields;
 
         private Dictionary<int, Sprite> _resourceIcons = null;
         private Dictionary<int, Sprite> _buildingIcons = null;
         private Dictionary<int, Sprite> _goalTypeIcons = null;
+        private Dictionary<int, Sprite> _fieldIcons = null;
 
         [Serializable]
         public class ResourceIconsSettings
@@ -48,6 +50,12 @@ namespace LittleMars.Common
             public Sprite Time;
         }
 
+        [Serializable]
+        public class FieldInconsSettings
+        {
+            public Sprite Metals;
+        }
+
         private void CreateResourceDictionary()
         {
             _resourceIcons = new Dictionary<int, Sprite>();
@@ -71,7 +79,6 @@ namespace LittleMars.Common
             _buildingIcons.Add((int)BuildingType.mine, Buildings.Mine);
             _buildingIcons.Add((int)BuildingType.factory, Buildings.Factory);
             _buildingIcons.Add((int)BuildingType.workshop, Buildings.Workshop);
-
         }
 
         private void CreateGoalTypeDictionary()
@@ -81,6 +88,13 @@ namespace LittleMars.Common
             _goalTypeIcons.Add((int) GoalType.resources, Goal.Storage);
             _goalTypeIcons.Add((int)GoalType.production, Goal.Production);
             _goalTypeIcons.Add((int)GoalType.time, Goal.Time);
+        }
+
+        private void CreateFieldDictionary()
+        {
+            _fieldIcons = new Dictionary<int, Sprite>();
+
+            _fieldIcons.Add((int)Resource.metalls, Fields.Metals);
         }
 
         public Sprite Icon(int index, IconType type)
@@ -99,6 +113,11 @@ namespace LittleMars.Common
             {
                 if (_goalTypeIcons == null) CreateGoalTypeDictionary();
                 return GetIcon(index, _goalTypeIcons);
+            }
+            else if (type == IconType.field)
+            {
+                if (_fieldIcons == null) CreateFieldDictionary();
+                return GetIcon(index, _fieldIcons);
             }
             else
             {

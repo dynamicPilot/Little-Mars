@@ -74,6 +74,8 @@ namespace LittleMars.UI.BuildingSlots
                 _slots[unit.Type] = new Dictionary<Size, IBuildingSlotFacade>();
                 _slots[unit.Type].Add(unit.Size, _factory.CreateSlot(unit.Type, unit.Size));
             }
+
+            if (_amounts == null) FillAmounts();
         }
 
         private void ChangeSlotState(BuildingType type, Size size, ProductionState state)
@@ -94,6 +96,8 @@ namespace LittleMars.UI.BuildingSlots
                 if (unit.Amount == 0) continue;
                 if (!_amounts.ContainsKey(unit.Type)) _amounts[unit.Type] = new Dictionary<Size, int>();
                 _amounts[unit.Type].Add(unit.Size, unit.Amount);
+
+                OnAmountUpdated(unit.Type, unit.Size);
             }
         }
 
@@ -108,8 +112,16 @@ namespace LittleMars.UI.BuildingSlots
             var newAmount = amount + multiplier;
 
             _amounts[type][size] += multiplier;
+            OnAmountUpdated(type, size);
+
 
             return ((amount == 0 && newAmount > 0) || (amount > 0 && newAmount == 0));
+        }
+
+
+        private void OnAmountUpdated(BuildingType type, Size size)
+        {
+            _slots[type][size].UpdateSlotAmount(_amounts[type][size]);
         }
 
         public void Dispose()

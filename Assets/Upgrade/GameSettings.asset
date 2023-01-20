@@ -16,7 +16,7 @@ MonoBehaviour:
     SlotPrefab:
       SlotPrefab: {fileID: 5807626130397520953, guid: 2415cb2aa122fe94eb469f65dc2038fd, type: 3}
       BuildingPrefab: {fileID: 3795598343861758890, guid: c5d4688165195a4478535b58e3595fc6, type: 3}
-      BuildingSlotPrefab: {fileID: 94072137087876132, guid: 571df7573188cb546a843af7f91d5a83, type: 3}
+      BuildingSlotPrefab: {fileID: 8475360402349027589, guid: bc1f47d31366a574ea8658a4d3956d5e, type: 3}
       ResourceSlotPrefab: {fileID: 6007240029504381487, guid: 01d0e302a9e99574691d9de1260aca80, type: 3}
       ResourceBalanceSlotPrefab: {fileID: 9181916343601165624, guid: 68be7413f49d03f4aa95a4c341dcdc0f, type: 3}
       BuildingGoalSlotPrefab: {fileID: 474087436855090685, guid: c65bb41fbae0e7f439e3f60c1204a5ff, type: 3}

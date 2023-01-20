@@ -7,17 +7,16 @@ using Zenject;
 
 namespace LittleMars.UI.ResourceSlots
 {
-    public class ResourcesBalanceMenuManager : IInitializable, IDisposable
+    public class ResourcesBalanceMenuManager : SideMenu, IInitializable, IDisposable
     {
         readonly SlotUIFactory<ResourceBalanceSlotUI> _factory;
         readonly SignalBus _signalBus;
         readonly GameUI _gameUI;
 
         Dictionary<Resource, ResourceBalanceSlotUI> _slots = null;
-        MenuInitType _initType = MenuInitType.resources;
 
         public ResourcesBalanceMenuManager(SlotUIFactory<ResourceBalanceSlotUI> factory, 
-            SignalBus signalBus, GameUI gameUI)
+            SignalBus signalBus, GameUI gameUI) : base (MenuInitType.resources)
         {
             _factory = factory;
             _signalBus = signalBus;
@@ -27,9 +26,6 @@ namespace LittleMars.UI.ResourceSlots
         public void Initialize()
         {
             //CreateSlots();
-            _signalBus.Subscribe<ResourcesProductionChangedSignal>(UpdateProductionForSlots);
-            _signalBus.Subscribe<ResourcesNeedsChangedSignal>(UpdateNeedsForSlots);
-
             _signalBus.Subscribe<NeedMenuInitSignal>(OnNeedInit);
         }
 
@@ -39,12 +35,14 @@ namespace LittleMars.UI.ResourceSlots
             _signalBus.TryUnsubscribe<ResourcesNeedsChangedSignal>(UpdateNeedsForSlots);
         }
 
-        private void OnNeedInit(NeedMenuInitSignal args)
+        public override void OnNeedInit(NeedMenuInitSignal args)
         {
-            if (args.Type != _initType) return;
-
+            base.OnNeedInit(args);
             CreateSlots();
+
             _signalBus.Unsubscribe<NeedMenuInitSignal>(OnNeedInit);
+            _signalBus.Subscribe<ResourcesProductionChangedSignal>(UpdateProductionForSlots);
+            _signalBus.Subscribe<ResourcesNeedsChangedSignal>(UpdateNeedsForSlots);
         }
 
         private void CreateSlots()
