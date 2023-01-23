@@ -49,6 +49,9 @@ TagManager:
   - name: MapSlots
     uniqueID: 3441686281
     locked: 0
+  - name: BuildingIndicators
+    uniqueID: 2539170407
+    locked: 0
   - name: Buildings
     uniqueID: 1039299845
     locked: 0

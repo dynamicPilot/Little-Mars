@@ -53,6 +53,7 @@ namespace LittleMars.Model
             if (_router.TryBuildRouteFrom(path, slot, _check,
                     out List<MapSlotExtended> route, ref rotationCount))
             {
+                Debug.Log("Has Route");
                 foreach (MapSlotExtended part in route) indexesList.Add(part.Indexes);
 
                 _placingBuilding = _factory.Create(buildingObject.Info.Type,

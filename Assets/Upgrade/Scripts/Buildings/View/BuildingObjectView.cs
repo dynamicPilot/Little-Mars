@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LittleMars.Buildings.States;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ using Zenject;
 namespace LittleMars.Buildings.View
 {
     public class BuildingObjectView : MonoBehaviour
-    {     
+    {
 
         public void TransitToOnState()
         {

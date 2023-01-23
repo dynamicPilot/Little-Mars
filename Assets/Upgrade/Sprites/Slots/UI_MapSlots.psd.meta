@@ -1,13 +1,7 @@
 fileFormatVersion: 2
-guid: cab282e3d713b6449ac8c15f519b3e8f
+guid: 0055334ed321dd54d840d4ae40bab52a
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -2541545257365837973
-    second: UI_slot_sq
-  - first:
-      213: -6407714468422981231
-    second: UI_slot_sq_frame
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -55,7 +49,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -69,14 +63,14 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -88,31 +82,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -124,7 +94,19 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -135,43 +117,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_slot_sq
+      name: UI_MapSlot_filled
       rect:
         serializedVersion: 2
-        x: 0
-        y: 7
-        width: 218
-        height: 217
+        x: 22
+        y: 11
+        width: 20
+        height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 28, y: 28, z: 28, w: 28}
+      border: {x: 2, y: 2, z: 2, w: 2}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b67612add0e9abcd0800000000000000
-      internalID: -2541545257365837973
+      spriteID: 2d985e19c1332784fb90c3fce82ed1e1
+      internalID: -711166845
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_slot_sq_frame
+      name: UI_MapSlot_dached
       rect:
         serializedVersion: 2
-        x: 299
-        y: 1
-        width: 230
-        height: 230
+        x: 1
+        y: 11
+        width: 20
+        height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 28, y: 28, z: 28, w: 28}
+      border: {x: 2, y: 2, z: 2, w: 2}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1996487f3a93317a0800000000000000
-      internalID: -6407714468422981231
+      spriteID: cd6dbc10cd6c4424784bd401d134c191
+      internalID: -1618904106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MapSlot_indicator
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 11
+        width: 4
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6500a6cbbb716b429d0e9a55c86424f
+      internalID: -249451922
       vertices: []
       indices: 
       edges: []
@@ -187,11 +190,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_slot_sq_frame: -6407714468422981231
-      UI_slot_sq: -2541545257365837973
+      UI_MapSlot_dached: -1618904106
+      UI_MapSlot_indicator: -249451922
+      UI_MapSlot_filled: -711166845
+      UI_MapSlots_2: -440216125
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
+  pSDShowRemoveMatteOption: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

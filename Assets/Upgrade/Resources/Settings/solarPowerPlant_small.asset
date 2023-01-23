@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9af2459a72fc9ee4c9a6ef2a0dfc4dee, type: 3}
-  m_Name: dome_small
+  m_Name: solarPowerPlant_small
   m_EditorClassIdentifier: 
   Info:
-    Type: 0
+    Type: 1
     Size: 0
   Construction:
     ResourcesForBuilding:
@@ -24,12 +24,12 @@ MonoBehaviour:
       Type: 0
       Units: []
   Operation:
-    Priority: 0
+    Priority: 2
     DayProduction:
-    - Type: 0
-      Amount: 10
+    - Type: 4
+      Amount: 20
     NightProduction:
-    - Type: 1
-      Amount: 1
-    Connections: 03000000
+    - Type: 4
+      Amount: 0
+    Connections: 
     Needs: []

@@ -28,7 +28,7 @@ namespace LittleMars.Buildings
             }
 
             var buildingTransform = ((BuildingFacade)building).gameObject.transform;
-            buildingTransform.localPosition = placingBuilding.Position;
+            buildingTransform.localPosition = placingBuilding.Position * 7f/2f;
             buildingTransform.Rotate(0f, 90f * placingBuilding.RotationCount, 0f);
             building.OnStart();
             building.SetMapSlotIndexes(placingBuilding.SlotIndexes);

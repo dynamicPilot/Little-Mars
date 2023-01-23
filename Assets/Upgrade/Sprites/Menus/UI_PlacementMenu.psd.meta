@@ -1,13 +1,7 @@
 fileFormatVersion: 2
-guid: cab282e3d713b6449ac8c15f519b3e8f
+guid: 1ebf46769153a204391a7eb3ec780c57
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -2541545257365837973
-    second: UI_slot_sq
-  - first:
-      213: -6407714468422981231
-    second: UI_slot_sq_frame
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -55,7 +49,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -69,14 +63,14 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -88,31 +82,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -124,7 +94,19 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -135,43 +117,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_slot_sq
+      name: UI_PlacementMenu
       rect:
         serializedVersion: 2
-        x: 0
-        y: 7
-        width: 218
-        height: 217
+        x: 2
+        y: 59
+        width: 214
+        height: 67
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 28, y: 28, z: 28, w: 28}
+      border: {x: 29, y: 19, z: 70, w: 27}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b67612add0e9abcd0800000000000000
-      internalID: -2541545257365837973
+      spriteID: 8ecf4bd02fefc7a41939faaa08edaf5d
+      internalID: -95721465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_slot_sq_frame
+      name: UI_Button_green_pressed
       rect:
         serializedVersion: 2
-        x: 299
-        y: 1
-        width: 230
-        height: 230
+        x: 4
+        y: 30
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 28, y: 28, z: 28, w: 28}
+      border: {x: 9, y: 9, z: 9, w: 9}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1996487f3a93317a0800000000000000
-      internalID: -6407714468422981231
+      spriteID: dd071afcb56f5c041b925bbb01ae783e
+      internalID: 1203822559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Button_yellow_pressed
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 30
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 9, y: 9, z: 9, w: 9}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0957222293e09d44968c4b1df8e7854
+      internalID: 1536073234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Button_purple_pressed
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 30
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 9, y: 9, z: 9, w: 9}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54b42938e3dd6164380c403494e7b846
+      internalID: -1959131079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Button_red_pressed
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 30
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 9, y: 9, z: 9, w: 9}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df43831de3701eb4eade9dd55da660a1
+      internalID: -926053052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_ButtonBase
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 9
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 8, y: 7, z: 8, w: 6}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05a1d3556bb4b5d45a1f957cc849cbc3
+      internalID: -351124157
       vertices: []
       indices: 
       edges: []
@@ -187,11 +253,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_slot_sq_frame: -6407714468422981231
-      UI_slot_sq: -2541545257365837973
+      UI_PlacementMenu: -95721465
+      UI_ButtonBase: -351124157
+      UI_Button_purple_pressed: -1959131079
+      UI_Button_yellow_pressed: 1536073234
+      UI_Button_red_pressed: -926053052
+      UI_Button_green_pressed: 1203822559
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
+  pSDShowRemoveMatteOption: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

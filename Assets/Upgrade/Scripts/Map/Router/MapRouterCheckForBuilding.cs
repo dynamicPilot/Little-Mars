@@ -21,7 +21,11 @@ namespace LittleMars.Map.Routers
             var resourcesMatch = new Dictionary<Resource, int>();
 
             foreach (Resource resource in _resources)
+            {
+                if (resource == Resource.none || resource == Resource.all) continue;
                 resourcesMatch.Add(resource, 0);
+            }
+                
 
             foreach(MapSlotExtended slot in slots)
             {
