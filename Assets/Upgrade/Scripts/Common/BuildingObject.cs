@@ -16,6 +16,7 @@ namespace LittleMars.Common
         public InfoSettings Info;
         public ConstructionSettings Construction;
         public OperationSettings Operation;
+        public ViewSettings View;
 
         [Serializable]
         public class InfoSettings
@@ -40,6 +41,13 @@ namespace LittleMars.Common
             public ResourceUnit<float>[] NightProduction;
             public BuildingType[] Connections;
             public ResourceUnit<float>[] Needs;
+        }
+
+        [Serializable]
+        public class ViewSettings
+        {
+            public Sprite Sprite;
+            public Sprite Shape;
         }
 
         

@@ -1,11 +1,9 @@
 ﻿using LittleMars.Common;
 using LittleMars.Common.Signals;
-using LittleMars.Map.Routers;
 using LittleMars.Map.States;
 using LittleMars.Settings;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 using Zenject;
 
@@ -49,7 +47,7 @@ namespace LittleMars.Map
             _rows = Slots.Count;
             _columns = Slots[0].Count;
 
-            Debug.Log($"Create slots. Rows {_columns}, Columns {_columns}.");
+            Debug.Log($"Create slots. Rows {_rows}, Columns {_columns}.");
             _signalBus.Fire<MapSlotsAreReadySignal>();
         }
 
@@ -67,13 +65,13 @@ namespace LittleMars.Map
         public void AddBuildingToSlots(IEnumerable<Indexes> indexes, BuildingType type)
         {
             foreach (Indexes index in indexes)
-                _slots[index.Row][index.Column].ChangeBuilding(type);
+                _slots[index.Row][index.Column].ChangePlacedBuilding(type);
         }
 
         private void RemoveBuildingFromSlots(IEnumerable<Indexes> indexes)
         {
             foreach (Indexes index in indexes)
-                _slots[index.Row][index.Column].ChangeBuilding(BuildingType.none);
+                _slots[index.Row][index.Column].RemovePlacedBuilding();
         }
 
         public IEnumerable<BuildingType> GetConnectionsForSlots(IEnumerable<Indexes> indexes)

@@ -1,9 +1,10 @@
-﻿using System;
+﻿using LittleMars.Common;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace LittleMars.Common
+namespace LittleMars.Settings
 {
     [CreateAssetMenu(menuName = "LittleMars/Catalogue")]
     public class Catalogue : ScriptableObject
@@ -59,13 +60,13 @@ namespace LittleMars.Common
         private void CreateResourceDictionary()
         {
             _resourceIcons = new Dictionary<int, Sprite>();
-            _resourceIcons.Add((int) Resource.energy, Resources.Energy);
-            _resourceIcons.Add((int) Resource.supply_units, Resources.Supply);
-            _resourceIcons.Add((int) Resource.food, Resources.Food);
-            _resourceIcons.Add((int) Resource.metalls, Resources.Metals);
-            _resourceIcons.Add((int) Resource.machines, Resources.Machines);
-            _resourceIcons.Add((int) Resource.goods, Resources.Goods);
-            _resourceIcons.Add((int) Resource.money, Resources.Money);
+            _resourceIcons.Add((int)Resource.energy, Resources.Energy);
+            _resourceIcons.Add((int)Resource.supply_units, Resources.Supply);
+            _resourceIcons.Add((int)Resource.food, Resources.Food);
+            _resourceIcons.Add((int)Resource.metalls, Resources.Metals);
+            _resourceIcons.Add((int)Resource.machines, Resources.Machines);
+            _resourceIcons.Add((int)Resource.goods, Resources.Goods);
+            _resourceIcons.Add((int)Resource.money, Resources.Money);
         }
 
         private void CreateBuildingDictionary()
@@ -85,7 +86,7 @@ namespace LittleMars.Common
         {
             _goalTypeIcons = new Dictionary<int, Sprite>();
 
-            _goalTypeIcons.Add((int) GoalType.resources, Goal.Storage);
+            _goalTypeIcons.Add((int)GoalType.resources, Goal.Storage);
             _goalTypeIcons.Add((int)GoalType.production, Goal.Production);
             _goalTypeIcons.Add((int)GoalType.time, Goal.Time);
         }

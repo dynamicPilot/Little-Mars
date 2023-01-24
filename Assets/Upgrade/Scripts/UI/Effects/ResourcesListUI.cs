@@ -30,6 +30,10 @@ namespace LittleMars.UI.Effects
 
         private void CreateSlots()
         {
+            _gameUI.ResourceSlotParent
+                .gameObject.SetActive(_building.Construction.ResourcesForBuilding.Length > 0);
+
+
             for(int i = 0; i < _building.Construction.ResourcesForBuilding.Length; i++)
             {
                 var unit = _building.Construction.ResourcesForBuilding[i];

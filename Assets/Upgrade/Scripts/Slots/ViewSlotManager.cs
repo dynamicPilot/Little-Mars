@@ -1,5 +1,6 @@
 ﻿using LittleMars.Common;
 using LittleMars.Common.Signals;
+using LittleMars.Connections;
 using LittleMars.Slots.States;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,12 @@ namespace LittleMars.Slots
     /// Control scripts for all slots in View.
     /// </summary>
     public class ViewSlotManager : IInitializable, IDisposable
-    {
-        List<List<ViewSlotFacade>> _slots = new List<List<ViewSlotFacade>>();
+    { 
         readonly ViewSlotFactory _factory;
         readonly SignalBus _signalBus;
+
+        List<List<ViewSlotFacade>> _slots = null;
+        
 
         public ViewSlotManager(ViewSlotFactory factory, SignalBus signalBus)
         {
@@ -36,6 +39,16 @@ namespace LittleMars.Slots
             _signalBus.TryUnsubscribe<RemoveBuildingSignal>(OnRemoveBuilding);
         }
 
+        public void PlacingBuildingInSlots(IEnumerable<Indexes> indexes)
+        {
+            ChangeSlotStates(indexes, SlotStates.placing);
+        }
+
+        public void RemoveBuildingFromSlots(IEnumerable<Indexes> indexes)
+        {
+            ChangeSlotStates(indexes, SlotStates.empty);
+        }
+
         private void SpawnSlots()
         {
             _slots = _factory.Create();
@@ -52,22 +65,18 @@ namespace LittleMars.Slots
             RemoveBuildingFromSlots(arg.BuildingFacade.MapSlotIndexes());
         }
 
-        public void PlacingBuildingInSlots(IEnumerable<Indexes> indexes)
-        {
-            ChangeSlotStates(indexes, SlotStates.placing);
-        }
-
-        public void RemoveBuildingFromSlots(IEnumerable<Indexes> indexes)
-        {
-            ChangeSlotStates(indexes, SlotStates.empty);
-        }
-
         private void ChangeSlotStates(IEnumerable<Indexes> indexes, SlotStates state)
         {
+            if (_slots == null) return;
             foreach (Indexes ind in indexes)
                 _slots[ind.Row][ind.Column].ChangeSlotStateTo(state);
         }
 
-        
+        public void UpdateSlotConnections(Indexes ind, Dictionary<Direction, Connection> connections)
+        {
+            if (_slots == null) return;
+            _slots[ind.Row][ind.Column].UpdateIndicators(connections);
+        }
+
     }
 }

@@ -16,11 +16,14 @@ MonoBehaviour:
     InitialConditions:
       Resources:
       - Type: 0
-        Amount: 10
+        Amount: 20
       - Type: 6
         Amount: 20
       BuildingTypes:
       - Type: 0
+        Size: 0
+        Amount: 1
+      - Type: 1
         Size: 0
         Amount: 2
       TradeUnits: []
@@ -28,7 +31,7 @@ MonoBehaviour:
     Lines:
       Rows: 2
       Columns: 2
-      BuildingTypes: 0000000002000000
+      BuildingTypes: 0000000001000000
       Mode: 0
       CustomMap: {fileID: 0}
     Fields:

@@ -39,6 +39,7 @@ namespace LittleMars.Settings
         public class CatalogueSettings
         {
             public IconsCatalogue.Settings Catalogue;
+            public ColorsCatalogue.Settings Colors;
         }
 
 
@@ -47,6 +48,7 @@ namespace LittleMars.Settings
             Container.BindInstance(View.SlotPrefab);
             Container.BindInstance(View.SpawnerSettings);
             Container.BindInstance(Catalogue.Catalogue);
+            Container.BindInstance(Catalogue.Colors);
             Container.BindInstance(Time.ManagerSettings);
             Container.BindInstance(Time.UpdaterSettings);
         }

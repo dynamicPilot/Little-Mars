@@ -93,6 +93,7 @@ MonoBehaviour:
   _canvas: {fileID: 0}
   _canvasGroup: {fileID: 94072136169623285}
   _rectTransform: {fileID: 94072136169623180}
+  _image: {fileID: 0}
 --- !u!225 &94072136169623285
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -193,6 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977d977131dc8694fbb7916dfc045d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _view: {fileID: 0}
 --- !u!114 &4410426800034274749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1205,11 +1207,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1500256426348170231, guid: a1514d9b1ac658d4fa1e431520f8e472, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1500256426348170231, guid: a1514d9b1ac658d4fa1e431520f8e472, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1500256426348170231, guid: a1514d9b1ac658d4fa1e431520f8e472, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1217,7 +1219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1500256426348170231, guid: a1514d9b1ac658d4fa1e431520f8e472, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 1500256426348170231, guid: a1514d9b1ac658d4fa1e431520f8e472, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1225,7 +1227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1500256426348170231, guid: a1514d9b1ac658d4fa1e431520f8e472, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -12.5
       objectReference: {fileID: 0}
     - target: {fileID: 2197133335258797974, guid: a1514d9b1ac658d4fa1e431520f8e472, type: 3}
       propertyPath: m_Pivot.x

@@ -26,6 +26,9 @@ namespace LittleMars.UI.Effects
 
         private void CreateSlots()
         {
+            _gameUI.ConnectionsSlotParent
+                .gameObject.SetActive(_building.Operation.Connections.Length > 0);
+
             for (int i = 0; i < _building.Operation.Connections.Length; i++)
             {
                 var type = _building.Operation.Connections[i];

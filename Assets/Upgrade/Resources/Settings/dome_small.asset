@@ -29,7 +29,7 @@ MonoBehaviour:
     - Type: 0
       Amount: 10
     NightProduction:
-    - Type: 1
+    - Type: 0
       Amount: 1
-    Connections: 03000000
+    Connections: 01000000
     Needs: []

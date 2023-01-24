@@ -1,5 +1,5 @@
 ﻿using LittleMars.Common.Interfaces;
-using LittleMars.Map;
+using LittleMars.Connections;
 using System;
 using System.Linq;
 
@@ -10,11 +10,11 @@ namespace LittleMars.Model
     /// </summary>
     public class OperationHelper
     {
-        readonly MapManager _mapManager;
+        readonly ConnectionsManager _manager;
 
-        public OperationHelper(MapManager mapManager)
+        public OperationHelper(ConnectionsManager manager)
         {
-            _mapManager = mapManager;
+            _manager = manager;
         }
 
         public bool HasAllConnections(IBuildingFacade building)
@@ -22,7 +22,7 @@ namespace LittleMars.Model
             var indexes = building.MapSlotIndexes();
             var connections = building.Connections();
 
-            var mapConnections = _mapManager.GetConnectionsForSlots(indexes);
+            var mapConnections = _manager.GetConnectionsForSlots(indexes);
 
             for (int i = 0; i < connections.Length; i++)
             {

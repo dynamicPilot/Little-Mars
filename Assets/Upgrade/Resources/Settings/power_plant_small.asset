@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9af2459a72fc9ee4c9a6ef2a0dfc4dee, type: 3}
-  m_Name: solarPowerPlant_small
+  m_Name: power_plant_small
   m_EditorClassIdentifier: 
   Info:
     Type: 1

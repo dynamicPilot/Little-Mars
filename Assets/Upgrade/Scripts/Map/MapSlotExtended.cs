@@ -1,22 +1,23 @@
 ﻿using LittleMars.Common;
 using System.Collections.Generic;
-using System.Linq;
 using Zenject;
 
 namespace LittleMars.Map
 {
     public class MapSlotExtended  : MapSlot
     {
-        IDictionary<Direction, MapSlotExtended> _neighbors = 
-            new Dictionary<Direction, MapSlotExtended>();
         public Indexes Indexes { get; private set; } = null;
         public BuildingType HasBuildingOfType { get; private set; } = BuildingType.none;
+
+        Dictionary<Direction, MapSlotExtended> _neighbors;
 
         public MapSlotExtended(bool isBlocked, List<BuildingType> buildings)
         {
             IsBlocked = isBlocked;
             Buildings = buildings;
             Resources = new List<Resource>();
+
+            _neighbors = new Dictionary<Direction, MapSlotExtended>();
         }
 
         public void AddNeighbor(Direction direction, MapSlotExtended neighbor)
@@ -43,16 +44,22 @@ namespace LittleMars.Map
             if (!Buildings.Contains(building)) Buildings.Add(building);
         }
 
-        public void ChangeBuilding(BuildingType newBuilding)
+        public void ChangePlacedBuilding(BuildingType newBuilding)
         {
             if (newBuilding == BuildingType.none || newBuilding == BuildingType.all) return;
+            
             HasBuildingOfType = newBuilding;
+        }
+
+        public void RemovePlacedBuilding()
+        {
+            HasBuildingOfType = BuildingType.none;
         }
 
         public void SetIndexes(int row, int col)
         {
             Indexes = new Indexes(row, col);
-        }
+        }  
 
         public class Factory: PlaceholderFactory<MapSlotExtended>
         {

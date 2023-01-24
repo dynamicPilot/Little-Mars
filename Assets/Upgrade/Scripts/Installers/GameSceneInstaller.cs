@@ -23,6 +23,8 @@ using LittleMars.UI.ResourceSlots;
 using LittleMars.Slots.UI;
 using LittleMars.UI.SlotUIFactories;
 using LittleMars.UI.GoalSlots;
+using LittleMars.Connections;
+using LittleMars.Connections.View;
 
 namespace LittleMars.Installers
 {
@@ -41,6 +43,7 @@ namespace LittleMars.Installers
             InstallBuildings();
             InstallViewSlots();
             InstallBuildingSlots();
+            InstallConnections();
             InstallUIAndManagers();
             InstallSignals();
             InstallExecutionOrder();
@@ -49,6 +52,7 @@ namespace LittleMars.Installers
         void InstallExecutionOrder()
         {
             Container.BindExecutionOrder<ViewSlotManager>(-20);
+            Container.BindExecutionOrder<ConnectionsManager>(-20);
             Container.BindExecutionOrder<ResourceSlotMenuManager>(-20);
 
             Container.BindExecutionOrder<MapManager>(-10);
@@ -83,7 +87,8 @@ namespace LittleMars.Installers
             Container.BindInterfacesAndSelfTo<ProductionManager>().AsSingle();
 
             Container.Bind<TimeManager>().AsSingle();
-            Container.Bind<IconsCatalogue>().AsSingle();            
+            Container.Bind<IconsCatalogue>().AsSingle();
+            Container.Bind<ColorsCatalogue>().AsSingle();
             Container.Bind<ProductionHelper>().AsSingle();
             Container.Bind<ConstructionHelper>().AsSingle();
             Container.Bind<OperationHelper>().AsSingle();
@@ -170,6 +175,16 @@ namespace LittleMars.Installers
                 //.UnderTransformGroup("Buildings");
         }
 
+        private void InstallConnections()
+        {
+            Container.BindInterfacesAndSelfTo<ConnectionsManager>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ConnectionViewManager>().AsSingle();
+
+            Container.Bind<SlotConnectonsFactory>().AsSingle();
+
+            Container.BindFactory<SlotConnections, SlotConnections.Factory>().AsSingle();
+        }
+
         private void InstallUIAndManagers()
         {
             // PlacementMenuUI, GameUI -> bind via ZenjectBuinding Component -> GameUI object
@@ -249,10 +264,12 @@ namespace LittleMars.Installers
             Container.DeclareSignal<GoalUpdatedSignal>().OptionalSubscriber();
 
             Container.DeclareSignal<ResourcesBalanceUpdatedSignal>();
-            Container.DeclareSignal<ResourcesProductionChangedSignal>();
-            Container.DeclareSignal<ResourcesNeedsChangedSignal>();
+            Container.DeclareSignal<ResourcesProductionChangedSignal>().OptionalSubscriber();
+            Container.DeclareSignal<ResourcesNeedsChangedSignal>().OptionalSubscriber();
 
             Container.DeclareSignal<NeedMenuInitSignal>();
+
+            Container.DeclareSignal<SlotConnectionsUpdatedSignal>();
         }
 
         [Serializable]

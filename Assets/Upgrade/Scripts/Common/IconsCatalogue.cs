@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LittleMars.Settings;
+using System;
 using UnityEngine;
 
 namespace LittleMars.Common

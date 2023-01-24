@@ -34,3 +34,5 @@ MonoBehaviour:
   Catalogue:
     Catalogue:
       Catalogue: {fileID: 11400000, guid: 2cfcb0c6ecefb024a91899b08e4d7c3d, type: 2}
+    Colors:
+      Colors: {fileID: 11400000, guid: 3ded3825d971beb43b946807fd9c69f4, type: 2}
