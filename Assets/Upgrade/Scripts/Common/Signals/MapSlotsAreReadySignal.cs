@@ -35,7 +35,7 @@ namespace LittleMars.Common.Signals
     public struct TryChangeBuildingStateSignal
     {
         public IBuildingFacade BuildingFacade { get; set; }
-        public ProductionState State { get; set; }
+        public States State { get; set; }
         public OperationMode Mode { get; set; }
     }
 }

@@ -7,10 +7,15 @@
         forcedAuto
     }
 
-    public enum ProductionState
+    public enum States
     {
         on,
         off
+    }
+
+    public enum BStates
+    {
+        on, off, paused
     }
 
     public enum BuildingType

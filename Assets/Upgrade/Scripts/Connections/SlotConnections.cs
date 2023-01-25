@@ -134,7 +134,7 @@ namespace LittleMars.Connections
 
         private void AddConnection(Direction direction, BuildingType type)
         {
-            _connections[direction] = new Connection(type, ProductionState.on);
+            _connections[direction] = new Connection(type, States.on);
         }
 
         private Direction GetOppositeDirection(Direction direction)

@@ -27,7 +27,7 @@ namespace LittleMars.Buildings
 
         public void TryChangeState(IBuildingFacade building)
         {
-            var newState = (building.State() == ProductionState.on) ? ProductionState.off : ProductionState.on;
+            var newState = (building.State() == Common.States.on) ? Common.States.off : Common.States.on;
             _operation.TryChangeBuildingState(building, newState, OperationMode.manual);
         }
 

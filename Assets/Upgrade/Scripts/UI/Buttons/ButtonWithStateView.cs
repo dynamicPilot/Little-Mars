@@ -8,9 +8,9 @@ namespace LittleMars.UI.Buttons
     {
         [SerializeField] private Button _button;
         public Button Button { get => _button; }
-        ProductionState _state = ProductionState.on;
+        States _state = States.on;
 
-        public void SetState(ProductionState state)
+        public void SetState(States state)
         {
             if (_state == state) return;
             _state = state;
@@ -19,8 +19,8 @@ namespace LittleMars.UI.Buttons
 
         public void ChangeStateToOpposite()
         {
-            _state = (_state == ProductionState.on) ? ProductionState.off :
-                ProductionState.on;
+            _state = (_state == States.on) ? States.off :
+                States.on;
             UpdateView();
         }
 

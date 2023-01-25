@@ -1,4 +1,5 @@
-﻿using LittleMars.Common;
+﻿using LittleMars.Buildings.View;
+using LittleMars.Common;
 using LittleMars.UI;
 using LittleMars.UI.BuildingSlots;
 using LittleMars.UI.Effects;

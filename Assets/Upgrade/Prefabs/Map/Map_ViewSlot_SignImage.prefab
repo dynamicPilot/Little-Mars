@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7828586441254109258}
   - component: {fileID: -9055127554176796854}
   m_Layer: 0
-  m_Name: SignImage
+  m_Name: Map_ViewSlot_SignImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

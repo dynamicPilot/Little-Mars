@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine.EventSystems;
 
-namespace LittleMars.Buildings.States
+namespace LittleMars.Buildings.BuildingStates
 {
     public interface IBuildingState : IDisposable
     {

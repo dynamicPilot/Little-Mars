@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace LittleMars.Buildings.States
+namespace LittleMars.Buildings.BuildingStates
 {
     public class BuildingState
     {
-        ProductionState _state;
+        States _state;
         OperationMode _mode;
-        Dictionary<Period, ProductionState> _timetable;
+        Dictionary<Period, States> _timetable;
 
         BuildingStateManager _manager;
         IBuildingState _buildingState;
 
-        public ProductionState State { get => _state; }
+        public States State { get => _state; }
         public OperationMode OperationMode { get => _mode; }
-        public Dictionary<Period, ProductionState> ProductionTimetable { get => _timetable; }
-        public ProductionState StateForPeriod(Period period) => _timetable[period];
+        public Dictionary<Period, States> ProductionTimetable { get => _timetable; }
+        public States StateForPeriod(Period period) => _timetable[period];
 
         public BuildingState(BuildingStateManager manager)
         {
@@ -25,8 +25,8 @@ namespace LittleMars.Buildings.States
         }
 
         public void OnStart()
-        {            
-            ChangeState(ProductionState.off, OperationMode.forcedAuto);
+        {
+            ChangeState(States.off, OperationMode.forcedAuto);
             ResetTimetable();
             _buildingState.OnStart();
         }
@@ -43,20 +43,21 @@ namespace LittleMars.Buildings.States
 
         public void ChangeStateForPeriod(Period period)
         {
-            var newState = (_timetable[period] == ProductionState.on) ?
-                ProductionState.off : ProductionState.on;
+            var newState = (_timetable[period] == States.on) ?
+                States.off : States.on;
             _timetable[period] = newState;
             Debug.Log("New period timetable " + _timetable[period]);
         }
 
-        public void ChangeState(ProductionState state, OperationMode mode)
+        public void ChangeState(States state, OperationMode mode)
         {
-            if (_state == state) return;
+            if (_state == state && _mode != OperationMode.auto) return;
+            else if (_state == state && state == States.on) return;
 
             _state = state;
             _mode = mode;
 
-            _buildingState = _manager.CreateState(state);
+            _buildingState = _manager.CreateState(GetBState());
 
             Debug.Log($"BuildingState: state was changed to {_state}");
             _buildingState.SetView();
@@ -64,11 +65,18 @@ namespace LittleMars.Buildings.States
 
         private void ResetTimetable()
         {
-            _timetable = new Dictionary<Period, ProductionState>
+            _timetable = new Dictionary<Period, States>
             {
-                [Period.day] = ProductionState.on,
-                [Period.night] = ProductionState.on
+                [Period.day] = States.on,
+                [Period.night] = States.on
             };
+        }
+
+        private BStates GetBState()
+        {
+            return (_mode == OperationMode.auto && _state == States.off) ?
+                BStates.paused :
+                (BStates)((int)_state);
         }
 
     }

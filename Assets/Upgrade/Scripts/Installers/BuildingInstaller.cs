@@ -1,7 +1,7 @@
 ﻿using System;
 using Zenject;
 using UnityEngine;
-using LittleMars.Buildings.States;
+using LittleMars.Buildings.BuildingStates;
 using LittleMars.Common;
 using LittleMars.Buildings.Parts;
 using LittleMars.Buildings.View;
@@ -25,6 +25,7 @@ namespace LittleMars.Installers
 
             Container.BindFactory<BuildingOnState, BuildingOnState.Factory>().WhenInjectedInto<BuildingStateManager>();
             Container.BindFactory<BuildingOffState, BuildingOffState.Factory>().WhenInjectedInto<BuildingStateManager>();
+            Container.BindFactory<BuildingPausedState, BuildingPausedState.Factory>().WhenInjectedInto<BuildingStateManager>();
 
             Container.BindInstance(_type).AsSingle();
             Container.BindInstance(_size).AsSingle();

@@ -24,7 +24,7 @@ namespace LittleMars.Model
         public void Accept(BuildingObject building)
         {
             _production.UpdateResourcesAmount(building.Construction.ResourcesForBuilding, 
-                ProductionState.off);
+                States.off);
         }
     }
 }

@@ -1,30 +1,34 @@
 ﻿using LittleMars.Buildings.View;
 using LittleMars.Common.Interfaces;
-using System;
+using UnityEngine.EventSystems;
 using Zenject;
 
-namespace LittleMars.Buildings.States
+namespace LittleMars.Buildings.BuildingStates
 {
-    public class BuildingOnState : IBuildingState
+    public class BuildingOffState : IBuildingState
     {
         readonly BuildingView _view;
         readonly BuildingFacade _building;
         readonly IModelFacade _model;
-        public BuildingOnState(BuildingView view, IModelFacade model, 
-            BuildingFacade building, BuildingState state)
+        public BuildingOffState(BuildingView view, IModelFacade model, BuildingFacade building)
         {
             _view = view;
-            _building = building;
             _model = model;
+            _building = building;
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
         }
+
         public void OnClickPerformed()
         {
             _model.CallBuildingController(_building);
+        }
+
+        public void SetView()
+        {
+            _view.OffView();
         }
 
         public void OnStart()
@@ -38,12 +42,8 @@ namespace LittleMars.Buildings.States
             _view.SetViewActiveState(false);
         }
 
-        public void SetView()
-        {
-            _view.OnView();
-        }
 
-        public class Factory : PlaceholderFactory<BuildingOnState>
+        public class Factory : PlaceholderFactory<BuildingOffState>
         {
         }
     }

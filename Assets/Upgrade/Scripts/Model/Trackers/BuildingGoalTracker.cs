@@ -43,11 +43,11 @@ namespace LittleMars.Model.Trackers
 
             if (_goal.Unit.Type != info.Type || _goal.Unit.Size != info.Size) return;
 
-            if (building.State() == ProductionState.on && !_buildings.Contains(building))
+            if (building.State() == States.on && !_buildings.Contains(building))
             {
                 _buildings.Add(building);                
             }
-            else if (building.State() == ProductionState.off && _buildings.Contains(building)
+            else if (building.State() == States.off && _buildings.Contains(building)
                 && info.Type == BuildingType.dome)
             {
                 // remove only when dome is off

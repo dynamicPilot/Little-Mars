@@ -57,7 +57,7 @@ namespace LittleMars.Models
             {
                 foreach(IBuildingFacade building in _buildingsByPriority[key])
                 {
-                    if (building.State() == ProductionState.off) continue;
+                    if (building.State() == States.off) continue;
 
                     if (building.HasNeedForThisResource(resource))
                     {
@@ -65,7 +65,7 @@ namespace LittleMars.Models
                         _signalBus.Fire(new TryChangeBuildingStateSignal
                         {
                             BuildingFacade = building,
-                            State = ProductionState.off,
+                            State = States.off,
                             Mode = OperationMode.forcedAuto
                         });
                         //_operation.TryChangeBuildingState(building, ProductionState.off, OperationMode.forcedAuto);

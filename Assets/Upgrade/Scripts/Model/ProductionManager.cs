@@ -102,7 +102,7 @@ namespace LittleMars.Models
                     //Debug.Log($" Update {resource}. After {_resourcesBalance[resource]}");
                 }
             }
-            UpdateResourcesAmount(units, ProductionState.on);
+            UpdateResourcesAmount(units, States.on);
         }
 
         private void BalanceResource(Resource resource)
@@ -118,10 +118,10 @@ namespace LittleMars.Models
             }
         }
 
-        public void UpdateProduction(Dictionary<Resource, Dictionary<Period, float>> production, ProductionState state)
+        public void UpdateProduction(Dictionary<Resource, Dictionary<Period, float>> production, States state)
         {
             //Debug.Log("ProductionManager: update production. State " + state);
-            var multiplier = (state == ProductionState.on) ? 1 : -1;
+            var multiplier = (state == States.on) ? 1 : -1;
             foreach (Resource resource in production.Keys)
             {
                 foreach (Period period in production[resource].Keys)
@@ -132,19 +132,19 @@ namespace LittleMars.Models
 
         }
 
-        public void UpdateNeeds(ResourceUnit<float>[] needs, ProductionState state)
+        public void UpdateNeeds(ResourceUnit<float>[] needs, States state)
         {
             //Debug.Log("ProductionManager: update needs.");
-            var multiplier = (state == ProductionState.on) ? 1 : -1;
+            var multiplier = (state == States.on) ? 1 : -1;
             foreach(ResourceUnit<float> unit in needs) _needs[unit.Type] += multiplier * unit.Amount;
 
             _signalBus.Fire(_needsSignal);
 
         }
 
-        public void UpdateResourcesAmount(ResourceUnit<float>[] needs, ProductionState state)
+        public void UpdateResourcesAmount(ResourceUnit<float>[] needs, States state)
         {            
-            var multiplier = (state == ProductionState.on) ? 1 : -1;
+            var multiplier = (state == States.on) ? 1 : -1;
             foreach (ResourceUnit<float> unit in needs)
             {                
                 _resourcesBalance[unit.Type] += multiplier * unit.Amount;

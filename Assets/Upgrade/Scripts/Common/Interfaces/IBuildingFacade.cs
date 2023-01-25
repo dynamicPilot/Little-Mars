@@ -13,12 +13,12 @@ namespace LittleMars.Common.Interfaces
         WithSizeUnit<BuildingType, Size> Info();
         OperationMode OperationMode();
         Priority Priority();
-        ProductionState State();
+        States State();
         Dictionary<Resource, Dictionary<Period, float>> Production();
         ResourceUnit<float>[] Needs();
-        void ChangeState(ProductionState state, OperationMode mode);
+        void ChangeState(States state, OperationMode mode);
         bool HasNeedForThisResource(Resource resource);
-        ProductionState StateForPeriod(Period period);
+        States StateForPeriod(Period period);
         void ChangeStateForPeriod(Period period);
         IEnumerable<Indexes> MapSlotIndexes();
         void SetMapSlotIndexes(IEnumerable<Indexes> indexes);

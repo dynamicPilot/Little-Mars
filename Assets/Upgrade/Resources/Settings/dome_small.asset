@@ -33,3 +33,6 @@ MonoBehaviour:
       Amount: 1
     Connections: 01000000
     Needs: []
+  View:
+    Sprite: {fileID: -792046573, guid: edef373d37a4fac44969e5792ddd7199, type: 3}
+    Shape: {fileID: -2045746343, guid: 3397193739c39d440aaa4ecd82af96df, type: 3}

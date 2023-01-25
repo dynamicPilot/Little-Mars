@@ -39,19 +39,19 @@ namespace LittleMars.Buildings
             _signalBus?.TryFire(new AddBuildingSignal { BuildingFacade = building });
 
             Debug.Log($"Add building. Total building number is {_buildings.Count}.");
-            _operation.TryChangeBuildingState(building, ProductionState.on, OperationMode.manual);            
+            _operation.TryChangeBuildingState(building, Common.States.on, OperationMode.manual);            
         }
 
         public void RemoveBuilding(IBuildingFacade building)
         {
             Debug.Log($"Remove building with {building.Info().Type}");
-            _operation.TryChangeBuildingState(building, ProductionState.off, OperationMode.manual);
+            _operation.TryChangeBuildingState(building, Common.States.off, OperationMode.manual);
             _provider.FreeBuilding(building);
             _buildings.Remove(building);
             _signalBus?.TryFire(new RemoveBuildingSignal { BuildingFacade = building });
         }
 
-        public void TryChangeBuildingState(IBuildingFacade building, ProductionState state, OperationMode mode)
+        public void TryChangeBuildingState(IBuildingFacade building, Common.States state, OperationMode mode)
         {
             _operation.TryChangeBuildingState(building, state, mode);
         }
@@ -72,7 +72,7 @@ namespace LittleMars.Buildings
             {
                 if (_buildings[i] == building) continue;
 
-                _operation.TryChangeBuildingState(_buildings[i], ProductionState.on, OperationMode.auto);
+                _operation.TryChangeBuildingState(_buildings[i], Common.States.on, OperationMode.auto);
             }
         }
 

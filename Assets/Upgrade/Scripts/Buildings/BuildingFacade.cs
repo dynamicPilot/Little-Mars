@@ -1,5 +1,5 @@
 ﻿using LittleMars.Buildings.Parts;
-using LittleMars.Buildings.States;
+using LittleMars.Buildings.BuildingStates;
 using LittleMars.Common;
 using LittleMars.Common.Interfaces;
 using System.Collections;
@@ -37,13 +37,13 @@ namespace LittleMars.Buildings
         public void OnRemove() => _state.OnRemove();
         public Priority Priority() => Common.Priority.ultimate;
         public OperationMode OperationMode() => _state.OperationMode;
-        public ProductionState State() => _state.State;
+        public Common.States State() => _state.State;
         public Dictionary<Resource, Dictionary<Period, float>> Production() => _operation.Production;
         public ResourceUnit<float>[] Needs() => _operation.Needs();
         public IEnumerable<Indexes> MapSlotIndexes() => _data.MapSlotIndexes;
         public void SetMapSlotIndexes(IEnumerable<Indexes> indexes) => _data.MapSlotIndexes = indexes;
         public BuildingType[] Connections() => _data.Connections;
-        public void ChangeState(ProductionState state, OperationMode mode)
+        public void ChangeState(Common.States state, OperationMode mode)
         {
             _state.ChangeState(state, mode);
         }
@@ -53,7 +53,7 @@ namespace LittleMars.Buildings
             return _operation.HasNeedForThisResource(resource);
         }
 
-        public ProductionState StateForPeriod(Period period)
+        public Common.States StateForPeriod(Period period)
         {
             return _state.StateForPeriod(period);
         }

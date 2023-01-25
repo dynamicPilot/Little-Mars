@@ -17,10 +17,10 @@ namespace LittleMars.UI.BuildingSlots
     {
         [SerializeField] private BuildingSlotView _view;
 
-        public void SetActiveState(ProductionState state)
+        public void SetActiveState(States state)
         {
-            Debug.Log("Set active state : " + (state == ProductionState.on));
-            gameObject.SetActive(state == ProductionState.on);
+            Debug.Log("Set active state : " + (state == States.on));
+            gameObject.SetActive(state == States.on);
         }
 
         public void UpdateSlotAmount(int amount)

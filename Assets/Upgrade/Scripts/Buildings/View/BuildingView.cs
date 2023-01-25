@@ -1,4 +1,5 @@
-﻿using LittleMars.Buildings.States;
+﻿using LittleMars.Buildings.BuildingStates;
+using LittleMars.Common;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Zenject;
@@ -29,12 +30,17 @@ namespace LittleMars.Buildings.View
 
         public void OnView()
         {
-            Debug.Log("OnView");
+            _view.TransitToState(BStates.on);
         }
 
         public void OffView()
         {
-            Debug.Log("OffView");
+            _view.TransitToState(BStates.off);
+        }
+
+        public void PausedView()
+        {
+            _view.TransitToState(BStates.paused);
         }
 
 

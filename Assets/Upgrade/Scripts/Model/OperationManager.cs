@@ -56,16 +56,16 @@ namespace LittleMars.Models
             TryChangeBuildingState(arg.BuildingFacade, arg.State, arg.Mode);
         }
 
-        public bool TryChangeBuildingState(IBuildingFacade building, ProductionState state, OperationMode mode)
+        public bool TryChangeBuildingState(IBuildingFacade building, States state, OperationMode mode)
         {
             Debug.Log($"Try change state for building. To: {state}. Mode: {mode}.");
 
-            if (state == ProductionState.on && CheckForTurnOn(building, mode))
+            if (state == States.on && CheckForTurnOn(building, mode))
             {
                 ChangeBuildingStateTo(building, state, mode);
                 return true;
             }                
-            else if (state == ProductionState.off && CheckForTurnOff(building, mode))
+            else if (state == States.off && CheckForTurnOff(building, mode))
             {
                 ChangeBuildingStateTo(building, state, mode);
                 return true;
@@ -94,15 +94,15 @@ namespace LittleMars.Models
             }
 
             // if building sould be turn off for this period by timetable
-            if (building.StateForPeriod(_period) == ProductionState.off 
-                && building.State() == ProductionState.on)
+            if (building.StateForPeriod(_period) == States.off 
+                && building.State() == States.on)
             {
                 // turn off
                 Debug.Log($"The building sould be turn off for this period by timetable.");
                 return false;
             }
 
-            if (building.State() == ProductionState.on)
+            if (building.State() == States.on)
             {
                 Debug.Log($"The building is already turn on.");
                 return false;
@@ -114,19 +114,19 @@ namespace LittleMars.Models
         private bool CheckForTurnOff(IBuildingFacade building, OperationMode mode)
         {
             Debug.Log($"Check for TURN OFF.");
-            if (building.State() == ProductionState.off) return false;
+            if (building.State() == States.off) return false;
 
             return true;
         }
 
-        private void ChangeBuildingStateTo(IBuildingFacade building, ProductionState state,
+        private void ChangeBuildingStateTo(IBuildingFacade building, States state,
             OperationMode mode)
         {
             _production.UpdateProduction(building.Production(), state);
             _production.UpdateNeeds(building.Needs(), state);
 
             // set new operation mode -> turn on always auto
-            if (state == ProductionState.on) mode = OperationMode.auto;            
+            if (state == States.on) mode = OperationMode.auto;            
             
             building.ChangeState(state, mode);
 

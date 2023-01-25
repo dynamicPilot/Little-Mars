@@ -2,7 +2,7 @@
 {
     public interface IBuildingSlotFacade
     {
-        void SetActiveState(ProductionState state);
+        void SetActiveState(States state);
         void UpdateSlotAmount(int amount);
     }
 

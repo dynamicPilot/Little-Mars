@@ -45,7 +45,7 @@ namespace LittleMars.UI.BuildingSlots
         {
             // update amount -> less
             var info = args.BuildingFacade.Info();
-            OnAmountChanged(info.Type, info.Size, ProductionState.off);
+            OnAmountChanged(info.Type, info.Size, States.off);
         }
 
         public void OnRemoveBuildingFromMap(RemoveBuildingSignal args)
@@ -53,10 +53,10 @@ namespace LittleMars.UI.BuildingSlots
             // update amount -> more
             Debug.Log("Remove building");
             var info = args.BuildingFacade.Info();
-            OnAmountChanged(info.Type, info.Size, ProductionState.on);
+            OnAmountChanged(info.Type, info.Size, States.on);
         }
 
-        private void OnAmountChanged(BuildingType type, Size size, ProductionState state)
+        private void OnAmountChanged(BuildingType type, Size size, States state)
         {
             if (_amounts == null) FillAmounts();
             bool needSlotChange = UpdateAmount(type, size, state);
@@ -78,7 +78,7 @@ namespace LittleMars.UI.BuildingSlots
             if (_amounts == null) FillAmounts();
         }
 
-        private void ChangeSlotState(BuildingType type, Size size, ProductionState state)
+        private void ChangeSlotState(BuildingType type, Size size, States state)
         {
             if (!_slots.ContainsKey(type)) return;
             if (!_slots[type].ContainsKey(size)) return;
@@ -101,13 +101,13 @@ namespace LittleMars.UI.BuildingSlots
             }
         }
 
-        private bool UpdateAmount(BuildingType type, Size size, ProductionState state)
+        private bool UpdateAmount(BuildingType type, Size size, States state)
         {
             if (!_amounts.ContainsKey(type)) return false;
             if (!_amounts[type].ContainsKey(size)) return false;
-            if (_amounts[type][size] == 0  && state == ProductionState.off) return false;
+            if (_amounts[type][size] == 0  && state == States.off) return false;
 
-            var multiplier = (state == ProductionState.on) ? 1 : -1;
+            var multiplier = (state == States.on) ? 1 : -1;
             var amount = _amounts[type][size];
             var newAmount = amount + multiplier;
 
