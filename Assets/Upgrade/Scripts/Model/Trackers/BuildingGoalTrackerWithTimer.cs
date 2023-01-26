@@ -14,7 +14,9 @@ namespace LittleMars.Model.Trackers
         readonly SignalBus _signalBus;
 
         List<IBuildingFacade> _buildings;
+
         GoalUpdatedSignal _onUpdateSignal;
+        GoalIsDoneSignal _isDoneSignal;
 
         float _timer = 0f;
         bool _hasEnoughBuildings = false;
@@ -34,6 +36,12 @@ namespace LittleMars.Model.Trackers
             {
                 Index = index,
                 Values = new float[2] { 0f, 0f }
+            };
+
+            _isDoneSignal = new GoalIsDoneSignal
+            {
+                ResultType = _goal.Type,
+                IsFirstDone = _isFirstDone
             };
         }
 
@@ -85,6 +93,12 @@ namespace LittleMars.Model.Trackers
             _onUpdateSignal.Values[0] = _buildings.Count;
             _onUpdateSignal.Values[1] = _timer;
             _signalBus.Fire(_onUpdateSignal);
+        }
+
+        public override void OnGoalIsDone()
+        {
+            _isDoneSignal.IsFirstDone = _isFirstDone;
+            _signalBus.Fire(_isDoneSignal);
         }
 
         private void CheckBuildingCount()

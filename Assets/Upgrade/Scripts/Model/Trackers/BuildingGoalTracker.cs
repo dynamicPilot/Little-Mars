@@ -16,6 +16,7 @@ namespace LittleMars.Model.Trackers
         
         List<IBuildingFacade> _buildings;
         GoalUpdatedSignal _onUpdateSignal;
+        GoalIsDoneSignal _isDoneSignal;
         //int _index = 0;
 
         public BuildingGoalTracker(Goal<BuildingUnit<int>> goal, int index, SignalBus signalBus)
@@ -33,6 +34,13 @@ namespace LittleMars.Model.Trackers
             {
                 Index = index,
                 Values = new float[1] { 0 }
+            };
+
+            _isDoneSignal = new GoalIsDoneSignal
+            {
+                ResultType = _goal.Type,
+                Index = index,
+                IsFirstDone = _isFirstDone
             };
         }
 
@@ -75,6 +83,12 @@ namespace LittleMars.Model.Trackers
             Debug.Log("Fire Signal for index " + _onUpdateSignal.Index);
             _onUpdateSignal.Values[0] = _buildings.Count;
             _signalBus.Fire(_onUpdateSignal);
+        }
+
+        public override void OnGoalIsDone()
+        {
+            _isDoneSignal.IsFirstDone = _isFirstDone;
+            _signalBus.Fire(_isDoneSignal);
         }
 
         public void Dispose()

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e45fe21fdf643bf4a84ec2f36ed23e96
+guid: 277506a33c4397e408f75a1cfe6387af
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,232 +117,190 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_Signs_accept
+      name: UI_AchivementMenu_up
       rect:
         serializedVersion: 2
-        x: 1
-        y: 95
-        width: 33
-        height: 32
+        x: 5
+        y: 52
+        width: 152
+        height: 72
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 79, y: 15, z: 20, w: 35}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 938d8a94a50be464f8ebc09a6ed2f8e4
-      internalID: 1276018154
+      spriteID: 699a8c5ad65d3b24fa13686085fcd7af
+      internalID: 1917122624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Signs_quit
+      name: UI_AchivementMenu_buttonBase
       rect:
         serializedVersion: 2
-        x: 35
-        y: 95
+        x: 164
+        y: 92
         width: 33
-        height: 32
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 11, y: 5, z: 6, w: 5}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0959b23060535284cb8c078395c68e6c
-      internalID: -1362249693
+      spriteID: 5cc741c81bc39fd4bb158330b327daa4
+      internalID: -1559250188
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Signs_speed1
+      name: UI_Button_yellowSmall_pressed
       rect:
         serializedVersion: 2
-        x: 69
-        y: 95
-        width: 33
-        height: 32
+        x: 208
+        y: 100
+        width: 16
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 2, y: 2, z: 2, w: 2}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d2785c01857c1048a2706c0cc5ef9be
-      internalID: -1827149292
+      spriteID: a8990cf5cd7daad4ab793056cc910d36
+      internalID: -120466432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Signs_on
+      name: UI_Button_redSmall_pressed
       rect:
         serializedVersion: 2
-        x: 1
-        y: 62
-        width: 33
-        height: 32
+        x: 233
+        y: 100
+        width: 16
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 2, y: 2, z: 2, w: 2}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a39031f84bd27147b17de2465b9bb6f
-      internalID: 1287095392
+      spriteID: 09402d8828fbd864ab25d172bb1e5e1e
+      internalID: -1952174485
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Signs_rotate
+      name: UI_ButtonBase_small_right
       rect:
         serializedVersion: 2
-        x: 35
-        y: 62
-        width: 33
-        height: 32
+        x: 169
+        y: 60
+        width: 28
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 6, y: 6, z: 6, w: 5}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8811b81d14871a14eb8bf17841148455
-      internalID: -2135982277
+      spriteID: 487df7514c57df946b62c86b00f8720a
+      internalID: 2013378894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Signs_play
+      name: UI_Button_yellowSmall
       rect:
         serializedVersion: 2
-        x: 69
-        y: 62
-        width: 33
-        height: 32
+        x: 212
+        y: 57
+        width: 36
+        height: 33
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 16, y: 14, z: 16, w: 14}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4f243fa372c52c499ef743125ae0b19
-      internalID: -1002906301
+      spriteID: 254af48468c25264f8141a9fc1028918
+      internalID: -340624629
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Signs_day
+      name: UI_AchivementMenu_down
       rect:
         serializedVersion: 2
-        x: 1
-        y: 29
-        width: 33
-        height: 32
+        x: 5
+        y: 5
+        width: 152
+        height: 42
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 37, y: 27, z: 61, w: 7}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: edbb870f8d5df4849a6e742e637d903d
-      internalID: 2112959317
+      spriteID: 2ac7b8b59dcc94241a87cade1849e813
+      internalID: 1281800431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Signs_menu
+      name: UI_ButtonBase_small_left
       rect:
         serializedVersion: 2
-        x: 35
-        y: 29
-        width: 33
-        height: 32
+        x: 169
+        y: 30
+        width: 28
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 6, y: 6, z: 6, w: 5}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7acf1e003ef800d46b05878ec491405f
-      internalID: 1198002042
+      spriteID: 0257f11b21f22c340bc1af4b10c4adbf
+      internalID: -1775271565
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Signs_back
+      name: UI_Button_redSmall
       rect:
         serializedVersion: 2
-        x: 69
-        y: 29
-        width: 33
-        height: 32
+        x: 212
+        y: 19
+        width: 36
+        height: 33
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 16, y: 14, z: 16, w: 14}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b254f2c49be122c45a6a13d64d841c40
-      internalID: 887304747
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Signs_speed0
-      rect:
-        serializedVersion: 2
-        x: 103
-        y: 95
-        width: 33
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 401233120eb66244cbdb91bc72079a96
-      internalID: 310895423
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Signs_quit_small
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 15
-        width: 14
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 135769a09eb4a464d9e67d2a0203a565
-      internalID: -851750555
+      spriteID: 8946cc6d975232542950bae2894dd731
+      internalID: -1449532085
       vertices: []
       indices: 
       edges: []
@@ -358,20 +316,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_Signs_rotate: -2135982277
-      UI_Signs_speed0: 310895423
-      UI_Signs_quit_small: -851750555
-      UI_Signs_accept: 1276018154
-      UI_Signs_quit: -1362249693
-      UI_Signs_speed1: -1827149292
-      UI_Signs_on: 1287095392
-      UI_Signs_play: -1002906301
-      UI_Signs_menu: 1198002042
-      UI_Signs_back: 887304747
-      UI_Signs_day: 2112959317
+      UI_AchivementMenu_down: 1281800431
+      UI_Button_yellowSmall_pressed: -120466432
+      UI_AchivementMenu_up: 1917122624
+      UI_Button_redSmall_pressed: -1952174485
+      UI_Button_yellowSmall: -340624629
+      UI_Button_redSmall: -1449532085
+      UI_ButtonBase_small_left: -1775271565
+      UI_ButtonBase_small_right: 2013378894
+      UI_AchivementMenu_buttonBase: -1559250188
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 1
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

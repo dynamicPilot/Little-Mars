@@ -12,6 +12,7 @@ namespace LittleMars.Model.Trackers
         readonly Goal<ResourceUnit<float>> _goal;
 
         GoalUpdatedSignal _onUpdateSignal;
+        GoalIsDoneSignal _isDoneSignal;
 
         float _currentBalance = 0f;
 
@@ -29,6 +30,13 @@ namespace LittleMars.Model.Trackers
                 Index = index,
                 Values = new float[1] { 0 }
             };
+
+            _isDoneSignal = new GoalIsDoneSignal
+            {
+                ResultType = _goal.Type,
+                Index = index,
+                IsFirstDone = _isFirstDone
+            };
         }
 
         private void OnResourceBalanceUpdated(ResourcesBalanceUpdatedSignal args)
@@ -45,6 +53,12 @@ namespace LittleMars.Model.Trackers
         {
             _onUpdateSignal.Values[0] = _currentBalance;
             _signalBus.Fire(_onUpdateSignal);
+        }
+
+        public override void OnGoalIsDone()
+        {
+            _isDoneSignal.IsFirstDone = _isFirstDone;
+            _signalBus.Fire(_isDoneSignal);
         }
 
         public void Dispose()
