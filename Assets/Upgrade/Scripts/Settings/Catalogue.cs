@@ -13,6 +13,7 @@ namespace LittleMars.Settings
         [SerializeField] private BuildingIconsSettings Buildings;
         [SerializeField] private GoalTypeIconsSetting Goal;
         [SerializeField] private FieldInconsSettings Fields;
+        [SerializeField] private OtherIconsSettings _other;
 
         private Dictionary<int, Sprite> _resourceIcons = null;
         private Dictionary<int, Sprite> _buildingIcons = null;
@@ -55,6 +56,12 @@ namespace LittleMars.Settings
         public class FieldInconsSettings
         {
             public Sprite Metals;
+        }
+
+        [Serializable]
+        public class OtherIconsSettings
+        {
+            public Sprite DefaultTimer;
         }
 
         private void CreateResourceDictionary()
@@ -119,6 +126,10 @@ namespace LittleMars.Settings
             {
                 if (_fieldIcons == null) CreateFieldDictionary();
                 return GetIcon(index, _fieldIcons);
+            }
+            else if (type == IconType.timer)
+            {
+                return _other.DefaultTimer;
             }
             else
             {

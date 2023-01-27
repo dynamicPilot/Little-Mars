@@ -12,11 +12,14 @@ namespace LittleMars.UI.GoalSlots
     {
         readonly SlotUIFactory<BuildingGoalSlotUI> _factory;
         readonly SlotUIFactory<BuildingGoalWithTimerSlotUI> _withTimeFactory;
+        readonly ISetSlot _timerSetter;
+
         public BuildingGoalSlotsUIFactory(SlotUIFactory<BuildingGoalSlotUI> factory,
-            SlotUIFactory<BuildingGoalWithTimerSlotUI> withTimeFactory)
+            SlotUIFactory<BuildingGoalWithTimerSlotUI> withTimeFactory, ISetSlot timerSetter)
         {
             _factory = factory;
-            _withTimeFactory = withTimeFactory; 
+            _withTimeFactory = withTimeFactory;
+            _timerSetter = timerSetter; 
         }
 
         public List<BuildingGoalSlotUI> CreateSlots(Goals<BuildingUnit<int>> goals, RectTransform container, 
@@ -40,7 +43,6 @@ namespace LittleMars.UI.GoalSlots
         {
             var slot = _factory.CreateSlot((int)goal.Unit.Type, container, siblingIndex);
             slot.SetTargetValue(goal.Unit.Amount);
-            //slot.SetSize((int)goal.Unit.Size);
             SetBuildingSize(slot, (int)goal.Unit.Size);
             return slot;
         }
@@ -66,14 +68,19 @@ namespace LittleMars.UI.GoalSlots
         {
             var slot = _withTimeFactory.CreateSlot((int)goal.Unit.Type, container, siblingIndex);
             slot.SetTargetValue(goal.Unit.Amount, goal.Time);
-            //slot.SetSize((int)goal.Unit.Size);
             SetBuildingSize(slot, (int)goal.Unit.Size);
+            SetTimerIcon(slot);
             return slot;
         }
 
         private void SetBuildingSize(ISetSize slot, int index)
         {
             slot.SetSize(index);
+        }
+
+        private void SetTimerIcon(GoalWithTimerSlotUI slot)
+        {
+            slot.SetTimerIcon(_timerSetter);
         }
 
         public void Dispose()

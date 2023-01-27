@@ -33,18 +33,18 @@ namespace LittleMars.UI
         {
             _controller = controller;
             _signalBus = signalBus;
+
+            Init();
         }
 
-        private void Start()
-        {
-            _signalBus.Subscribe<BuildingStateChangedSignal>(OnBuildingStateChanged);
+        private void Init()
+        {          
             _signalBus.Subscribe<BuildingControllerSignal>(OnControllerStarted);
         }
 
         private void OnDestroy()
         {
             RemoveListeners();
-            _signalBus.TryUnsubscribe<BuildingStateChangedSignal>(OnBuildingStateChanged);
             _signalBus.TryUnsubscribe<BuildingControllerSignal>(OnControllerStarted);
         }
         private void SetListeners()
@@ -85,6 +85,8 @@ namespace LittleMars.UI
             UpdateButtonsState();
             _panel.SetActive(true);
             _isOpen = true;
+
+            _signalBus.Subscribe<BuildingStateChangedSignal>(OnBuildingStateChanged);
         }
 
         private void Close()
@@ -92,6 +94,8 @@ namespace LittleMars.UI
             _isOpen = false;
             _panel.SetActive(false);
             _building = null;
+
+            _signalBus.TryUnsubscribe<BuildingStateChangedSignal>(OnBuildingStateChanged);
         }
 
         private void UpdateButtonsState()

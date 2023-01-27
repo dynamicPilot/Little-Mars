@@ -23,6 +23,11 @@ namespace LittleMars.UI
         SignalBus _signalBus;
         bool _isListenersSet = false;
 
+        private void OnValidate()
+        {
+            _panel.SetActive(false);
+        }
+
         [Inject]
         public void Constructor(IPlacement placement, SignalBus signalBus)
         {
@@ -30,12 +35,12 @@ namespace LittleMars.UI
             _signalBus = signalBus;
             _isListenersSet = false;
 
-            _signalBus.Subscribe<StartBuildingPlacementSignal>(Open);
+            Init();
         }
 
-        private void OnValidate()
+        private void Init()
         {
-            _panel.SetActive(false);
+            _signalBus.Subscribe<StartBuildingPlacementSignal>(Open);
         }
 
         private void OnDestroy()

@@ -15,16 +15,17 @@ using LittleMars.Model.Interfaces;
 using LittleMars.UI.BuildingSlots;
 using LittleMars.Model;
 using LittleMars.UI;
-using UnityEngine.PlayerLoop;
 using LittleMars.Model.TimeUpdate;
 using LittleMars.Common.LevelGoal;
 using LittleMars.Model.Trackers;
 using LittleMars.UI.ResourceSlots;
-using LittleMars.Slots.UI;
 using LittleMars.UI.SlotUIFactories;
 using LittleMars.UI.GoalSlots;
 using LittleMars.Connections;
 using LittleMars.Connections.View;
+using LittleMars.Model.GoalDisplays;
+using LittleMars.UI.GoalDisplays;
+using LittleMars.UI.Achivements;
 
 namespace LittleMars.Installers
 {
@@ -39,6 +40,7 @@ namespace LittleMars.Installers
         {
             InstallMap();
             InstallModel();
+            InstallGoalInfos();
             InstallTrackers();
             InstallBuildings();
             InstallViewSlots();
@@ -106,6 +108,7 @@ namespace LittleMars.Installers
             Container.BindFactory<BuildingObject, MapRouterCheckForBuilding, MapRouterCheckForBuilding.Factory>()
                 .WhenInjectedInto<PlacementManager>();
         }
+
 
         public void InstallTrackers()
         {
@@ -185,12 +188,45 @@ namespace LittleMars.Installers
             Container.BindFactory<SlotConnections, SlotConnections.Factory>().AsSingle();
         }
 
+
+        public void InstallGoalInfos()
+        {
+            Container.BindInterfacesAndSelfTo<GoalDisplayStatesManager>().AsSingle();
+
+            Container.Bind<GoalDisplayStrategiesFactory>().AsSingle();
+            Container.Bind<GoalDisplayStrategyFactory>().AsSingle();
+            Container.Bind<AchivementDisplayController>().AsSingle();
+
+            Container.BindFactory<GoalType, BuildingUnit<int>, IGoalInfo, GoalInfoFactory<BuildingUnit<int>>>()
+                .To<BuildingGoalInfo>()
+                .WhenInjectedInto<GoalDisplayStrategiesFactory>();
+
+            Container.BindFactory<GoalType, float, BuildingUnit<int>, IGoalInfo, WithTimerGoalInfoFactory<BuildingUnit<int>>>()
+                .To<BuildingWithTimerGoalInfo>()
+                .WhenInjectedInto<GoalDisplayStrategiesFactory>();
+
+            Container.BindFactory<GoalType, ResourceUnit<float>, IGoalInfo, GoalInfoFactory<ResourceUnit<float>>>()
+                .To<ResourceGoalInfo>()
+                .WhenInjectedInto<GoalDisplayStrategiesFactory>();
+
+            Container.BindFactory<IGoalInfo, ResourceGoalDisplayStrategy, ResourceGoalDisplayStrategy.Factory>()
+                .WhenInjectedInto<GoalDisplayStrategyFactory>();
+
+            Container.BindFactory<IGoalInfo, BuildingGoalDisplayStrategy, BuildingGoalDisplayStrategy.Factory>()
+                .WhenInjectedInto<GoalDisplayStrategyFactory>();
+
+            Container.BindFactory<IGoalInfo, BuildingGoalWithTimerDisplayStrategy, BuildingGoalWithTimerDisplayStrategy.Factory>()
+                .WhenInjectedInto<GoalDisplayStrategyFactory>();
+        }
+
         private void InstallUIAndManagers()
         {
             // PlacementMenuUI, GameUI -> bind via ZenjectBuinding Component -> GameUI object
 
             Container.Bind<ResourceSlotUISetter>().AsCached();
             Container.Bind<BuildingSlotUISetter>().AsCached();
+            Container.Bind<TimerSlotUISetter>().AsCached();
+            Container.Bind<GoalTypeUISetter>().AsCached();
 
             Container.Bind<ISetSlot>().To<ResourceSlotUISetter>().WhenInjectedInto<SlotUIFactory<ResourceSlotUI>>();            
             Container.Bind<ISetSlot>().To<ResourceSlotUISetter>().WhenInjectedInto<SlotUIFactory<ResourceBalanceSlotUI>>();
@@ -200,6 +236,8 @@ namespace LittleMars.Installers
             Container.Bind<ISetSlot>().To<BuildingSlotUISetter>().WhenInjectedInto<SlotUIFactory<BuildingGoalWithTimerSlotUI>>();
             
             Container.Bind<ISetSlot>().To<GoalTypeUISetter>().WhenInjectedInto<ResourceGoalSlotsUIFactory>();
+
+            Container.Bind<ISetSlot>().To<TimerSlotUISetter>().WhenInjectedInto<BuildingGoalSlotsUIFactory>();
 
             Container.BindInterfacesAndSelfTo<ResourceSlotMenuManager>().AsSingle();
             Container.BindInterfacesAndSelfTo<ResourcesBalanceMenuManager>().AsSingle();

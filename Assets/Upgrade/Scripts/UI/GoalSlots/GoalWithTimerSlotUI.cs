@@ -1,9 +1,9 @@
 ﻿using LittleMars.Common.Signals;
 using LittleMars.UI.Effects;
 using LittleMars.UI.ResourceSlots;
+using LittleMars.UI.SlotUIFactories;
 using TMPro;
 using UnityEngine;
-using Zenject;
 
 namespace LittleMars.UI.GoalSlots
 {
@@ -11,12 +11,18 @@ namespace LittleMars.UI.GoalSlots
     {
         [SerializeField] private TextMeshProUGUI _firstTargetCounter;
         [SerializeField] private TextMeshProUGUI _secondTargetCounter;
+        [SerializeField] private SlotUI _timerSlot;
 
         [Header("Indicator")]
         [SerializeField] private ProgressIndicatorUI _indicator;
         // indicator
         float _firstTargetValue;
         float _secondTargetValue;
+
+        public void SetTimerIcon(ISetSlot setter)
+        {
+            setter.SetSlot(_timerSlot, 0);
+        }
 
         public void SetTargetValue(float firstValue, float secondValue)
         {

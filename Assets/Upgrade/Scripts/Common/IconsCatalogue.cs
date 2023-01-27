@@ -34,6 +34,11 @@ namespace LittleMars.Common
             return _settings.Catalogue.Icon((int)type, IconType.field);
         }
 
+        public Sprite TimerTypeIcon()
+        {
+            return _settings.Catalogue.Icon(0, IconType.timer);
+        }
+
         [Serializable]
         public class Settings
         {

@@ -93,7 +93,8 @@
         resource,
         building,
         goalType,
-        field
+        field,
+        timer
     }
 
     public enum MenuInitType
