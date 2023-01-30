@@ -109,5 +109,21 @@
         fieldSlot,
         connectionSlot
     }
+
+    public enum MenuMode
+    {
+        start,
+        end
+    }
+
+    public enum CommandType
+    {
+        next,
+        mainMenu,
+        restart,
+        start,
+        menu,
+        back
+    }
 }
 

@@ -1,4 +1,4 @@
-﻿using LittleMars.Common;
+﻿using LittleMars.Common.Levels;
 using LittleMars.Map;
 using LittleMars.Model;
 using System;
@@ -10,14 +10,21 @@ namespace LittleMars.Settings
     [CreateAssetMenu(menuName = "LittleMars/Level Settings")]
     public class LevelSettings : ScriptableObjectInstaller<LevelSettings>
     {
+        public LevelInfoSettings Info;
         public LevelConditionsSettings Conditions;
         public MapSettings Map;
         public LevelGoalsSettings Goals;
 
         [Serializable]
+        public class LevelInfoSettings
+        {
+            public Common.Levels.LevelInfo LevelInfo;
+        }
+
+        [Serializable]
         public class LevelConditionsSettings
         {
-            public LevelConditions.Settings InitialConditions;
+            public LevelConditions InitialConditions;
         }
 
         [Serializable]
@@ -35,6 +42,7 @@ namespace LittleMars.Settings
         }
         public override void InstallBindings()
         {
+            Container.BindInstance(Info.LevelInfo);
             Container.BindInstance(Conditions.InitialConditions);
             Container.BindInstance(Map.Lines);
             Container.BindInstance(Map.Fields);

@@ -5,11 +5,8 @@ using LittleMars.Common.Signals;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Zenject;
-using static UnityEngine.UI.CanvasScaler;
+using LittleMars.Common.Levels;
 
 namespace LittleMars.UI.BuildingSlots
 {
@@ -22,11 +19,11 @@ namespace LittleMars.UI.BuildingSlots
         Dictionary<BuildingType, Dictionary<Size, int>> _amounts = null;
         Dictionary<BuildingType, Dictionary<Size, IBuildingSlotFacade>> _slots = null;
 
-        readonly LevelConditions.Settings _settings;
+        readonly LevelConditions _settings;
         readonly BuildingSlotFactory _factory;
         readonly SignalBus _signalBus;
 
-        public BuildingMenuManager(LevelConditions.Settings settings, BuildingSlotFactory factory,
+        public BuildingMenuManager(LevelConditions settings, BuildingSlotFactory factory,
             SignalBus signalBus)
         {
             _settings = settings;

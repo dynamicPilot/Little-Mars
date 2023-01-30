@@ -24,13 +24,14 @@ namespace LittleMars.Model.TimeUpdate
             _totalSeconds = 0f;
 
             _signalBus.Subscribe<PeriodChangeSignal>(OnPeriodChanaged);
+            
             // move to signals
             StartUpdater();
         }
 
         private void OnDestroy()
         {
-            _signalBus.TryUnsubscribe<PeriodChangeSignal>(OnPeriodChanaged);
+            //_signalBus.TryUnsubscribe<PeriodChangeSignal>(OnPeriodChanaged);
         }
         void StartUpdater()
         {

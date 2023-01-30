@@ -10,15 +10,11 @@ namespace LittleMars.UI.GoalDisplays
         [SerializeField] ResourceAndGoalTypeSlotUI _resourcePart;
         [SerializeField] ResourceSlotUI _timerPart;
 
-        [Header("Effects")]
-        [SerializeField] private SliderFillingAnimation _sliderAnimation;
-
-        public void SetSlot(IGoalDisplayStrategy strategy)
+        public virtual void SetSlot(IGoalDisplayStrategy strategy)
         {
             strategy.SetBuildingPart(_buildingPart);
             strategy.SetResourcePart(_resourcePart);
             strategy.SetTimerPart(_timerPart);
-            _sliderAnimation.StartAnimation();
         }
 
     }

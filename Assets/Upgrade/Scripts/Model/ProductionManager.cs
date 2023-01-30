@@ -1,9 +1,9 @@
 ﻿using LittleMars.Common;
+using LittleMars.Common.Levels;
 using LittleMars.Common.Signals;
 using LittleMars.Model.Interfaces;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 using Zenject;
 
 namespace LittleMars.Models
@@ -17,7 +17,7 @@ namespace LittleMars.Models
 
         ProductionHelper _helper;
         ResourcesBalancer _balancer;
-        LevelConditions.Settings _settings;
+        LevelConditions _settings;
         SignalBus _signalBus;
 
         Period _period;
@@ -28,7 +28,7 @@ namespace LittleMars.Models
 
         int _count = 0;
         public ProductionManager(ProductionHelper helper, 
-            LevelConditions.Settings settings, SignalBus signalBus, 
+            LevelConditions settings, SignalBus signalBus, 
             ResourcesBalancer balancer)
         {
             _helper = helper;

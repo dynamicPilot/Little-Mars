@@ -26,6 +26,8 @@ using LittleMars.Connections.View;
 using LittleMars.Model.GoalDisplays;
 using LittleMars.UI.GoalDisplays;
 using LittleMars.UI.Achivements;
+using LittleMars.Commands;
+using LittleMars.UI.LevelMenus;
 
 namespace LittleMars.Installers
 {
@@ -39,14 +41,18 @@ namespace LittleMars.Installers
         public override void InstallBindings()
         {
             InstallMap();
-            InstallModel();
-            InstallGoalInfos();
+            InstallModel();            
             InstallTrackers();
-            InstallBuildings();
+
+            InstallBuildings();           
+            InstallConnections();
+
+            InstallGoalInfos();
             InstallViewSlots();
             InstallBuildingSlots();
-            InstallConnections();
+            InstallLevelMenus();
             InstallUIAndManagers();
+
             InstallSignals();
             InstallExecutionOrder();
         }
@@ -56,8 +62,10 @@ namespace LittleMars.Installers
             Container.BindExecutionOrder<ViewSlotManager>(-20);
             Container.BindExecutionOrder<ConnectionsManager>(-20);
             Container.BindExecutionOrder<ResourceSlotMenuManager>(-20);
+            //Container.BindExecutionOrder<StartLevelMenuUI>(-20);
 
             Container.BindExecutionOrder<MapManager>(-10);
+            //Container.BindExecutionOrder<>(-10);
         }
 
         private void InstallMap()
@@ -80,7 +88,7 @@ namespace LittleMars.Installers
 
         }
 
-        public void InstallModel()
+        private void InstallModel()
         {
             Container.BindInstance(_timeUpdater);
 
@@ -89,6 +97,7 @@ namespace LittleMars.Installers
             Container.BindInterfacesAndSelfTo<ProductionManager>().AsSingle();
 
             Container.Bind<TimeManager>().AsSingle();
+            Container.Bind<TimeSpeedManager>().AsSingle();
             Container.Bind<IconsCatalogue>().AsSingle();
             Container.Bind<ColorsCatalogue>().AsSingle();
             Container.Bind<ProductionHelper>().AsSingle();
@@ -110,7 +119,7 @@ namespace LittleMars.Installers
         }
 
 
-        public void InstallTrackers()
+        private void InstallTrackers()
         {
             Container.BindInterfacesAndSelfTo<GoalsManager>().AsSingle();
 
@@ -141,7 +150,7 @@ namespace LittleMars.Installers
                 .WhenInjectedInto<GoalsTrackerProvider<ResourceUnit<float>, ResourceBalanceGoalTracker>>();
         }
 
-        public void InstallBuildings()
+        private void InstallBuildings()
         {
             Container.BindInterfacesAndSelfTo<BuildingManager>().AsSingle();
             Container.Bind<BuildingStorage>().AsSingle();
@@ -188,8 +197,20 @@ namespace LittleMars.Installers
             Container.BindFactory<SlotConnections, SlotConnections.Factory>().AsSingle();
         }
 
+        private void InstallLevelMenus()
+        {
+            Container.Bind<CommandManager>().AsSingle();
+            Container.Bind<LevelReceiver>().AsSingle();
 
-        public void InstallGoalInfos()
+            Container.Bind<LevelMenu>().AsSingle();
+
+            Container.Bind<NullCommand>().AsSingle();
+            Container.BindFactory<NextCommand, NextCommand.Factory>();
+            Container.BindFactory<StartCommand, StartCommand.Factory>();
+        }
+
+
+        private void InstallGoalInfos()
         {
             Container.BindInterfacesAndSelfTo<GoalDisplayStatesManager>().AsSingle();
 
@@ -285,6 +306,7 @@ namespace LittleMars.Installers
         {
             SignalBusInstaller.Install(Container);
             Container.DeclareSignal<MapSlotsAreReadySignal>();
+            Container.DeclareSignal<GoalStrategiesIsReadySignal>();
 
             Container.DeclareSignal<AddBuildingSignal>();
             Container.DeclareSignal<RemoveBuildingSignal>();

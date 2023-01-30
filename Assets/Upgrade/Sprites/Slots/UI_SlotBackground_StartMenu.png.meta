@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fc0c2504b516137438e54b36ebd52035
+guid: f7a655edeb13cc4469fa7fd196c36d8d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,106 +117,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_MenuScreen_hor
+      name: UI_SlotBackground_startMenu
       rect:
         serializedVersion: 2
-        x: 4
-        y: 93
-        width: 129
-        height: 32
+        x: 0
+        y: 12
+        width: 32
+        height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 55, y: 11, z: 48, w: 11}
+      border: {x: 7, y: 6, z: 7, w: 6}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 375c538a01857dd4da40ecb74a8fced2
-      internalID: 1364453274
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_LevelScreen
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 56
-        width: 146
-        height: 35
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 18, y: 20, z: 80, w: 11}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b7fad5b130361d54295b89a9075b60ec
-      internalID: -476584970
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_MenuPanel
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 3
-        width: 253
-        height: 51
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 88, y: 0, z: 145, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 700af563c829ef547ab9506e22e4a7a8
-      internalID: 2134915326
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_MenuDivider_vert
-      rect:
-        serializedVersion: 2
-        x: 155
-        y: 56
-        width: 3
-        height: 34
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 3, z: 0, w: 3}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2452b23b717827b409cfdc2774756ae6
-      internalID: 1588299362
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_MenuDivider_hor
-      rect:
-        serializedVersion: 2
-        x: 166
-        y: 56
-        width: 34
-        height: 3
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 3, y: 0, z: 3, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 98627497d793aee409d8a516661513df
-      internalID: -709697538
+      spriteID: ff376fc0d4df8af45b5760e888137b24
+      internalID: 1624637567
       vertices: []
       indices: 
       edges: []
@@ -232,14 +148,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_LevelScreen: -476584970
-      UI_MenuDivider_hor: -709697538
-      UI_MenuPanel: 2134915326
-      UI_MenuDivider_vert: 1588299362
-      UI_MenuScreen_hor: 1364453274
+      UI_SlotBackground_startMenu: 1624637567
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 1
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

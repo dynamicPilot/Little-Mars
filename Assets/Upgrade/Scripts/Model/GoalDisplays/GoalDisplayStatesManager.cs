@@ -1,4 +1,5 @@
-﻿using LittleMars.UI.GoalDisplays;
+﻿using LittleMars.Common.Signals;
+using LittleMars.UI.GoalDisplays;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
@@ -8,11 +9,14 @@ namespace LittleMars.Model.GoalDisplays
     public class GoalDisplayStatesManager : IInitializable
     {
         readonly GoalDisplayStrategiesFactory _factory;
+        readonly SignalBus _signalBus;
+
         List<IGoalDisplayStrategy> _strategies;
 
-        public GoalDisplayStatesManager(GoalDisplayStrategiesFactory factory)
+        public GoalDisplayStatesManager(GoalDisplayStrategiesFactory factory, SignalBus signalBus)
         {
             _factory = factory;
+            _signalBus = signalBus;
         }
 
         public void Initialize()
@@ -24,6 +28,7 @@ namespace LittleMars.Model.GoalDisplays
         {
             _strategies = _factory.CreateStrategies();
             Debug.Log("Strategies is created : " + _strategies.Count);
+            _signalBus.Fire(new GoalStrategiesIsReadySignal { Strategies = _strategies.ToArray() });
         }
 
         public IGoalDisplayStrategy GetStrategy(int index)

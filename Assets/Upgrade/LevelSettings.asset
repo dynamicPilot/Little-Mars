@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf6543bd0cd16ad458aedf97fdae9b3f, type: 3}
   m_Name: LevelSettings
   m_EditorClassIdentifier: 
+  Info:
+    LevelInfo:
+      Number: 1
+      StartSprite: {fileID: -6933934529716846700, guid: 6dfc9672df1d5ca42945eb7570208946, type: 3}
+      EndSprite: {fileID: 7829307810736791919, guid: 6dfc9672df1d5ca42945eb7570208946, type: 3}
   Conditions:
     InitialConditions:
       Resources:
