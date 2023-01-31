@@ -23,6 +23,7 @@ namespace LittleMars.Common.Interfaces
         IEnumerable<Indexes> MapSlotIndexes();
         void SetMapSlotIndexes(IEnumerable<Indexes> indexes);
         BuildingType[] Connections();
+        void Rotate(float angle);
     }
 
 

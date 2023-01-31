@@ -1,7 +1,5 @@
-﻿using LittleMars.Common;
-using LittleMars.Common.Interfaces;
+﻿using LittleMars.Common.Interfaces;
 using LittleMars.Model;
-using UnityEngine;
 
 namespace LittleMars.Buildings
 {
@@ -29,7 +27,7 @@ namespace LittleMars.Buildings
 
             var buildingTransform = ((BuildingFacade)building).gameObject.transform;
             buildingTransform.localPosition = placingBuilding.Position * 7f/2f;
-            buildingTransform.Rotate(0f, 90f * placingBuilding.RotationCount, 0f);
+            building.Rotate(90f * placingBuilding.RotationCount);
             building.OnStart();
             building.SetMapSlotIndexes(placingBuilding.SlotIndexes);
 

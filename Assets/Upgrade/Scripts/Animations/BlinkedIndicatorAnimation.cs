@@ -25,8 +25,8 @@ namespace LittleMars.Animations
             Sequence sequence = DOTween.Sequence();
 
             sequence
-                .Append(_indicator.DOFade(1f, _period))
                 .Append(_indicator.DOFade(0f, _period))
+                .Append(_indicator.DOFade(1f, _period))                
                 .SetLoops(-1)
                 .SetId(_id);
         }

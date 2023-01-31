@@ -6,11 +6,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
+using LittleMars.Buildings.View;
 
 namespace LittleMars.Buildings
 {
     public class BuildingFacade : MonoBehaviour, IBuildingFacade
     {
+        [SerializeField] private BuildingView _view;
+
         BuildingType _type;
         Size _size;
         BuildingState _state;
@@ -34,7 +37,12 @@ namespace LittleMars.Buildings
             _data.OnStart();
         }
 
-        public void OnRemove() => _state.OnRemove();
+        public void OnRemove()
+        {
+            _state.OnRemove();
+            _view.ResetView();
+        }
+        
         public Priority Priority() => Common.Priority.ultimate;
         public OperationMode OperationMode() => _state.OperationMode;
         public Common.States State() => _state.State;
@@ -47,7 +55,6 @@ namespace LittleMars.Buildings
         {
             _state.ChangeState(state, mode);
         }
-
         public bool HasNeedForThisResource(Resource resource)
         {
             return _operation.HasNeedForThisResource(resource);
@@ -66,6 +73,11 @@ namespace LittleMars.Buildings
         public WithSizeUnit<BuildingType, Size> Info()
         {
             return new WithSizeUnit<BuildingType, Size>() { Type = _type, Size = _size};
+        }
+
+        public void Rotate(float angle)
+        {
+            _view.Rotate(angle);
         }
 
         public class Factory : PlaceholderFactory<BuildingType, Size, BuildingFacade>

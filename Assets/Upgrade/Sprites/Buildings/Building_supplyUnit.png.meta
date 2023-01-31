@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b7baff42ec90f7442b4a3fc6fff0baf6
+guid: b497bfff442c24940b8e696a4639a5cb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,190 +117,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Signal_green
+      name: Building_supplyUnit_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 11
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 1, z: 0, w: 1}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e0d72854ceb9d784f91bef0ca05f095e
-      internalID: 790661155
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Signal_red
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 6
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 1, z: 0, w: 1}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f23745c7f1f2065428427226d5bccc8b
-      internalID: -2073663061
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Signal_yellow
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 1
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 1, z: 0, w: 1}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 67d602c91509fbc46962731176644b57
-      internalID: -959546986
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Signal_small_green
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 14
-        width: 1
-        height: 2
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 401e2eb4882afcb419931bb78712a1f8
-      internalID: 14053505
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Signal_small_red
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 9
-        width: 1
-        height: 2
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b3b8641215af5964b8f36fcfd874f753
-      internalID: -519235276
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Signal_small_yellow
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 3
-        width: 1
-        height: 2
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 31a75f72bea5aec498b4cadf8ca2c46a
-      internalID: -858686615
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Signals_square_green
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 12
-        width: 2
-        height: 2
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3eb436662d5dcdd46826dab264ed5eed
-      internalID: 1390611757
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Signals_square_red
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 6
-        width: 2
-        height: 2
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2c2fed16a889ba64fa3a5ab6a3a11747
-      internalID: -868663543
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Signals_square_yellow
-      rect:
-        serializedVersion: 2
-        x: 6
+        x: 0
         y: 0
-        width: 2
-        height: 2
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41e5b394cdead0a43982103fda66031d
-      internalID: -1324601278
+      spriteID: c1fe2cf00d4374c4fb81d1d1334689a4
+      internalID: 1374444580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Building_supplyUnit_1
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e0f8242fd6267e49804e560060cdc1d
+      internalID: -806565027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Building_supplyUnit_0
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 5
+        width: 57
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64ed7e65e5befca4b883a085c133f155
+      internalID: -1270796349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Building_supplyUnit_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 5
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17be45fa1780f2d41894e2d9df7f4041
+      internalID: -73116220
       vertices: []
       indices: 
       edges: []
@@ -316,18 +211,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Signals_square_green: 1390611757
-      Signals_square_red: -868663543
-      Signal_green: 790661155
-      Signals_square_yellow: -1324601278
-      Signal_small_yellow: -858686615
-      Signal_yellow: -959546986
-      Signal_small_red: -519235276
-      Signal_red: -2073663061
-      Signal_small_green: 14053505
+      UI_Building_supplyUnit_1: -73116220
+      Building_supplyUnit_1: -806565027
+      Building_supplyUnit_0: 1374444580
+      UI_Building_supplyUnit_0: -1270796349
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 1
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

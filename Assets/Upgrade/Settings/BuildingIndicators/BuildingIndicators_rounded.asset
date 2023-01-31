@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4454fd096b46b54294f5b1d952c4494, type: 3}
-  m_Name: BuildingIndicators_lighted
+  m_Name: BuildingIndicators_rounded
   m_EditorClassIdentifier: 
-  _on: {fileID: 767784078, guid: e0739f71e13bbde40ba403d37ac65e51, type: 3}
-  _off: {fileID: -2073663061, guid: b7baff42ec90f7442b4a3fc6fff0baf6, type: 3}
-  _paused: {fileID: -959546986, guid: b7baff42ec90f7442b4a3fc6fff0baf6, type: 3}
+  _on: {fileID: 1390611757, guid: b7baff42ec90f7442b4a3fc6fff0baf6, type: 3}
+  _off: {fileID: -868663543, guid: b7baff42ec90f7442b4a3fc6fff0baf6, type: 3}
+  _paused: {fileID: -1324601278, guid: b7baff42ec90f7442b4a3fc6fff0baf6, type: 3}

@@ -7,6 +7,7 @@ namespace LittleMars.UI.ResourceSlots
     {
         [SerializeField] private TextMeshProUGUI _counter;
 
+        string _prefix = "";
         private void OnValidate()
         {
             _sign.enabled = false;
@@ -18,9 +19,14 @@ namespace LittleMars.UI.ResourceSlots
             _counter.text = "0";
         }
 
+        public void SetPrefix(string prefix)
+        {
+            _prefix = prefix;
+        }
+
         public virtual void UpdateSlot(float number)
         {
-            _counter.text = number.ToString("F0");
+            _counter.text = string.Format($"{_prefix}{number.ToString("F0")}");
         }
     }
 }

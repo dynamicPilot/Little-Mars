@@ -25,18 +25,18 @@ MonoBehaviour:
       - Type: 6
         Amount: 20
       BuildingTypes:
-      - Type: 0
+      - Type: 5
         Size: 0
         Amount: 1
       - Type: 1
-        Size: 0
+        Size: 1
         Amount: 2
       TradeUnits: []
   Map:
     Lines:
       Rows: 2
       Columns: 2
-      BuildingTypes: 0000000001000000
+      BuildingTypes: 000000000100000005000000
       Mode: 0
       CustomMap: {fileID: 0}
     Fields:

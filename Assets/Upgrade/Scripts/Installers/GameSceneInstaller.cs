@@ -95,9 +95,9 @@ namespace LittleMars.Installers
             Container.BindInterfacesAndSelfTo<OperationManager>().AsSingle();
             Container.BindInterfacesAndSelfTo<ResourcesBalancer>().AsSingle();
             Container.BindInterfacesAndSelfTo<ProductionManager>().AsSingle();
+            Container.BindInterfacesAndSelfTo<TimeSpeedManager>().AsSingle();
 
-            Container.Bind<TimeManager>().AsSingle();
-            Container.Bind<TimeSpeedManager>().AsSingle();
+            Container.Bind<TimeManager>().AsSingle();            
             Container.Bind<IconsCatalogue>().AsSingle();
             Container.Bind<ColorsCatalogue>().AsSingle();
             Container.Bind<ProductionHelper>().AsSingle();

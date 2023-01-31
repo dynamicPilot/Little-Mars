@@ -2,6 +2,7 @@
 using LittleMars.Common;
 using LittleMars.UI;
 using LittleMars.UI.BuildingSlots;
+using LittleMars.UI.BuildingsSlots;
 using LittleMars.UI.Effects;
 using LittleMars.UI.ResourceSlots;
 using LittleMars.UI.SlotUIFactories;
@@ -24,17 +25,18 @@ namespace LittleMars.Installers
             Container.BindInstances(_type);
             Container.BindInstances(_size);
 
-            Container.BindInterfacesAndSelfTo<ResourcesListUI>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ResourcesScreenController>().AsSingle();
             Container.BindInterfacesAndSelfTo<ConnectionsListUI>().AsSingle();
             Container.BindInterfacesAndSelfTo<FieldsListUI>().AsSingle();
 
+            Container.Bind<ResourceListFactory>().AsSingle();
             Container.Bind<FieldSlotUISetter>().AsCached();
             //Container.Bind<SlotUIFactory<SlotUI>>().AsCached();
 
             Container.Bind<SlotUIFactory<ResourceSlotUI>>()
                 .AsSingle()
                 .WithConcreteId(Identifiers.buildingSlot)
-                .WhenInjectedInto<ResourcesListUI>();
+                .WhenInjectedInto<ResourceListFactory>();
 
             Container.Bind<SlotUIFactory<SlotUI>>()
                 .WithConcreteId(Identifiers.fieldSlot)               

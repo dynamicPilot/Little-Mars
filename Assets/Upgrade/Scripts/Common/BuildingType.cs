@@ -125,5 +125,18 @@
         menu,
         back
     }
+
+    public enum ColorType
+    {
+        connection,
+        bState
+    }
+
+    public enum ScreenType
+    {
+        buildingCost,
+        production,
+        needs
+    }
 }
 

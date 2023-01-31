@@ -2,6 +2,7 @@
 using LittleMars.Common;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 using Zenject;
 
 namespace LittleMars.Buildings.View
@@ -11,6 +12,7 @@ namespace LittleMars.Buildings.View
         BuildingObjectView _view;
         BuildingState _state;
 
+        float _angle = 0f;
         [Inject]
         public void Constructor(BuildingObjectView.Factory factory, BuildingState state)
         {
@@ -25,7 +27,11 @@ namespace LittleMars.Buildings.View
 
         public void SetViewActiveState(bool activeState)
         {
-            _view.gameObject.SetActive(activeState);
+            if (_view.gameObject.activeSelf != activeState)
+                _view.gameObject.SetActive(activeState);
+
+            if (activeState) _view.OnStart();
+            else _view.OnRemove();
         }
 
         public void OnView()
@@ -43,6 +49,21 @@ namespace LittleMars.Buildings.View
             _view.TransitToState(BStates.paused);
         }
 
+        public void Rotate(float angle)
+        {
+            _angle = angle;
+            transform.Rotate(0f, 0f,  -1 * angle);
+            _view.RotateView(angle);
+        }
 
+        public void ResetView()
+        {
+            if (_angle == 0f) return;
+
+            Rotate(-1 * _angle);
+            //transform.rotation = Quaternion.identity;
+            //_view.RotateView(-1 * _angle);
+            //_angle = 0f;
+        }
     }
 }

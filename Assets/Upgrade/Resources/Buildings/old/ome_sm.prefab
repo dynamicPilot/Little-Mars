@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 3338341103402388463}
   - component: {fileID: 6253902068700438544}
   - component: {fileID: 4832503893257954363}
-  - component: {fileID: 137136669585684960}
-  - component: {fileID: 6862847349065574079}
   m_Layer: 0
   m_Name: ome_sm
   m_TagString: Untagged
@@ -74,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1039299845
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 5202055775144664274, guid: 3088adde30871a84fac6f43d8dcae937, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -103,33 +101,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
---- !u!114 &137136669585684960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7186692385081033929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f6d401939c35ac4292927b72e89af09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6862847349065574079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7186692385081033929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _components:
-  - {fileID: 137136669585684960}
-  _identifier: 
-  _useSceneContext: 0
-  _context: {fileID: 0}
-  _bindType: 0

@@ -12,9 +12,38 @@ namespace LittleMars.Model
     {
         SignalBus _signalBus;
 
-        public void Start()
+        public LevelManager(SignalBus signalBus)
+        {
+            _signalBus = signalBus;
+        }
+
+        private void StartLevel()
+        {
+
+        }
+
+        public void ReadyToStart()
+        {
+
+        }
+        private void StartGame()
         {
             _signalBus.Fire<StartGameSignal>();
+        }
+
+        private void GameOver()
+        {
+
+        }
+
+        private void EndGame()
+        {
+
+        }
+
+        private void EndLevel()
+        {
+
         }
 
     }
