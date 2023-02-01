@@ -8,4 +8,7 @@
     public struct HourlySignal
     {
     }
+    public struct TimeSpeedChangedSignal
+    {
+    }
 }

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace LittleMars.Animations
 {
-    public class SliderFillingAnimation : DOTweenAnimation
+    public class SliderFillingAnimation : TweenAnimation
     {
         [SerializeField] private Slider _slider;
 

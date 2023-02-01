@@ -28,12 +28,14 @@ using LittleMars.UI.GoalDisplays;
 using LittleMars.UI.Achivements;
 using LittleMars.Commands;
 using LittleMars.UI.LevelMenus;
+using LittleMars.Localization;
 
 namespace LittleMars.Installers
 {
     public class GameSceneInstaller : MonoInstaller
     {
         [SerializeField] private TimeUpdater _timeUpdater;
+        [SerializeField] private Langs _lang;
 
         [Inject]
         Settings _settings = null;
@@ -43,6 +45,8 @@ namespace LittleMars.Installers
             InstallMap();
             InstallModel();            
             InstallTrackers();
+
+            InstallLocalizationSystem();
 
             InstallBuildings();           
             InstallConnections();
@@ -116,6 +120,13 @@ namespace LittleMars.Installers
             Container.BindFactory<MapRouterCheck, MapRouterCheck.Factory>().WhenInjectedInto<FieldManager>();
             Container.BindFactory<BuildingObject, MapRouterCheckForBuilding, MapRouterCheckForBuilding.Factory>()
                 .WhenInjectedInto<PlacementManager>();
+        }
+
+        private void InstallLocalizationSystem()
+        {
+            Container.BindInstance(_lang);
+            Container.Bind<JsonConverter>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LangsManager>().AsSingle();
         }
 
 
@@ -319,6 +330,7 @@ namespace LittleMars.Installers
 
             Container.DeclareSignal<PeriodChangeSignal>();
             Container.DeclareSignal<HourlySignal>();
+            Container.DeclareSignal<TimeSpeedChangedSignal>().OptionalSubscriber();
 
             Container.DeclareSignal<GoalIsDoneSignal>();
             Container.DeclareSignal<GoalUpdatedSignal>().OptionalSubscriber();

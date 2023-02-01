@@ -55,6 +55,9 @@ TagManager:
   - name: Buildings
     uniqueID: 1039299845
     locked: 0
+  - name: BuildingEffects
+    uniqueID: 3905690935
+    locked: 0
   - name: ViewSlotsUI
     uniqueID: 3785474917
     locked: 0

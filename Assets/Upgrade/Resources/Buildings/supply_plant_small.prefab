@@ -492,10 +492,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9999eaad97325e43bcd85e3128eed21, type: 3}
 --- !u!212 &498233102703803087 stripped
 SpriteRenderer:
@@ -567,7 +564,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Indicator
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1499249486918015660, guid: 6b622e5e2fb7fd2419c2f2514f691c1e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6b622e5e2fb7fd2419c2f2514f691c1e, type: 3}
 --- !u!212 &4364120724635015218 stripped
 SpriteRenderer:
@@ -639,7 +637,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: c9999eaad97325e43bcd85e3128eed21, type: 3}
 --- !u!212 &4526276587738345481 stripped
 SpriteRenderer:
@@ -665,8 +664,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1692506040149475093, guid: 9e7ba268746329940b57dab44a050b9f, type: 3}
       propertyPath: m_Name
-      value: IndicatorsControl
+      value: LightedIndicatorsControl
       objectReference: {fileID: 0}
+    - target: {fileID: 4842581209739053177, guid: 9e7ba268746329940b57dab44a050b9f, type: 3}
+      propertyPath: _indicator.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842581209739053177, guid: 9e7ba268746329940b57dab44a050b9f, type: 3}
+      propertyPath: _indicator.Array.data[0]
+      value: 
+      objectReference: {fileID: 8924605738254363307}
+    - target: {fileID: 4842581209739053177, guid: 9e7ba268746329940b57dab44a050b9f, type: 3}
+      propertyPath: _indicator.Array.data[1]
+      value: 
+      objectReference: {fileID: 4729058140989556822}
+    - target: {fileID: 4842581209739053177, guid: 9e7ba268746329940b57dab44a050b9f, type: 3}
+      propertyPath: _indicator.Array.data[2]
+      value: 
+      objectReference: {fileID: 8762449737779872400}
     - target: {fileID: 5246407350477174446, guid: 9e7ba268746329940b57dab44a050b9f, type: 3}
       propertyPath: m_RootOrder
       value: 0

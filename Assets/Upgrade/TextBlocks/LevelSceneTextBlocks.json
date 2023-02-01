@@ -1,0 +1,15 @@
+{
+  "Title": "scene",
+  "Blocks": {
+    "level_text": [
+      {
+        "Lang": 0,
+        "Text": "LEVEL"
+      },
+      {
+        "Lang": 1,
+        "Text": "УРОВЕНЬ"
+      }
+    ]
+  }
+}

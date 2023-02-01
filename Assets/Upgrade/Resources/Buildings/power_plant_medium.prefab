@@ -705,6 +705,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: IndicatorsControl
       objectReference: {fileID: 0}
+    - target: {fileID: 4842581209739053177, guid: 9e7ba268746329940b57dab44a050b9f, type: 3}
+      propertyPath: _indicator.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842581209739053177, guid: 9e7ba268746329940b57dab44a050b9f, type: 3}
+      propertyPath: _indicator.Array.data[0]
+      value: 
+      objectReference: {fileID: 1614386753514669888}
     - target: {fileID: 5246407350477174446, guid: 9e7ba268746329940b57dab44a050b9f, type: 3}
       propertyPath: m_RootOrder
       value: 0

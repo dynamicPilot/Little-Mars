@@ -123,7 +123,9 @@
         restart,
         start,
         menu,
-        back
+        back,
+        muteMusic,
+        muteAll
     }
 
     public enum ColorType
@@ -137,6 +139,18 @@
         buildingCost,
         production,
         needs
+    }
+
+    public enum Langs
+    {
+        en,
+        ru
+    }
+
+    public enum TagGroup
+    {
+        scene,
+        level
     }
 }
 

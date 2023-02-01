@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5246407350477174446}
   - component: {fileID: 5323714000873625900}
+  - component: {fileID: 4842581209739053177}
   - component: {fileID: 2991221881246749219}
   m_Layer: 0
   m_Name: IndicatorsControl
@@ -50,6 +51,20 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &4842581209739053177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692506040149475093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8023f360aaa5af74b883a51440d0e435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _indicator: []
+  _period: 1
 --- !u!114 &2991221881246749219
 MonoBehaviour:
   m_ObjectHideFlags: 0

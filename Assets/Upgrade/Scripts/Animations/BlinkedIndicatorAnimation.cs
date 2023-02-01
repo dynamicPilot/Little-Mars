@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace LittleMars.Animations
 {
-    public class BlinkedIndicatorAnimation : DOTweenAnimation
+    public class BlinkedIndicatorAnimation : TweenAnimation
     {
         [SerializeField] private SpriteRenderer _indicator;
         [SerializeField] private float _period;

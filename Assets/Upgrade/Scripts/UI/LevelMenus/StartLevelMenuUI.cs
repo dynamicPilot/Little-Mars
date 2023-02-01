@@ -34,6 +34,7 @@ namespace LittleMars.UI.LevelMenus
             _signalBus.Unsubscribe<GoalStrategiesIsReadySignal>(OnStrategiesIsReady);
 
             // set display
+            SetMenu();
             SetGoalDisplays(args.Strategies);
             SetButtons();
             Open();

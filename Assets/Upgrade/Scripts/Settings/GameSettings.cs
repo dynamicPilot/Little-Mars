@@ -1,13 +1,10 @@
 ﻿using LittleMars.Buildings;
 using LittleMars.Common;
 using LittleMars.Installers;
+using LittleMars.Localization;
 using LittleMars.Model.TimeUpdate;
 using LittleMars.Slots;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
@@ -19,6 +16,7 @@ namespace LittleMars.Settings
         public ViewSettings View;
         public TimeSettings Time;
         public CatalogueSettings Catalogue;
+        public TextBlocksSettings TextBlocks;
 
         [Serializable]
         public class ViewSettings
@@ -35,11 +33,16 @@ namespace LittleMars.Settings
         }
 
         [Serializable]
-
         public class CatalogueSettings
         {
             public IconsCatalogue.Settings Catalogue;
             public ColorsCatalogue.Settings Colors;
+        }
+
+        [Serializable]
+        public class TextBlocksSettings
+        {
+            public LangsManager.SceneSettings Blocks;
         }
 
 
@@ -51,6 +54,7 @@ namespace LittleMars.Settings
             Container.BindInstance(Catalogue.Colors);
             Container.BindInstance(Time.ManagerSettings);
             Container.BindInstance(Time.UpdaterSettings);
+            Container.BindInstance(TextBlocks.Blocks);
         }
     }
 }

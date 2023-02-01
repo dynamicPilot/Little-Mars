@@ -29,7 +29,7 @@ MonoBehaviour:
         Size: 0
         Amount: 1
       - Type: 1
-        Size: 1
+        Size: 0
         Amount: 2
       TradeUnits: []
   Map:

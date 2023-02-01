@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LittleMars.Animations
 {
-    public class RectScaleAnimation : DOTweenAnimation
+    public class RectScaleAnimation : TweenAnimation
     {
         [SerializeField] private RectTransform _transform;
 

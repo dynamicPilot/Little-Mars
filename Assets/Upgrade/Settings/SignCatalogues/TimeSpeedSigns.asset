@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65a45306ce453694587c00eb0b66ae1e, type: 3}
+  m_Name: TimeSpeedSigns
+  m_EditorClassIdentifier: 
+  DefaultSprite: {fileID: 310895423, guid: e45fe21fdf643bf4a84ec2f36ed23e96, type: 3}
+  Sprites:
+  - {fileID: -1362249693, guid: e45fe21fdf643bf4a84ec2f36ed23e96, type: 3}
+  - {fileID: 310895423, guid: e45fe21fdf643bf4a84ec2f36ed23e96, type: 3}
+  - {fileID: -1827149292, guid: e45fe21fdf643bf4a84ec2f36ed23e96, type: 3}

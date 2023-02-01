@@ -1,5 +1,6 @@
 ﻿using LittleMars.Common;
-using System.Collections.Generic;
+using LittleMars.Common.Levels;
+using LittleMars.Localization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,103 +8,48 @@ using Zenject;
 
 namespace LittleMars.UI.LevelMenus
 {
-    public class LevelMenuUI : MonoBehaviour
+    public class LevelMenuUI : GameMenuUI
     {
-        [SerializeField] private GameObject _panel;
-
         [Header("UI Elements")]
+        [SerializeField] private MenuMode _mode;
         [SerializeField] private Image _image;
         [SerializeField] private TextMeshProUGUI _levelNumberText;
+        [SerializeField] private TextTagElement _headerText;
         // Level text -> need language control
 
-        [Header("Button")]
-        [SerializeField] private CommandType[] _order;
-        [SerializeField] private Button _toMenuButton;
-
-        LevelMenu _levelMenu;
         protected SignalBus _signalBus;
+        Common.Levels.LevelInfo _info;
 
-        protected Dictionary<CommandType, Button> _buttons;
-
-        protected virtual void Awake()
+        protected override void Awake()
         {
-            _buttons = new Dictionary<CommandType, Button>();
-            _buttons.Add(CommandType.mainMenu, _toMenuButton);
+            base.Awake();
         }
 
         [Inject]
-        public void Constructor(LevelMenu levelMenu, SignalBus signalBus)
+        public void Constructor(LevelMenu levelMenu, SignalBus signalBus, Common.Levels.LevelInfo levelInfo)
         {
             _levelMenu = levelMenu;
             _signalBus = signalBus;
+            _info = levelInfo;
 
             Init();
         }
 
         protected virtual void Init()
         {
-            
         }
 
-        public void SetMenu(Common.Levels.LevelInfo info, MenuMode mode)
+        public void SetMenu()
         {
-            _levelNumberText.text = info.Number.ToString();
-            _image.sprite = (mode == MenuMode.start) ? info.StartSprite : info.EndSprite;
-
-            SetButtons();
+            _levelNumberText.text = _info.Number.ToString();
+            _image.sprite = (_mode == MenuMode.start) ? _info.StartSprite : _info.EndSprite;
+            _headerText.SetText();
         }
 
-        public void SetButtons()
+        protected override void Close()
         {
-            SetListeners();
-            SetButtonsOrder();
-        }
-
-        protected virtual void SetListeners()
-        {
-            AddCommandToButtonListener(_toMenuButton, CommandType.mainMenu);
-        }
-
-        void SetButtonsOrder()
-        {
-            if (_buttons.Values.Count < 2) return;
-
-            for (int i = 0; i < _order.Length; i++)
-            {
-                var type = _order[i];
-                if (!_buttons.ContainsKey(type)) continue;
-
-                _buttons[type].transform.SetSiblingIndex(i);
-            }
-        }
-
-        protected void AddCommandToButtonListener(Button button, CommandType type)
-        {
-            Debug.Log("Add listeners to button " + type);
-            var command = _levelMenu.GetCommand(type);
-            button.onClick.AddListener(command.Execute);
-            button.onClick.AddListener(Close);
-        }
-
-        void RemoveListeners()
-        {
-            foreach (var item in _buttons.Values)
-                item.onClick.RemoveAllListeners();
-        }
-
-        protected void Open()
-        {
-            Debug.Log("Open menu!");
-            _panel.SetActive(true);
-            _levelMenu.Open();
-        }
-
-        protected void Close()
-        {
-            Debug.Log("Close menu!");
-            _panel.SetActive(false);
+            base.Close();
             RemoveListeners();
-            _levelMenu.Close();
         }
     }
 }

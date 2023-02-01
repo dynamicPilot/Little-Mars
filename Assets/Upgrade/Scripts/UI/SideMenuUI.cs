@@ -42,6 +42,7 @@ namespace LittleMars.UI
             if (_isOpened) return;
 
             InitMenu();
+            SetOpenButtonState(false);
             _isOpened = true;
             _panel.SetActive(true);
         }
@@ -51,6 +52,7 @@ namespace LittleMars.UI
             if (!_isOpened) return;
 
             _isOpened = false;
+            SetOpenButtonState(true);
             _panel.SetActive(false);
         }
 
@@ -63,6 +65,11 @@ namespace LittleMars.UI
             {
                 Type = _initType
             });
+        }
+
+        private void SetOpenButtonState(bool state)
+        {
+            _openButton.gameObject.SetActive(state);
         }
     }
 }
