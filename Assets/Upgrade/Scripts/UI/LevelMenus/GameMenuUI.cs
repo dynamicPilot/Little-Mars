@@ -9,16 +9,16 @@ namespace LittleMars.UI.LevelMenus
     {
         [SerializeField] private GameObject _panel;
 
-        [Header("Button")]
-        //[SerializeField] private CommandType[] _order;
-        [SerializeField] private Button _toMenuButton;
+        [Header("Common Button")]
+        [SerializeField] private CommandType _buttonType = CommandType.mainMenu;
+        [SerializeField] private Button _commonButton;
 
         protected Dictionary<CommandType, Button> _buttons;
         protected LevelMenu _levelMenu;
         protected virtual void Awake()
         {
             _buttons = new Dictionary<CommandType, Button>();
-            _buttons.Add(CommandType.mainMenu, _toMenuButton);
+            _buttons.Add(_buttonType, _commonButton);
         }
 
         public void SetButtons()
@@ -28,7 +28,7 @@ namespace LittleMars.UI.LevelMenus
 
         protected virtual void SetListeners()
         {
-            AddCommandToButtonListener(_toMenuButton, CommandType.mainMenu);
+            AddCommandToButtonListener(_commonButton, _buttonType);
         }
 
         protected void RemoveListeners()
@@ -59,7 +59,7 @@ namespace LittleMars.UI.LevelMenus
             if (needClose) button.onClick.AddListener(Close);
         }
 
-        protected void Open()
+        protected virtual void Open()
         {
             Debug.Log("Open menu!");
             _panel.SetActive(true);

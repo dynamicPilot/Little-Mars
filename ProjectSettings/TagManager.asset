@@ -58,6 +58,9 @@ TagManager:
   - name: BuildingEffects
     uniqueID: 3905690935
     locked: 0
+  - name: Foreground
+    uniqueID: 2477884619
+    locked: 0
   - name: ViewSlotsUI
     uniqueID: 3785474917
     locked: 0

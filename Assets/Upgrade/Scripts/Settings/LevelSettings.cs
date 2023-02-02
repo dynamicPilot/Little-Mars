@@ -1,4 +1,5 @@
 ﻿using LittleMars.Common.Levels;
+using LittleMars.Localization;
 using LittleMars.Map;
 using LittleMars.Model;
 using System;
@@ -14,6 +15,7 @@ namespace LittleMars.Settings
         public LevelConditionsSettings Conditions;
         public MapSettings Map;
         public LevelGoalsSettings Goals;
+        public TextBlocksSettings TextBlocks;
 
         [Serializable]
         public class LevelInfoSettings
@@ -40,6 +42,13 @@ namespace LittleMars.Settings
         {
             public GoalsManager.Settings GoalsSettings;
         }
+
+        [Serializable]
+        public class TextBlocksSettings
+        {
+            public LangsManager.LevelSettings Blocks;
+        }
+
         public override void InstallBindings()
         {
             Container.BindInstance(Info.LevelInfo);
@@ -47,6 +56,7 @@ namespace LittleMars.Settings
             Container.BindInstance(Map.Lines);
             Container.BindInstance(Map.Fields);
             Container.BindInstance(Goals.GoalsSettings);
+            Container.BindInstance(TextBlocks.Blocks);
         }
     }
 }

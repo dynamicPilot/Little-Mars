@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 276d2baec7fdbf346b20b430692a54fa
+guid: c40a4778027522c41bf823413869c72b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,76 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Effect_light_line
+      name: Effect_roundLight_mask
       rect:
         serializedVersion: 2
-        x: 1
-        y: 11
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c6174343b47d13b439ac4cf86c49e474
-      internalID: 535111742
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Effect_light_1
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 10
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7bf29175134fbcd4592b7fdbf54fec39
-      internalID: -1854672092
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Effect_light_0
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 4
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 301198e844577474797ae9fd0ea92b1c
-      internalID: 1287642288
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Effect_light_mask
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 0
-        width: 4
-        height: 10
+        x: 2
+        y: 3
+        width: 11
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,8 +131,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41e99f083cf94934fa7bf3e385ec0c07
-      internalID: -1734188036
+      spriteID: 77251b2e21da94a419b78abea8a8ce2c
+      internalID: -366289586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_roundLight_line
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 3
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8997f604c5495674f9e1d4cd355bd177
+      internalID: 1063654748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_roundLight_singleLight
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 13
+        width: 1
+        height: 1
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2c76c64a7a8a024c99599df0aa6e980
+      internalID: -988333772
       vertices: []
       indices: 
       edges: []
@@ -211,10 +190,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Effect_light_line: 535111742
-      Effect_light_0: 1287642288
-      Effect_light_mask: -1734188036
-      Effect_light_1: -1854672092
+      Effect_roundLight_mask: -366289586
+      Effect_roundLight_line: 1063654748
+      Effect_roundLight_singleLight: -988333772
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1

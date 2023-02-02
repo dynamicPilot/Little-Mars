@@ -35,8 +35,16 @@ namespace LittleMars.Model.TimeUpdate
             {
                 _signalBus.Fire<HourlySignal>();
                 _hour = hour;
+                
                 CheckPeriodChange();
             }                       
+        }
+
+        void NewDay()
+        {
+            _dayCounter++;
+            _hour = 0;
+            Debug.Log("New day " + _dayCounter);
         }
 
         void CheckPeriodChange()
@@ -44,7 +52,10 @@ namespace LittleMars.Model.TimeUpdate
             if (_hour >= _settings.NightStartHour && _period != Period.night)
                 NewPeriod(Period.night);
             else if (_hour >= _settings.NightEndHour && _period != Period.day)
+            {
                 NewPeriod(Period.day);
+                NewDay();
+            }       
         }
 
         void NewPeriod(Period period)

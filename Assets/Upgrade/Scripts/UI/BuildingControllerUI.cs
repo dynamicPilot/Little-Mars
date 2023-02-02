@@ -51,9 +51,12 @@ namespace LittleMars.UI
         {
             _isListenersSet = true;
             _stateButton.Button.onClick.AddListener(TryChangeState);
-            _removeButton.onClick.AddListener(delegate { _controller.Remove(_building); });
+            
             _dayStateButton.Button.onClick.AddListener(delegate { ChangeTimetable(Period.day); });
             _nightStateButton.Button.onClick.AddListener(delegate { ChangeTimetable(Period.night); });
+
+            _removeButton.onClick.AddListener(delegate { _controller.Remove(_building); });
+            _removeButton.onClick.AddListener(Close);
         }
 
         private void RemoveListeners()

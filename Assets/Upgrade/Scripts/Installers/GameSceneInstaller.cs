@@ -29,6 +29,8 @@ using LittleMars.UI.Achivements;
 using LittleMars.Commands;
 using LittleMars.UI.LevelMenus;
 using LittleMars.Localization;
+using LittleMars.Effects;
+using LittleMars.UI.GoalTextMenu;
 
 namespace LittleMars.Installers
 {
@@ -47,6 +49,7 @@ namespace LittleMars.Installers
             InstallTrackers();
 
             InstallLocalizationSystem();
+            InstallEffects();
 
             InstallBuildings();           
             InstallConnections();
@@ -129,6 +132,11 @@ namespace LittleMars.Installers
             Container.BindInterfacesAndSelfTo<LangsManager>().AsSingle();
         }
 
+
+        private void InstallEffects()
+        {
+            Container.BindInterfacesAndSelfTo<PeriodChangeEffectControl>().AsSingle();
+        }
 
         private void InstallTrackers()
         {
@@ -214,6 +222,7 @@ namespace LittleMars.Installers
             Container.Bind<LevelReceiver>().AsSingle();
 
             Container.Bind<LevelMenu>().AsSingle();
+            Container.Bind<GoalTextLevelMenu>().AsSingle();
 
             Container.Bind<NullCommand>().AsSingle();
             Container.BindFactory<NextCommand, NextCommand.Factory>();
@@ -340,7 +349,7 @@ namespace LittleMars.Installers
             Container.DeclareSignal<ResourcesProductionChangedSignal>().OptionalSubscriber();
             Container.DeclareSignal<ResourcesNeedsChangedSignal>().OptionalSubscriber();
 
-            Container.DeclareSignal<NeedMenuInitSignal>();
+            Container.DeclareSignal<NeedMenuInitSignal>().OptionalSubscriber();
 
             Container.DeclareSignal<SlotConnectionsUpdatedSignal>();
         }

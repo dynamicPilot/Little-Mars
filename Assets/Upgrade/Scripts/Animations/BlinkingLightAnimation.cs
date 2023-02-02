@@ -17,7 +17,7 @@ namespace LittleMars.Animations
         [SerializeField] private float _endPosY;
         
         SpriteRenderer _lineRenderer;
-        Vector3 _initialPos;
+        [SerializeField] Vector3 _initialPos;
         float _duration;        
 
         private void Start()
@@ -43,7 +43,7 @@ namespace LittleMars.Animations
         private void PrepaireParams()
         {
             _lineRenderer = _lineLight.GetComponent<SpriteRenderer>();
-            _initialPos = _lineLight.position;
+            _initialPos = _lineLight.localPosition;
             _duration = _burstDuration / 4;
         }
 
@@ -52,7 +52,7 @@ namespace LittleMars.Animations
             Sequence sequence = DOTween.Sequence();
 
             sequence.PrependCallback(BeforeCallback)
-                .Append(_lineLight.DOMoveY(_endPosY, _period));
+                .Append(_lineLight.DOLocalMoveY(_endPosY, _period));
 
             sequence.AppendCallback(AfterCallback)
                 .Append(_light0.DOFade(1f, _duration))
@@ -65,7 +65,7 @@ namespace LittleMars.Animations
 
         private void BeforeCallback()
         {
-            _lineLight.position = _initialPos;
+            _lineLight.localPosition = _initialPos;
             _lineRenderer.enabled = true;
 
             if (_light0.color.a != 0f) 

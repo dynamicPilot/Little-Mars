@@ -1,0 +1,25 @@
+{
+  "Title": "scene",
+  "Blocks": {
+    "goal_0": [
+      {
+        "Lang": 0,
+        "Text": "Make two domes"
+      },
+      {
+        "Lang": 1,
+        "Text": "Построить два купола"
+      }
+    ],
+   "goal_1": [
+      {
+        "Lang": 0,
+        "Text": "Make two mines"
+      },
+      {
+        "Lang": 1,
+        "Text": "Построить два самолета"
+      }
+    ]
+  }
+}

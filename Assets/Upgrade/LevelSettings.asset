@@ -73,3 +73,6 @@ MonoBehaviour:
       HasProductionGoals: 0
       ProductionGoals:
         GoalsArray: []
+  TextBlocks:
+    Blocks:
+      Blocks: {fileID: 4900000, guid: 7554f2e41b0168f4a8c9fb6035d10a55, type: 3}
