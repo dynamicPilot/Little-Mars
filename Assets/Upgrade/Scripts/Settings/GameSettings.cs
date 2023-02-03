@@ -1,4 +1,5 @@
 ﻿using LittleMars.Buildings;
+using LittleMars.Buildings.Timers;
 using LittleMars.Common;
 using LittleMars.Installers;
 using LittleMars.Localization;
@@ -29,7 +30,8 @@ namespace LittleMars.Settings
         public class TimeSettings
         {
             public TimeManager.Settings ManagerSettings;
-            public TimeUpdater.Settings UpdaterSettings;
+            public TimeUpdaterTickable.Settings UpdaterSettings;
+            public BuildingTimer.Settings DomeTimer;
         }
 
         [Serializable]
@@ -45,7 +47,6 @@ namespace LittleMars.Settings
             public LangsManager.SceneSettings Blocks;
         }
 
-
         public override void InstallBindings()
         {
             Container.BindInstance(View.SlotPrefab);
@@ -54,6 +55,7 @@ namespace LittleMars.Settings
             Container.BindInstance(Catalogue.Colors);
             Container.BindInstance(Time.ManagerSettings);
             Container.BindInstance(Time.UpdaterSettings);
+            Container.BindInstance(Time.DomeTimer);
             Container.BindInstance(TextBlocks.Blocks);
         }
     }

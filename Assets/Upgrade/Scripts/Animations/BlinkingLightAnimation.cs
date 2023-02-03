@@ -12,13 +12,15 @@ namespace LittleMars.Animations
 
         [Header("Settings")]
         [SerializeField] private float _period;
+        [SerializeField] private float _delayDuration;
         [SerializeField] private float _pauseDuration;
         [SerializeField] private float _burstDuration;
         [SerializeField] private float _endPosY;
         
         SpriteRenderer _lineRenderer;
-        [SerializeField] Vector3 _initialPos;
-        float _duration;        
+        Vector3 _initialPos;
+        float _duration;
+        bool _needDelay = false;
 
         private void Start()
         {
@@ -45,11 +47,16 @@ namespace LittleMars.Animations
             _lineRenderer = _lineLight.GetComponent<SpriteRenderer>();
             _initialPos = _lineLight.localPosition;
             _duration = _burstDuration / 4;
+
+            _needDelay = (_delayDuration > 0f);
         }
 
         private void Blinking()
         {
             Sequence sequence = DOTween.Sequence();
+
+            if (_needDelay)
+                sequence.AppendInterval(_delayDuration);
 
             sequence.PrependCallback(BeforeCallback)
                 .Append(_lineLight.DOLocalMoveY(_endPosY, _period));

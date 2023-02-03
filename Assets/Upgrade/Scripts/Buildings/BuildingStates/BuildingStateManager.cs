@@ -1,20 +1,21 @@
 ﻿using LittleMars.Common;
 using System;
+using Zenject;
 
 namespace LittleMars.Buildings.BuildingStates
 {
     public class BuildingStateManager
     {
-        readonly BuildingOnState.Factory _onStateFactory;
-        readonly BuildingOffState.Factory _offStateFactory;
-        readonly BuildingPausedState.Factory _pausedStateFactory;
+        readonly BuildingOnStateFactory _onStateFactory;
+        readonly BuildingOffStateFactory _offStateFactory;
+        readonly BuildingPausedStateFactory _pausedStateFactory;
 
         IBuildingState _onState = null;
         IBuildingState _offState = null;
         IBuildingState _pausedState = null;
 
-        public BuildingStateManager(BuildingOnState.Factory onStateFactory, 
-            BuildingOffState.Factory offStateFactory, BuildingPausedState.Factory pausedStateFactory)
+        public BuildingStateManager(BuildingOnStateFactory onStateFactory,
+            BuildingOffStateFactory offStateFactory, BuildingPausedStateFactory pausedStateFactory)
         {
             _onStateFactory = onStateFactory;
             _offStateFactory = offStateFactory;

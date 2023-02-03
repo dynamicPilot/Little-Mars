@@ -21,28 +21,49 @@ MonoBehaviour:
     InitialConditions:
       Resources:
       - Type: 0
-        Amount: 20
+        Amount: 500
       - Type: 6
-        Amount: 20
+        Amount: 50
+      - Type: 1
+        Amount: 50
+      - Type: 3
+        Amount: 50
+      - Type: 2
+        Amount: 50
       BuildingTypes:
+      - Type: 1
+        Size: 0
+        Amount: 1
       - Type: 5
         Size: 0
         Amount: 1
-      - Type: 1
+      - Type: 2
         Size: 0
-        Amount: 2
+        Amount: 1
+      - Type: 3
+        Size: 0
+        Amount: 1
+      - Type: 4
+        Size: 0
+        Amount: 1
+      - Type: 6
+        Size: 0
+        Amount: 1
+      - Type: 0
+        Size: 0
+        Amount: 1
       TradeUnits: []
   Map:
     Lines:
       Rows: 2
       Columns: 2
-      BuildingTypes: 000000000100000005000000
+      BuildingTypes: 00000000010000000500000003000000020000000400000006000000
       Mode: 0
       CustomMap: {fileID: 0}
     Fields:
       Mode: 0
       Fields:
-      - Type: 0
+      - Type: 1
         Amount:
           Type: 1
           Units:
@@ -50,12 +71,12 @@ MonoBehaviour:
             IsBackStep: 0
   Goals:
     GoalsSettings:
-      HasBuildingGoals: 0
+      HasBuildingGoals: 1
       BuildingGoals:
         GoalsArray:
         - Type: 0
           Unit:
-            Type: 0
+            Type: 1
             Size: 0
             Amount: 1
       HasBuildingGoalsWithTimer: 1
@@ -66,7 +87,7 @@ MonoBehaviour:
             Type: 0
             Size: 0
             Amount: 1
-          Time: 2
+          Time: 3
       HasResourcesGoals: 0
       ResourceGoals:
         GoalsArray: []

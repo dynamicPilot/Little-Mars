@@ -53,6 +53,11 @@ namespace LittleMars.Model
             _signalBus.TryUnsubscribe<GoalIsDoneSignal>(OnGoalIsDone);
         }
 
+        public List<IGoalTracker> GetTrackers()
+        {
+            return _trackers;
+        }
+
         private void CreateTrackers()
         {
             int currentIndex = 0;
@@ -83,6 +88,7 @@ namespace LittleMars.Model
 
         private void OnGoalIsDone(GoalIsDoneSignal args)
         {
+            Debug.Log("OnGoalIsDone for goal index " + args.Index);
             if (args.ResultType == ResultType.win) OnGoalToWinIsDone(args);
             else OnGoalToLoseIsDone(args);
         }
@@ -92,7 +98,7 @@ namespace LittleMars.Model
             // rise achivement display is needed
             if (args.IsFirstDone)
             {
-                Debug.Log("need Achivement Display!");
+                Debug.Log("need Achivement Display for goal index " + args.Index);
                 OnAchivement(args.Index);
             }
             // check all goals
@@ -111,6 +117,7 @@ namespace LittleMars.Model
         private void OnAchivement(int goalIndex)
         {
             _achivementSignal.GoalIndex = goalIndex;
+            Debug.Log("OnAchivement for goal index " + _achivementSignal.GoalIndex + " and index " + goalIndex);
             _signalBus.Fire(_achivementSignal);
         }
 

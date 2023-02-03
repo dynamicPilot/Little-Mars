@@ -5,6 +5,7 @@ using LittleMars.Model.Interfaces;
 using System;
 using System.Collections.Generic;
 using Zenject;
+using UnityEngine;
 
 namespace LittleMars.Models
 {
@@ -167,17 +168,31 @@ namespace LittleMars.Models
 
         public bool HasResources(ResourceUnit<float>[] needs)
         {
-            //Debug.Log("ProductionManager: Check resources.");
+            Debug.Log("ProductionManager: Check resources.");
             foreach (ResourceUnit<float> unit in needs)
             {
                 if (_resourcesBalance[unit.Type] < unit.Amount)
                 {
-                    //Debug.Log("No resources for " + unit.Type);
+                    Debug.Log("No resources for " + unit.Type);
                     return false;
                 }
             }
-            
                 
+            return true;
+        }
+
+        public bool HasResourcesForNeeds(ResourceUnit<float>[] needs)
+        {
+            Debug.Log("ProductionManager: Check resources for need.");
+            foreach (ResourceUnit<float> unit in needs)
+            {
+                if (_resourcesBalance[unit.Type] + _production[unit.Type][_period] - _needs[unit.Type] < unit.Amount)
+                {
+                    Debug.Log("No resources for " + unit.Type);
+                    return false;
+                }
+            }
+
             return true;
         }
 

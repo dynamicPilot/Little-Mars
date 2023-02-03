@@ -7,12 +7,13 @@ namespace LittleMars.Buildings.BuildingStates
 {
     public class BuildingState
     {
+        readonly BuildingStateManager _manager;
+
         States _state;
         OperationMode _mode;
-        Dictionary<Period, States> _timetable;
-
-        BuildingStateManager _manager;
         IBuildingState _buildingState;
+
+        Dictionary<Period, States> _timetable;
 
         public States State { get => _state; }
         public OperationMode OperationMode { get => _mode; }
@@ -80,6 +81,4 @@ namespace LittleMars.Buildings.BuildingStates
         }
 
     }
-
-
 }

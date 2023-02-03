@@ -11,19 +11,14 @@ namespace LittleMars.Model.Trackers
 {
     public class BuildingGoalTracker : GoalTracker, IDisposable
     {
-        readonly SignalBus _signalBus;
         readonly Goal<BuildingUnit<int>> _goal;
         
         List<IBuildingFacade> _buildings;
-        GoalUpdatedSignal _onUpdateSignal;
-        GoalIsDoneSignal _isDoneSignal;
-        //int _index = 0;
 
         public BuildingGoalTracker(Goal<BuildingUnit<int>> goal, int index, SignalBus signalBus)
+            : base (signalBus)
         {
             _goal = goal;
-            //_index = index;
-            _signalBus = signalBus;
 
             _isDone = false;
             _buildings = new List<IBuildingFacade>();
@@ -53,12 +48,14 @@ namespace LittleMars.Model.Trackers
 
             if (building.State() == States.on && !_buildings.Contains(building))
             {
+                Debug.Log("Add building to goal" + building.Info().Type);
                 _buildings.Add(building);                
             }
             else if (building.State() == States.off && _buildings.Contains(building)
                 && info.Type == BuildingType.dome)
             {
                 // remove only when dome is off
+                Debug.Log("Remove building to goal" + building.Info().Type);
                 _buildings.Remove(building);
             }
             else return;
@@ -78,17 +75,9 @@ namespace LittleMars.Model.Trackers
             CheckIsDone(_buildings.Count >= _goal.Unit.Amount);
         }
 
-        public override void OnGoalUpdated()
+        protected override void UpdateOnUpdatedSignal()
         {
-            Debug.Log("Fire Signal for index " + _onUpdateSignal.Index);
             _onUpdateSignal.Values[0] = _buildings.Count;
-            _signalBus.Fire(_onUpdateSignal);
-        }
-
-        public override void OnGoalIsDone()
-        {
-            _isDoneSignal.IsFirstDone = _isFirstDone;
-            _signalBus.Fire(_isDoneSignal);
         }
 
         public void Dispose()

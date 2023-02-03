@@ -54,7 +54,7 @@ namespace LittleMars.UI.Achivements
 
         private bool CheckStrategy(int index)
         {
-            Debug.Log("Check Strategy");
+            Debug.Log("Check Strategy " + index);
             var strategy = _controller.GetDisplayStrategy(index);
 
             if (strategy == null) return false;

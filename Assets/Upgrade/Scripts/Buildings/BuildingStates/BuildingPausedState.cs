@@ -36,7 +36,7 @@ namespace LittleMars.Buildings.BuildingStates
             _view.SetViewActiveState(true);
         }
 
-        public void SetView()
+        public virtual void SetView()
         {
             _view.PausedView();
         }

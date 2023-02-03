@@ -26,7 +26,7 @@ namespace LittleMars.Buildings.BuildingStates
             _model.CallBuildingController(_building);
         }
 
-        public void SetView()
+        public virtual void SetView()
         {
             _view.OffView();
         }
@@ -36,12 +36,10 @@ namespace LittleMars.Buildings.BuildingStates
             _view.SetViewActiveState(true);
         }
 
-
         public void OnRemove()
         {
             _view.SetViewActiveState(false);
         }
-
 
         public class Factory : PlaceholderFactory<BuildingOffState>
         {

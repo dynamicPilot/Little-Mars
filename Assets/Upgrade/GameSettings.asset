@@ -31,6 +31,8 @@ MonoBehaviour:
       NightEndHour: 24
     UpdaterSettings:
       UpdateTime: 1
+    DomeTimer:
+      TimerTargetValue: 10
   Catalogue:
     Catalogue:
       Catalogue: {fileID: 11400000, guid: 2cfcb0c6ecefb024a91899b08e4d7c3d, type: 2}

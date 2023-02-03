@@ -243,7 +243,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Signals_square_green
+      name: Signal_square_green
       rect:
         serializedVersion: 2
         x: 6
@@ -251,7 +251,7 @@ TextureImporter:
         width: 2
         height: 2
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -264,7 +264,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Signals_square_red
+      name: Signal_square_red
       rect:
         serializedVersion: 2
         x: 6
@@ -272,7 +272,7 @@ TextureImporter:
         width: 2
         height: 2
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -285,7 +285,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Signals_square_yellow
+      name: Signal_square_yellow
       rect:
         serializedVersion: 2
         x: 6
@@ -293,7 +293,7 @@ TextureImporter:
         width: 2
         height: 2
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -301,6 +301,69 @@ TextureImporter:
       bones: []
       spriteID: 41e5b394cdead0a43982103fda66031d
       internalID: -1324601278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Signal_med_green
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 12
+        width: 1
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c88ed5445f54bc8489fdf7f0711ef363
+      internalID: -1727326466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Signal_med_red
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7
+        width: 1
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c247502065fd1344f9b64f7c5f39c63f
+      internalID: -1402933332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Signal_med_yellow
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 1
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59f063ec4d2a94b46aafe9f5487a3800
+      internalID: -116988673
       vertices: []
       indices: 
       edges: []
@@ -316,13 +379,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Signals_square_green: 1390611757
-      Signals_square_red: -868663543
       Signal_green: 790661155
-      Signals_square_yellow: -1324601278
       Signal_small_yellow: -858686615
       Signal_yellow: -959546986
+      Signal_square_yellow: -1324601278
       Signal_small_red: -519235276
+      Signal_square_red: -868663543
+      Signal_med_green: -1727326466
+      Signal_square_green: 1390611757
+      Signal_med_red: -1402933332
+      Signal_med_yellow: -116988673
       Signal_red: -2073663061
       Signal_small_green: 14053505
   spritePackingTag: 

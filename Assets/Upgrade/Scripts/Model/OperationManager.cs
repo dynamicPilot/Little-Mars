@@ -58,7 +58,7 @@ namespace LittleMars.Models
 
         public bool TryChangeBuildingState(IBuildingFacade building, States state, OperationMode mode)
         {
-            Debug.Log($"Try change state for building. To: {state}. Mode: {mode}.");
+            Debug.Log($"Try change state for building {building.Info().Type}. To: {state}. Mode: {mode}.");
 
             if (state == States.on && CheckForTurnOn(building, mode))
             {
@@ -108,7 +108,7 @@ namespace LittleMars.Models
                 return false;
             }
 
-            return _production.HasResources(building.Needs());
+            return _production.HasResourcesForNeeds(building.Needs());
         }
 
         private bool CheckForTurnOff(IBuildingFacade building, OperationMode mode)
@@ -131,7 +131,7 @@ namespace LittleMars.Models
             building.ChangeState(state, mode);
 
             // raise event is needed
-            Debug.Log($"Change state for building to {state}.");
+            Debug.Log($"Change state for building {building.Info().Type} to {state}.");
             _signalBus.TryFire(new BuildingStateChangedSignal { BuildingFacade = building });
         }
 

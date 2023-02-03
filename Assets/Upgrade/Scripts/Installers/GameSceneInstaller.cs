@@ -36,7 +36,6 @@ namespace LittleMars.Installers
 {
     public class GameSceneInstaller : MonoInstaller
     {
-        [SerializeField] private TimeUpdater _timeUpdater;
         [SerializeField] private Langs _lang;
 
         [Inject]
@@ -97,12 +96,11 @@ namespace LittleMars.Installers
 
         private void InstallModel()
         {
-            Container.BindInstance(_timeUpdater);
-
             Container.BindInterfacesAndSelfTo<OperationManager>().AsSingle();
             Container.BindInterfacesAndSelfTo<ResourcesBalancer>().AsSingle();
             Container.BindInterfacesAndSelfTo<ProductionManager>().AsSingle();
             Container.BindInterfacesAndSelfTo<TimeSpeedManager>().AsSingle();
+            Container.BindInterfacesAndSelfTo<TimeUpdaterTickable>().AsSingle();
 
             Container.Bind<TimeManager>().AsSingle();            
             Container.Bind<IconsCatalogue>().AsSingle();

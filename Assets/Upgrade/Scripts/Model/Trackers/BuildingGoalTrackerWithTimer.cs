@@ -4,6 +4,7 @@ using LittleMars.Common.LevelGoal;
 using LittleMars.Common.Signals;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using Zenject;
 
 namespace LittleMars.Model.Trackers
@@ -11,20 +12,21 @@ namespace LittleMars.Model.Trackers
     public class BuildingGoalTrackerWithTimer : GoalTracker, IDisposable
     {
         readonly GoalWithTime<BuildingUnit<int>> _goal;
-        readonly SignalBus _signalBus;
+        //readonly SignalBus _signalBus;
 
         List<IBuildingFacade> _buildings;
 
-        GoalUpdatedSignal _onUpdateSignal;
-        GoalIsDoneSignal _isDoneSignal;
+        //GoalIsDoneSignal _isDoneSignal;
 
         float _timer = 0f;
         bool _hasEnoughBuildings = false;
 
         public BuildingGoalTrackerWithTimer(GoalWithTime<BuildingUnit<int>> goal, int index, SignalBus signalBus)
+            : base (signalBus)
         {
+            Debug.Log(" Create building time goal with index " + index + ". Goal target building is " + goal.Unit.Type);
             _goal = goal;
-            _signalBus = signalBus;
+            //_signalBus = signalBus;
 
             _buildings = new List<IBuildingFacade>();
             _isDone = false;
@@ -41,6 +43,7 @@ namespace LittleMars.Model.Trackers
             _isDoneSignal = new GoalIsDoneSignal
             {
                 ResultType = _goal.Type,
+                Index = index,
                 IsFirstDone = _isFirstDone
             };
         }
@@ -85,20 +88,13 @@ namespace LittleMars.Model.Trackers
 
         private void StopTimer()
         {
-            _signalBus.Unsubscribe<HourlySignal>(OnHourlySignal);
+            _signalBus?.TryUnsubscribe<HourlySignal>(OnHourlySignal);
         }
 
-        public override void OnGoalUpdated()
+        protected override void UpdateOnUpdatedSignal()
         {
             _onUpdateSignal.Values[0] = _buildings.Count;
             _onUpdateSignal.Values[1] = _timer;
-            _signalBus.Fire(_onUpdateSignal);
-        }
-
-        public override void OnGoalIsDone()
-        {
-            _isDoneSignal.IsFirstDone = _isFirstDone;
-            _signalBus.Fire(_isDoneSignal);
         }
 
         private void CheckBuildingCount()

@@ -18,21 +18,27 @@ MonoBehaviour:
   Construction:
     ResourcesForBuilding:
     - Type: 0
+      Amount: 50
+    - Type: 1
+      Amount: 15
+    - Type: 3
       Amount: 10
     ResourcesInMap: 
     BuildingPath:
       Type: 0
       Units: []
   Operation:
-    Priority: 0
-    DayProduction:
-    - Type: 0
-      Amount: 10
-    NightProduction:
-    - Type: 0
+    Priority: 3
+    DayProduction: []
+    NightProduction: []
+    Connections: 0100000005000000
+    Needs:
+    - Type: 2
       Amount: 1
-    Connections: 01000000
-    Needs: []
+    - Type: 4
+      Amount: 10
+    - Type: 6
+      Amount: 10
   View:
-    Sprite: {fileID: -792046573, guid: edef373d37a4fac44969e5792ddd7199, type: 3}
+    Sprite: {fileID: 850561691, guid: 18a094995219cc641b540a0e2ca342b6, type: 3}
     Shape: {fileID: -2045746343, guid: 3397193739c39d440aaa4ecd82af96df, type: 3}
