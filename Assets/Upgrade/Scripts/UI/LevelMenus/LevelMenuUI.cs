@@ -25,8 +25,8 @@ namespace LittleMars.UI.LevelMenus
             base.Awake();
         }
 
-        [Inject]
-        public void Constructor(LevelMenu levelMenu, SignalBus signalBus, Common.Levels.LevelInfo levelInfo)
+        protected void BaseConstructor(LevelMenu levelMenu, SignalBus signalBus, 
+            Common.Levels.LevelInfo levelInfo)
         {
             _levelMenu = levelMenu;
             _signalBus = signalBus;

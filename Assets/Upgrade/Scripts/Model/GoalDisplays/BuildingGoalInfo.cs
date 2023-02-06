@@ -1,4 +1,5 @@
 ﻿using LittleMars.Common;
+using static UnityEngine.UI.CanvasScaler;
 
 namespace LittleMars.Model.GoalDisplays
 {

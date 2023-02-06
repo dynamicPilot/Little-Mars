@@ -19,8 +19,13 @@ namespace LittleMars.Model.Trackers
 
             _isDone = false;
             _currentProduction = 0f;
-            _signalBus.Subscribe<TotalProductionChangedSignal>(OnTotalProductionChanged);
 
+            SetSignals(index);
+            _signalBus.Subscribe<TotalProductionChangedSignal>(OnTotalProductionChanged);
+        }
+
+        protected override void SetSignals(int index)
+        {
             _onUpdateSignal = new GoalUpdatedSignal
             {
                 Index = index,

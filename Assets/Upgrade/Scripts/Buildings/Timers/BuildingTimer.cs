@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LittleMars.Common.Signals;
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -8,19 +9,21 @@ namespace LittleMars.Buildings.Timers
     {
         //readonly Settings _settings;
         readonly SignalBus _signalBus;
+        readonly BuildingFacade _building;
 
         bool _wasEverOn;
         bool _isRunning;
         float _targetValue;
         float _timer;
 
-        public BuildingTimer(Settings settings, SignalBus signalBus)
+        public BuildingTimer(Settings settings, SignalBus signalBus, BuildingFacade building)
         {
             _signalBus = signalBus;
-
+            _building = building;
             _targetValue = settings.TimerTargetValue;
+
             _isRunning = false;
-            _wasEverOn = false;
+            _wasEverOn = false;         
         }
 
         public void StartTimer()
@@ -42,6 +45,8 @@ namespace LittleMars.Buildings.Timers
         {
             Debug.Log("Timer is over");
             StopTimer();
+
+            _signalBus.Fire(GetSignal());
         }
 
         public void StopTimer()
@@ -61,6 +66,18 @@ namespace LittleMars.Buildings.Timers
             _timer += Time.fixedDeltaTime;
             CheckTimer();
         }
+
+        private BuildingTimerIsOverSignal GetSignal()
+        {
+            var info = _building.Info();
+            return new BuildingTimerIsOverSignal
+            {
+                Type = info.Type,
+                Size = info.Size
+            };
+        }
+
+
 
         [Serializable]
         public class Settings

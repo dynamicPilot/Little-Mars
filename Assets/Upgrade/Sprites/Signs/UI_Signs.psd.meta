@@ -356,7 +356,7 @@ TextureImporter:
         width: 23
         height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -364,6 +364,48 @@ TextureImporter:
       bones: []
       spriteID: 7ad19584109d0d74587ff52c1eca73e8
       internalID: 317406122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Signs_info
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 62
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6349173c30fc26649bbd78faea0113d1
+      internalID: -577972594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Signs_pause
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 95
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9b03e14272b866458daacf3ca71ff19
+      internalID: -1848003356
       vertices: []
       indices: 
       edges: []
@@ -382,12 +424,14 @@ TextureImporter:
       UI_Signs_rotate: -2135982277
       UI_Signs_speed0: 310895423
       UI_Signs_quit_small: -851750555
+      UI_Signs_pause: -1848003356
       UI_Signs_accept: 1276018154
       UI_Signs_quit: -1362249693
       UI_Signs_speed1: -1827149292
       UI_Signs_on: 1287095392
       UI_Signs_play: -1002906301
       UI_Signs_menu: 1198002042
+      UI_Signs_info: -577972594
       UI_Signs_singleLine: 317406122
       UI_Signs_back: 887304747
       UI_Signs_day: 2112959317

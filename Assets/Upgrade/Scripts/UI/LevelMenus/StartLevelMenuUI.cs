@@ -3,6 +3,7 @@ using LittleMars.Common.Signals;
 using LittleMars.UI.GoalDisplays;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace LittleMars.UI.LevelMenus
 {
@@ -18,15 +19,22 @@ namespace LittleMars.UI.LevelMenus
             base.Awake();
             _buttons.Add(CommandType.start, _startButton);
         }
-        protected override void SetListeners()
+
+        [Inject]
+        public void Constructor(LevelMenu levelMenu, SignalBus signalBus, Common.Levels.LevelInfo levelInfo)
         {
-            base.SetListeners();
-            AddCommandToButtonListener(_startButton, CommandType.start);
+            base.BaseConstructor(levelMenu, signalBus, levelInfo);
         }
 
         protected override void Init()
         {
             _signalBus.Subscribe<GoalStrategiesIsReadySignal>(OnStrategiesIsReady);
+        }
+
+        protected override void SetListeners()
+        {
+            base.SetListeners();
+            AddCommandToButtonListener(_startButton, CommandType.start);
         }
 
         private void OnStrategiesIsReady(GoalStrategiesIsReadySignal args)

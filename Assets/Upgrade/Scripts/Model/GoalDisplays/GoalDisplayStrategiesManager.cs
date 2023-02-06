@@ -1,19 +1,20 @@
 ﻿using LittleMars.Common.Signals;
 using LittleMars.UI.GoalDisplays;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
 using Zenject;
 
 namespace LittleMars.Model.GoalDisplays
 {
-    public class GoalDisplayStatesManager : IInitializable
+    public class GoalDisplayStrategiesManager : IInitializable
     {
         readonly GoalDisplayStrategiesFactory _factory;
         readonly SignalBus _signalBus;
 
         List<IGoalDisplayStrategy> _strategies;
 
-        public GoalDisplayStatesManager(GoalDisplayStrategiesFactory factory, SignalBus signalBus)
+        public GoalDisplayStrategiesManager(GoalDisplayStrategiesFactory factory, SignalBus signalBus)
         {
             _factory = factory;
             _signalBus = signalBus;

@@ -7,9 +7,9 @@ namespace LittleMars.UI.Achivements
 {
     public class AchivementDisplayController
     {
-        readonly GoalDisplayStatesManager _manager;
+        readonly GoalDisplayStrategiesManager _manager;
         readonly TimeSpeedManager _timeSpeedManager;
-        public AchivementDisplayController(GoalDisplayStatesManager manager, TimeSpeedManager timeSpeedManager)
+        public AchivementDisplayController(GoalDisplayStrategiesManager manager, TimeSpeedManager timeSpeedManager)
         {
             _manager = manager;
             _timeSpeedManager = timeSpeedManager;

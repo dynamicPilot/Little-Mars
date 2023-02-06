@@ -142,13 +142,16 @@ namespace LittleMars.Installers
 
             // Container.BindFactory<IPathFindingStrategy, PathFindingStrategyFactory>().To<AStarPathFindingStrategy>();
             //Container.BindFactory<BuildingUnit<int>, IGoalTracker, TrackerFactory<BuildingUnit<int>>().To<BuildingGoalTracker>();
-            Container.BindFactory<GoalsTrackerProvider<BuildingUnit<int>, BuildingGoalTracker>, GoalsTrackerProvider<BuildingUnit<int>, BuildingGoalTracker>.Factory>().WhenInjectedInto<GoalsManager>();
+            Container.BindFactory<GoalsTrackerProvider<BuildingUnit<int>, BuildingGoalTracker>, 
+                GoalsTrackerProvider<BuildingUnit<int>, BuildingGoalTracker>.Factory>().WhenInjectedInto<GoalsManager>();
             
             Container.BindFactory<GoalsTrackerProvider<ResourceUnit<float>, ResourceProductionGoalTracker>, 
                 GoalsTrackerProvider<ResourceUnit<float>, ResourceProductionGoalTracker>.Factory>().WhenInjectedInto<GoalsManager>();
             
             Container.BindFactory<GoalsTrackerProvider<ResourceUnit<float>, ResourceBalanceGoalTracker>,
                 GoalsTrackerProvider<ResourceUnit<float>, ResourceBalanceGoalTracker>.Factory>().WhenInjectedInto<GoalsManager>();
+
+            Container.BindFactory<StaffTrackersProvider, StaffTrackersProvider.Factory>().WhenInjectedInto<GoalsManager>();
 
             Container.BindFactory<Goal<BuildingUnit<int>>, int, IGoalTracker, TrackerFactory<BuildingUnit<int>>>()
                 .To<BuildingGoalTracker>()
@@ -163,8 +166,12 @@ namespace LittleMars.Installers
                 .WhenInjectedInto<GoalsTrackerProvider<ResourceUnit<float>, ResourceProductionGoalTracker>>();
 
             Container.BindFactory<Goal<ResourceUnit<float>>, int, IGoalTracker, TrackerFactory<ResourceUnit<float>>>()
-                .To<ResourceBalanceGoalTracker>()
-                .WhenInjectedInto<GoalsTrackerProvider<ResourceUnit<float>, ResourceBalanceGoalTracker>>();
+                .To<ResourceProductionGoalTracker>()
+                .WhenInjectedInto<GoalsTrackerProvider<ResourceUnit<float>, ResourceProductionGoalTracker>>();
+
+            Container.BindFactory<int, IGoalTracker, FakeTrackerFactory>()
+                .To<BuildingTimerStaffGoalTracker>()
+                .WhenInjectedInto<StaffTrackersProvider>();
         }
 
         private void InstallBuildings()
@@ -220,6 +227,8 @@ namespace LittleMars.Installers
             Container.Bind<LevelReceiver>().AsSingle();
 
             Container.Bind<LevelMenu>().AsSingle();
+
+            Container.Bind<GameOverLevelMenu>().AsSingle();
             Container.Bind<GoalTextLevelMenu>().AsSingle();
 
             Container.Bind<NullCommand>().AsSingle();
@@ -230,10 +239,15 @@ namespace LittleMars.Installers
 
         private void InstallGoalInfos()
         {
-            Container.BindInterfacesAndSelfTo<GoalDisplayStatesManager>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GoalDisplayStrategiesManager>().AsSingle();
+
+            Container.Bind<StaffGoalDisplayStrategiesManager>().AsSingle();
 
             Container.Bind<GoalDisplayStrategiesFactory>().AsSingle();
-            Container.Bind<GoalDisplayStrategyFactory>().AsSingle();
+            Container.Bind<StaffGoalDisplayStrategiesFactory>().AsSingle();
+
+            Container.Bind<DisplayStrategiesFactory>().AsSingle();
+            Container.Bind<DisplayStrategyFactory>().AsSingle();
             Container.Bind<AchivementDisplayController>().AsSingle();
 
             Container.BindFactory<GoalType, BuildingUnit<int>, IGoalInfo, GoalInfoFactory<BuildingUnit<int>>>()
@@ -241,21 +255,23 @@ namespace LittleMars.Installers
                 .WhenInjectedInto<GoalDisplayStrategiesFactory>();
 
             Container.BindFactory<GoalType, float, BuildingUnit<int>, IGoalInfo, WithTimerGoalInfoFactory<BuildingUnit<int>>>()
-                .To<BuildingWithTimerGoalInfo>()
-                .WhenInjectedInto<GoalDisplayStrategiesFactory>();
+                .To<BuildingWithTimerGoalInfo>().AsTransient();
 
             Container.BindFactory<GoalType, ResourceUnit<float>, IGoalInfo, GoalInfoFactory<ResourceUnit<float>>>()
                 .To<ResourceGoalInfo>()
                 .WhenInjectedInto<GoalDisplayStrategiesFactory>();
 
             Container.BindFactory<IGoalInfo, ResourceGoalDisplayStrategy, ResourceGoalDisplayStrategy.Factory>()
-                .WhenInjectedInto<GoalDisplayStrategyFactory>();
+                .WhenInjectedInto<DisplayStrategyFactory>();
 
             Container.BindFactory<IGoalInfo, BuildingGoalDisplayStrategy, BuildingGoalDisplayStrategy.Factory>()
-                .WhenInjectedInto<GoalDisplayStrategyFactory>();
+                .WhenInjectedInto<DisplayStrategyFactory>();
 
             Container.BindFactory<IGoalInfo, BuildingGoalWithTimerDisplayStrategy, BuildingGoalWithTimerDisplayStrategy.Factory>()
-                .WhenInjectedInto<GoalDisplayStrategyFactory>();
+                .WhenInjectedInto<DisplayStrategyFactory>();
+
+            Container.BindFactory<IGoalInfo, BuildingTimerStaffGoalDisplayStrategy, BuildingTimerStaffGoalDisplayStrategy.Factory>()
+                .WhenInjectedInto<DisplayStrategyFactory>();
         }
 
         private void InstallUIAndManagers()
@@ -343,6 +359,8 @@ namespace LittleMars.Installers
             Container.DeclareSignal<GoalUpdatedSignal>().OptionalSubscriber();
             Container.DeclareSignal<AchivementReachedSignal>();
 
+            Container.DeclareSignal<GameOverSignal>();
+
             Container.DeclareSignal<ResourcesBalanceUpdatedSignal>();
             Container.DeclareSignal<ResourcesProductionChangedSignal>().OptionalSubscriber();
             Container.DeclareSignal<ResourcesNeedsChangedSignal>().OptionalSubscriber();
@@ -350,6 +368,8 @@ namespace LittleMars.Installers
             Container.DeclareSignal<NeedMenuInitSignal>().OptionalSubscriber();
 
             Container.DeclareSignal<SlotConnectionsUpdatedSignal>();
+
+            Container.DeclareSignal<BuildingTimerIsOverSignal>();
         }
 
         [Serializable]

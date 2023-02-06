@@ -5,7 +5,4 @@
         public int GoalIndex;
     }
 
-    public struct GameOverSignal
-    { }
-
 }

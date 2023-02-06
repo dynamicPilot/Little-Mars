@@ -26,14 +26,18 @@ namespace LittleMars.Model.Trackers
         {
             Debug.Log(" Create building time goal with index " + index + ". Goal target building is " + goal.Unit.Type);
             _goal = goal;
-            //_signalBus = signalBus;
 
             _buildings = new List<IBuildingFacade>();
             _isDone = false;
             _hasEnoughBuildings = false;
 
-            _signalBus.Subscribe<BuildingStateChangedSignal>(OnBuildingStateChanged);
+            SetSignals(index);
 
+            _signalBus.Subscribe<BuildingStateChangedSignal>(OnBuildingStateChanged);
+        }
+
+        protected override void SetSignals(int index)
+        {
             _onUpdateSignal = new GoalUpdatedSignal
             {
                 Index = index,
@@ -47,7 +51,6 @@ namespace LittleMars.Model.Trackers
                 IsFirstDone = _isFirstDone
             };
         }
-
 
         private void OnBuildingStateChanged(BuildingStateChangedSignal args)
         {

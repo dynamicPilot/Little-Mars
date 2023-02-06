@@ -1,6 +1,7 @@
 ﻿using LittleMars.UI.Effects;
 using LittleMars.UI.GoalSlots;
 using LittleMars.UI.ResourceSlots;
+using System;
 using UnityEngine;
 
 namespace LittleMars.UI.GoalDisplays
@@ -12,6 +13,11 @@ namespace LittleMars.UI.GoalDisplays
         public void SetSize(int index)
         {
             _size.SetSize(index);
+        }
+
+        public void HideSize()
+        {
+            _size.SetSize(0);
         }
     }
 }

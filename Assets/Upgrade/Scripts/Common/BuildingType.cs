@@ -85,7 +85,8 @@
     public enum ResultType
     {
         win,
-        lose
+        lose,
+        loseStaff
     }
 
     public enum IconType

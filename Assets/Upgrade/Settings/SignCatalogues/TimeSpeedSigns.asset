@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DefaultSprite: {fileID: 310895423, guid: e45fe21fdf643bf4a84ec2f36ed23e96, type: 3}
   Sprites:
-  - {fileID: -1362249693, guid: e45fe21fdf643bf4a84ec2f36ed23e96, type: 3}
+  - {fileID: -1848003356, guid: e45fe21fdf643bf4a84ec2f36ed23e96, type: 3}
   - {fileID: 310895423, guid: e45fe21fdf643bf4a84ec2f36ed23e96, type: 3}
   - {fileID: -1827149292, guid: e45fe21fdf643bf4a84ec2f36ed23e96, type: 3}

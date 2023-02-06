@@ -1,5 +1,4 @@
 ﻿using LittleMars.Common;
-using LittleMars.Common.Interfaces;
 using LittleMars.Common.LevelGoal;
 using LittleMars.Common.Signals;
 using LittleMars.Model.Interfaces;
@@ -18,8 +17,10 @@ namespace LittleMars.Model
         readonly GoalsTrackerProvider<BuildingUnit<int>, BuildingGoalTracker>.Factory _buildingProviderFactory;
         readonly GoalsTrackerProvider<ResourceUnit<float>, ResourceProductionGoalTracker>.Factory _productionProviderFactory;
         readonly GoalsTrackerProvider<ResourceUnit<float>, ResourceBalanceGoalTracker>.Factory _resourceProviderFactory;
+        readonly StaffTrackersProvider.Factory _staffProviderFactory;
 
         List<IGoalTracker> _trackers;
+        List<IGoalTracker> _staffTrackers;
 
         AchivementReachedSignal _achivementSignal;
 
@@ -27,21 +28,25 @@ namespace LittleMars.Model
             GoalsTrackerProvider<BuildingUnit<int>, BuildingGoalTracker>.Factory buildingProviderFactory,
             GoalsTrackerProvider<ResourceUnit<float>, ResourceProductionGoalTracker>.Factory productionProviderFactory,
             GoalsTrackerProvider<ResourceUnit<float>, ResourceBalanceGoalTracker>.Factory resourceProviderFactory,
+            StaffTrackersProvider.Factory staffProviderFactory,
             SignalBus signalBus)
         {
             _settings = settings;
             _buildingProviderFactory = buildingProviderFactory;
             _productionProviderFactory = productionProviderFactory;
             _resourceProviderFactory = resourceProviderFactory;
+            _staffProviderFactory = staffProviderFactory;
             _signalBus = signalBus;
 
             _trackers = new();
+            _staffTrackers = new();
             
         }
 
         public void Initialize()
         {
             CreateTrackers();
+            CreateStaffTrackers();
             _signalBus.Subscribe<GoalIsDoneSignal>(OnGoalIsDone);
 
             _achivementSignal = new AchivementReachedSignal { GoalIndex = 0 };
@@ -50,12 +55,19 @@ namespace LittleMars.Model
         public void Dispose()
         {
             _trackers.Clear();
+            _staffTrackers.Clear();
             _signalBus.TryUnsubscribe<GoalIsDoneSignal>(OnGoalIsDone);
         }
 
         public List<IGoalTracker> GetTrackers()
         {
             return _trackers;
+        }
+
+        public IGoalTracker GetStaffTracker(int index)
+        {
+            if (index < 0 || index >= _staffTrackers.Count) return null;
+            else return _staffTrackers[index];
         }
 
         private void CreateTrackers()
@@ -82,8 +94,13 @@ namespace LittleMars.Model
             {
                 using var resourcesProvider = _resourceProviderFactory.Create();
                 _trackers.AddRange(resourcesProvider.CreateTrackers(_settings.ResourceGoals, ref currentIndex));
-
             }
+        }
+
+        private void CreateStaffTrackers()
+        {
+            using var provider = _staffProviderFactory.Create();
+            _staffTrackers.AddRange(provider.CreateTrackers());
         }
 
         private void OnGoalIsDone(GoalIsDoneSignal args)

@@ -9,6 +9,7 @@ using Zenject;
 
 namespace LittleMars.Model.Trackers
 {
+
     public class BuildingGoalTracker : GoalTracker, IDisposable
     {
         readonly Goal<BuildingUnit<int>> _goal;
@@ -19,12 +20,16 @@ namespace LittleMars.Model.Trackers
             : base (signalBus)
         {
             _goal = goal;
-
             _isDone = false;
             _buildings = new List<IBuildingFacade>();
+
+            SetSignals(index);
             _signalBus.Subscribe<BuildingStateChangedSignal>(OnBuildingStateChanged);
             _signalBus.Subscribe<RemoveBuildingSignal>(OnRemoveBuilding);
+        }
 
+        protected override void SetSignals(int index)
+        {
             _onUpdateSignal = new GoalUpdatedSignal
             {
                 Index = index,

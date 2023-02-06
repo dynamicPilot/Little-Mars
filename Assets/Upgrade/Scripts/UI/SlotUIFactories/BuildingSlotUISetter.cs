@@ -3,8 +3,6 @@ using UnityEngine;
 
 namespace LittleMars.UI.SlotUIFactories
 {
-
-
     public class BuildingSlotUISetter : ISetSlot
     {
         readonly IconsCatalogue _catalogue;

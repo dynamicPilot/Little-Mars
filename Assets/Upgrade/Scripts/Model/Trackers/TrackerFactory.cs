@@ -22,4 +22,11 @@ namespace LittleMars.Model.Trackers
         {
         }
     }
+
+    public class FakeTrackerFactory : PlaceholderFactory<int, IGoalTracker>, IDisposable
+    {
+        public void Dispose()
+        {
+        }
+    }
 }

@@ -35,6 +35,9 @@ namespace LittleMars.Model.Trackers
             _signalBus.Fire(_isDoneSignal);
         }
 
+        protected virtual void SetSignals(int index)
+        { }
+
         protected virtual void UpdateOnUpdatedSignal()
         { }
 

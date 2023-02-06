@@ -19,8 +19,13 @@ namespace LittleMars.Model.Trackers
 
             _isDone = false;
             _currentBalance = 0f;
-            _signalBus.Subscribe<ResourcesBalanceUpdatedSignal>(OnResourceBalanceUpdated);
 
+            SetSignals(index);
+            _signalBus.Subscribe<ResourcesBalanceUpdatedSignal>(OnResourceBalanceUpdated);
+        }
+
+        protected override void SetSignals(int index)
+        {
             _onUpdateSignal = new GoalUpdatedSignal
             {
                 Index = index,

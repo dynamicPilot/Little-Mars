@@ -1663,7 +1663,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 7
+  m_AdditionalShaderChannelsFlag: 31
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -15692,6 +15692,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1503721830}
     m_Modifications:
+    - target: {fileID: 62524158070177426, guid: fb69828bc093c78408ccd52adfb1e932, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -12
+      objectReference: {fileID: 0}
+    - target: {fileID: 62524158070177426, guid: fb69828bc093c78408ccd52adfb1e932, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 876377765871674447, guid: fb69828bc093c78408ccd52adfb1e932, type: 3}
       propertyPath: m_Name
       value: UI_InfoButton
@@ -15784,6 +15792,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 2013378894, guid: 277506a33c4397e408f75a1cfe6387af, type: 3}
+    - target: {fileID: 5583558923861542776, guid: fb69828bc093c78408ccd52adfb1e932, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5958733826827246214, guid: fb69828bc093c78408ccd52adfb1e932, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -15793,16 +15805,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -340624629, guid: 277506a33c4397e408f75a1cfe6387af, type: 3}
     - target: {fileID: 8232205437333392711, guid: fb69828bc093c78408ccd52adfb1e932, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -577972594, guid: e45fe21fdf643bf4a84ec2f36ed23e96, type: 3}
+    - target: {fileID: 8232205437333392711, guid: fb69828bc093c78408ccd52adfb1e932, type: 3}
       propertyPath: m_Color.b
-      value: 0.6666667
+      value: 0.13333334
       objectReference: {fileID: 0}
     - target: {fileID: 8232205437333392711, guid: fb69828bc093c78408ccd52adfb1e932, type: 3}
       propertyPath: m_Color.g
-      value: 0.8392157
+      value: 0.4666667
       objectReference: {fileID: 0}
     - target: {fileID: 8232205437333392711, guid: fb69828bc093c78408ccd52adfb1e932, type: 3}
       propertyPath: m_Color.r
-      value: 0.96862745
+      value: 0.73333335
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb69828bc093c78408ccd52adfb1e932, type: 3}

@@ -33,6 +33,6 @@ MonoBehaviour:
     Production: {fileID: 7143536599680955399, guid: ba56e4d3d204d0b4aaab077b6935912e, type: 3}
     Time: {fileID: 308360067, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
   Fields:
-    Metals: {fileID: 1093994708, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
+    Metals: {fileID: -168386757, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
   _other:
-    DefaultTimer: {fileID: 62905270, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
+    DefaultTimer: {fileID: -541044406, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
