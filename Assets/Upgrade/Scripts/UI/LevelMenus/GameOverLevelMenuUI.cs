@@ -1,7 +1,6 @@
 ﻿using LittleMars.Common;
 using LittleMars.Common.Signals;
 using LittleMars.UI.GoalDisplays;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -10,6 +9,7 @@ namespace LittleMars.UI.LevelMenus
 {
     public class GameOverLevelMenuUI : LevelMenuUI
     {
+        [Header("Buttons")]
         [SerializeField] private Button _nextButton;
         [SerializeField] private Button _restartButton;
 
@@ -34,20 +34,22 @@ namespace LittleMars.UI.LevelMenus
 
         protected override void Init()
         {
-            //_signalBus.Subscribe<GameOverSignal>(OnGameOver);
+            _signalBus.Subscribe<GameOverSignal>(OnGameOver);
         }
 
         protected override void SetListeners()
         {
             base.SetListeners();
+            Debug.Log("Add next button");
             AddCommandToButtonListener(_nextButton, CommandType.next);
+            Debug.Log("Add restart button");
             AddCommandToButtonListener(_restartButton, CommandType.restart);
         }
 
 
         private void OnGameOver(GameOverSignal args)
         {
-            //_signalBus.Unsubscribe<GameOverSignal>(OnGameOver);
+            _signalBus.Unsubscribe<GameOverSignal>(OnGameOver);
 
             // set display
             SetMenu();

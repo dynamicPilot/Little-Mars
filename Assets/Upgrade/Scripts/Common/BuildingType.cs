@@ -154,5 +154,15 @@
         scene,
         level
     }
+
+    public enum MenuState
+    {
+        start,
+        tutorial,
+        achievement,
+        end,
+        gameOver,
+        none
+    }
 }
 

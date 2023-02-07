@@ -79,7 +79,7 @@ MonoBehaviour:
             Type: 1
             Size: 0
             Amount: 1
-      HasBuildingGoalsWithTimer: 1
+      HasBuildingGoalsWithTimer: 0
       BuildingGoalsWithTimers:
         GoalsArray:
         - Type: 0

@@ -22,7 +22,7 @@ namespace LittleMars.Model
         List<IGoalTracker> _trackers;
         List<IGoalTracker> _staffTrackers;
 
-        AchivementReachedSignal _achivementSignal;
+        AchievementReachedSignal _achivementSignal;
 
         public GoalsManager(Settings settings,
             GoalsTrackerProvider<BuildingUnit<int>, BuildingGoalTracker>.Factory buildingProviderFactory,
@@ -49,7 +49,7 @@ namespace LittleMars.Model
             CreateStaffTrackers();
             _signalBus.Subscribe<GoalIsDoneSignal>(OnGoalIsDone);
 
-            _achivementSignal = new AchivementReachedSignal { GoalIndex = 0 };
+            _achivementSignal = new AchievementReachedSignal { GoalIndex = 0 };
         }
 
         public void Dispose()
@@ -105,37 +105,48 @@ namespace LittleMars.Model
 
         private void OnGoalIsDone(GoalIsDoneSignal args)
         {
-            Debug.Log("OnGoalIsDone for goal index " + args.Index);
+            //Debug.Log("OnGoalIsDone for goal index " + args.Index);
             if (args.ResultType == ResultType.win) OnGoalToWinIsDone(args);
             else OnGoalToLoseIsDone(args);
         }
 
         private void OnGoalToWinIsDone(GoalIsDoneSignal args)
         {
-            // rise achivement display is needed
-            if (args.IsFirstDone)
-            {
-                Debug.Log("need Achivement Display for goal index " + args.Index);
-                OnAchivement(args.Index);
-            }
             // check all goals
             var result = CheckTrackers();
 
             if (result)
-                Debug.Log("Win!");
+                _signalBus.Fire<EndGameReachedSignal>();
 
+            // rise achivement display is needed
+            if (!result && args.IsFirstDone)
+            {
+                //Debug.Log("need Achivement Display for goal index " + args.Index);
+                OnAchivement(args.Index);
+            }
         }
 
         private void OnGoalToLoseIsDone(GoalIsDoneSignal args)
         {
             // call game over
+            _signalBus.Fire(OnGameOver(args));
+
         }
 
         private void OnAchivement(int goalIndex)
         {
             _achivementSignal.GoalIndex = goalIndex;
-            Debug.Log("OnAchivement for goal index " + _achivementSignal.GoalIndex + " and index " + goalIndex);
+            //Debug.Log("OnAchivement for goal index " + _achivementSignal.GoalIndex + " and index " + goalIndex);
             _signalBus.Fire(_achivementSignal);
+        }
+
+        private GameOverSignal OnGameOver(GoalIsDoneSignal args)
+        {
+            return new GameOverSignal
+            {
+                GoalIndex = args.Index,
+                IsStaff = (args.ResultType == ResultType.loseStaff)
+            };
         }
 
         private bool CheckTrackers()

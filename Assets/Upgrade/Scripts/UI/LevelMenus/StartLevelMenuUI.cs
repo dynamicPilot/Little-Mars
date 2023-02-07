@@ -9,6 +9,7 @@ namespace LittleMars.UI.LevelMenus
 {
     public class StartLevelMenuUI : LevelMenuUI
     {
+        [Header("Buttons")]
         [SerializeField] private Button _startButton;
 
         [Header("Goals Display Slot")]

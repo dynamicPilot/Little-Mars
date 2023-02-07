@@ -19,7 +19,9 @@ namespace LittleMars.Localization
         [Inject]
         public void Constructor(LangsManager manager)
         {
+           
             _manager = manager;
+            Debug.Log("TextTagElement.Constructor: set manager." + (_manager == null));
             Init();
         }
 
@@ -30,6 +32,7 @@ namespace LittleMars.Localization
 
         public void SetText()
         {
+            Debug.Log("TextTagElement.SetText: is manager null " + (_manager == null));
             _text.text = _manager.GetText(_tag, _tagGroup);
         }
     }

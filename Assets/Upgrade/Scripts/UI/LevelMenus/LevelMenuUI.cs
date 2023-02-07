@@ -11,8 +11,10 @@ namespace LittleMars.UI.LevelMenus
     public class LevelMenuUI : GameMenuUI
     {
         [Header("UI Elements")]
-        [SerializeField] private MenuMode _mode;
+        [Header("Image")]
+        [SerializeField] private MenuMode _imageMode;
         [SerializeField] private Image _image;
+        [Header("Header")]
         [SerializeField] private TextMeshProUGUI _levelNumberText;
         [SerializeField] private TextTagElement _headerText;
         // Level text -> need language control
@@ -42,7 +44,7 @@ namespace LittleMars.UI.LevelMenus
         public void SetMenu()
         {
             _levelNumberText.text = _info.Number.ToString();
-            _image.sprite = (_mode == MenuMode.start) ? _info.StartSprite : _info.EndSprite;
+            _image.sprite = (_imageMode == MenuMode.start) ? _info.StartSprite : _info.EndSprite;
             _headerText.SetText();
         }
 

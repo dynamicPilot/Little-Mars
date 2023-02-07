@@ -5,6 +5,7 @@ using LittleMars.Installers;
 using LittleMars.Localization;
 using LittleMars.Model.TimeUpdate;
 using LittleMars.Slots;
+using LittleMars.UI.LevelMenus;
 using System;
 using UnityEngine;
 using Zenject;
@@ -32,6 +33,7 @@ namespace LittleMars.Settings
             public TimeManager.Settings ManagerSettings;
             public TimeUpdaterTickable.Settings UpdaterSettings;
             public BuildingTimer.Settings DomeTimer;
+            public LevelMenusWorkflowTimer.Settings EndGameDelay;
         }
 
         [Serializable]
@@ -56,6 +58,7 @@ namespace LittleMars.Settings
             Container.BindInstance(Time.ManagerSettings);
             Container.BindInstance(Time.UpdaterSettings);
             Container.BindInstance(Time.DomeTimer);
+            Container.BindInstance(Time.EndGameDelay);
             Container.BindInstance(TextBlocks.Blocks);
         }
     }

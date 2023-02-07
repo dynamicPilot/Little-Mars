@@ -15,8 +15,10 @@ namespace LittleMars.UI.LevelMenus
 
         protected Dictionary<CommandType, Button> _buttons;
         protected LevelMenu _levelMenu;
+        protected bool _isOpen;
         protected virtual void Awake()
         {
+            _isOpen = false;
             _buttons = new Dictionary<CommandType, Button>();
             _buttons.Add(_buttonType, _commonButton);
         }
@@ -55,7 +57,12 @@ namespace LittleMars.UI.LevelMenus
         {
             Debug.Log("Add listeners to button " + type);
             var command = _levelMenu.GetCommand(type);
+            if (command == null) return;
+
+            Debug.Log("Get command for type " + type + " command " + (command == null));
             button.onClick.AddListener(command.Execute);
+
+            Debug.Log("add close? " + needClose);
             if (needClose) button.onClick.AddListener(Close);
         }
 
@@ -64,6 +71,7 @@ namespace LittleMars.UI.LevelMenus
             Debug.Log("Open menu!");
             _panel.SetActive(true);
             _levelMenu.Open();
+            _isOpen = true;
         }
 
         protected virtual void Close()
@@ -71,6 +79,7 @@ namespace LittleMars.UI.LevelMenus
             Debug.Log("Close menu!");
             _panel.SetActive(false);
             _levelMenu.Close();
+            _isOpen = false;
         }
     }
 }

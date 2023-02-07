@@ -1,6 +1,6 @@
 ﻿using LittleMars.Common;
 using System.Collections.Generic;
-
+using UnityEngine;
 
 namespace LittleMars.Commands
 {
@@ -26,6 +26,7 @@ namespace LittleMars.Commands
 
         public ICommand GetCommand(CommandType type)
         {
+            Debug.Log("Try get command " + type + ". Has it: " + (_commands.ContainsKey(type)));
             if (!_commands.ContainsKey(type)) CreateCommand(type);
             return _commands[type];
         }
@@ -35,12 +36,14 @@ namespace LittleMars.Commands
             switch (type)
             {
                 case CommandType.next:
-                    _commands.Add(CommandType.next, _nextFactory.Create());
+                    Debug.Log("create command for " + type);
+                    _commands.Add(type, _nextFactory.Create());
                     break;
                 case CommandType.start:
-                    _commands.Add(CommandType.start, _startFactory.Create());
+                    _commands.Add(type, _startFactory.Create());
                     break;
                 default:
+                    Debug.Log("null command for "+ type);
                     _commands.Add(type, _nullCommand);
                     break;
             }

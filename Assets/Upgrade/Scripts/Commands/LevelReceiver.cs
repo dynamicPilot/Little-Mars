@@ -1,7 +1,17 @@
-﻿namespace LittleMars.Commands
+﻿using LittleMars.Common.Signals;
+using Zenject;
+
+namespace LittleMars.Commands
 {
     public class LevelReceiver : Receiver
     {
+        readonly SignalBus _signalBus;
+
+        public LevelReceiver(SignalBus signalBus)
+        {
+            _signalBus = signalBus;
+        }
+
         public override void Next()
         {
 
@@ -16,7 +26,7 @@
         }
         public virtual void Start()
         {
-
+            _signalBus.Fire<StartLevelSignal>();
         }
         public virtual void Menu()
         {

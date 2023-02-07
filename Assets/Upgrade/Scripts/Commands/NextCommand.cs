@@ -5,9 +5,9 @@ namespace LittleMars.Commands
 
     public class NextCommand : ICommand
     {
-        readonly Receiver _receiver;
+        readonly LevelReceiver _receiver;
 
-        public NextCommand(Receiver receiver)
+        public NextCommand(LevelReceiver receiver)
         {
             _receiver = receiver;
         }

@@ -25,7 +25,7 @@ using LittleMars.Connections;
 using LittleMars.Connections.View;
 using LittleMars.Model.GoalDisplays;
 using LittleMars.UI.GoalDisplays;
-using LittleMars.UI.Achivements;
+using LittleMars.UI.Achievements;
 using LittleMars.Commands;
 using LittleMars.UI.LevelMenus;
 using LittleMars.Localization;
@@ -223,32 +223,41 @@ namespace LittleMars.Installers
 
         private void InstallLevelMenus()
         {
+            Container.BindInterfacesAndSelfTo<LevelMenusWorkflow>().AsSingle();
+
+            Container.Bind<AsyncSignalGunTimer>().AsSingle();
+            Container.Bind<LevelMenusWorkflowTimer>().AsSingle();
+
             Container.Bind<CommandManager>().AsSingle();
-            Container.Bind<LevelReceiver>().AsSingle();
+            Container.Bind<LevelReceiver>().AsSingle();           
 
             Container.Bind<LevelMenu>().AsSingle();
 
             Container.Bind<GameOverLevelMenu>().AsSingle();
             Container.Bind<GoalTextLevelMenu>().AsSingle();
+            Container.Bind<AchievementDisplayLevelMenu>().AsSingle();
 
             Container.Bind<NullCommand>().AsSingle();
             Container.BindFactory<NextCommand, NextCommand.Factory>();
             Container.BindFactory<StartCommand, StartCommand.Factory>();
+
+            Container.BindFactory<EndLevelSignalGun, EndLevelSignalGun.Factory>()
+                .WhenInjectedInto<LevelMenusWorkflowTimer>();
         }
 
 
         private void InstallGoalInfos()
         {
             Container.BindInterfacesAndSelfTo<GoalDisplayStrategiesManager>().AsSingle();
-
             Container.Bind<StaffGoalDisplayStrategiesManager>().AsSingle();
 
+            Container.Bind<GoalForStaffGoalCreator>().AsSingle();
             Container.Bind<GoalDisplayStrategiesFactory>().AsSingle();
             Container.Bind<StaffGoalDisplayStrategiesFactory>().AsSingle();
 
             Container.Bind<DisplayStrategiesFactory>().AsSingle();
             Container.Bind<DisplayStrategyFactory>().AsSingle();
-            Container.Bind<AchivementDisplayController>().AsSingle();
+            
 
             Container.BindFactory<GoalType, BuildingUnit<int>, IGoalInfo, GoalInfoFactory<BuildingUnit<int>>>()
                 .To<BuildingGoalInfo>()
@@ -357,8 +366,15 @@ namespace LittleMars.Installers
 
             Container.DeclareSignal<GoalIsDoneSignal>();
             Container.DeclareSignal<GoalUpdatedSignal>().OptionalSubscriber();
-            Container.DeclareSignal<AchivementReachedSignal>();
 
+            Container.DeclareSignal<StartLevelSignal>();
+            Container.DeclareSignal<StartGameSignal>();
+
+            Container.DeclareSignal<AchievementReachedSignal>();
+            Container.DeclareSignal<CallAchivementMenuSignal>();
+
+            Container.DeclareSignal<EndGameReachedSignal>();
+            Container.DeclareSignal<EndGameSignal>();
             Container.DeclareSignal<GameOverSignal>();
 
             Container.DeclareSignal<ResourcesBalanceUpdatedSignal>();
