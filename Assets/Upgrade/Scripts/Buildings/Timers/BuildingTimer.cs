@@ -1,4 +1,5 @@
-﻿using LittleMars.Common.Signals;
+﻿using LittleMars.Common;
+using LittleMars.Common.Signals;
 using System;
 using UnityEngine;
 using Zenject;
@@ -9,17 +10,19 @@ namespace LittleMars.Buildings.Timers
     {
         //readonly Settings _settings;
         readonly SignalBus _signalBus;
-        readonly BuildingFacade _building;
+        readonly BuildingType _type;
+        readonly Size _size;
 
         bool _wasEverOn;
         bool _isRunning;
         float _targetValue;
         float _timer;
 
-        public BuildingTimer(Settings settings, SignalBus signalBus, BuildingFacade building)
+        public BuildingTimer(Settings settings, SignalBus signalBus, BuildingType type, Size size)
         {
             _signalBus = signalBus;
-            _building = building;
+            _type = type;
+            _size = size;
             _targetValue = settings.TimerTargetValue;
 
             _isRunning = false;
@@ -38,6 +41,7 @@ namespace LittleMars.Buildings.Timers
 
         private void CheckTimer()
         {
+            //Debug.Log("Check timer " + _timer + ". Target value " + _targetValue);
             if (_timer >= _targetValue) TimerIsOver();
         }
 
@@ -69,11 +73,11 @@ namespace LittleMars.Buildings.Timers
 
         private BuildingTimerIsOverSignal GetSignal()
         {
-            var info = _building.Info();
+            Debug.Log($"Create signal for timer over for type { _type} ans size {_size}.");
             return new BuildingTimerIsOverSignal
             {
-                Type = info.Type,
-                Size = info.Size
+                Type = _type,
+                Size = _size
             };
         }
 

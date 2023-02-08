@@ -1,6 +1,7 @@
 ﻿using LittleMars.Common;
 using LittleMars.Common.Signals;
 using System;
+using UnityEngine;
 using Zenject;
 
 namespace LittleMars.Model.Trackers
@@ -36,6 +37,7 @@ namespace LittleMars.Model.Trackers
         {
             _onUpdateSignal.Values[0] = (int)args.Type;
             _onUpdateSignal.Values[1] = (int)args.Size;
+            Debug.Log($"Building timer is over tracker updated to {_onUpdateSignal.Values[0]} and {_onUpdateSignal.Values[1]}.");
             CheckIsDone(true);
         }
 

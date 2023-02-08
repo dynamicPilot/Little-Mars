@@ -66,6 +66,7 @@ namespace LittleMars.Model
 
         public IGoalTracker GetStaffTracker(int index)
         {
+            Debug.Log("Need staff tracker with index " + index);
             if (index < 0 || index >= _staffTrackers.Count) return null;
             else return _staffTrackers[index];
         }
@@ -129,6 +130,7 @@ namespace LittleMars.Model
         private void OnGoalToLoseIsDone(GoalIsDoneSignal args)
         {
             // call game over
+            Debug.Log("GAME OVER!");
             _signalBus.Fire(OnGameOver(args));
 
         }

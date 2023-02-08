@@ -27,7 +27,7 @@ namespace LittleMars.Installers
             Container.Bind<BuildingOffStateFactory>().AsSingle();
             Container.Bind<BuildingPausedStateFactory>().AsSingle();
 
-            Container.Bind<BuildingTimer>().AsSingle();
+            Container.BindInterfacesAndSelfTo<BuildingTimer>().AsSingle();
 
             Container.BindFactory<BuildingOnState, BuildingOnState.Factory>().AsSingle();
             Container.BindFactory<BuildingOffState, BuildingOffState.Factory>().AsSingle();

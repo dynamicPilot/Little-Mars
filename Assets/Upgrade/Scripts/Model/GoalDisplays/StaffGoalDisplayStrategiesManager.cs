@@ -1,5 +1,6 @@
 ﻿using LittleMars.Common;
 using LittleMars.UI.GoalDisplays;
+using UnityEngine;
 
 namespace LittleMars.Model.GoalDisplays
 {
@@ -23,6 +24,7 @@ namespace LittleMars.Model.GoalDisplays
             if (tracker == null) return null;
 
             var info = tracker.GetInfo();
+            Debug.Log($"Get tracker info {info.Values[0]} and {info.Values[1]}.");
             var goal = _goalCreator.CreateTimerGoal((BuildingType)info.Values[0], (Size)info.Values[1]);
 
             return _factory.CreateTimerStrategy(goal);

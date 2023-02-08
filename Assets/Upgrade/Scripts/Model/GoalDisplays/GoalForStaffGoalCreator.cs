@@ -18,6 +18,7 @@ namespace LittleMars.Model.GoalDisplays
             var unit = new GoalWithTime<BuildingUnit<int>>();
             unit.Time = _timerSettings.TimerTargetValue;
 
+            unit.Unit = new BuildingUnit<int>();
             unit.Unit.Type = type;
             unit.Unit.Size = size;
             unit.Unit.Amount = 1;
