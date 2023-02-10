@@ -9,12 +9,13 @@ namespace LittleMars.Buildings.View
 {
     public class BuildingView : MonoBehaviour, IPointerClickHandler
     {
-        BuildingObjectView _view;
+        BuildingObjectViewFacade _view;
         BuildingState _state;
 
         float _angle = 0f;
+
         [Inject]
-        public void Constructor(BuildingObjectView.Factory factory, BuildingState state)
+        public void Constructor(BuildingObjectViewFacade.Factory factory, BuildingState state)
         {
             _view = factory.Create();
             _state = state;

@@ -7,6 +7,7 @@ using LittleMars.Buildings.Parts;
 using LittleMars.Buildings.View;
 using LittleMars.Buildings;
 using LittleMars.Buildings.Timers;
+using LittleMars.Buildings.View.States;
 
 namespace LittleMars.Installers
 {
@@ -21,7 +22,7 @@ namespace LittleMars.Installers
             Container.Bind<BuildingStateManager>().AsSingle();
             Container.Bind<BuildingOperation>().AsSingle();
             Container.Bind<BuildingData>().AsSingle();
-            Container.Bind<BuildingState>().AsSingle();
+            Container.Bind<BuildingState>().AsSingle();            
 
             Container.Bind<BuildingOnStateFactory>().AsSingle();
             Container.Bind<BuildingOffStateFactory>().AsSingle();
@@ -40,12 +41,11 @@ namespace LittleMars.Installers
             Container.BindInstance(_type).AsSingle();
             Container.BindInstance(_size).AsSingle();
 
-
             Container.Bind<BuildingObject>()
                 .FromScriptableObjectResource(String.Concat(_settings.BuildingObjectFolderPath, _type, "_", _size))
                 .AsSingle();
 
-            Container.BindFactory<BuildingObjectView, BuildingObjectView.Factory>()
+            Container.BindFactory<BuildingObjectViewFacade, BuildingObjectViewFacade.Factory>()
                 .FromComponentInNewPrefabResource(String.Concat(_settings.PrefabFolderPath, _type, "_", _size))
                 .WithGameObjectName("View");
         }

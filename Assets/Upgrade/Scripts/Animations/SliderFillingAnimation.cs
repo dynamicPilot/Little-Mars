@@ -12,6 +12,7 @@ namespace LittleMars.Animations
         [SerializeField] private float _duration = 1f;
         [SerializeField] private float _startValue = 0;
         [SerializeField] private float _endValue = 1f;
+        [SerializeField] private bool _unscaledTime = false;
 
         public void StartAnimation()
         {
@@ -22,7 +23,8 @@ namespace LittleMars.Animations
 
         void FillingIndicator()
         {
-            _slider.DOValue(_endValue, _duration);
+            _slider.DOValue(_endValue, _duration).SetUpdate(_unscaledTime);
+
         }
 
         void CheckValues()

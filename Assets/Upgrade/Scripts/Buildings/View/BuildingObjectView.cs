@@ -1,28 +1,26 @@
-﻿using LittleMars.Common;
-using UnityEngine;
+﻿using UnityEngine;
 using Zenject;
 
 namespace LittleMars.Buildings.View
 {
     public class BuildingObjectView : MonoBehaviour
     {
-        [SerializeField] private BuildingIndicator[] _viewIndicators;
         [SerializeField] private Transform[] _rotatedParts;
-        [SerializeField] private BoxCollider2D _collider;
+        [SerializeField] private BoxCollider2D[] _colliders;
 
         private void OnValidate()
         {
-            _collider.enabled = false;
+            ChangeCollidersState(false);
         }
 
         public void OnStart()
         {
-            _collider.enabled = true;
+            ChangeCollidersState(true);
         }
 
         public void OnRemove()
         {
-            _collider.enabled = false;
+            ChangeCollidersState(false);
         }
 
         public void RotateView(float angle)
@@ -31,19 +29,15 @@ namespace LittleMars.Buildings.View
                 _rotatedParts[i].Rotate(0f, 0f, angle);
         }
 
-        public void TransitToState(BStates state)
+        private void ChangeCollidersState(bool state)
         {
-            UpdateIndicators(state);
+            foreach (BoxCollider2D collider in _colliders)
+                collider.enabled = state;
         }
 
-        private void UpdateIndicators(BStates state)
-        {
-            for (int i = 0; i < _viewIndicators.Length; i++)
-                _viewIndicators[i].UpdateIndicator(state);
-        }
 
         public class Factory : PlaceholderFactory<BuildingObjectView>
-        { 
+        {
         }
 
     }

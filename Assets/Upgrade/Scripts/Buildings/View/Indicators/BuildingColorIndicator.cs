@@ -1,14 +1,13 @@
-﻿using LittleMars.Buildings.View;
-using LittleMars.Common;
+﻿using LittleMars.Common;
 using UnityEngine;
 using Zenject;
 
-namespace Assets.Upgrade.Scripts.Buildings.View
+namespace LittleMars.Buildings.View.Indicators
 {
     public class BuildingColorIndicator : BuildingIndicator
     {
         [SerializeField] private SpriteRenderer[] _renderers;
-        
+
         ColorsCatalogue _colors;
 
         [Inject]

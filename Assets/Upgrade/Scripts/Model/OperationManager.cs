@@ -1,13 +1,8 @@
-﻿using LittleMars.Buildings;
-using LittleMars.Common;
+﻿using LittleMars.Common;
 using LittleMars.Common.Interfaces;
 using LittleMars.Common.Signals;
-using LittleMars.Map;
 using LittleMars.Model;
-using LittleMars.Model.Interfaces;
 using System;
-using System.Collections;
-using System.Drawing;
 using UnityEngine;
 using Zenject;
 
@@ -20,7 +15,8 @@ namespace LittleMars.Models
         SignalBus _signalBus;
         OperationHelper _helper;
 
-        public OperationManager(ProductionManager production, SignalBus signalBus, OperationHelper helper)
+        public OperationManager(ProductionManager production, SignalBus signalBus, 
+            OperationHelper helper)
         {
             _production = production;
             _signalBus = signalBus;

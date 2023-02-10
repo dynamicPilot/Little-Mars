@@ -31,12 +31,6 @@ namespace LittleMars.Buildings.Parts
             _needs = null;
         }
 
-        //public BuildingOperation(BuildingCatalogue cataloque, BuildingType type, Size size)
-        //{
-        //    _settings = cataloque.BuildingObject(type, size).Operation;
-        //    _production = null;
-        //}
-
         public bool HasNeedForThisResource(Resource resource)
         {
             if (_needs == null) FillNeeds();

@@ -120,7 +120,7 @@ TextureImporter:
       name: UI_ShapeSize_3
       rect:
         serializedVersion: 2
-        x: 3
+        x: 1
         y: 16
         width: 15
         height: 14
@@ -141,7 +141,7 @@ TextureImporter:
       name: UI_ShapeSize_1
       rect:
         serializedVersion: 2
-        x: 2
+        x: 1
         y: 0
         width: 9
         height: 15
@@ -163,7 +163,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 13
-        y: 6
+        y: 1
         width: 15
         height: 9
       alignment: 0
@@ -175,6 +175,27 @@ TextureImporter:
       bones: []
       spriteID: cce1342b0b3217e44938c464df4cea74
       internalID: -1282612555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_ShapeSize_4
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 10
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d0a87a486d9ba949843f957b2177c2a
+      internalID: 627491958
       vertices: []
       indices: 
       edges: []
@@ -193,6 +214,7 @@ TextureImporter:
       UI_ShapeSize_2: -1282612555
       UI_ShapeSize_1: -2045746343
       UI_ShapeSize_3: 989217376
+      UI_ShapeSize_4: 627491958
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1

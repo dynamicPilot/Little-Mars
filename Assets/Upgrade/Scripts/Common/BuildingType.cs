@@ -15,7 +15,7 @@
 
     public enum BStates
     {
-        on, off, paused
+        on, off, paused, effected
     }
 
     public enum BuildingType
@@ -36,7 +36,8 @@
     {
         small,
         medium,
-        large
+        large,
+        extraLarge
     }
 
     public enum Priority

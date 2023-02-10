@@ -7,6 +7,7 @@
 
     public struct HourlySignal
     {
+        public int Hour { get; set; }
     }
     public struct TimeSpeedChangedSignal
     {

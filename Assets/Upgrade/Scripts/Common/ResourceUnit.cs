@@ -24,5 +24,13 @@ namespace LittleMars.Common
     {
         public T2 Size;
     }
+
+    [Serializable]
+    public class TradeUnit<T> 
+    {
+        public ResourceUnit<T> Need;
+        public ResourceUnit<T> Production;
+        public int Hour;
+    }
 }
 

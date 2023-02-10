@@ -1,7 +1,6 @@
 ﻿using LittleMars.Common;
 using LittleMars.Common.Levels;
 using LittleMars.Common.Signals;
-using LittleMars.Model.Interfaces;
 using System;
 using System.Collections.Generic;
 using Zenject;
@@ -28,6 +27,7 @@ namespace LittleMars.Models
         ResourcesNeedsChangedSignal _needsSignal;
 
         int _count = 0;
+        int _hour = 0;
         public ProductionManager(ProductionHelper helper, 
             LevelConditions settings, SignalBus signalBus, 
             ResourcesBalancer balancer)
@@ -35,7 +35,7 @@ namespace LittleMars.Models
             _helper = helper;
             _settings = settings;
             _signalBus = signalBus;
-            _balancer = balancer;        
+            _balancer = balancer;
         }
 
         public void Initialize()
@@ -46,7 +46,7 @@ namespace LittleMars.Models
             _helper.FillResourceDictWithResourceUnits(_settings.Resources, out _resourcesBalance);
 
             _signalBus.Subscribe<PeriodChangeSignal>(OnPeriodChanged);
-            _signalBus.Subscribe<HourlySignal>(UpdateBalance);
+            _signalBus.Subscribe<HourlySignal>(OnHourlySignal);
 
             // signals
             _balanceSignal = new ResourcesBalanceUpdatedSignal { ResourcesBalance = _resourcesBalance };
@@ -64,7 +64,7 @@ namespace LittleMars.Models
         public void Dispose()
         {
             _signalBus.TryUnsubscribe<PeriodChangeSignal>(OnPeriodChanged);
-            _signalBus.TryUnsubscribe<HourlySignal>(UpdateBalance);
+            _signalBus.TryUnsubscribe<HourlySignal>(OnHourlySignal);
         }
 
         private void OnPeriodChanged(PeriodChangeSignal arg)
@@ -76,10 +76,17 @@ namespace LittleMars.Models
             OnProductionChnaged();
         }
 
+        private void OnHourlySignal(HourlySignal args)
+        {
+            _hour = args.Hour;
+            UpdateBalance();
+        }
+
         private void UpdateBalance()
         {
             //Debug.Log("------------- Update Balance -----------------");
             ResourceUnit<float>[] units = new ResourceUnit<float>[(int)Resource.all];
+
             for (int i = 0; i < (int) Resource.all; i++)
             {
                 var resource = (Resource)i;
@@ -186,7 +193,8 @@ namespace LittleMars.Models
             Debug.Log("ProductionManager: Check resources for need.");
             foreach (ResourceUnit<float> unit in needs)
             {
-                if (_resourcesBalance[unit.Type] + _production[unit.Type][_period] - _needs[unit.Type] < unit.Amount)
+                if (_resourcesBalance[unit.Type] + _production[unit.Type][_period] - _needs[unit.Type] 
+                    < unit.Amount)
                 {
                     Debug.Log("No resources for " + unit.Type);
                     return false;

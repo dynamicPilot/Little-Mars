@@ -1,7 +1,7 @@
 ﻿using LittleMars.Common;
 using UnityEngine;
 
-namespace LittleMars.Buildings.View
+namespace LittleMars.Buildings.View.Indicators
 {
     [CreateAssetMenu(menuName = "LittleMars/IndicatorSpriteCatalogue")]
     public class IndicatorsCatalogue : ScriptableObject

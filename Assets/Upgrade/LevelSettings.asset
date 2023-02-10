@@ -31,16 +31,22 @@ MonoBehaviour:
       - Type: 2
         Amount: 50
       BuildingTypes:
+      - Type: 7
+        Size: 0
+        Amount: 1
       - Type: 1
         Size: 0
         Amount: 1
       - Type: 5
         Size: 0
         Amount: 1
-      - Type: 2
+      - Type: 0
         Size: 0
         Amount: 1
       - Type: 3
+        Size: 0
+        Amount: 1
+      - Type: 2
         Size: 0
         Amount: 1
       - Type: 4
@@ -49,15 +55,12 @@ MonoBehaviour:
       - Type: 6
         Size: 0
         Amount: 1
-      - Type: 0
-        Size: 0
-        Amount: 1
       TradeUnits: []
   Map:
     Lines:
-      Rows: 2
-      Columns: 2
-      BuildingTypes: 00000000010000000500000003000000020000000400000006000000
+      Rows: 3
+      Columns: 3
+      BuildingTypes: 0000000001000000050000000300000002000000040000000600000007000000
       Mode: 0
       CustomMap: {fileID: 0}
     Fields:

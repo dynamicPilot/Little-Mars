@@ -1,5 +1,6 @@
 ﻿using LittleMars.Common;
 using System.Collections.Generic;
+using UnityEngine;
 using Zenject;
 
 namespace LittleMars.Map
@@ -27,6 +28,7 @@ namespace LittleMars.Map
 
         public MapSlotExtended GetNeighbor(Direction direction)
         {
+            Debug.Log("Try get neighbor for direction " + direction);
             MapSlotExtended neighbor = null;
             _neighbors.TryGetValue(direction, out neighbor);
             return neighbor;

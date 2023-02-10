@@ -50,6 +50,7 @@ namespace LittleMars.Map.Routers
         private bool TryBuildSingleRoute(Path path, MapSlotExtended start,
             int rotationCounter, out List<MapSlotExtended> route)
         {
+            //Debug.Log("Try build signle route");
             route = new List<MapSlotExtended>();
 
             if (start.IsBlocked) return false;
@@ -65,17 +66,40 @@ namespace LittleMars.Map.Routers
 
             for (int i = 0; i < path.Units.Length; i++)
             {
-                //Debug.Log($"Path unit {i}");
+                //Debug.Log($"Path unit {i}, rotation counter {rotationCounter}");
                 current = next;
                 direction = path.Units[i].RotateBySeveralTimes(rotationCounter);
                 next = current.GetNeighbor(direction);
 
-                if (path.Units[i].IsBackStep) continue;
+                //Debug.Log($"Current: row {current.Indexes.Row} col {current.Indexes.Column}.");
+                //Debug.Log("Direction " + direction);
+                if (next != null) Debug.Log($"Next: row {next.Indexes.Row} col {next.Indexes.Column}.");
+                if (path.Units[i].IsBackStep)
+                {
+                    //Debug.Log("-- is back step");
+                    continue;
+                }
 
-                if (next == null) return false;
-                else if (next.HasBuildingOfType != BuildingType.none) return false;
-                else if (next.IsBlocked) return false;
-                else route.Add(next);
+                if (next == null)
+                {
+                    //Debug.Log("-- next is null");
+                    return false;
+                }
+                else if (next.HasBuildingOfType != BuildingType.none)
+                {
+                    //Debug.Log("-- slot is not empty");
+                    return false;
+                }
+                else if (next.IsBlocked)
+                {
+                    //Debug.Log("-- slot is blocked");
+                    return false;
+                }
+                else
+                {
+                    //Debug.Log("-- add to road");
+                    route.Add(next);
+                }
             }
 
             return true;

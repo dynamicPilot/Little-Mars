@@ -14,6 +14,7 @@ namespace LittleMars.Model.TimeUpdate
 
         Settings _settings;
         SignalBus _signalBus;
+        HourlySignal _hourlySignal;
 
         public TimeManager(Settings settings, SignalBus signalBus)
         {
@@ -24,6 +25,8 @@ namespace LittleMars.Model.TimeUpdate
             _dayCounter = 0;
             _period = Period.day;
 
+            _hourlySignal = new HourlySignal { Hour = _hour };
+
         }
 
         public void UpdateTime(float totalSeconds)
@@ -33,9 +36,9 @@ namespace LittleMars.Model.TimeUpdate
 
             if (hour - _hour > 0)
             {
-                _signalBus.Fire<HourlySignal>();
                 _hour = hour;
-                
+
+                OnHourChanged();
                 CheckPeriodChange();
             }                       
         }
@@ -63,6 +66,12 @@ namespace LittleMars.Model.TimeUpdate
             _period = period;
             _signalBus.TryFire(new PeriodChangeSignal { Period = period });
             if (period == Period.day) _dayCounter++;
+        }
+
+        void OnHourChanged()
+        {
+            _hourlySignal.Hour = _hour;
+            _signalBus.Fire(_hourlySignal);
         }
 
         [Serializable]

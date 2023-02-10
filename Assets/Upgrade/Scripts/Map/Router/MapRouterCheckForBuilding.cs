@@ -30,7 +30,11 @@ namespace LittleMars.Map.Routers
             foreach(MapSlotExtended slot in slots)
             {
                 // check building type
-                if (!slot.Buildings.Contains(_type)) return false;
+                if (!slot.Buildings.Contains(_type))
+                {
+                    Debug.Log("no " + _type);
+                    return false;
+                }
 
                 // check resources
                 foreach (Resource resource in _resources)

@@ -10,6 +10,7 @@ namespace LittleMars.UI
     {
         [SerializeField] private Slider _indicatorSlider;
 
+        //TimeManager.Settings _settings;
         SignalBus _signalBus;
 
         float _minValue = 0f;
@@ -26,7 +27,7 @@ namespace LittleMars.UI
 
         private void Init()
         {
-            _signalBus.Subscribe<HourlySignal>(UpdateIndicator);
+            _signalBus.Subscribe<HourlySignal>(OnHourlySignal);
             _signalBus.Subscribe<PeriodChangeSignal>(OnPeriodChanged);
         }
 
@@ -37,19 +38,24 @@ namespace LittleMars.UI
 
         private void OnDisable()
         {
-            _signalBus?.TryUnsubscribe<HourlySignal>(UpdateIndicator);
+            _signalBus?.TryUnsubscribe<HourlySignal>(OnHourlySignal);
             _signalBus?.TryUnsubscribe<PeriodChangeSignal>(OnPeriodChanged);
         }
 
-        private void UpdateIndicator()
+        private void UpdateIndicator(int value)
         {            
-            _indicatorSlider.value += _step;
+            _indicatorSlider.value = value * _step;
             //Debug.Log("Update indicator " + _indicatorSlider.value);
         }
 
         private void ResetIndicator()
         {
             _indicatorSlider.value = _minValue;
+        }
+
+        private void OnHourlySignal(HourlySignal args)
+        {
+            UpdateIndicator(args.Hour);
         }
 
         private void OnPeriodChanged(PeriodChangeSignal args)
