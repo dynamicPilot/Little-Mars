@@ -1,9 +1,11 @@
-﻿using LittleMars.Buildings;
+﻿using LittleMars.Common;
 using LittleMars.Common.Interfaces;
 using LittleMars.Common.Signals;
 using LittleMars.Models;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
+using System.Linq;
 using Zenject;
 
 namespace LittleMars.Rockets
@@ -20,6 +22,13 @@ namespace LittleMars.Rockets
         Dictionary<Rocket, IBuildingFacade> _rockets = null;
         List<IBuildingFacade> _cosmodromes = null;
 
+        public RocketsManager(Settings settings, SignalBus signalBus, TradeManager tradeManager)
+        {
+            _settings = settings;
+            _signalBus = signalBus;
+            _tradeManager = tradeManager;
+        }
+
         public void Initialize()
         {
             if (!_settings.HasRockets) return;
@@ -27,6 +36,7 @@ namespace LittleMars.Rockets
             _arrivals = new();
             _departures = new();
             _rockets = new();
+            _cosmodromes= new();
 
             SetArrivals();
 
@@ -44,51 +54,94 @@ namespace LittleMars.Rockets
             _signalBus?.Unsubscribe<RemoveBuildingSignal>(OnRemoveBuilding);
         }
 
-        private void OnHourlySignal(HourlySignal args)
+        void OnHourlySignal(HourlySignal args)
         {
             // check for arrivals
+            if (_arrivals.ContainsKey(args.Hour))
+                _arrivals[args.Hour].ForEach(RocketArrives);
+
             // check for departures
+            if (_departures.ContainsKey(args.Hour))
+                _departures[args.Hour].ForEach(RocketDepartures);
+
+            RemoveDeparture(args.Hour);
         }
 
-        private void OnAddBuilding(AddBuildingSignal args)
+        void OnAddBuilding(AddBuildingSignal args)
         {
-            // add if cosmodrome
+            if (args.BuildingFacade.Info().Type == Common.BuildingType.cosmodrome)
+                _cosmodromes.Add(args.BuildingFacade);
         }
 
-        private void OnRemoveBuilding(RemoveBuildingSignal args)
+        void OnRemoveBuilding(RemoveBuildingSignal args)
         {
-            // remove from cosmodromes
+            if (args.BuildingFacade.Info().Type == Common.BuildingType.cosmodrome)
+                RemoveCosmodrome(args.BuildingFacade);
         }
 
-        private void RocketArrives()
+        void RocketArrives(Rocket rocket)
         {
-            // check place
-            // place rocket
-            // changed cosmodrome state to effected
+            var hasPlace = TryGetPlaceForRocket(out IBuildingFacade cosmodrome);
+            if (!hasPlace)
+            {
+                Debug.Log($"RocketManager : No free cosmodromes.");
+                return;
+            }
+
+            PlaceRocket(rocket, cosmodrome);
+            Debug.Log($"Rocket will be placed to cosmodrome.");
+            _rockets[rocket].OnStartViewEffect();
         }
 
-        private void RocketDepartures()
+        void RocketDepartures(Rocket rocket)
         {
-            // check for departure
-            // make trades
-            // depart
-            // changed cosmodrome state to on
+            _tradeManager.MakeTradeByRocket(rocket);
+            RemoveRocket(rocket);           
         }
 
-        private bool HasPlaceForRocket(out int index)
+        void RemoveCosmodrome(IBuildingFacade cosmodrome)
+        {
+            if (!_cosmodromes.Contains(cosmodrome)) return;
+
+            RemoveRocketFromCosmodrome(cosmodrome);
+            _cosmodromes.Remove(cosmodrome);
+        }
+
+        bool TryGetPlaceForRocket(out IBuildingFacade cosmodrome)
         {
             // has the empty workable cosmodrome
-            index = 0;
-            return false;
+            cosmodrome = null;
+            var freeCosmodromes = _cosmodromes?.Except(_rockets?.Values)
+                .Where(c => c.State() == States.on).ToList();
+
+            if (freeCosmodromes== null || freeCosmodromes.Count == 0) return false;
+
+            cosmodrome = freeCosmodromes.First();
+            return true;
         }
 
-        private void PlaceRocket(Rocket rocket, int index)
+        void PlaceRocket(Rocket rocket, IBuildingFacade cosmodrome)
         {
-            // place to cosmodrome
-            // add departurTime to departurs
+            _rockets.Add(rocket, cosmodrome);
+            AddDeparture(rocket);
         }
 
-        private void SetArrivals()
+        void RemoveRocket(Rocket rocket)
+        {
+            //RemoveDeparture(rocket);
+            _rockets[rocket].OnEndViewEffect();
+            _rockets.Remove(rocket);
+        }
+
+        void RemoveRocketFromCosmodrome(IBuildingFacade cosmodrome)
+        {
+            var rocketsToRemove = _rockets.Keys.Where(r => _rockets[r] == cosmodrome);
+
+            foreach (var rocket in rocketsToRemove) 
+                RemoveRocket(rocket);
+        }
+
+        void SetArrivals()
         {
             foreach(Rocket rocket in _settings.Rockets)
             {
@@ -99,12 +152,20 @@ namespace LittleMars.Rockets
             }
         }
 
-        private void SetDeparture(Rocket rocket)
+        void AddDeparture(Rocket rocket)
         {
             if (!_departures.ContainsKey(rocket.DepartureHour))
                 _departures.Add(rocket.DepartureHour, new List<Rocket>());
 
             _departures[rocket.DepartureHour].Add(rocket);
+        }
+
+        void RemoveDeparture(int hour)
+        {
+            if (!_departures.ContainsKey(hour)) return;
+            //if (!_departures[hour].Contains(rocket)) return;
+
+            _departures[hour].Clear();
         }
 
 

@@ -12,9 +12,9 @@ namespace LittleMars.Buildings.View
         public IndicatorsControl Indicators { get => _indicators; }
         public BuildingAnimationsControl Animations { get => _animations; }
 
-        public void MakeEffect()
+        public void MakeEffect(bool isStart)
         {
-            _effects.MakeEffect();
+            _effects.MakeEffect(isStart);
         }
 
         public bool CanMakeEffect()

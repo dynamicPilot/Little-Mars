@@ -1,30 +1,26 @@
-﻿using UnityEngine;
+﻿using LittleMars.Animations;
+using UnityEngine;
 
 namespace LittleMars.Buildings.View
 {
-    public interface IAnimationIsOver
-    {
-        void AnimationIsOver();
-    }
-
-    public class BuildingViewEffectControl : MonoBehaviour, IAnimationIsOver
+    public class BuildingViewEffectControl : MonoBehaviour, IAnimationCallback
     {
         [SerializeField] BuildingViewEffectAnimation _animation;
-        [SerializeField] BuildingObjectViewFacade _facade;
+
         bool _animationIsRunning;
 
-        public void MakeEffect()
+        public void MakeEffect(bool isStart)
         {
             if (_animationIsRunning) return;
 
             _animationIsRunning = true;
-            _animation.DoAnimation(this);
+            if (isStart)_animation.OnStartEffectAnimation(this);
+            else _animation.OnEndEffectAnimation(this);
         }
 
-        public void AnimationIsOver()
+        public void OnAnimationCallback()
         {
             _animationIsRunning = false;
-            _facade.EffectIsOver();
         }
     }
 }

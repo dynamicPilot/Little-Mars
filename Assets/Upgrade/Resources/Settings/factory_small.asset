@@ -43,4 +43,4 @@ MonoBehaviour:
       Amount: 4
   View:
     Sprite: {fileID: -718947757, guid: b6a265e51df66f645a4702c8a7c88433, type: 3}
-    Shape: {fileID: -2045746343, guid: 3397193739c39d440aaa4ecd82af96df, type: 3}
+    Shape: {fileID: 21300000, guid: dc5b0c6fcc08d4e458a541ba540a0ce8, type: 3}

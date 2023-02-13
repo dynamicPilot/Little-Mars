@@ -38,7 +38,7 @@ namespace LittleMars.Buildings.BuildingStates
 
         public virtual void SetView()
         {
-            _view.PausedView();
+            _view.TransitToState(Common.BStates.paused);
         }
 
         public class Factory : PlaceholderFactory<BuildingPausedState>

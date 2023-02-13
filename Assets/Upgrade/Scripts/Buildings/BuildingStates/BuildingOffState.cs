@@ -28,7 +28,7 @@ namespace LittleMars.Buildings.BuildingStates
 
         public virtual void SetView()
         {
-            _view.OffView();
+            _view.TransitToState(Common.BStates.off);
         }
 
         public void OnStart()

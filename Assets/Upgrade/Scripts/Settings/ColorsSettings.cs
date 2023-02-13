@@ -31,6 +31,7 @@ namespace LittleMars.Settings
             public Color On;
             public Color Off;
             public Color Paused;
+            public Color Effected;
         }
 
 
@@ -41,6 +42,7 @@ namespace LittleMars.Settings
             _bStatesColors.Add((int)BStates.on, _production.On);
             _bStatesColors.Add((int)BStates.off, _production.Off);
             _bStatesColors.Add((int)BStates.paused, _production.Paused);
+            _bStatesColors.Add((int)BStates.effected, _production.Effected);
         }
 
         public Color GetColor(int index, ColorType type)

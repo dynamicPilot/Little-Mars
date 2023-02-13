@@ -306,90 +306,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Signal_blue
-      rect:
-        serializedVersion: 2
-        x: 111
-        y: 47
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9c88d8596c400984da5beb68858cbedd
-      internalID: -930504726
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Signal_blue_rounded
-      rect:
-        serializedVersion: 2
-        x: 111
-        y: 53
-        width: 2
-        height: 2
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fbcac89902db0c147a235a07bb96931b
-      internalID: -238847189
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Signal_blue_med
-      rect:
-        serializedVersion: 2
-        x: 116
-        y: 52
-        width: 1
-        height: 3
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e81b04eed26e6664eb1a910785827ce2
-      internalID: 1762641717
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Signal_blue_small
-      rect:
-        serializedVersion: 2
-        x: 120
-        y: 53
-        width: 1
-        height: 2
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 67aa730bcfe1a2e4784f1e1f5c069344
-      internalID: -2114652996
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Building_cosmodrome_road
       rect:
         serializedVersion: 2
@@ -419,7 +335,7 @@ TextureImporter:
         width: 12
         height: 37
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -457,6 +373,7 @@ TextureImporter:
       Building_cosmodrome_0: -1024237000
       UI_cosmodrome: 2146463019
       Building_cosmodrome_roads: -726852432
+      Building_cosmodrome_4: -1548234373
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

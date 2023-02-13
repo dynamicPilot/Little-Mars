@@ -72,6 +72,19 @@ MonoBehaviour:
           Units:
           - Direction: 0
             IsBackStep: 0
+  Rockets:
+    Rockets:
+      HasRockets: 1
+      Rockets:
+      - ArrivedHour: 2
+        DepartureHour: 8
+        TradesWhenDepart:
+        - Need:
+            Type: 5
+            Amount: 10
+          Production:
+            Type: 0
+            Amount: 10
   Goals:
     GoalsSettings:
       HasBuildingGoals: 1

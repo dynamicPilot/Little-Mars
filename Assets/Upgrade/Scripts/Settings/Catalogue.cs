@@ -6,7 +6,7 @@ using Zenject;
 
 namespace LittleMars.Settings
 {
-    [CreateAssetMenu(menuName = "LittleMars/Catalogue")]
+    [CreateAssetMenu(menuName = "LittleMars/Catalogue/Catalogue")]
     public class Catalogue : ScriptableObject
     {
         [SerializeField] private ResourceIconsSettings Resources;

@@ -19,16 +19,9 @@ namespace LittleMars.Buildings.View
         public void OnStart() => _view.OnStart();
         public void OnRemove() => _view.OnRemove();
         public void RotateView(float angle) => _view.RotateView(angle);
-
-        public void TransitToState(BStates state)
-        {
-            _state.TransitToState(state);
-        }
-
-        public void EffectIsOver()
-        {
-            _state.EffectIsOver();
-        }
+        public void TransitToState(BStates state) => _state.TransitToState(state);
+        public void OnStartViewEffected() => _state.TransitToState(BStates.effected);
+        public void OnEndViewEffected() => _state.OnEndEffected();
 
         public class Factory : PlaceholderFactory<BuildingObjectViewFacade>
         {

@@ -31,6 +31,7 @@ using LittleMars.UI.LevelMenus;
 using LittleMars.Localization;
 using LittleMars.Effects;
 using LittleMars.UI.GoalTextMenu;
+using LittleMars.Rockets;
 
 namespace LittleMars.Installers
 {
@@ -52,6 +53,7 @@ namespace LittleMars.Installers
 
             InstallBuildings();           
             InstallConnections();
+            InstallRockets();
 
             InstallGoalInfos();
             InstallViewSlots();
@@ -99,10 +101,10 @@ namespace LittleMars.Installers
             Container.BindInterfacesAndSelfTo<OperationManager>().AsSingle();
             Container.BindInterfacesAndSelfTo<ResourcesBalancer>().AsSingle();
             Container.BindInterfacesAndSelfTo<ProductionManager>().AsSingle();
-            Container.BindInterfacesAndSelfTo<TradeManager>().AsSingle();
             Container.BindInterfacesAndSelfTo<TimeSpeedManager>().AsSingle();
             Container.BindInterfacesAndSelfTo<TimeUpdaterTickable>().AsSingle();
 
+            Container.Bind<TradeManager>().AsSingle();
             Container.Bind<TimeManager>().AsSingle();            
             Container.Bind<IconsCatalogue>().AsSingle();
             Container.Bind<ColorsCatalogue>().AsSingle();
@@ -220,6 +222,11 @@ namespace LittleMars.Installers
             Container.Bind<SlotConnectonsFactory>().AsSingle();
 
             Container.BindFactory<SlotConnections, SlotConnections.Factory>().AsSingle();
+        }
+
+        private void InstallRockets()
+        {
+            Container.BindInterfacesAndSelfTo<RocketsManager>().AsSingle();
         }
 
         private void InstallLevelMenus()

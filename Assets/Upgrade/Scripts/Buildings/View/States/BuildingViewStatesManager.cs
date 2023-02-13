@@ -8,17 +8,21 @@ namespace LittleMars.Buildings.View.States
         readonly BuildingViewOnState.Factory _onStateFactory;
         readonly BuildingViewOffState.Factory _offStateFactory;
         readonly BuildingViewPausedState.Factory _pausedStateFactory;
+        readonly BuildingViewEffectedState.Factory _effectedStateFactory;
 
         IViewState _onState = null;
         IViewState _offState = null;
         IViewState _pausedState = null;
+        IViewState _effectedState = null;
 
         public BuildingViewStatesManager(BuildingViewOnState.Factory onStateFactory, 
-            BuildingViewOffState.Factory offStateFactory, BuildingViewPausedState.Factory pausedStateFactory)
+            BuildingViewOffState.Factory offStateFactory, BuildingViewPausedState.Factory pausedStateFactory,
+            BuildingViewEffectedState.Factory effectedFactory)
         {
             _onStateFactory = onStateFactory;
             _offStateFactory = offStateFactory;
             _pausedStateFactory = pausedStateFactory;
+            _effectedStateFactory = effectedFactory;
         }
 
         public IViewState CreateState(BStates state)
@@ -37,6 +41,11 @@ namespace LittleMars.Buildings.View.States
             {
                 _pausedState ??= _pausedStateFactory.Create();
                 return _pausedState;
+            }
+            else if (state == BStates.effected)
+            {
+                _effectedState ??= _effectedStateFactory.Create();
+                return _effectedState;
             }
             else
             {

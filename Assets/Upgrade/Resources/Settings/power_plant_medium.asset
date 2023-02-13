@@ -41,4 +41,4 @@ MonoBehaviour:
     Needs: []
   View:
     Sprite: {fileID: -792046573, guid: edef373d37a4fac44969e5792ddd7199, type: 3}
-    Shape: {fileID: -1282612555, guid: 3397193739c39d440aaa4ecd82af96df, type: 3}
+    Shape: {fileID: 21300000, guid: 14b271228ac4858418e71d359171094c, type: 3}

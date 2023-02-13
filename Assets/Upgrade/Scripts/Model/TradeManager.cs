@@ -1,67 +1,31 @@
 ﻿using LittleMars.Common;
-using System.Collections.Generic;
-using Zenject;
+using LittleMars.Rockets;
+using UnityEngine;
 
 namespace LittleMars.Models
 {
-    public class TradeManager : IInitializable
+    public class TradeManager
     {
-        Dictionary<int, Dictionary<Resource, float>> _trades = null;
+        readonly ProductionManager _production;
 
-        public void Initialize()
+        public TradeManager(ProductionManager production)
         {
-            _trades = new Dictionary<int, Dictionary<Resource, float>>();
+            _production = production;
         }
 
-        //public bool TryGetTradesForHour(int hour, out Dictionary<Resource, float> trades)
-        //{
-        //    trades = null;
-        //    if (!_trades.ContainsKey(hour)) return false;
+        public void MakeTradeByRocket(Rocket rocket)
+        {
+            for (int i = 0; i < rocket.TradesWhenDepart.Length; i++)
+                MakeTrade(rocket.TradesWhenDepart[i]);
+        }
 
-        //    trades = _trades[hour];
-        //    return true;
-        //}
+        void MakeTrade(TradeUnit<float> unit)
+        {
+            var needs = new ResourceUnit<float>[] { unit.Need };
+            if (!_production.HasResources(needs)) return;
 
-        //public float GetResourceTradeForHour(int hour, Resource resource)
-        //{
-        //    var amount = 0f;
-
-        //    if (_trades.ContainsKey(hour))
-        //    {
-        //        if (_trades[hour].ContainsKey(resource))
-        //            amount = _trades[hour][resource];
-        //    }
-
-        //    return amount;
-        //}
-
-        //public void UpdateTrades(TradeUnit<float>[] trades, States state)
-        //{
-        //    if (trades == null) return;
-
-        //    var multiplier = (state == States.on) ? 1 : -1;
-        //    foreach (TradeUnit<float> unit in trades)
-        //        UpdateTradesForHour(unit, multiplier);
-        //}
-
-        //private void UpdateTradesForHour(TradeUnit<float> unit, int multiplier)
-        //{
-        //    CheckTradesForHour(unit);
-        //    _trades[unit.Hour][unit.Type] += multiplier * unit.Amount;
-        //}
-
-        //private void CheckTradesForHour(TradeUnit<float> unit)
-        //{
-        //    var hour = unit.Hour;
-        //    var resource = unit.Type;
-
-        //    if (!_trades.ContainsKey(unit.Hour))
-        //        _trades.Add(unit.Hour, new Dictionary<Resource, float>());
-
-        //    if (!_trades[hour].ContainsKey(resource))
-        //        _trades[hour].Add(resource, 0f);
-        //}
-
+            _production.SignleTrade(unit);
+        }
 
     }
 }

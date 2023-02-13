@@ -17,6 +17,8 @@ namespace LittleMars.Common.Interfaces
         Dictionary<Resource, Dictionary<Period, float>> Production();
         ResourceUnit<float>[] Needs();
         void ChangeState(States state, OperationMode mode);
+        void OnStartViewEffect();
+        void OnEndViewEffect();
         bool HasNeedForThisResource(Resource resource);
         States StateForPeriod(Period period);
         void ChangeStateForPeriod(Period period);

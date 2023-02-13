@@ -30,7 +30,6 @@ namespace LittleMars.Common
     {
         public ResourceUnit<T> Need;
         public ResourceUnit<T> Production;
-        public int Hour;
     }
 }
 

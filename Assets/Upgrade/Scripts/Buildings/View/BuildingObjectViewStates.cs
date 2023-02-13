@@ -24,17 +24,17 @@ namespace LittleMars.Buildings.View
             ChangeState();
         }
 
-        private void ChangeState()
+        public void OnEndEffected()
+        {
+            if (_state == BStates.effected)
+                TransitToState(BStates.on);
+        }
+
+        void ChangeState()
         {
             _viewState?.CloseView();
             _viewState = _stateManager.CreateState(_state);
             _viewState.SetView();
-        }
-
-        public void EffectIsOver()
-        {
-            if (_state == BStates.effected)
-                TransitToState(BStates.on);
         }
     }
 }

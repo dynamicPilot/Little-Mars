@@ -15,3 +15,4 @@ MonoBehaviour:
   _on: {fileID: 14053505, guid: b7baff42ec90f7442b4a3fc6fff0baf6, type: 3}
   _off: {fileID: -519235276, guid: b7baff42ec90f7442b4a3fc6fff0baf6, type: 3}
   _paused: {fileID: -858686615, guid: b7baff42ec90f7442b4a3fc6fff0baf6, type: 3}
+  _effected: {fileID: -590356646, guid: 369ec5f469cf0ac46bf4465110ce86d1, type: 3}

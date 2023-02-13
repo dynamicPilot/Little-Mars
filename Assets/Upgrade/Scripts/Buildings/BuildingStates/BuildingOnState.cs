@@ -114,8 +114,7 @@ namespace LittleMars.Buildings.BuildingStates
 
         public virtual void SetView()
         {
-            Debug.Log("Building state is On -> set view");
-            _view.OnView();
+            _view.TransitToState(Common.BStates.on);
         }
 
         public class Factory : PlaceholderFactory<BuildingOnState>

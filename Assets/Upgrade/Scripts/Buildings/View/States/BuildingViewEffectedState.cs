@@ -12,19 +12,19 @@ namespace LittleMars.Buildings.View.States
         }
 
         public void Dispose()
-        {
-        }
+        { }
 
         public void SetView()
         {
             _components.Indicators.UpdateState(Common.BStates.effected);
             _components.Animations.UpdateState(Common.BStates.effected);
-            _components.MakeEffect();
+            if (_components.CanMakeEffect()) _components.MakeEffect(true);
 
         }
 
         public void CloseView()
         {
+            if (_components.CanMakeEffect()) _components.MakeEffect(false);
         }
 
         public class Factory : PlaceholderFactory<BuildingViewEffectedState>

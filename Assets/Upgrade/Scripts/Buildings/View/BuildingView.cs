@@ -21,10 +21,7 @@ namespace LittleMars.Buildings.View
             _state = state;
         }
 
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            _state.OnClickPerformed();
-        }
+        public void OnPointerClick(PointerEventData eventData) => _state.OnClickPerformed();
 
         public void SetViewActiveState(bool activeState)
         {
@@ -35,20 +32,9 @@ namespace LittleMars.Buildings.View
             else _view.OnRemove();
         }
 
-        public void OnView()
-        {
-            _view.TransitToState(BStates.on);
-        }
-
-        public void OffView()
-        {
-            _view.TransitToState(BStates.off);
-        }
-
-        public void PausedView()
-        {
-            _view.TransitToState(BStates.paused);
-        }
+        public void TransitToState(BStates state) => _view.TransitToState(state);
+        public void OnStartViewEffect() => _view.OnStartViewEffected();
+        public void OnEndViewEffect() => _view.OnEndViewEffected();
 
         public void Rotate(float angle)
         {
@@ -66,5 +52,6 @@ namespace LittleMars.Buildings.View
             //_view.RotateView(-1 * _angle);
             //_angle = 0f;
         }
+
     }
 }

@@ -2,6 +2,7 @@
 using LittleMars.Localization;
 using LittleMars.Map;
 using LittleMars.Model;
+using LittleMars.Rockets;
 using System;
 using UnityEngine;
 using Zenject;
@@ -14,6 +15,7 @@ namespace LittleMars.Settings
         public LevelInfoSettings Info;
         public LevelConditionsSettings Conditions;
         public MapSettings Map;
+        public RocketsSettings Rockets;
         public LevelGoalsSettings Goals;
         public TextBlocksSettings TextBlocks;
 
@@ -49,6 +51,12 @@ namespace LittleMars.Settings
             public LangsManager.LevelSettings Blocks;
         }
 
+        [Serializable]
+        public class RocketsSettings
+        {
+            public RocketsManager.Settings Rockets;
+        }
+
         public override void InstallBindings()
         {
             Container.BindInstance(Info.LevelInfo);
@@ -57,6 +65,7 @@ namespace LittleMars.Settings
             Container.BindInstance(Map.Fields);
             Container.BindInstance(Goals.GoalsSettings);
             Container.BindInstance(TextBlocks.Blocks);
+            Container.BindInstance(Rockets.Rockets);
         }
     }
 }
