@@ -1,37 +1,41 @@
-using UnityEngine;
-using Zenject;
-using System;
-using LittleMars.Slots;
-using LittleMars.Map;
-using LittleMars.Map.States;
-using LittleMars.Common.Signals;
-using LittleMars.Models.Facades;
-using LittleMars.Common;
-using LittleMars.Map.Routers;
 using LittleMars.Buildings;
-using LittleMars.Models;
+using LittleMars.CameraControls;
+using LittleMars.Commands;
+using LittleMars.Common;
 using LittleMars.Common.Interfaces;
-using LittleMars.Model.Interfaces;
-using LittleMars.UI.BuildingSlots;
-using LittleMars.Model;
-using LittleMars.UI;
-using LittleMars.Model.TimeUpdate;
 using LittleMars.Common.LevelGoal;
-using LittleMars.Model.Trackers;
-using LittleMars.UI.ResourceSlots;
-using LittleMars.UI.SlotUIFactories;
-using LittleMars.UI.GoalSlots;
+using LittleMars.Common.Signals;
 using LittleMars.Connections;
 using LittleMars.Connections.View;
-using LittleMars.Model.GoalDisplays;
-using LittleMars.UI.GoalDisplays;
-using LittleMars.UI.Achievements;
-using LittleMars.Commands;
-using LittleMars.UI.LevelMenus;
-using LittleMars.Localization;
+using LittleMars.Controllers;
 using LittleMars.Effects;
-using LittleMars.UI.GoalTextMenu;
+using LittleMars.Localization;
+using LittleMars.Map;
+using LittleMars.Map.Routers;
+using LittleMars.Map.States;
+using LittleMars.Model;
+using LittleMars.Model.GoalDisplays;
+using LittleMars.Model.Interfaces;
+using LittleMars.Model.TimeUpdate;
+using LittleMars.Model.Trackers;
+using LittleMars.Models;
+using LittleMars.Models.Facades;
+using LittleMars.PlayerStates;
 using LittleMars.Rockets;
+using LittleMars.Settings;
+using LittleMars.Slots;
+using LittleMars.UI;
+using LittleMars.UI.Achievements;
+using LittleMars.UI.BuildingSlots;
+using LittleMars.UI.GoalDisplays;
+using LittleMars.UI.GoalSlots;
+using LittleMars.UI.GoalTextMenu;
+using LittleMars.UI.LevelMenus;
+using LittleMars.UI.ResourceSlots;
+using LittleMars.UI.SlotUIFactories;
+using System;
+using UnityEngine;
+using Zenject;
 
 namespace LittleMars.Installers
 {
@@ -41,9 +45,13 @@ namespace LittleMars.Installers
 
         [Inject]
         Settings _settings = null;
-
+        [Inject]
+        MockPlayerState _playerState;
         public override void InstallBindings()
         {
+            InstallLevel();
+            InstallInputControls();
+
             InstallMap();
             InstallModel();            
             InstallTrackers();
@@ -74,9 +82,27 @@ namespace LittleMars.Installers
 
             Container.BindExecutionOrder<MapManager>(-10);
             //Container.BindExecutionOrder<>(-10);
+            Container.BindExecutionOrder<LevelManager>(10);
+
         }
 
-        private void InstallMap()
+        void InstallLevel()
+        {
+            LevelSettings.InstallFromResource(String.Concat(_settings.LevelSettingsFolderPath, _playerState.GetLevelNumber(), "_", "LevelSettings"),
+                Container);
+            Container.BindInterfacesAndSelfTo<LevelManager>().AsSingle();
+        }
+
+        void InstallInputControls()
+        {
+            Container.BindInterfacesAndSelfTo<LittleMars.Controllers.InputControl>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<InputMoveDetection>().AsSingle();
+
+            Container.Bind<CameraViewPositioner>().AsSingle();
+            Container.Bind<CameraParamsUpdater>().AsSingle();
+        }
+
+        void InstallMap()
         {            
             Container.BindInterfacesAndSelfTo<MapManager>().AsSingle();
             Container.BindFactory<MapSlotExtended, MapSlotExtended.Factory>();
@@ -388,12 +414,16 @@ namespace LittleMars.Installers
             Container.DeclareSignal<ResourcesBalanceUpdatedSignal>();
             Container.DeclareSignal<ResourcesProductionChangedSignal>().OptionalSubscriber();
             Container.DeclareSignal<ResourcesNeedsChangedSignal>().OptionalSubscriber();
+            Container.DeclareSignal<TotalProductionChangedSignal>().OptionalSubscriber();
 
             Container.DeclareSignal<NeedMenuInitSignal>().OptionalSubscriber();
 
             Container.DeclareSignal<SlotConnectionsUpdatedSignal>();
 
             Container.DeclareSignal<BuildingTimerIsOverSignal>();
+
+            Container.DeclareSignal<StartTouchSignal>();
+            Container.DeclareSignal<EndTouchSignal>();
         }
 
         [Serializable]
@@ -407,6 +437,7 @@ namespace LittleMars.Installers
             public GameObject BuildingGoalSlotPrefab;
             public GameObject ResourceGoalSlotPrefab;
             public GameObject BuildingWithTimerGoalSlotPrefab;
+            public string LevelSettingsFolderPath;
         }
     }
 }

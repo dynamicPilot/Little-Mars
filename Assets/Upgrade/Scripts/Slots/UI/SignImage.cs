@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LittleMars.Common;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -11,11 +7,32 @@ namespace LittleMars.Slots.UI
 {
     public class SignImage : MonoBehaviour
     {
-        [SerializeField] private Image _image;
+        [SerializeField] Image _image;
 
-        public void Resource()
+        IconsCatalogue _iconsCatalogue;
+
+        [Inject]
+        public void Constructor(IconsCatalogue iconsCatalogue)
         {
-            //Debug.Log("Set image to image slot");
+            _iconsCatalogue = iconsCatalogue;
+        }
+
+        public void Resource(Resource resource)
+        {
+            var icon = GetIcon(resource);
+            SetIcon(icon);
+        }
+
+        Sprite GetIcon(Resource resource)
+        {
+            var icon = _iconsCatalogue.FieldTypeIcon(resource);
+            icon = icon != null ? icon : _iconsCatalogue.ResourceIcon(resource);
+            return icon;
+        }
+
+        void SetIcon(Sprite icon)
+        {
+            _image.sprite = icon;
         }
 
         public class Factory: PlaceholderFactory<SignImage>

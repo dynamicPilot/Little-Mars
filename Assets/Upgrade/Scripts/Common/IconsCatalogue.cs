@@ -20,7 +20,7 @@ namespace LittleMars.Common
 
         public Sprite BuildingIcon(BuildingType type)
         {
-            Debug.Log("Need buildingIcon " + type);
+            //Debug.Log("Need buildingIcon " + type);
             return _settings.Catalogue.Icon((int)type, IconType.building);
         }
 

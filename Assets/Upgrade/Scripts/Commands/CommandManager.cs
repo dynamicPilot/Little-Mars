@@ -26,7 +26,7 @@ namespace LittleMars.Commands
 
         public ICommand GetCommand(CommandType type)
         {
-            Debug.Log("Try get command " + type + ". Has it: " + (_commands.ContainsKey(type)));
+            //Debug.Log("Try get command " + type + ". Has it: " + (_commands.ContainsKey(type)));
             if (!_commands.ContainsKey(type)) CreateCommand(type);
             return _commands[type];
         }
@@ -36,14 +36,14 @@ namespace LittleMars.Commands
             switch (type)
             {
                 case CommandType.next:
-                    Debug.Log("create command for " + type);
+                    //Debug.Log("create command for " + type);
                     _commands.Add(type, _nextFactory.Create());
                     break;
                 case CommandType.start:
                     _commands.Add(type, _startFactory.Create());
                     break;
                 default:
-                    Debug.Log("null command for "+ type);
+                    //Debug.Log("null command for "+ type);
                     _commands.Add(type, _nullCommand);
                     break;
             }

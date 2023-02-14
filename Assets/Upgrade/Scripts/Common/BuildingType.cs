@@ -165,5 +165,11 @@
         gameOver,
         none
     }
+
+    public enum SceneType
+    {
+        menu,
+        level
+    }
 }
 

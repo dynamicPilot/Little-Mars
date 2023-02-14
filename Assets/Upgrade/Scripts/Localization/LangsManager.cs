@@ -1,9 +1,6 @@
 ﻿using LittleMars.Common;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
@@ -29,12 +26,12 @@ namespace LittleMars.Localization
         public void Initialize()
         {
             GetBlocks();
-            TestForGetAllTexts();
+            //TestForGetAllTexts();
         }
 
         public string GetText(string tag, TagGroup group)
         {
-            Debug.Log("Try get text for " + tag + " " + group);
+            //Debug.Log("Try get text for " + tag + " " + group);
             if (!CheckBlockForGroup(group)) return "";
             
             _blocks[group].TryGetText(tag, _lang, out string text);
@@ -44,7 +41,7 @@ namespace LittleMars.Localization
 
         public string[] GetAllTagTexts(string tagPart, TagGroup group)
         {
-            Debug.Log("Try get text for " + tagPart + " " + group);
+            //Debug.Log("Try get text for " + tagPart + " " + group);
 
             if (!CheckBlockForGroup(group)) return null;
 
@@ -56,12 +53,12 @@ namespace LittleMars.Localization
         {
             if (_blocks == null)
             {
-                Debug.Log("Null blocks");
+                //Debug.Log("Null blocks");
                 return false;
             }
             else if (!_blocks.ContainsKey(group))
             {
-                Debug.Log("No key");
+                //Debug.Log("No key");
                 return false;
             }
 

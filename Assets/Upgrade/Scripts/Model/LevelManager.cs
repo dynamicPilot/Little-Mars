@@ -1,14 +1,9 @@
 ﻿using LittleMars.Common.Signals;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Zenject;
 
 namespace LittleMars.Model
 {
-    public class LevelManager
+    public class LevelManager : IInitializable
     {
         SignalBus _signalBus;
 
@@ -17,16 +12,24 @@ namespace LittleMars.Model
             _signalBus = signalBus;
         }
 
+        public void Initialize()
+        {
+            _signalBus.Subscribe<StartLevelSignal>(StartLevel);
+        }
+
         private void StartLevel()
         {
-
+            if (ReadyToStart())
+                StartGame();
         }
 
-        public void ReadyToStart()
+        bool ReadyToStart()
         {
+            return true;
 
         }
-        private void StartGame()
+
+        void StartGame()
         {
             _signalBus.Fire<StartGameSignal>();
         }

@@ -14,7 +14,7 @@ namespace LittleMars.UI.Effects
         }
         public void OnPointerDown(PointerEventData eventData)
         {
-            Debug.Log("PRESSED!");
+            //Debug.Log("PRESSED!");
             PressedState();
         }
 

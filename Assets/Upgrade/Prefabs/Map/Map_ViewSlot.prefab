@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 4514600029824126161}
   - component: {fileID: -4748691093270077286}
   m_Layer: 0
-  m_Name: Map_BuildingViewSlot
+  m_Name: Map_ViewSlot
   m_TagString: MapSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -55,20 +55,20 @@ namespace LittleMars.UI.LevelMenus
         protected void AddCommandToButtonListener(Button button, CommandType type,
             bool needClose = true)
         {
-            Debug.Log("Add listeners to button " + type);
+            //Debug.Log("Add listeners to button " + type);
             var command = _levelMenu.GetCommand(type);
             if (command == null) return;
 
-            Debug.Log("Get command for type " + type + " command " + (command == null));
+            //Debug.Log("Get command for type " + type + " command " + (command == null));
             button.onClick.AddListener(command.Execute);
 
-            Debug.Log("add close? " + needClose);
+            //Debug.Log("add close? " + needClose);
             if (needClose) button.onClick.AddListener(Close);
         }
 
         protected virtual void Open()
         {
-            Debug.Log("Open menu!");
+            //Debug.Log("Open menu!");
             _panel.SetActive(true);
             _levelMenu.Open();
             _isOpen = true;
@@ -76,7 +76,7 @@ namespace LittleMars.UI.LevelMenus
 
         protected virtual void Close()
         {
-            Debug.Log("Close menu!");
+            //Debug.Log("Close menu!");
             _panel.SetActive(false);
             _levelMenu.Close();
             _isOpen = false;

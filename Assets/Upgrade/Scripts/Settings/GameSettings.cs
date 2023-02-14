@@ -12,7 +12,7 @@ using Zenject;
 
 namespace LittleMars.Settings
 {
-    [CreateAssetMenu(menuName = "LittleMars/Game Settings")]
+    [CreateAssetMenu(menuName = "LittleMars/Settings/Game Settings")]
     public class GameSettings : ScriptableObjectInstaller<GameSettings>
     {
         public ViewSettings View;

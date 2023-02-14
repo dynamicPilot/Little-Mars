@@ -1,7 +1,8 @@
 ﻿namespace LittleMars.Commands
 {
-    public abstract class Receiver
+    public class Receiver
     {
-        public abstract void Next();
+        public virtual void Next()
+        { }
     }
 }
