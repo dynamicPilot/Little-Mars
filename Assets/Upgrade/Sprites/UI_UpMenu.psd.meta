@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_ UpLine
+      name: UI_UpLine
       rect:
         serializedVersion: 2
         x: 6
@@ -295,7 +295,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_ UpLine: -1757399338
+      UI_UpLine: -1757399338
       UI_ScreenFrame: -1432305561
       UI_ScreenButtonInnerShadow: 546527412
       UI_ScreenButton: 42196049

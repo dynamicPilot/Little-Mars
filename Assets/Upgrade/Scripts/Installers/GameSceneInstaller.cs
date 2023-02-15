@@ -22,6 +22,7 @@ using LittleMars.Models;
 using LittleMars.Models.Facades;
 using LittleMars.PlayerStates;
 using LittleMars.Rockets;
+using LittleMars.SceneControls;
 using LittleMars.Settings;
 using LittleMars.Slots;
 using LittleMars.UI;
@@ -46,7 +47,7 @@ namespace LittleMars.Installers
         [Inject]
         Settings _settings = null;
         [Inject]
-        MockPlayerState _playerState;
+        IPlayerState _playerState;
         public override void InstallBindings()
         {
             InstallLevel();
@@ -91,12 +92,14 @@ namespace LittleMars.Installers
             LevelSettings.InstallFromResource(String.Concat(_settings.LevelSettingsFolderPath, _playerState.GetLevelNumber(), "_", "LevelSettings"),
                 Container);
             Container.BindInterfacesAndSelfTo<LevelManager>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameSceneControl>().AsSingle();
         }
 
         void InstallInputControls()
         {
             Container.BindInterfacesAndSelfTo<LittleMars.Controllers.InputControl>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<InputMoveDetection>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ZoomControl>().AsSingle();
 
             Container.Bind<CameraViewPositioner>().AsSingle();
             Container.Bind<CameraParamsUpdater>().AsSingle();
@@ -274,6 +277,8 @@ namespace LittleMars.Installers
             Container.Bind<NullCommand>().AsSingle();
             Container.BindFactory<NextCommand, NextCommand.Factory>();
             Container.BindFactory<StartCommand, StartCommand.Factory>();
+            Container.BindFactory<MainMenuCommand, MainMenuCommand.Factory>();
+            Container.BindFactory<MainMenuByStartCommand, MainMenuByStartCommand.Factory>();
 
             Container.BindFactory<EndLevelSignalGun, EndLevelSignalGun.Factory>()
                 .WhenInjectedInto<LevelMenusWorkflowTimer>();
@@ -383,7 +388,7 @@ namespace LittleMars.Installers
         {
             SignalBusInstaller.Install(Container);
             Container.DeclareSignal<MapSlotsAreReadySignal>();
-            Container.DeclareSignal<GoalStrategiesIsReadySignal>();
+            Container.DeclareSignal<GoalStrategiesIsReadySignal>().OptionalSubscriber();
 
             Container.DeclareSignal<AddBuildingSignal>();
             Container.DeclareSignal<RemoveBuildingSignal>();
@@ -410,6 +415,8 @@ namespace LittleMars.Installers
             Container.DeclareSignal<EndGameReachedSignal>();
             Container.DeclareSignal<EndGameSignal>();
             Container.DeclareSignal<GameOverSignal>();
+            Container.DeclareSignal<EndLevelSignal>();
+            Container.DeclareSignal<EndSceneSignal>();
 
             Container.DeclareSignal<ResourcesBalanceUpdatedSignal>();
             Container.DeclareSignal<ResourcesProductionChangedSignal>().OptionalSubscriber();

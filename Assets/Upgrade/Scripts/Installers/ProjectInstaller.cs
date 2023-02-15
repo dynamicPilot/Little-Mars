@@ -13,7 +13,7 @@ namespace LittleMars.Installers
             Container.Bind<SceneLoader>().AsSingle();
 
             // bind test player
-            Container.Bind<MockPlayerState>().AsSingle();
+            Container.Bind<IPlayerState>().To<MockPlayerState>().AsSingle();
         }
     }
 }

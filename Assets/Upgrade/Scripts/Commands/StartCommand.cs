@@ -11,10 +11,7 @@ namespace LittleMars.Commands
             _receiver = receiver;
         }
 
-        public void Execute()
-        {
-            _receiver.Start();
-        }
+        public void Execute() => _receiver.Start();
 
         public class Factory : PlaceholderFactory<StartCommand>
         { }

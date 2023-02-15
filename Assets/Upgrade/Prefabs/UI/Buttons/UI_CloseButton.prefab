@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1206806558235014191, guid: 2920fbb7470f81d47bc628b30e16093f, type: 3}
       propertyPath: m_Name
-      value: CloseButton
+      value: UI_CloseButton
       objectReference: {fileID: 0}
     - target: {fileID: 2038113744626020082, guid: 2920fbb7470f81d47bc628b30e16093f, type: 3}
       propertyPath: m_SizeDelta.x

@@ -12,5 +12,10 @@ namespace LittleMars.PlayerStates
         int _level = 0;
 
         public int GetLevelNumber() => _level;
+
+        public void ToNextLevel()
+        {
+
+        }
     }
 }

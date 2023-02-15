@@ -122,9 +122,9 @@
     {
         next,
         mainMenu,
+        mainMenuByStart,
         restart,
         start,
-        menu,
         back,
         muteMusic,
         muteAll,

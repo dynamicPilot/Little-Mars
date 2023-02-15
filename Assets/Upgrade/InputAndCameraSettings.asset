@@ -16,9 +16,16 @@ MonoBehaviour:
     MoveDetection:
       DetectionThreshold: 0.1
       DistanceScale: 0.001
+    InputControl:
+      MapYThreshold: 300
   Camera:
     Borders:
-      UpBorder: 4
-      RightBorder: 7.5
-      DownBorder: -4
-      LeftBorder: -7.8
+      UpBorder: 40
+      RightBorder: 200
+      DownBorder: -40
+      LeftBorder: -20
+    Zoom:
+      ZoomStep: 1
+      MinSize: 2
+      MaxSize: 6
+      ZoomDuration: 0.01

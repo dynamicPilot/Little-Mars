@@ -19,7 +19,7 @@ namespace LittleMars.SceneControls
 
         public void Initialize()
         {
-            _sceneLoader.LoadSceneAsync(Common.SceneType.level);
+            //_sceneLoader.LoadSceneAsync(Common.SceneType.level);
         }
     }
 }

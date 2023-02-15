@@ -23,6 +23,7 @@ namespace LittleMars.Settings
         public class CameraSettings
         {
             public CameraViewPositioner.Settings Borders;
+            public ZoomControl.Settings Zoom;
         }
 
         public override void InstallBindings()
@@ -30,6 +31,7 @@ namespace LittleMars.Settings
             Container.BindInstance(Input.MoveDetection);
             Container.BindInstance(Input.InputControl);
             Container.BindInstance(Camera.Borders);
+            Container.BindInstance(Camera.Zoom);
         }
     }
 }

@@ -25,15 +25,21 @@
     { }
 
     /// <summary>
-    /// A signal for the successful game ending.
+    /// A signal for the game ending.
     /// </summary>
     public struct EndGameSignal
     { }
 
-
     /// <summary>
-    /// A signal for the level end. After the possible advertisement integration.
+    /// A signal for the level end. Before the possible advertisement integration.
     /// </summary>
     public struct EndLevelSignal
+    {
+    }
+
+    /// <summary>
+    /// A signal that is called in the very end of the level process. After ads integration.
+    /// </summary>
+    public struct EndSceneSignal
     { }
 }

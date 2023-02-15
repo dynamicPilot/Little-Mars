@@ -3,5 +3,6 @@
     public interface IPlayerState
     {
         int GetLevelNumber();
+        void ToNextLevel();
     }
 }

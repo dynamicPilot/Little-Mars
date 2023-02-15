@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ButtonsAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: -1844971742, guid: 4d8876c90380dcd4886f531b9980a792, type: 3}
+    - {fileID: -1478133511, guid: 46ac60f97499d6c4b84ae118d9cfe07d, type: 3}
+    - {fileID: 554239297, guid: cf40957a455ca844fa77b984a7265361, type: 3}
+    - {fileID: 1090376224, guid: 244bdec8a9bcc4b4798958626a233503, type: 3}
+    - {fileID: -351124157, guid: 1ebf46769153a204391a7eb3ec780c57, type: 3}
+    - {fileID: 1203822559, guid: 1ebf46769153a204391a7eb3ec780c57, type: 3}
+    - {fileID: -1959131079, guid: 1ebf46769153a204391a7eb3ec780c57, type: 3}
+    - {fileID: -926053052, guid: 1ebf46769153a204391a7eb3ec780c57, type: 3}
+    - {fileID: 1536073234, guid: 1ebf46769153a204391a7eb3ec780c57, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -351124157, guid: 1ebf46769153a204391a7eb3ec780c57, type: 3}
+  - {fileID: -1959131079, guid: 1ebf46769153a204391a7eb3ec780c57, type: 3}
+  - {fileID: -926053052, guid: 1ebf46769153a204391a7eb3ec780c57, type: 3}
+  - {fileID: 1203822559, guid: 1ebf46769153a204391a7eb3ec780c57, type: 3}
+  - {fileID: 1536073234, guid: 1ebf46769153a204391a7eb3ec780c57, type: 3}
+  - {fileID: 1090376224, guid: 244bdec8a9bcc4b4798958626a233503, type: 3}
+  - {fileID: -1844971742, guid: 4d8876c90380dcd4886f531b9980a792, type: 3}
+  - {fileID: -1478133511, guid: 46ac60f97499d6c4b84ae118d9cfe07d, type: 3}
+  - {fileID: 554239297, guid: cf40957a455ca844fa77b984a7265361, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - UI_ButtonBase
+  - UI_Button_purple_pressed
+  - UI_Button_red_pressed
+  - UI_Button_green_pressed
+  - UI_Button_yellow_pressed
+  - UI_Button_yellow
+  - UI_Button_green
+  - UI_Button_purple
+  - UI_Button_red
+  m_RenderDataMap: {}
+  m_Tag: ButtonsAtlas
+  m_IsVariant: 0

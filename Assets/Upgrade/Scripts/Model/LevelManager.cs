@@ -1,4 +1,5 @@
 ﻿using LittleMars.Common.Signals;
+using UnityEngine;
 using Zenject;
 
 namespace LittleMars.Model
@@ -15,6 +16,7 @@ namespace LittleMars.Model
         public void Initialize()
         {
             _signalBus.Subscribe<StartLevelSignal>(StartLevel);
+            _signalBus.Subscribe<EndLevelSignal>(EndLevel);
         }
 
         private void StartLevel()
@@ -25,6 +27,7 @@ namespace LittleMars.Model
 
         bool ReadyToStart()
         {
+            Debug.Log("LevelManager: Check for tutorial");
             return true;
 
         }
@@ -34,19 +37,21 @@ namespace LittleMars.Model
             _signalBus.Fire<StartGameSignal>();
         }
 
-        private void GameOver()
+        void EndLevel()
         {
-
+            if (ReadyToEnd())
+                EndScene();
         }
 
-        private void EndGame()
+        bool ReadyToEnd()
         {
-
+            Debug.Log("LevelManager: Check for ads");
+            return true;
         }
 
-        private void EndLevel()
+        void EndScene()
         {
-
+            _signalBus.Fire<EndSceneSignal>();
         }
 
     }

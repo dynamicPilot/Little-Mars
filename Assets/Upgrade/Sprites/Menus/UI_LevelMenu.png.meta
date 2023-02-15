@@ -125,7 +125,7 @@ TextureImporter:
         width: 250
         height: 71
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 46, y: 10, z: 134, w: 45}
       outline: []
       physicsShape: []
@@ -146,7 +146,7 @@ TextureImporter:
         width: 179
         height: 52
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 44, y: 35, z: 84, w: 11}
       outline: []
       physicsShape: []
@@ -154,6 +154,27 @@ TextureImporter:
       bones: []
       spriteID: 0aca151007d7c6346a64bb05c01a2092
       internalID: 1994785842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_LevelMenu_downPart_1
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 179
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 44, y: 35, z: 84, w: 8}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a223c8385c16a245b0a866265c7eb1e
+      internalID: 2086043770
       vertices: []
       indices: 
       edges: []
@@ -169,6 +190,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      UI_LevelMenu_downPart_1: 2086043770
       UI_LevelMenu_up: 1526586856
       UI_LevelMenu_down: 1994785842
   spritePackingTag: 

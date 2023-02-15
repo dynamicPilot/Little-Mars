@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65a45306ce453694587c00eb0b66ae1e, type: 3}
   m_Name: TimeSpeedSigns
   m_EditorClassIdentifier: 
-  DefaultSprite: {fileID: 310895423, guid: e45fe21fdf643bf4a84ec2f36ed23e96, type: 3}
+  DefaultSprite: {fileID: 21300000, guid: eeac9dbd0bf9fd545b902c2e68c66de1, type: 3}
   Sprites:
-  - {fileID: -1848003356, guid: e45fe21fdf643bf4a84ec2f36ed23e96, type: 3}
-  - {fileID: 310895423, guid: e45fe21fdf643bf4a84ec2f36ed23e96, type: 3}
-  - {fileID: -1827149292, guid: e45fe21fdf643bf4a84ec2f36ed23e96, type: 3}
+  - {fileID: 21300000, guid: 31214da79b24a764287d1f955b370487, type: 3}
+  - {fileID: 21300000, guid: eeac9dbd0bf9fd545b902c2e68c66de1, type: 3}
+  - {fileID: 21300000, guid: aeddae1ff22b6194cb916360a5fead80, type: 3}

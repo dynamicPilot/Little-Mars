@@ -1,21 +1,40 @@
-﻿using LittleMars.PlayerStates;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LittleMars.Common;
+using LittleMars.Common.Signals;
+using LittleMars.Loaders;
+using Zenject;
 
 namespace LittleMars.SceneControls
 {
-    public class GameSceneControl
+    public class GameSceneControl : IInitializable
     {
-        readonly IPlayerState _player;
+        readonly SceneLoader _loader;
+        readonly SignalBus _signalBus;
 
-        public GameSceneControl(IPlayerState player)
+        SceneType _nextSceneType;
+        public GameSceneControl(SceneLoader loader, SignalBus signalBus)
         {
-            _player = player;
+            _loader = loader;
+            _signalBus = signalBus;
         }
 
+        public void Initialize() => Subscribe();
+        public void NextSceneType(SceneType type) => _nextSceneType = type;
+
+        void Load()
+        {
+            Unsubscribe();
+            _loader.LoadSceneAsync(_nextSceneType);
+        }
+
+        void Subscribe()
+        {
+            _signalBus.Subscribe<EndSceneSignal>(Load);
+        }
+
+        void Unsubscribe()
+        {
+            _signalBus?.TryUnsubscribe<EndSceneSignal>(Load);
+        }
 
     }
 }
