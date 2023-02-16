@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace LittleMars.Common.Catalogues
+namespace LittleMars.Settings
 {
     [CreateAssetMenu(menuName = "LittleMars/Catalogue/SignCatalogueForUI")]
     public class SignCatalogueForUI : ScriptableObject

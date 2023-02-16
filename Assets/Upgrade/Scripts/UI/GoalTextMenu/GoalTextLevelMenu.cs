@@ -1,8 +1,8 @@
 ﻿using JetBrains.Annotations;
 using LittleMars.Commands;
+using LittleMars.LevelMenus;
 using LittleMars.Localization;
 using LittleMars.Model.TimeUpdate;
-using LittleMars.UI.LevelMenus;
 using System;
 using System.Collections.Generic;
 using System.Linq;

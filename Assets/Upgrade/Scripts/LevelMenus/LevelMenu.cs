@@ -2,7 +2,7 @@
 using LittleMars.Common;
 using LittleMars.Model.TimeUpdate;
 
-namespace LittleMars.UI.LevelMenus
+namespace LittleMars.LevelMenus
 {
     public class LevelMenu
     {
@@ -20,11 +20,11 @@ namespace LittleMars.UI.LevelMenus
             return _commandManager.GetCommand(type);
         }
 
-        public virtual void Open() 
+        public virtual void Open()
         {
             _timeManager.Stop();
         }
-        public virtual void Close() 
+        public virtual void Close()
         {
             _timeManager.Start();
         }

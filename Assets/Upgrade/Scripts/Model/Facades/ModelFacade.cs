@@ -2,13 +2,11 @@ using LittleMars.Buildings;
 using LittleMars.Common;
 using LittleMars.Common.Interfaces;
 using LittleMars.Map;
-using LittleMars.Model;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace LittleMars.Models.Facades
+namespace LittleMars.Model.Facades
 {
     public class ModelFacade : IModelFacade
     {
@@ -17,7 +15,7 @@ namespace LittleMars.Models.Facades
         ConstructionHelper _constructionHelper;
         BuildingController _controller;
 
-        public ModelFacade(MapManager mapManager, PlacementManager placementManager, 
+        public ModelFacade(MapManager mapManager, PlacementManager placementManager,
             ConstructionHelper constructionHelper, BuildingController controller)
         {
             _mapManager = mapManager;

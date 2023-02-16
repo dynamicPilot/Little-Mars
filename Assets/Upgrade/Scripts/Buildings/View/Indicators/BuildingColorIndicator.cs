@@ -1,4 +1,5 @@
 ﻿using LittleMars.Common;
+using LittleMars.Common.Catalogues;
 using UnityEngine;
 using Zenject;
 

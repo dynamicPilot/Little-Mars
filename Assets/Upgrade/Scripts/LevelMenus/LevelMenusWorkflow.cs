@@ -2,7 +2,7 @@
 using LittleMars.Common.Signals;
 using Zenject;
 
-namespace LittleMars.UI.LevelMenus
+namespace LittleMars.LevelMenus
 {
     public class LevelMenusWorkflow : IInitializable
     {

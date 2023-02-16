@@ -1,12 +1,11 @@
 ﻿using LittleMars.Installers;
 using System;
-using System.IO;
 using UnityEngine;
 using Zenject;
 
 namespace LittleMars.Settings
 {
-    [CreateAssetMenu(menuName = "LittleMars/Building Settings")]
+    [CreateAssetMenu(menuName = "LittleMars/Settings/Building Settings")]
     public class BuildingSettings : ScriptableObjectInstaller<BuildingSettings>
     {
         public ResourceFolders Folders;

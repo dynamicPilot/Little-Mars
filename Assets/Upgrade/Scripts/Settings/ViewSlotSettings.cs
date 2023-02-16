@@ -5,7 +5,7 @@ using Zenject;
 
 namespace LittleMars.Settings
 {
-    [CreateAssetMenu(menuName = "LittleMars/ViewSlot Settings")]
+    [CreateAssetMenu(menuName = "LittleMars/Settings/ViewSlot Settings")]
     public class ViewSlotSettings: ScriptableObjectInstaller<ViewSlotSettings>
     {
         public ViewSettings View;

@@ -5,7 +5,7 @@ namespace LittleMars.UI.ResourceSlots
 {
     public class ResourceSlotUI : SlotUI
     {
-        [SerializeField] private TextMeshProUGUI _counter;
+        [SerializeField] TextMeshProUGUI _counter;
 
         string _prefix = "";
         private void OnValidate()

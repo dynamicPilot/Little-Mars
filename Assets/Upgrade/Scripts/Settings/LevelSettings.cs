@@ -9,7 +9,7 @@ using Zenject;
 
 namespace LittleMars.Settings
 {
-    [CreateAssetMenu(menuName = "LittleMars/Level Settings")]
+    [CreateAssetMenu(menuName = "LittleMars/Settings/Level Settings")]
     public class LevelSettings : ScriptableObjectInstaller<LevelSettings>
     {
         public LevelInfoSettings Info;

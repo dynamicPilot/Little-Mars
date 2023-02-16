@@ -16,3 +16,6 @@ MonoBehaviour:
     SceneNames:
       MenuSceneName: MENU_Upgraded
       LevelSceneName: L0_Upgraded
+  Catalogues:
+    Levels:
+      Levels: {fileID: 11400000, guid: 2a05120ebd2dc114e95175cf0f8e9e50, type: 2}

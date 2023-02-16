@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-namespace LittleMars.Common
+namespace LittleMars.Common.Catalogues
 {
     public class IconsCatalogue
     {

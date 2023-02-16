@@ -1,4 +1,5 @@
-﻿using LittleMars.Loaders;
+﻿using LittleMars.Common.Catalogues;
+using LittleMars.Loaders;
 using System;
 using UnityEngine;
 using Zenject;
@@ -9,6 +10,7 @@ namespace LittleMars.Settings
     public class ProjectSettings : ScriptableObjectInstaller<ProjectSettings>
     {
         public ScenesSettings Scenes;
+        public CatalogueSettings Catalogues;
 
         [Serializable]
         public class ScenesSettings
@@ -16,9 +18,16 @@ namespace LittleMars.Settings
             public SceneLoader.Settings SceneNames;
         }
 
+        [Serializable]
+        public class CatalogueSettings
+        {
+            public LevelsCatalogue.Settings Levels;
+        }
+
         public override void InstallBindings()
         {
             Container.BindInstance(Scenes.SceneNames);
+            Container.BindInstance(Catalogues.Levels);
         }
     }
 }

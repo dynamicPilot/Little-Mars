@@ -1,24 +1,22 @@
 ﻿using LittleMars.Common;
+using LittleMars.LevelMenus;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace LittleMars.UI.LevelMenus
 {
-    public class GameMenuUI : MonoBehaviour
+    public class GameMenuUI : MenuUI
     {
-        [SerializeField] private GameObject _panel;
-
         [Header("Common Button")]
         [SerializeField] private CommandType _buttonType = CommandType.mainMenu;
         [SerializeField] private Button _commonButton;
 
         protected Dictionary<CommandType, Button> _buttons;
         protected LevelMenu _levelMenu;
-        protected bool _isOpen;
-        protected virtual void Awake()
+
+        protected override void Awake()
         {
-            _isOpen = false;
             _buttons = new Dictionary<CommandType, Button>();
             _buttons.Add(_buttonType, _commonButton);
         }
@@ -66,20 +64,16 @@ namespace LittleMars.UI.LevelMenus
             if (needClose) button.onClick.AddListener(Close);
         }
 
-        protected virtual void Open()
+        protected override void Open()
         {
-            //Debug.Log("Open menu!");
-            _panel.SetActive(true);
+            base.Open();
             _levelMenu.Open();
-            _isOpen = true;
         }
 
-        protected virtual void Close()
+        protected override void Close()
         {
-            //Debug.Log("Close menu!");
-            _panel.SetActive(false);
+            base.Close();
             _levelMenu.Close();
-            _isOpen = false;
         }
     }
 }

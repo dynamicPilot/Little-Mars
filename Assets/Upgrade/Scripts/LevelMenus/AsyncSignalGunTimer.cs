@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace LittleMars.UI.LevelMenus
+namespace LittleMars.LevelMenus
 {
     public class AsyncSignalGunTimer
     {

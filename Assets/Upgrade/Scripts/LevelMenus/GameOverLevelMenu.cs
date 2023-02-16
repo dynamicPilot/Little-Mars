@@ -3,7 +3,7 @@ using LittleMars.Model.GoalDisplays;
 using LittleMars.Model.TimeUpdate;
 using LittleMars.UI.GoalDisplays;
 
-namespace LittleMars.UI.LevelMenus
+namespace LittleMars.LevelMenus
 {
     public class GameOverLevelMenu : LevelMenu
     {
@@ -11,7 +11,7 @@ namespace LittleMars.UI.LevelMenus
         readonly GoalDisplayStrategiesManager _strategyManager;
         public GameOverLevelMenu(CommandManager commandManager, TimeSpeedManager timeManager,
             GoalDisplayStrategiesManager strategyManager,
-            StaffGoalDisplayStrategiesManager staffStrategyManager) 
+            StaffGoalDisplayStrategiesManager staffStrategyManager)
             : base(commandManager, timeManager)
         {
             _strategyManager = strategyManager;

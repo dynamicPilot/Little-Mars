@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace LittleMars.Settings
 {
-    [CreateAssetMenu(menuName = "LittleMars/ColorsSettings")]
+    [CreateAssetMenu(menuName = "LittleMars/Catalogue/ColorsSettings")]
     public class ColorsSettings : ScriptableObject
     {
         [SerializeField] private ConnectionColorSettings _connections;

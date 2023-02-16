@@ -5,7 +5,7 @@ using Zenject;
 
 namespace LittleMars.Settings
 {
-    [CreateAssetMenu(menuName = "LittleMars/BuildingSlot Settings")]
+    [CreateAssetMenu(menuName = "LittleMars/Settings/BuildingSlot Settings")]
     public class BuildingSlotSettings : ScriptableObjectInstaller<BuildingSlotSettings>
     {
         public ResourceFolders Folders;

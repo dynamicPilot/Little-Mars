@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LittleMars.UI.LevelMenus
+namespace LittleMars.LevelMenus
 {
     public interface ISignalGun : IDisposable
     {

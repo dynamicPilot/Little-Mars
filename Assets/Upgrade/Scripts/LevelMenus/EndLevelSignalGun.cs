@@ -2,7 +2,7 @@
 using UnityEngine;
 using LittleMars.Common.Signals;
 
-namespace LittleMars.UI.LevelMenus
+namespace LittleMars.LevelMenus
 {
     public class EndLevelSignalGun : ISignalGun
     {

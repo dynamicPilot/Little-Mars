@@ -1,4 +1,4 @@
-﻿using LittleMars.Common.Catalogues;
+﻿using LittleMars.Settings;
 using UnityEngine;
 using UnityEngine.UI;
 

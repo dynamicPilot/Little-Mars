@@ -1,5 +1,6 @@
 ﻿using LittleMars.Common;
 using LittleMars.Common.Signals;
+using LittleMars.LevelMenus;
 using LittleMars.UI.GoalDisplays;
 using UnityEngine;
 using UnityEngine.UI;
@@ -49,7 +50,7 @@ namespace LittleMars.UI.LevelMenus
             Open();
         }
 
-        private void SetGoalDisplays(IGoalDisplayStrategy[] strategies)
+        void SetGoalDisplays(IGoalDisplayStrategy[] strategies)
         {
             int index = 0;
             for(int i = 0; i < strategies.Length; i++)

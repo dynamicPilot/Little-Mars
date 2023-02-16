@@ -1,4 +1,4 @@
-﻿using LittleMars.Common;
+﻿using LittleMars.Common.Catalogues;
 
 namespace LittleMars.UI.SlotUIFactories
 {

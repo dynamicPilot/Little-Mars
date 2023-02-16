@@ -9,7 +9,7 @@ using Zenject;
 
 namespace LittleMars.Settings
 {
-    [CreateAssetMenu(menuName = "LittleMars/Custom Map Settings")]
+    [CreateAssetMenu(menuName = "LittleMars/Settings/Custom Map Settings")]
     public class CustomMapSettings : ScriptableObject//Installer<CustomMapSettings>
     {
         public int Rows;

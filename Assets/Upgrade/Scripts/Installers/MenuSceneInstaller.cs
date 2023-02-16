@@ -1,4 +1,5 @@
 ﻿using LittleMars.Commands;
+using LittleMars.MainMenus;
 using LittleMars.SceneControls;
 using Zenject;
 
@@ -15,6 +16,8 @@ namespace LittleMars.Installers
         void InstallMenu()
         {
             Container.BindInterfacesAndSelfTo<MenuSceneControl>().AsSingle();
+
+            Container.Bind<LevelsMenu>().AsSingle();
         }
 
         void InstallCommands()
