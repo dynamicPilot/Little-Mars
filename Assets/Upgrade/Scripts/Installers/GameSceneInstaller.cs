@@ -1,6 +1,7 @@
 using LittleMars.Buildings;
 using LittleMars.CameraControls;
 using LittleMars.Commands;
+using LittleMars.Commands.Level;
 using LittleMars.Common;
 using LittleMars.Common.Catalogues;
 using LittleMars.Common.Interfaces;
@@ -94,7 +95,7 @@ namespace LittleMars.Installers
             LevelSettings.InstallFromResource(String.Concat(_settings.LevelSettingsFolderPath, _playerState.GetLevelNumber(), "_", "LevelSettings"),
                 Container);
             Container.BindInterfacesAndSelfTo<LevelManager>().AsSingle();
-            Container.BindInterfacesAndSelfTo<GameSceneControl>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LevelSceneControl>().AsSingle();
         }
 
         void InstallInputControls()
@@ -267,7 +268,7 @@ namespace LittleMars.Installers
             Container.Bind<AsyncSignalGunTimer>().AsSingle();
             Container.Bind<LevelMenusWorkflowTimer>().AsSingle();
 
-            Container.Bind<CommandManager>().AsSingle();
+            Container.Bind<LevelCommandManager>().AsSingle();
             Container.Bind<LevelReceiver>().AsSingle();           
 
             Container.Bind<LevelMenu>().AsSingle();

@@ -128,7 +128,9 @@
         back,
         muteMusic,
         muteAll,
-        empty
+        empty,
+        quit,
+        toLevel
     }
 
     public enum ColorType

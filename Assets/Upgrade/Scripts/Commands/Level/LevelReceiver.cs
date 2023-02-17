@@ -4,14 +4,14 @@ using LittleMars.PlayerStates;
 using LittleMars.SceneControls;
 using Zenject;
 
-namespace LittleMars.Commands
+namespace LittleMars.Commands.Level
 {
     public class LevelReceiver : Receiver
     {
         readonly SignalBus _signalBus;
-        readonly GameSceneControl _sceneControl;
+        readonly LevelSceneControl _sceneControl;
         readonly IPlayerState _playerState;
-        public LevelReceiver(SignalBus signalBus, GameSceneControl sceneControl,
+        public LevelReceiver(SignalBus signalBus, LevelSceneControl sceneControl,
             IPlayerState playerState)
         {
             _signalBus = signalBus;
@@ -26,7 +26,7 @@ namespace LittleMars.Commands
             _sceneControl.NextSceneType(SceneType.level);
             _signalBus.Fire<EndLevelSignal>();
         }
-        public virtual void MainMenu()
+        public override void MainMenu()
         {
             _sceneControl.NextSceneType(SceneType.menu);
             _signalBus.Fire<EndLevelSignal>();

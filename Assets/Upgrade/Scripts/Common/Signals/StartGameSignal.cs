@@ -42,4 +42,10 @@
     /// </summary>
     public struct EndSceneSignal
     { }
+
+
+    public struct ToLevelSignal
+    {
+        public int Index;
+    }
 }

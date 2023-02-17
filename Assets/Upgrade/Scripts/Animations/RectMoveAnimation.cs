@@ -17,7 +17,6 @@ namespace LittleMars.Animations
         [SerializeField] float _appendDelay;
 
         private void OnEnable() => StartAnimation();
-
         protected virtual void StartAnimation() => DoMove();
 
         void DoMove()

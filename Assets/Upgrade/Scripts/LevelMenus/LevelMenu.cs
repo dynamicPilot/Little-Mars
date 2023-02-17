@@ -1,30 +1,26 @@
-﻿using LittleMars.Commands;
-using LittleMars.Common;
+﻿using LittleMars.Commands.Level;
 using LittleMars.Model.TimeUpdate;
 
 namespace LittleMars.LevelMenus
 {
-    public class LevelMenu
+    /// <summary>
+    /// Support class for LevelMenuUI, provides time management and command management.
+    /// </summary>
+    public class LevelMenu : GameMenu
     {
-        CommandManager _commandManager;
-        TimeSpeedManager _timeManager;
+        readonly TimeSpeedManager _timeManager;
 
-        public LevelMenu(CommandManager commandManager, TimeSpeedManager timeManager)
+        public LevelMenu(LevelCommandManager commandManager, TimeSpeedManager timeManager)
+            : base(commandManager)
         {
-            _commandManager = commandManager;
             _timeManager = timeManager;
         }
 
-        public ICommand GetCommand(CommandType type)
-        {
-            return _commandManager.GetCommand(type);
-        }
-
-        public virtual void Open()
+        public override void Open()
         {
             _timeManager.Stop();
         }
-        public virtual void Close()
+        public override void Close()
         {
             _timeManager.Start();
         }

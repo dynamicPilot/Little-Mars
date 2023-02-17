@@ -37,20 +37,18 @@ namespace LittleMars.UI.LevelMenus
             base.SetListeners();
             AddCommandToButtonListener(_nextButton, CommandType.next);
             AddCommandToButtonListener(_restartButton, CommandType.restart);
-            
-            
         }
 
         private void OnEndGame()
         {
-            Debug.Log("EndLevelMenuUI.OnEndGame");
+            //Debug.Log("EndLevelMenuUI.OnEndGame");
             _signalBus.Unsubscribe<EndGameSignal>(OnEndGame);
 
-            Debug.Log("try set menu!");
+            //Debug.Log("try set menu!");
             SetMenu();
-            Debug.Log("try set buttons!");
+            //Debug.Log("try set buttons!");
             SetButtons();
-            Debug.Log("try to open!");
+            //Debug.Log("try to open!");
             Open();
         }
     }

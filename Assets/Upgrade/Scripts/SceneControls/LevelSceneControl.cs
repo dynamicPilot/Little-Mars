@@ -3,11 +3,12 @@ using Zenject;
 
 namespace LittleMars.SceneControls
 {
-    public class MenuSceneControl : SceneControl
+    public class LevelSceneControl : SceneControl
     {
-        public MenuSceneControl(ProjectSceneControl projectControl, SignalBus signalBus) 
+        public LevelSceneControl(ProjectSceneControl projectControl, SignalBus signalBus)
             : base(projectControl, signalBus)
         {
+
         }
 
         protected override void Subscribe()

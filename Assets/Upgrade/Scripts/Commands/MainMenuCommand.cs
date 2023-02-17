@@ -1,19 +1,20 @@
-﻿using Zenject;
+﻿using LittleMars.Commands.Level;
+using Zenject;
 
 namespace LittleMars.Commands
 {
 
-    public class MainMenuCommand : ICommand
+    public class MainMenuCommand : IExtendedCommand
     {
-        readonly LevelReceiver _receiver;
+        Receiver _receiver;
 
-        public MainMenuCommand(LevelReceiver receiver)
-        {
-            _receiver = receiver;
-        }
+        //public MainMenuCommand(Receiver receiver = null)
+        //{
+        //    _receiver = receiver;
+        //}
 
-        public void Execute() => _receiver.MainMenu();
-
+        public void Execute() => _receiver?.MainMenu();
+        public void ChangeReceiver(Receiver receiver) => _receiver = receiver;
         public class Factory : PlaceholderFactory<MainMenuCommand>
         { }
     }

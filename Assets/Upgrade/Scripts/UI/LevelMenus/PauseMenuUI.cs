@@ -30,7 +30,7 @@ namespace LittleMars.UI.LevelMenus
         [Inject]
         public void Constructor(LevelMenu levelMenu)
         {
-            _levelMenu = levelMenu;
+            _gameMenu = levelMenu;
 
             Init();
         }

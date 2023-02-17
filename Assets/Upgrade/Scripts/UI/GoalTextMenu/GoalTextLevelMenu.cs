@@ -1,5 +1,5 @@
 ﻿using JetBrains.Annotations;
-using LittleMars.Commands;
+using LittleMars.Commands.Level;
 using LittleMars.LevelMenus;
 using LittleMars.Localization;
 using LittleMars.Model.TimeUpdate;
@@ -14,7 +14,7 @@ namespace LittleMars.UI.GoalTextMenu
     public class GoalTextLevelMenu : LevelMenu
     {
         readonly LangsManager _langManager;
-        public GoalTextLevelMenu(CommandManager commandManager, 
+        public GoalTextLevelMenu(LevelCommandManager commandManager, 
             TimeSpeedManager timeManager, LangsManager langManager) : base(commandManager, timeManager)
         {
             _langManager = langManager;

@@ -6,7 +6,7 @@ namespace LittleMars.Animations
     public class TweenAnimation : MonoBehaviour
     {
 
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
             DOTween.Kill(this);
         }

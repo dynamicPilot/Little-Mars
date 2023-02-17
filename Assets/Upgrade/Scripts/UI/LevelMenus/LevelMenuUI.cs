@@ -1,5 +1,4 @@
 ﻿using LittleMars.Common;
-using LittleMars.Common.Levels;
 using LittleMars.LevelMenus;
 using LittleMars.Localization;
 using TMPro;
@@ -18,7 +17,6 @@ namespace LittleMars.UI.LevelMenus
         [Header("Header")]
         [SerializeField] private TextMeshProUGUI _levelNumberText;
         [SerializeField] private TextTagElement _headerText;
-        // Level text -> need language control
 
         protected SignalBus _signalBus;
         Common.Levels.LevelInfo _info;
@@ -31,7 +29,7 @@ namespace LittleMars.UI.LevelMenus
         protected void BaseConstructor(LevelMenu levelMenu, SignalBus signalBus, 
             Common.Levels.LevelInfo levelInfo)
         {
-            _levelMenu = levelMenu;
+            _gameMenu = levelMenu;
             _signalBus = signalBus;
             _info = levelInfo;
 

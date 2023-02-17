@@ -26,7 +26,7 @@ namespace LittleMars.UI.GoalTextMenu
         [Inject]
         public void Constructor(GoalTextLevelMenu levelMenu)
         {
-            _levelMenu = levelMenu;
+            _gameMenu = levelMenu;
             _goalTextMenu = levelMenu;
 
             Init();

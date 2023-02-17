@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 namespace LittleMars.UI.LevelMenus
 {
+    /// <summary>
+    /// Menu UI with command manager support for buttons by GameMenu script.
+    /// Has no constructor -> set _gameMenu manually.
+    /// </summary>
     public class GameMenuUI : MenuUI
     {
         [Header("Common Button")]
@@ -13,7 +17,7 @@ namespace LittleMars.UI.LevelMenus
         [SerializeField] private Button _commonButton;
 
         protected Dictionary<CommandType, Button> _buttons;
-        protected LevelMenu _levelMenu;
+        protected GameMenu _gameMenu;
 
         protected override void Awake()
         {
@@ -31,30 +35,17 @@ namespace LittleMars.UI.LevelMenus
             AddCommandToButtonListener(_commonButton, _buttonType);
         }
 
-        protected void RemoveListeners()
+        protected virtual void RemoveListeners()
         {
             foreach (var item in _buttons.Values)
                 item.onClick.RemoveAllListeners();
         }
 
-        //void SetButtonsOrder()
-        //{
-        //    if (_buttons.Values.Count < 2) return;
-
-        //    for (int i = 0; i < _order.Length; i++)
-        //    {
-        //        var type = _order[i];
-        //        if (!_buttons.ContainsKey(type)) continue;
-
-        //        _buttons[type].transform.SetSiblingIndex(i);
-        //    }
-        //}
-
         protected void AddCommandToButtonListener(Button button, CommandType type,
             bool needClose = true)
         {
             //Debug.Log("Add listeners to button " + type);
-            var command = _levelMenu.GetCommand(type);
+            var command = _gameMenu.GetCommand(type);
             if (command == null) return;
 
             //Debug.Log("Get command for type " + type + " command " + (command == null));
@@ -67,13 +58,13 @@ namespace LittleMars.UI.LevelMenus
         protected override void Open()
         {
             base.Open();
-            _levelMenu.Open();
+            _gameMenu.Open();
         }
 
         protected override void Close()
         {
             base.Close();
-            _levelMenu.Close();
+            _gameMenu.Close();
         }
     }
 }

@@ -2,6 +2,9 @@
 
 namespace LittleMars.UI
 {
+    /// <summary>
+    /// A base MenuUI. Supports only Open and Close calls for menu panel. 
+    /// </summary>
     public class MenuUI : MonoBehaviour
     {
         [SerializeField] private GameObject _panel;

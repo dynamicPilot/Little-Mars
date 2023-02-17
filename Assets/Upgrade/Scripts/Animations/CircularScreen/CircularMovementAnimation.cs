@@ -2,7 +2,6 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 namespace LittleMars.Animations.CircularScreen
 {
@@ -15,18 +14,38 @@ namespace LittleMars.Animations.CircularScreen
         [SerializeField] Vector3 _downPosition;
         [SerializeField] float _duration;
 
+        bool _isInAnimation = false;
         private void OnEnable()
         {
-            StartMove();
+            CheckForStartMoveOrPlay();
         }
 
+        protected override void OnDisable()
+        {
+            DOTween.Pause(this);
+        }
+
+        private void OnDestroy()
+        {
+            DOTween.KillAll();
+        }
+
+        void Play() => DOTween.Play(this);
+
+
+        void CheckForStartMoveOrPlay()
+        {
+            if (_isInAnimation) Play();
+            else StartMove();
+        }
         void StartMove()
         {
+            _isInAnimation = true;
+
             if (!NeedPrepandMove())
                 DoCircularMove();
             else
             {
-                Debug.Log("Need Prepand move");
                 var duration = GetDurationToUpperPosition();
                 DoPrepandMove(duration);
             }

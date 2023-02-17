@@ -8,9 +8,7 @@ namespace LittleMars.UI.Achievements
 {
     public class AchievementDisplayUI : GameMenuUI
     {
-        //[SerializeField] private GameObject _panel;
         [SerializeField] private GoalDisplayUI _displayUI;
-        //[SerializeField] private Button _quitButton;
 
         SignalBus _signalBus;
         AchievementDisplayLevelMenu _achievementMenu;
@@ -20,7 +18,7 @@ namespace LittleMars.UI.Achievements
         {
             _signalBus = signalBus;
             _achievementMenu = achievementMenu;
-            _levelMenu = achievementMenu;
+            _gameMenu = achievementMenu;
             _isOpen = false;
 
             Init();
@@ -59,24 +57,6 @@ namespace LittleMars.UI.Achievements
                 return true;
             }           
         }
-
-        //override 
-
-        //private void Open()
-        //{
-        //    Debug.Log("OPEN");
-        //    _achievementMenu.Open();
-        //    _panel.SetActive(true);
-        //    _isOpen = true;
-        //}
-
-        //private void Close()
-        //{
-        //    Debug.Log("CLOSE");
-        //    _isOpen = false;
-        //    _panel.SetActive(false);
-        //    _achievementMenu.Close();
-        //}
 
         private void UpdateGoalDisplay(IGoalDisplayStrategy strategy)
         {

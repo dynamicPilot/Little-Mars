@@ -1,6 +1,6 @@
 ﻿using Zenject;
 
-namespace LittleMars.Commands
+namespace LittleMars.Commands.Level
 {
     public class StartCommand : ICommand
     {
