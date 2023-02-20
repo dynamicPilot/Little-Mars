@@ -5,6 +5,7 @@ using LittleMars.Installers;
 using LittleMars.LevelMenus;
 using LittleMars.Localization;
 using LittleMars.Model.TimeUpdate;
+using LittleMars.SaveSystem;
 using LittleMars.Slots;
 using System;
 using UnityEngine;
@@ -48,6 +49,8 @@ namespace LittleMars.Settings
         {
             public LangsManager.SceneSettings Blocks;
         }
+
+ 
 
         public override void InstallBindings()
         {

@@ -1,5 +1,6 @@
 ﻿using LittleMars.Common.Catalogues;
 using LittleMars.Loaders;
+using LittleMars.SaveSystem;
 using System;
 using UnityEngine;
 using Zenject;
@@ -11,6 +12,7 @@ namespace LittleMars.Settings
     {
         public ScenesSettings Scenes;
         public CatalogueSettings Catalogues;
+        public SaveSystemSettings SaveSystem;
 
         [Serializable]
         public class ScenesSettings
@@ -24,10 +26,17 @@ namespace LittleMars.Settings
             public LevelsCatalogue.Settings Levels;
         }
 
+        [Serializable]
+        public class SaveSystemSettings
+        {
+            public SavesSystemManager.Settings SaveFiles;
+        }
+
         public override void InstallBindings()
         {
             Container.BindInstance(Scenes.SceneNames);
             Container.BindInstance(Catalogues.Levels);
+            Container.BindInstance(SaveSystem.SaveFiles);
         }
     }
 }

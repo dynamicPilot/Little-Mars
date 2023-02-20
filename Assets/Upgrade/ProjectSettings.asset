@@ -19,3 +19,10 @@ MonoBehaviour:
   Catalogues:
     Levels:
       Levels: {fileID: 11400000, guid: 2a05120ebd2dc114e95175cf0f8e9e50, type: 2}
+  SaveSystem:
+    SaveFiles:
+      FolderName: Saves
+      FileName: data
+      BackupFileName: data_
+      JsonFileEx: .json
+      BinaryFileEx: .sav

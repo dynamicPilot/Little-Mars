@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 [System.Serializable]
 public class GameData
 {
@@ -10,6 +11,7 @@ public class GameData
 
     private int[] completedLevels;
     public int[] CompletedLevels { get { return completedLevels; } }
+
 
     public GameData(int newCurrentLevelIndex, int[] newCompletedLevels)
     {

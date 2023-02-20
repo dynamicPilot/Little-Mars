@@ -161,7 +161,7 @@ namespace LittleMars.Installers
         private void InstallLocalizationSystem()
         {
             Container.BindInstance(_lang);
-            Container.Bind<JsonConverter>().AsSingle();
+            
             Container.BindInterfacesAndSelfTo<LangsManager>().AsSingle();
         }
 
