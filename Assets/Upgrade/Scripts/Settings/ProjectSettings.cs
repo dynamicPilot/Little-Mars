@@ -1,8 +1,10 @@
 ﻿using LittleMars.Common.Catalogues;
+using LittleMars.Configs;
 using LittleMars.Loaders;
 using LittleMars.SaveSystem;
 using System;
 using UnityEngine;
+using UnityEngine.Diagnostics;
 using Zenject;
 
 namespace LittleMars.Settings
@@ -13,6 +15,7 @@ namespace LittleMars.Settings
         public ScenesSettings Scenes;
         public CatalogueSettings Catalogues;
         public SaveSystemSettings SaveSystem;
+        public ConfigSystemSettings ConfigSystem;
 
         [Serializable]
         public class ScenesSettings
@@ -29,7 +32,14 @@ namespace LittleMars.Settings
         [Serializable]
         public class SaveSystemSettings
         {
-            public SavesSystemManager.Settings SaveFiles;
+            public SavesSystemPathConstructor.Settings SaveFiles;
+        }
+
+        [Serializable]
+        public class ConfigSystemSettings
+        {
+            public PlayerConfigSystem.Settings PlayerConfigs;
+            public PlayerSettings.Settings PlayerSettings;
         }
 
         public override void InstallBindings()
@@ -37,6 +47,8 @@ namespace LittleMars.Settings
             Container.BindInstance(Scenes.SceneNames);
             Container.BindInstance(Catalogues.Levels);
             Container.BindInstance(SaveSystem.SaveFiles);
+            Container.BindInstance(ConfigSystem.PlayerConfigs);
+            Container.BindInstance(ConfigSystem.PlayerSettings);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Zenject;
+﻿using LittleMars.Common.Signals;
+using Zenject;
+using UnityEngine;
 
 namespace LittleMars.SaveSystem
 {
@@ -6,10 +8,14 @@ namespace LittleMars.SaveSystem
     {
         readonly ISaver _saver;
         readonly ILoader _loader;
-        public SavesSystem(ISaver saver, ILoader loader)
+        readonly SignalBus _signalBus;
+        public SavesSystem(ISaver saver, ILoader loader, SignalBus signalBus)
         {
             _saver = saver;
             _loader = loader;
+            _signalBus = signalBus;
+
+            _signalBus.Subscribe<StartLoadingSignal>(LoadData);
         }
 
         public void SaveData()
@@ -17,9 +23,21 @@ namespace LittleMars.SaveSystem
             _saver.SaveData();
         }
 
-        public PlayerData LoadData()
+        public void LoadData()
         {
-            return _loader.LoadData();
+            Debug.Log("Loading Data");
+            var data = _loader.LoadData();
+            CheckData(data);
+        }
+
+        void CheckData(PlayerData data)
+        {
+            if (data == null)
+            {
+                Debug.Log("Null data!");
+            }
+            else
+                _signalBus.Fire(new DataIsLoadedSignal { PlayerData = data });
         }
 
         public class Factory : PlaceholderFactory<ISaver, ILoader, SavesSystem>

@@ -4,14 +4,14 @@ using Zenject;
 
 namespace LittleMars.SaveSystem
 {
-    public class SavesSystemManager : IInitializable
+    public class SavesSystemManager : IInitializable, IDisposable
     {       
         readonly SavesSystem.Factory _savesSystemFactory;
         readonly JsonDataSaver.Factory _jsonSaverFactory;
-        readonly DataLoaderFactory _loaderFactory;
+        readonly DataLoaderFactory.Factory _loaderFactory;        
 
         public SavesSystemManager(SavesSystem.Factory savesSystemFactory, JsonDataSaver.Factory jsonSaverFactory, 
-            DataLoaderFactory loaderFactory)
+            DataLoaderFactory.Factory loaderFactory)
         {
             _savesSystemFactory = savesSystemFactory;
             _jsonSaverFactory = jsonSaverFactory;
@@ -20,26 +20,15 @@ namespace LittleMars.SaveSystem
 
         public void Initialize()
         {
-            LoadData();
+            SetSavesSystem();
         }
 
-        void LoadData()
-        {
-            var saveSystem = SetSavesSystem();
-            var data = saveSystem.LoadData();
-
-            if(data == null)
-            {
-                Debug.Log("Null data!");
-            }
-        }
-
-        SavesSystem SetSavesSystem()
+        public void SetSavesSystem()
         {
             ISaver saver = GetSaver();
             ILoader loader = GetLoader();
 
-            return _savesSystemFactory.Create(saver, loader);
+            _savesSystemFactory.Create(saver, loader);
         }
 
         ISaver GetSaver()
@@ -49,17 +38,16 @@ namespace LittleMars.SaveSystem
 
         ILoader GetLoader()
         {
-            return _loaderFactory.CreateLoader();
+            using var factory = _loaderFactory.Create();
+            return factory.CreateLoader();
         }
 
-        [Serializable]
-        public class Settings
+        public void Dispose()
         {
-            public string FolderName;
-            public string FileName;
-            public string BackupFileName;
-            public string JsonFileEx;
-            public string BinaryFileEx;
+            Debug.Log("Dispose SavesSystemManager");
         }
+
+        public class Factory : PlaceholderFactory<SavesSystemManager>
+        { }
     }
 }

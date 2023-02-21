@@ -1,16 +1,17 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace LittleMars.SaveSystem
 {
     public class SavesSystemPathConstructor
     {
-        readonly SavesSystemManager.Settings _settings;
+        readonly Settings _settings;
         readonly PathChecker _checker;
 
         string _mainPath = "";
         string _backupPath = "";
 
-        public SavesSystemPathConstructor(SavesSystemManager.Settings settings, PathChecker checker)
+        public SavesSystemPathConstructor(Settings settings, PathChecker checker)
         {
             _settings = settings;
             _checker = checker;
@@ -45,6 +46,16 @@ namespace LittleMars.SaveSystem
         {
             var path = string.Join("/", new string[3] { Application.persistentDataPath, _settings.FolderName, fileName });
             return string.Concat(path, extend);
+        }
+
+        [Serializable]
+        public class Settings
+        {
+            public string FolderName;
+            public string FileName;
+            public string BackupFileName;
+            public string JsonFileEx;
+            public string BinaryFileEx;
         }
     }
 }

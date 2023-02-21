@@ -2,7 +2,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace LittleMars.Model
+namespace LittleMars.LevelMenus
 {
     public class LevelManager : IInitializable
     {

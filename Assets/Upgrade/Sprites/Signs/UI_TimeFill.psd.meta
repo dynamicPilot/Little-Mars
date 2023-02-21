@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 60054e3430ec05e41868d1ce4aa6b197
+guid: 79aa449485ec4c24c851cfa3e8915c49
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,43 +117,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_MenuPanels_hor
+      name: UI_TimeFill_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 75
-        width: 147
-        height: 51
+        x: 4
+        y: 0
+        width: 24
+        height: 4
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 66, y: 20, z: 73, w: 18}
+      border: {x: 0, y: 1, z: 0, w: 1}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67be2692ddfb9d341844f05194328180
-      internalID: 1481714759
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_MenuPanels_vert
-      rect:
-        serializedVersion: 2
-        x: 191
-        y: 2
-        width: 63
-        height: 124
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 22, y: 47, z: 29, w: 68}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 535b3e7ea5acd614eb60443f858df359
-      internalID: -1466961467
+      spriteID: 329cc72a779ccf649a47d1eb68139723
+      internalID: 10039555
       vertices: []
       indices: 
       edges: []
@@ -169,8 +148,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_MenuPanels_vert: -1466961467
-      UI_MenuPanels_hor: 1481714759
+      UI_TimeFill_0: 10039555
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1

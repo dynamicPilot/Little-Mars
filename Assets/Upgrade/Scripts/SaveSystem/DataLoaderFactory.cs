@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using Zenject;
 
 namespace LittleMars.SaveSystem
 {
-    public class DataLoaderFactory
+    public class DataLoaderFactory : IDisposable
     {
         readonly SavesSystemPathConstructor _pathConstructor;
         readonly JsonDataLoader.Factory _jsonLoaderFactory;
@@ -31,5 +33,12 @@ namespace LittleMars.SaveSystem
 
             return _emptyLoaderFactory.Create();
         }
+
+        public void Dispose()
+        {
+        }
+
+        public class Factory : PlaceholderFactory<DataLoaderFactory>
+        { }
     }
 }

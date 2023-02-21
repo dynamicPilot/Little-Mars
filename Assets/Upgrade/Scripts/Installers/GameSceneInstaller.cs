@@ -389,7 +389,7 @@ namespace LittleMars.Installers
 
         private void InstallSignals()
         {
-            SignalBusInstaller.Install(Container);
+            //SignalBusInstaller.Install(Container);
             Container.DeclareSignal<MapSlotsAreReadySignal>();
             Container.DeclareSignal<GoalStrategiesIsReadySignal>().OptionalSubscriber();
 

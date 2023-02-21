@@ -76,8 +76,8 @@ MonoBehaviour:
     Rockets:
       HasRockets: 1
       Rockets:
-      - ArrivedHour: 2
-        DepartureHour: 8
+      - ArrivedHour: 5
+        DepartureHour: 16
         TradesWhenDepart:
         - Need:
             Type: 5

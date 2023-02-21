@@ -26,3 +26,10 @@ MonoBehaviour:
       BackupFileName: data_
       JsonFileEx: .json
       BinaryFileEx: .sav
+  ConfigSystem:
+    PlayerConfigs:
+      ConfigFileName: config.txt
+    PlayerSettings:
+      DefaultMusicVolume: 0.7
+      DefaultTotalVolume: 0.7
+      DefaultLang: 0

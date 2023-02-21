@@ -1,22 +1,27 @@
-﻿using LittleMars.Loaders;
+﻿using LittleMars.Common.Signals;
+using LittleMars.Loaders;
 using UnityEngine;
 using Zenject;
 
 namespace LittleMars.SceneControls
 {
-    public class StartSceneControl : IInitializable
+    public class StartSceneControl : SceneControl
     {
-        readonly SceneLoader _sceneLoader;
-        public StartSceneControl(SceneLoader sceneLoader)
+        public StartSceneControl(ProjectSceneControl projectControl, SignalBus signalBus) 
+            : base(projectControl, signalBus)
         {
-            _sceneLoader = sceneLoader;
+            NextSceneType(Common.SceneType.menu);
         }
 
-        public void Initialize()
+        protected override void Subscribe()
         {
-            Debug.Log("StartSceneControl");
-            _sceneLoader.LoadSceneAsync(Common.SceneType.menu, 
-                UnityEngine.SceneManagement.LoadSceneMode.Single);
+            Debug.Log("StartSceneControl : subscribe");
+            _signalBus.Subscribe<EndSceneSignal>(Load);
+        }
+
+        protected override void Unsubscribe()
+        {
+            _signalBus?.TryUnsubscribe<EndSceneSignal>(Load);
         }
     }
 }
