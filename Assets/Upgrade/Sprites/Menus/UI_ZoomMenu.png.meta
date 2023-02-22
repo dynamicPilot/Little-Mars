@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 277506a33c4397e408f75a1cfe6387af
+guid: 45e48fa77f9203e4d814e008f6e4aff7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,106 +117,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_AchivementMenu_up
+      name: UI_ZoomMenu_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 52
-        width: 152
-        height: 72
+        x: 1
+        y: 2
+        width: 62
+        height: 62
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 79, y: 15, z: 20, w: 35}
+      pivot: {x: 0, y: 0}
+      border: {x: 27, y: 34, z: 27, w: 18}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 699a8c5ad65d3b24fa13686085fcd7af
-      internalID: 1917122624
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_AchivementMenu_buttonBase
-      rect:
-        serializedVersion: 2
-        x: 164
-        y: 92
-        width: 33
-        height: 25
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 11, y: 5, z: 6, w: 5}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5cc741c81bc39fd4bb158330b327daa4
-      internalID: -1559250188
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_ButtonBase_small_right
-      rect:
-        serializedVersion: 2
-        x: 169
-        y: 60
-        width: 28
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 6, y: 6, z: 6, w: 5}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 487df7514c57df946b62c86b00f8720a
-      internalID: 2013378894
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_AchivementMenu_down
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 5
-        width: 152
-        height: 42
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 37, y: 27, z: 61, w: 7}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ac7b8b59dcc94241a87cade1849e813
-      internalID: 1281800431
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_ButtonBase_small_left
-      rect:
-        serializedVersion: 2
-        x: 169
-        y: 30
-        width: 28
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 6, y: 6, z: 6, w: 5}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0257f11b21f22c340bc1af4b10c4adbf
-      internalID: -1775271565
+      spriteID: 4186ff2defc1e39409a17d72ffbab1d8
+      internalID: 1151469381
       vertices: []
       indices: 
       edges: []
@@ -232,15 +148,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_AchivementMenu_down: 1281800431
-      UI_Button_yellowSmall_pressed: -120466432
-      UI_AchivementMenu_up: 1917122624
-      UI_Button_redSmall_pressed: -1952174485
-      UI_Button_yellowSmall: -340624629
-      UI_Button_redSmall: -1449532085
-      UI_ButtonBase_small_left: -1775271565
-      UI_ButtonBase_small_right: 2013378894
-      UI_AchivementMenu_buttonBase: -1559250188
+      UI_ZoomMenu_0: 1151469381
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
