@@ -3,6 +3,7 @@ using LittleMars.Common;
 using LittleMars.Common.Interfaces;
 using LittleMars.Common.Signals;
 using LittleMars.UI.Buttons;
+using LittleMars.UI.MenuControls;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -12,20 +13,18 @@ namespace LittleMars.UI
     /// <summary>
     /// UI for BuildingController.
     /// </summary>
-    public class BuildingControllerUI : MonoBehaviour
+    public class BuildingControllerUI : MenuUI, ICloseMenuUI
     {
-        [SerializeField] private ButtonWithStateView _stateButton;
-        [SerializeField] private Button _removeButton;
-        [SerializeField] private ButtonWithStateView _dayStateButton;
-        [SerializeField] private ButtonWithStateView _nightStateButton;
-        [SerializeField] private GameObject _panel;
+        [SerializeField] ButtonWithStateView _stateButton;
+        [SerializeField] Button _removeButton;
+        [SerializeField] ButtonWithStateView _dayStateButton;
+        [SerializeField] ButtonWithStateView _nightStateButton;
 
         //IBuilding _building = null;
         IBuildingFacade _building = null;
         BuildingController _controller;
         SignalBus _signalBus;
 
-        bool _isOpen = false;
         bool _isListenersSet = false;
 
         [Inject]
@@ -39,13 +38,13 @@ namespace LittleMars.UI
 
         private void Init()
         {          
-            _signalBus.Subscribe<BuildingControllerSignal>(OnControllerStarted);
+            _signalBus.Subscribe<BuildingControllerOpenSignal>(OnControllerStarted);
         }
 
         private void OnDestroy()
         {
             RemoveListeners();
-            _signalBus.TryUnsubscribe<BuildingControllerSignal>(OnControllerStarted);
+            _signalBus.TryUnsubscribe<BuildingControllerOpenSignal>(OnControllerStarted);
         }
         private void SetListeners()
         {
@@ -67,7 +66,7 @@ namespace LittleMars.UI
             _nightStateButton.Button.onClick.RemoveAllListeners();
         }
 
-        public void OnControllerStarted(BuildingControllerSignal arg)
+        public void OnControllerStarted(BuildingControllerOpenSignal arg)
         {
             if (arg.BuildingFacade == _building && _isOpen)
             {
@@ -80,24 +79,21 @@ namespace LittleMars.UI
             Open();
         }
 
-        private void Open()
+        protected override void Open()
         {
             if (_controller == null) return;
             if (!_isListenersSet) SetListeners();
 
             UpdateButtonsState();
-            _panel.SetActive(true);
-            _isOpen = true;
+            base.Open();
 
             _signalBus.Subscribe<BuildingStateChangedSignal>(OnBuildingStateChanged);
         }
 
-        private void Close()
+        protected override void Close()
         {
-            _isOpen = false;
-            _panel.SetActive(false);
+            base.Close();
             _building = null;
-
             _signalBus.TryUnsubscribe<BuildingStateChangedSignal>(OnBuildingStateChanged);
         }
 
@@ -132,5 +128,12 @@ namespace LittleMars.UI
                 return;
             OnStateChangedUpdate();
         }
+
+
+        public void CloseMenu()
+        {
+            Close();
+        }
+
     }
 }

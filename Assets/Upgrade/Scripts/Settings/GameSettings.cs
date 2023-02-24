@@ -47,7 +47,7 @@ namespace LittleMars.Settings
         [Serializable]
         public class TextBlocksSettings
         {
-            public LangsManager.SceneSettings Blocks;
+            public LevelLangsManager.SceneSettings Blocks;
         }
 
  

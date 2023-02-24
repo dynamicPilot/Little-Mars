@@ -27,5 +27,6 @@ namespace LittleMars.UI
             _panel.SetActive(false);
             _isOpen = false;
         }
+
     }
 }

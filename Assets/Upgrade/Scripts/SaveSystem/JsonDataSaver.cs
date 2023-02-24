@@ -1,4 +1,5 @@
 ﻿using LittleMars.Localization;
+using UnityEngine;
 using Zenject;
 
 namespace LittleMars.SaveSystem
@@ -19,9 +20,11 @@ namespace LittleMars.SaveSystem
 
         public void SaveData()
         {
-            var data = _dataProvider.GetData();
-            if (data == null) return;
+            var needSave = _dataProvider.GetData(out var data);
+            Debug.Log("Json saver: need save? " + needSave);
+            if (!needSave) return;
 
+            Debug.Log("Json saver: save new data " + data.CurrentLevel);
             _pathConstructor.TryGetMainPath(out var mainPath);
             _converter.ToJson(data, mainPath);
         }

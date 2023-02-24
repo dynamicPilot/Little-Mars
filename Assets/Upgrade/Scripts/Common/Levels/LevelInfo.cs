@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace LittleMars.Common.Levels
 {
+    /// <summary>
+    /// Level number and icons info.
+    /// </summary>
     [Serializable]
     public class LevelInfo
     {

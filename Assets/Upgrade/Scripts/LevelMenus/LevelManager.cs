@@ -7,7 +7,7 @@ namespace LittleMars.LevelMenus
     public class LevelManager : IInitializable
     {
         SignalBus _signalBus;
-
+        
         public LevelManager(SignalBus signalBus)
         {
             _signalBus = signalBus;
@@ -27,7 +27,7 @@ namespace LittleMars.LevelMenus
 
         bool ReadyToStart()
         {
-            Debug.Log("LevelManager: Check for tutorial");
+            //Debug.Log("LevelManager: Check for tutorial");
             return true;
 
         }
@@ -39,13 +39,14 @@ namespace LittleMars.LevelMenus
 
         void EndLevel()
         {
+            _signalBus.Fire<NeedSaveDataSignal>();
             if (ReadyToEnd())
                 EndScene();
         }
 
         bool ReadyToEnd()
         {
-            Debug.Log("LevelManager: Check for ads");
+            //Debug.Log("LevelManager: Check for ads");
             return true;
         }
 

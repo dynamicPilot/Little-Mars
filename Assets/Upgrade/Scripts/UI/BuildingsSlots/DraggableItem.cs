@@ -36,7 +36,7 @@ namespace LittleMars.UI.BuildingSlots
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            Debug.Log("OnStartDrag");
+            //Debug.Log("OnStartDrag");
             _initialLocalObjectPosition = _rectTransform.localPosition;
 
             // set local pointer position to word position
@@ -49,7 +49,7 @@ namespace LittleMars.UI.BuildingSlots
 
         public void OnDrag(PointerEventData eventData)
         {
-            Debug.Log("OntDrag");
+            //Debug.Log("OntDrag");
             Vector2 localPointerPosition;
             if (RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvas,
                 eventData.position, eventData.pressEventCamera, out localPointerPosition))
@@ -64,7 +64,7 @@ namespace LittleMars.UI.BuildingSlots
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            Debug.Log("OnEndDrag");
+            //Debug.Log("OnEndDrag");
             RaycastAndGetTarget(eventData.position);
             _rectTransform.localPosition = _initialLocalObjectPosition;
             _canvasGroup.blocksRaycasts = true;

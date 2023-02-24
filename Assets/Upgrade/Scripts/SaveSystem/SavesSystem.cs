@@ -15,11 +15,18 @@ namespace LittleMars.SaveSystem
             _loader = loader;
             _signalBus = signalBus;
 
+            Init();
+        }
+
+        void Init()
+        {
             _signalBus.Subscribe<StartLoadingSignal>(LoadData);
+            _signalBus.Subscribe<NeedSaveDataSignal>(SaveData);
         }
 
         public void SaveData()
         {
+            Debug.Log("Save Data");
             _saver.SaveData();
         }
 

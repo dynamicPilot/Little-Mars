@@ -8,7 +8,6 @@ using LittleMars.UI;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
-using Path = LittleMars.Common.Path;
 
 namespace LittleMars.Model
 {

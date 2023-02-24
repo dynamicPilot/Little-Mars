@@ -23,4 +23,7 @@ namespace LittleMars.Common.Signals
 
     public struct NeedSaveConfigSignal
     { }
+
+    public struct NeedSaveDataSignal
+    { }
 }

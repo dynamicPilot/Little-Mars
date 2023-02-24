@@ -1,3 +1,4 @@
+using LittleMars.Animations;
 using LittleMars.Buildings;
 using LittleMars.CameraControls;
 using LittleMars.Commands;
@@ -45,14 +46,15 @@ namespace LittleMars.Installers
 {
     public class GameSceneInstaller : MonoInstaller
     {
-        [SerializeField] private Langs _lang;
-
         [Inject]
         Settings _settings = null;
         [Inject]
         IPlayerState _playerState;
+        [Inject]
+        LevelsCatalogue _levelCatalogue;
         public override void InstallBindings()
         {
+            InstallLevelSettings();
             InstallLevel();
             InstallInputControls();
 
@@ -82,20 +84,25 @@ namespace LittleMars.Installers
             Container.BindExecutionOrder<ViewSlotManager>(-20);
             Container.BindExecutionOrder<ConnectionsManager>(-20);
             Container.BindExecutionOrder<ResourceSlotMenuManager>(-20);
-            //Container.BindExecutionOrder<StartLevelMenuUI>(-20);
 
             Container.BindExecutionOrder<MapManager>(-10);
-            //Container.BindExecutionOrder<>(-10);
             Container.BindExecutionOrder<LevelManager>(10);
-
         }
 
         void InstallLevel()
         {
-            LevelSettings.InstallFromResource(String.Concat(_settings.LevelSettingsFolderPath, _playerState.GetLevelNumber(), "_", "LevelSettings"),
-                Container);
+            
             Container.BindInterfacesAndSelfTo<LevelManager>().AsSingle();
             Container.BindInterfacesAndSelfTo<LevelSceneControl>().AsSingle();
+        }
+
+        void InstallLevelSettings()
+        {
+            Debug.Log("Installer : no settings from catalogue");
+            LevelSettings.InstallFromResource(String.Concat(_settings.LevelSettingsFolderPath,
+                _playerState.GetLevelNumber(), "_", "LevelSettings"), Container);
+
+            //var settings = _levelCatalogue.GetLevel(_playerState.GetLevelNumber());            
         }
 
         void InstallInputControls()
@@ -158,25 +165,22 @@ namespace LittleMars.Installers
                 .WhenInjectedInto<PlacementManager>();
         }
 
-        private void InstallLocalizationSystem()
-        {
-            Container.BindInstance(_lang);
-            
-            Container.BindInterfacesAndSelfTo<LangsManager>().AsSingle();
+        void InstallLocalizationSystem()
+        {         
+            Container.BindInterfacesAndSelfTo<LevelLangsManager>().AsSingle();
         }
 
 
-        private void InstallEffects()
+        void InstallEffects()
         {
             Container.BindInterfacesAndSelfTo<PeriodChangeEffectControl>().AsSingle();
+            Container.BindInterfacesAndSelfTo<EndGameTweenKiller>().AsSingle();
         }
 
         private void InstallTrackers()
         {
             Container.BindInterfacesAndSelfTo<GoalsManager>().AsSingle();
 
-            // Container.BindFactory<IPathFindingStrategy, PathFindingStrategyFactory>().To<AStarPathFindingStrategy>();
-            //Container.BindFactory<BuildingUnit<int>, IGoalTracker, TrackerFactory<BuildingUnit<int>>().To<BuildingGoalTracker>();
             Container.BindFactory<GoalsTrackerProvider<BuildingUnit<int>, BuildingGoalTracker>, 
                 GoalsTrackerProvider<BuildingUnit<int>, BuildingGoalTracker>.Factory>().WhenInjectedInto<GoalsManager>();
             
@@ -243,7 +247,6 @@ namespace LittleMars.Installers
                 .FromSubContainerResolve()
                 .ByNewContextPrefab<BuildingSlotInstaller>(_settings.BuildingSlotPrefab)
                 .WithGameObjectName("BuildingSlot");
-                //.UnderTransformGroup("Buildings");
         }
 
         private void InstallConnections()
@@ -400,7 +403,7 @@ namespace LittleMars.Installers
             Container.DeclareSignal<TryChangeBuildingStateSignal>();
 
             Container.DeclareSignal<StartBuildingPlacementSignal>();
-            Container.DeclareSignal<BuildingControllerSignal>();
+            Container.DeclareSignal<BuildingControllerOpenSignal>();
 
             Container.DeclareSignal<PeriodChangeSignal>();
             Container.DeclareSignal<HourlySignal>();

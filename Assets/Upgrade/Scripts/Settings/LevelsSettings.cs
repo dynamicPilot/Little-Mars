@@ -7,17 +7,25 @@ namespace LittleMars.Settings
     {
         [SerializeField] LevelSettings[] _levels;
 
-
-        public bool HasLevel(int levelNumber)
+        public bool HasLevel(int levelIndex)
         {
-            var index = levelNumber - 1;
-            return (index >= 0 && index < _levels.Length);
+            Debug.Log("Do we have level? " + levelIndex 
+                 +" " + (levelIndex >= 0 && levelIndex < _levels.Length));
+            return (levelIndex >= 0 && levelIndex < _levels.Length);
         }
 
-        public LevelSettings GetLevel(int levelNumber)
+        public LevelSettings GetLevel(int levelIndex)
         {
-            if (!HasLevel(levelNumber)) return null;
-            else return _levels[levelNumber - 1];
+            if (!HasLevel(levelIndex))
+            {
+                Debug.Log("Null level to get");
+                return null;
+            }
+            else
+            {
+                Debug.Log("Level with number to get: " + _levels[levelIndex].Info.LevelInfo.Number);
+                return _levels[levelIndex];
+            }
         }
 
         public LevelSettings[] GetLevels() => _levels;

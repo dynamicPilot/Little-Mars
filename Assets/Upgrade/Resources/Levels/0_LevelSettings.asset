@@ -60,7 +60,7 @@ MonoBehaviour:
     Lines:
       Rows: 3
       Columns: 3
-      BuildingTypes: 0000000001000000050000000300000002000000040000000600000007000000
+      BuildingTypes: 0000000005000000010000000300000002000000040000000600000007000000
       Mode: 0
       CustomMap: {fileID: 0}
     Fields:
@@ -95,7 +95,7 @@ MonoBehaviour:
             Type: 1
             Size: 0
             Amount: 1
-      HasBuildingGoalsWithTimer: 1
+      HasBuildingGoalsWithTimer: 0
       BuildingGoalsWithTimers:
         GoalsArray:
         - Type: 0

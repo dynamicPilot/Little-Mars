@@ -11,7 +11,6 @@ namespace LittleMars.Buildings
         readonly OperationManager _operation;
         readonly BuildingManager _manager;
         readonly SignalBus _signalBus;
-
         public BuildingController(OperationManager operation, BuildingManager manager, SignalBus signalBus)
         {
             _operation = operation;
@@ -22,7 +21,7 @@ namespace LittleMars.Buildings
         public void CallController(IBuildingFacade building)
         {
             if (building == null) return;
-            _signalBus.Fire(new BuildingControllerSignal { BuildingFacade = building });
+            _signalBus.Fire(new BuildingControllerOpenSignal { BuildingFacade = building });
         }
 
         public void TryChangeState(IBuildingFacade building)

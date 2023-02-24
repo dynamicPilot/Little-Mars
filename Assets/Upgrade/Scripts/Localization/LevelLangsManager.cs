@@ -1,4 +1,5 @@
 ﻿using LittleMars.Common;
+using LittleMars.Configs;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,27 +7,27 @@ using Zenject;
 
 namespace LittleMars.Localization
 {
-    public class LangsManager : IInitializable
-    {
-        readonly Langs _lang;
+    public class LevelLangsManager : IInitializable
+    {    
         readonly JsonConverter _jsonConverter;
         readonly SceneSettings _sceneSettings;
         readonly LevelSettings _levelSettings;
+        readonly Langs _lang;
 
         Dictionary<TagGroup, TextBlocks> _blocks;
-        public LangsManager(Langs lang, SceneSettings sceneSettings, LevelSettings levelSettings,
-            JsonConverter jsonConverter)
+        
+        public LevelLangsManager(SceneSettings sceneSettings, LevelSettings levelSettings,
+            JsonConverter jsonConverter, PlayerSettings playerSettings)
         {
-            _lang = lang;
             _sceneSettings = sceneSettings;
             _levelSettings = levelSettings;
             _jsonConverter = jsonConverter;
+            _lang = (Langs) playerSettings.Lang;
         }
 
         public void Initialize()
-        {
+        {            
             GetBlocks();
-            //TestForGetAllTexts();
         }
 
         public string GetText(string tag, TagGroup group)
@@ -49,23 +50,15 @@ namespace LittleMars.Localization
             return texts;
         }
 
-        private bool CheckBlockForGroup(TagGroup group)
+        bool CheckBlockForGroup(TagGroup group)
         {
-            if (_blocks == null)
-            {
-                //Debug.Log("Null blocks");
-                return false;
-            }
-            else if (!_blocks.ContainsKey(group))
-            {
-                //Debug.Log("No key");
-                return false;
-            }
+            if (_blocks == null) return false;
+            else if (!_blocks.ContainsKey(group)) return false;
 
             return true;
         }
 
-        private void TestForGetAllTexts()
+        void TestForGetAllTexts()
         {
             var result = GetAllTagTexts("goal", TagGroup.level);
 
@@ -77,7 +70,7 @@ namespace LittleMars.Localization
             }
         }
 
-        private void GetBlocks()
+        void GetBlocks()
         {
             _blocks = new Dictionary<TagGroup, TextBlocks>();
             _blocks.Add(TagGroup.scene, _jsonConverter.FromJsonTextAsset<TextBlocks>(_sceneSettings.Blocks));

@@ -50,14 +50,6 @@ namespace LittleMars.Installers
                 .WithGameObjectName("View");
         }
 
-
-        //private void InstallStates()
-        //{
-        //    Container.BindFactory<BuildingOnState, BuildingOnState.Factory>().FromFactory<BuildingOnStateFactory>();
-        //    Container.BindFactory<BuildingOffState, OffStateFactory>().FromFactory<BuildingOffStateFactory>();
-        //    Container.BindFactory<BuildingPausedState, PausedStateFactory>().FromFactory<BuildingPausedStateFactory>();
-        //}
-
         [Serializable]
         public class Settings
         {

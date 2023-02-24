@@ -14,10 +14,10 @@ namespace LittleMars.Localization
         [Header("Options")]
         [SerializeField] private bool _inInit = false;
 
-        LangsManager _manager;
+        LevelLangsManager _manager;
 
         [Inject]
-        public void Constructor(LangsManager manager)
+        public void Constructor(LevelLangsManager manager)
         {
            
             _manager = manager;

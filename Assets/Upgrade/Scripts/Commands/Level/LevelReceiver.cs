@@ -11,21 +11,29 @@ namespace LittleMars.Commands.Level
         readonly SignalBus _signalBus;
         readonly LevelSceneControl _sceneControl;
         readonly IPlayerState _playerState;
+
+        bool _isGameOver;
         public LevelReceiver(SignalBus signalBus, LevelSceneControl sceneControl,
             IPlayerState playerState)
         {
             _signalBus = signalBus;
             _sceneControl = sceneControl;
             _playerState = playerState;
-        }
 
+            _isGameOver = false;
+        }
         public override void Next()
         {
             // next level to player state
-            _playerState.ToNextLevel();
-            _sceneControl.NextSceneType(SceneType.level);
-            _signalBus.Fire<EndLevelSignal>();
+            _playerState.AutoNextLevel();
+
+            bool _hasNext = _playerState.CheckNextLevelAndGetCheck();
+            if (!_isGameOver) _playerState.SaveCurrentLevelAsCompleted(); // save if no game over
+
+            if (_hasNext) ToNextLevel();
+            else MainMenu();
         }
+
         public override void MainMenu()
         {
             _sceneControl.NextSceneType(SceneType.menu);
@@ -45,6 +53,19 @@ namespace LittleMars.Commands.Level
         public virtual void Start()
         {
             _signalBus.Fire<StartLevelSignal>();
+            _signalBus.Subscribe<GameOverSignal>(OnGameOver);
+        }
+        void ToNextLevel()
+        {
+            _playerState.ToNextLevel();
+            _sceneControl.NextSceneType(SceneType.level);
+            _signalBus.Fire<EndLevelSignal>();
+        }
+
+
+        void OnGameOver()
+        {
+            _isGameOver = true;
         }
     }
 }

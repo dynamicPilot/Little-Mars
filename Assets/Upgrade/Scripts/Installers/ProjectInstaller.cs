@@ -34,6 +34,7 @@ namespace LittleMars.Installers
         {
             // bind test player
             Container.Bind<IPlayerState>().To<MockPlayerState>().AsSingle();
+            //Container.BindInterfacesTo<PlayerState>();
             Container.Bind<PlayerSettings>().AsSingle();
         }
 
@@ -79,6 +80,7 @@ namespace LittleMars.Installers
             Container.DeclareSignal<NoConfigIsLoadedSignal>().OptionalSubscriber();
 
             Container.DeclareSignal<NeedSaveConfigSignal>();
+            Container.DeclareSignal<NeedSaveDataSignal>();
         }
     }
 }

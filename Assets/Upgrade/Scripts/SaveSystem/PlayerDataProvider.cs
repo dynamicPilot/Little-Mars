@@ -7,11 +7,21 @@ namespace LittleMars.SaveSystem
     {
         readonly IPlayerState _playerState;
 
-        public PlayerData GetData()
+        public PlayerDataProvider(IPlayerState playerState)
         {
-            if (_playerState == null) return null;
-            return FormData();
+            _playerState = playerState;
+        }
 
+        public bool GetData(out PlayerData data)
+        {
+            data = null;
+            if (_playerState == null) return false;
+            else if (!_playerState.NeedSave()) return false;
+            else
+            {
+                data = FormData();
+                return true;
+            }
         }
 
         public PlayerData GetEmptyData()
