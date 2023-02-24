@@ -1,5 +1,6 @@
-﻿using LittleMars.Common.Signals;
-using System;
+﻿using LittleMars.AudioSystems;
+using LittleMars.Common;
+using LittleMars.Common.Signals;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -18,9 +19,11 @@ namespace LittleMars.UI
         [SerializeField] private Button _rotateButton;
         [SerializeField] private Button _removeButton;
         [SerializeField] private GameObject _panel;
-
+        
+        AudioSystem _audioSystem;
         IPlacement _placement = null;
         SignalBus _signalBus;
+
         bool _isListenersSet = false;
 
         private void OnValidate()
@@ -29,10 +32,11 @@ namespace LittleMars.UI
         }
 
         [Inject]
-        public void Constructor(IPlacement placement, SignalBus signalBus)
+        public void Constructor(IPlacement placement, SignalBus signalBus, AudioSystem audioSystem)
         {
             _placement = placement;
             _signalBus = signalBus;
+            _audioSystem = audioSystem;
             _isListenersSet = false;
 
             Init();
@@ -45,10 +49,7 @@ namespace LittleMars.UI
 
         private void OnDestroy()
         {
-            _acceptButton.onClick.RemoveAllListeners();
-            _rotateButton.onClick.RemoveAllListeners();
-            _removeButton.onClick.RemoveAllListeners();
-
+            RemoveListeners();
             _signalBus.TryUnsubscribe<StartBuildingPlacementSignal>(Open);
         }
 
@@ -67,15 +68,38 @@ namespace LittleMars.UI
         {
             if (_isListenersSet || _placement == null) return;
 
-            _acceptButton.onClick.AddListener(_placement.Accept);
-            _acceptButton.onClick.AddListener(Close);
-
-            _rotateButton.onClick.AddListener(_placement.Rotate);
-
-            _removeButton.onClick.AddListener(_placement.Remove);
-            _removeButton.onClick.AddListener(Close);
+            _acceptButton.onClick.AddListener(Accept);
+            _rotateButton.onClick.AddListener(Rotate);
+            _removeButton.onClick.AddListener(Remove);
 
             _isListenersSet = true;
+        }
+
+        void Accept()
+        {
+            _placement.Accept();
+            _audioSystem.PlayUISound(UISoundType.clickFirst);
+            Close();
+        }
+
+        void Rotate()
+        {
+            _placement.Rotate();
+            _audioSystem.PlayUISound(UISoundType.clickThird);
+        }
+
+        void Remove()
+        {
+            _placement.Remove();
+            _audioSystem.PlayUISound(UISoundType.destroy);
+            Close();
+        }
+
+        void RemoveListeners()
+        {
+            _acceptButton.onClick.RemoveAllListeners();
+            _rotateButton.onClick.RemoveAllListeners();
+            _removeButton.onClick.RemoveAllListeners();
         }
     }
 }

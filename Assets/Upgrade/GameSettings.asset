@@ -44,3 +44,6 @@ MonoBehaviour:
   TextBlocks:
     Blocks:
       Blocks: {fileID: 4900000, guid: 7ad9f1dd6664038488682e7e23cbdd93, type: 3}
+  Sounds:
+    Sounds:
+      UISoundsSettings: {fileID: 11400000, guid: 48092047830a96d42bb54d916e68b6f1, type: 2}

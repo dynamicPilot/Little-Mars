@@ -173,5 +173,17 @@
         menu,
         level
     }
+
+    public enum UISoundType
+    {
+        clickFirst,
+        clickSecond,
+        clickThird,
+        drop,
+        destroy,
+        turnOn,
+        turnOff,
+        quit
+    }
 }
 

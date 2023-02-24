@@ -20,6 +20,7 @@ namespace LittleMars.Settings
         public TimeSettings Time;
         public CatalogueSettings Catalogue;
         public TextBlocksSettings TextBlocks;
+        
 
         [Serializable]
         public class ViewSettings
@@ -49,8 +50,6 @@ namespace LittleMars.Settings
         {
             public LevelLangsManager.SceneSettings Blocks;
         }
-
- 
 
         public override void InstallBindings()
         {

@@ -115,16 +115,15 @@ namespace LittleMars.Model
         {
             // check all goals
             var result = CheckTrackers();
-
-            if (result)
-                _signalBus.Fire<EndGameReachedSignal>();
-
             // rise achivement display is needed
-            if (!result && args.IsFirstDone)
+            if (args.IsFirstDone) //!result && 
             {
                 //Debug.Log("need Achivement Display for goal index " + args.Index);
                 OnAchivement(args.Index);
             }
+
+            if (result)
+                _signalBus.Fire<EndGameReachedSignal>();
         }
 
         private void OnGoalToLoseIsDone(GoalIsDoneSignal args)

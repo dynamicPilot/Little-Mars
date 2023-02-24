@@ -1,4 +1,5 @@
 using LittleMars.Animations;
+using LittleMars.AudioSystems;
 using LittleMars.Buildings;
 using LittleMars.CameraControls;
 using LittleMars.Commands;
@@ -64,6 +65,7 @@ namespace LittleMars.Installers
 
             InstallLocalizationSystem();
             InstallEffects();
+            InstallSounds();
 
             InstallBuildings();           
             InstallConnections();
@@ -175,6 +177,12 @@ namespace LittleMars.Installers
         {
             Container.BindInterfacesAndSelfTo<PeriodChangeEffectControl>().AsSingle();
             Container.BindInterfacesAndSelfTo<EndGameTweenKiller>().AsSingle();
+        }
+
+        void InstallSounds()
+        {
+            Container.Bind<SoundsCatalogue>().AsSingle();
+            Container.Bind<AudioSystem>().AsSingle();
         }
 
         private void InstallTrackers()
