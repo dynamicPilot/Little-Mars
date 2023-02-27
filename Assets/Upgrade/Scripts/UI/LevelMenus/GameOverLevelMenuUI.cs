@@ -1,4 +1,5 @@
-﻿using LittleMars.Common;
+﻿using LittleMars.AudioSystems;
+using LittleMars.Common;
 using LittleMars.Common.Signals;
 using LittleMars.LevelMenus;
 using LittleMars.UI.GoalDisplays;
@@ -27,9 +28,10 @@ namespace LittleMars.UI.LevelMenus
         }
 
         [Inject]
-        public void Constructor(GameOverLevelMenu levelMenu, SignalBus signalBus, Common.Levels.LevelInfo levelInfo)
+        public void Constructor(GameOverLevelMenu levelMenu, SignalBus signalBus, Common.Levels.LevelInfo levelInfo,
+            SoundsForGameMenuUI sounds)
         {
-            base.BaseConstructor(levelMenu, signalBus, levelInfo);
+            base.BaseConstructor(levelMenu, signalBus, levelInfo, sounds);
             _gameOverMenu = levelMenu;
         }
 
@@ -41,14 +43,13 @@ namespace LittleMars.UI.LevelMenus
         protected override void SetListeners()
         {
             base.SetListeners();
-            Debug.Log("Add next button");
+
             AddCommandToButtonListener(_nextButton, CommandType.next);
-            Debug.Log("Add restart button");
             AddCommandToButtonListener(_restartButton, CommandType.restart);
         }
 
 
-        private void OnGameOver(GameOverSignal args)
+        void OnGameOver(GameOverSignal args)
         {
             _signalBus.Unsubscribe<GameOverSignal>(OnGameOver);
 
@@ -59,12 +60,12 @@ namespace LittleMars.UI.LevelMenus
             Open();
         }
 
-        private IGoalDisplayStrategy GetStrategy(GameOverSignal args)
+        IGoalDisplayStrategy GetStrategy(GameOverSignal args)
         {
             return _gameOverMenu.GetStrategy(args.GoalIndex, args.IsStaff);
         }
 
-        private void SetGoalDisplays(IGoalDisplayStrategy strategy)
+        void SetGoalDisplays(IGoalDisplayStrategy strategy)
         {
             _displayUI.gameObject.SetActive(strategy != null);
 

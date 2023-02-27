@@ -1,4 +1,6 @@
-﻿using LittleMars.Common.Signals;
+﻿using LittleMars.AudioSystems;
+using LittleMars.Common.Catalogues;
+using LittleMars.Common.Signals;
 using LittleMars.SceneControls;
 using LittleMars.StartMenus;
 using Zenject;
@@ -15,6 +17,7 @@ namespace LittleMars.Installers
             InstallLangMenu();
             InstallExecutionOrder();
             InstallSignals();
+            InstallSounds();
         }
 
         void InstallLangMenu()
@@ -26,6 +29,12 @@ namespace LittleMars.Installers
         {
             Container.BindExecutionOrder<StartSceneControl>(-20);
             Container.BindExecutionOrder<StartManager>(-10);
+        }
+
+        void InstallSounds()
+        {
+            Container.Bind<SoundsCatalogue>().AsSingle();
+            Container.Bind<UISoundSystem>().AsSingle();
         }
 
         void InstallSignals()

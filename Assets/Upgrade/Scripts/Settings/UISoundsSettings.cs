@@ -15,6 +15,8 @@ namespace LittleMars.Settings
         [SerializeField] AudioClip _turnOn;
         [SerializeField] AudioClip _turnOff;
         [SerializeField] AudioClip _quit;
+        [SerializeField] AudioClip _zoomIn;
+        [SerializeField] AudioClip _zoomOut;
 
         Dictionary<int, AudioClip> _sounds = null;
 
@@ -29,6 +31,8 @@ namespace LittleMars.Settings
             _sounds.Add((int)UISoundType.turnOn, _turnOn);
             _sounds.Add((int)UISoundType.turnOff, _turnOff);
             _sounds.Add((int)UISoundType.quit, _quit);
+            _sounds.Add((int)UISoundType.zoomIn, _zoomIn);
+            _sounds.Add((int)UISoundType.zoomOut, _zoomOut);
         }
 
         public AudioClip GetSound(int index)

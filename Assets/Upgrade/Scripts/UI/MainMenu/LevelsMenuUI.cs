@@ -1,4 +1,6 @@
-﻿using LittleMars.MainMenus;
+﻿using LittleMars.AudioSystems;
+using LittleMars.Common;
+using LittleMars.MainMenus;
 using LittleMars.Settings;
 using System;
 using System.Collections.Generic;
@@ -20,6 +22,7 @@ namespace LittleMars.UI.MainMenu
         [SerializeField] Button _backButton;
 
         LevelsMenu _menu;
+        UISoundSystem _audioSystem;
         ISlotOnClick _onClick;
         LevelSettings[] _levels = null;
         List<bool> _isDoneLevels = null;
@@ -29,10 +32,11 @@ namespace LittleMars.UI.MainMenu
         int _slotsPerPage = 0;
 
         [Inject]
-        public void Constructor(LevelsMenu menu, ISlotOnClick onClick)
+        public void Constructor(LevelsMenu menu, ISlotOnClick onClick, UISoundSystem audioSystem)
         {
             _menu = menu;
             _onClick = onClick;
+            _audioSystem = audioSystem;
             Init();
         }
 
@@ -75,6 +79,7 @@ namespace LittleMars.UI.MainMenu
 
         protected override void Open()
         {
+            _audioSystem.PlayUISound(UISoundType.clickFirst);
             SetPage();
             base.Open();
         }
@@ -111,12 +116,14 @@ namespace LittleMars.UI.MainMenu
 
         void ToPrevPage()
         {
+            _audioSystem.PlayUISound(UISoundType.turnOff);
             _pageIndex--;
             SetNextPage();
         }
 
         void ToNextPage()
         {
+            _audioSystem.PlayUISound(UISoundType.turnOn);
             _pageIndex++;
             SetNextPage();
         }

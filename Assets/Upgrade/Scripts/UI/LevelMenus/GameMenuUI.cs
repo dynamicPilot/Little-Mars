@@ -1,4 +1,5 @@
-﻿using LittleMars.Common;
+﻿using LittleMars.AudioSystems;
+using LittleMars.Common;
 using LittleMars.LevelMenus;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,7 @@ namespace LittleMars.UI.LevelMenus
 {
     /// <summary>
     /// Menu UI with command manager support for buttons by GameMenu script.
-    /// Has no constructor -> set _gameMenu manually.
+    /// Has no constructor -> set _gameMenu and _sounds manually.
     /// </summary>
     public class GameMenuUI : MenuUI
     {
@@ -18,6 +19,7 @@ namespace LittleMars.UI.LevelMenus
 
         protected Dictionary<CommandType, Button> _buttons;
         protected GameMenu _gameMenu;
+        protected SoundsForGameMenuUI _sounds;
 
         protected override void Awake()
         {
@@ -50,6 +52,9 @@ namespace LittleMars.UI.LevelMenus
 
             //Debug.Log("Get command for type " + type + " command " + (command == null));
             button.onClick.AddListener(command.Execute);
+            
+            if (_sounds != null ) 
+                button.onClick.AddListener(delegate { _sounds.PlaySoundForCommandType(type); });
 
             //Debug.Log("add close? " + needClose);
             if (needClose) button.onClick.AddListener(Close);

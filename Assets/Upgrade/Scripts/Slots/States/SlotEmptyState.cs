@@ -42,7 +42,6 @@ namespace LittleMars.Slots.States
 
         public void OnDrop(BuildingObject buildingObject)
         {
-            //Debug.Log("Drop " + buildingObject.name);
             _facade.TryAddBuilding(buildingObject);
         }
 

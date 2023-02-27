@@ -1,5 +1,7 @@
-﻿using LittleMars.Commands;
+﻿using LittleMars.AudioSystems;
+using LittleMars.Commands;
 using LittleMars.Commands.MainMenu;
+using LittleMars.Common.Catalogues;
 using LittleMars.Common.Signals;
 using LittleMars.LevelMenus;
 using LittleMars.MainMenus;
@@ -15,6 +17,7 @@ namespace LittleMars.Installers
         {
             InstallMenu();
             InstallCommands();
+            InstallSounds();
             InstallSignals();
         }
 
@@ -31,6 +34,13 @@ namespace LittleMars.Installers
             Container.Bind<SceneCommandManager>().To<MainMenuCommandManager>().AsSingle();
             Container.Bind<GameMenu>().AsSingle();
             Container.BindInterfacesAndSelfTo<ToLevelCommand>().AsSingle();
+        }
+
+        void InstallSounds()
+        {
+            Container.Bind<SoundsCatalogue>().AsSingle();
+            Container.Bind<UISoundSystem>().AsSingle();
+            Container.Bind<SoundsForGameMenuUI>().AsSingle();
         }
 
         void InstallSignals()

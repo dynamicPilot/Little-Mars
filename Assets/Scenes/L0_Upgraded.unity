@@ -873,8 +873,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 111049072}
-  - component: {fileID: 111049075}
+  - component: {fileID: 111049076}
   - component: {fileID: 111049073}
+  - component: {fileID: 111049075}
   - component: {fileID: 111049074}
   m_Layer: 0
   m_Name: AudioSystem
@@ -928,12 +929,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _components:
   - {fileID: 111049073}
+  - {fileID: 111049076}
   - {fileID: 111049075}
   _identifier: 
   _useSceneContext: 1
   _context: {fileID: 0}
   _bindType: 0
 --- !u!114 &111049075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111049071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c845e45857d054542bb88877f6bd0cdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _source: {fileID: 1951097321}
+--- !u!114 &111049076
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1712,7 +1727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -4426,7 +4441,6 @@ GameObject:
   - component: {fileID: 618946020}
   - component: {fileID: 618946019}
   - component: {fileID: 618946021}
-  - component: {fileID: 618946022}
   m_Layer: 5
   m_Name: TimeIndicatorAndButton
   m_TagString: Untagged
@@ -4540,20 +4554,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &618946022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 618946017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77d623fbdb6e3334ab701e7d4fe4f276, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundType: 2
-  _systemUI: {fileID: 111049075}
 --- !u!1 &635853971
 GameObject:
   m_ObjectHideFlags: 0
@@ -7106,10 +7106,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a751b5deab9172d48a465c1462fe3707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _panel: {fileID: 490916838}
   _acceptButton: {fileID: 1761490788}
   _rotateButton: {fileID: 794127931868057400}
   _removeButton: {fileID: 971191884}
-  _panel: {fileID: 490916838}
 --- !u!114 &1062403501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7152,10 +7152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98677984e3de48e4186baa87ef2ba8f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _panel: {fileID: 1503721829}
   _initType: 1
   _openButton: {fileID: 1459361045}
   _closeButton: {fileID: 408482803}
-  _panel: {fileID: 1503721829}
 --- !u!114 &1062403504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10330,10 +10330,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2029061424}
     m_Modifications:
-    - target: {fileID: 1965927656370799378, guid: 8de43bed1b79e2d468741e47bacdb9f4, type: 3}
-      propertyPath: _systemUI
-      value: 
-      objectReference: {fileID: 111049075}
     - target: {fileID: 2865395808329478202, guid: 8de43bed1b79e2d468741e47bacdb9f4, type: 3}
       propertyPath: m_text
       value: ->
@@ -11715,10 +11711,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98677984e3de48e4186baa87ef2ba8f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _panel: {fileID: 110912257}
   _initType: 0
   _openButton: {fileID: 1279750395}
   _closeButton: {fileID: 1078679958}
-  _panel: {fileID: 110912257}
 --- !u!1001 &1579233440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13208,7 +13204,6 @@ GameObject:
   - component: {fileID: 1739911880}
   - component: {fileID: 1739911879}
   - component: {fileID: 1739911878}
-  - component: {fileID: 1739911881}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -13320,20 +13315,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739911876}
   m_CullTransparentMesh: 1
---- !u!114 &1739911881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1739911876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77d623fbdb6e3334ab701e7d4fe4f276, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundType: 0
-  _systemUI: {fileID: 111049075}
 --- !u!1 &1756872946
 GameObject:
   m_ObjectHideFlags: 0
@@ -19553,10 +19534,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2029061424}
     m_Modifications:
-    - target: {fileID: 1965927656370799378, guid: 8de43bed1b79e2d468741e47bacdb9f4, type: 3}
-      propertyPath: _systemUI
-      value: 
-      objectReference: {fileID: 111049075}
     - target: {fileID: 4774188110206638472, guid: 8de43bed1b79e2d468741e47bacdb9f4, type: 3}
       propertyPath: m_Name
       value: OpenBalanceMenuButton

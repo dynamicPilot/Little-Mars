@@ -1,4 +1,6 @@
+using LittleMars.AudioSystems;
 using LittleMars.Common;
+using LittleMars.Common.Signals;
 using LittleMars.Slots;
 using System;
 using UnityEngine;
@@ -18,25 +20,25 @@ namespace LittleMars.UI.BuildingSlots
         [SerializeField] private RectTransform _rectTransform;
         [SerializeField] private Image _image;
 
+        SignalBus _signalBus;
+        BuildingObject _buildingObject;
+        UISoundSystem _audioSystem;
         Vector2 _initialLocalObjectPosition;
         Vector2 _initialLocalPointerPosition;
-        BuildingObject _buildingObject;
-
-        //private void OnValidate()
-        //{
-        //    _image.maskable = true;
-        //}
 
         [Inject]
-        public void Constructor(GameUI gameUI, BuildingObject buildingObject)
+        public void Constructor(GameUI gameUI, BuildingObject buildingObject, 
+            SignalBus signalBus, UISoundSystem audioSystem)
         {
             _canvas = gameUI.MainCanvas;
             _buildingObject = buildingObject;
+            _signalBus = signalBus;
+            _audioSystem = audioSystem;
+
         }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            //Debug.Log("OnStartDrag");
             _initialLocalObjectPosition = _rectTransform.localPosition;
 
             // set local pointer position to word position
@@ -45,11 +47,11 @@ namespace LittleMars.UI.BuildingSlots
 
             _canvasGroup.blocksRaycasts = false;
             _image.maskable = false;
+            OnStartDrag();
         }
 
         public void OnDrag(PointerEventData eventData)
         {
-            //Debug.Log("OntDrag");
             Vector2 localPointerPosition;
             if (RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvas,
                 eventData.position, eventData.pressEventCamera, out localPointerPosition))
@@ -58,20 +60,18 @@ namespace LittleMars.UI.BuildingSlots
 
                 _rectTransform.localPosition = _initialLocalObjectPosition + offsetToOriginal;
             }
-
-            //RaycastAndGetTarget(eventData.position);
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            //Debug.Log("OnEndDrag");
             RaycastAndGetTarget(eventData.position);
             _rectTransform.localPosition = _initialLocalObjectPosition;
             _canvasGroup.blocksRaycasts = true;
             _image.maskable = true;
+            OnEndDrag();
         }
 
-        private void RaycastAndGetTarget(Vector2 pointerPosition)
+        void RaycastAndGetTarget(Vector2 pointerPosition)
         {
             Vector2 worldPosition = Camera.main.ScreenToWorldPoint(pointerPosition);
             RaycastHit2D hit2D = Physics2D.Raycast(worldPosition, Vector2.zero);
@@ -83,5 +83,17 @@ namespace LittleMars.UI.BuildingSlots
                 hit2D.collider.gameObject.GetComponent<IDropTarget>().OnDrop(_buildingObject);
             }
         }
+
+        void OnStartDrag()
+        {
+            _audioSystem.PlayUISound(UISoundType.zoomIn);
+            _signalBus.Fire<BeginBuildingDragSignal>();
+        }
+
+        void OnEndDrag()
+        {
+            _audioSystem.PlayUISound(UISoundType.drop);
+        }
+
     }
 }

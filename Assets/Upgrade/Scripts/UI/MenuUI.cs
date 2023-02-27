@@ -7,7 +7,7 @@ namespace LittleMars.UI
     /// </summary>
     public class MenuUI : MonoBehaviour
     {
-        [SerializeField] private GameObject _panel;
+        [SerializeField] protected GameObject _panel;
 
         protected bool _isOpen;
 

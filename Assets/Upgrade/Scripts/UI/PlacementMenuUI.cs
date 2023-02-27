@@ -12,15 +12,15 @@ namespace LittleMars.UI
         void Rotate();
         void Accept();
         void Remove();
+        void OnBeginDrag();
     }
-    public class PlacementMenuUI : MonoBehaviour
+    public class PlacementMenuUI : MenuUI
     {
         [SerializeField] private Button _acceptButton;
         [SerializeField] private Button _rotateButton;
         [SerializeField] private Button _removeButton;
-        [SerializeField] private GameObject _panel;
-        
-        AudioSystem _audioSystem;
+
+        UISoundSystem _audioSystem;
         IPlacement _placement = null;
         SignalBus _signalBus;
 
@@ -32,7 +32,7 @@ namespace LittleMars.UI
         }
 
         [Inject]
-        public void Constructor(IPlacement placement, SignalBus signalBus, AudioSystem audioSystem)
+        public void Constructor(IPlacement placement, SignalBus signalBus, UISoundSystem audioSystem)
         {
             _placement = placement;
             _signalBus = signalBus;
@@ -44,27 +44,24 @@ namespace LittleMars.UI
 
         private void Init()
         {
-            _signalBus.Subscribe<StartBuildingPlacementSignal>(Open);
+            _signalBus.Subscribe<StartBuildingPlacementSignal>(OnOpen);
+            _signalBus.Subscribe<BeginBuildingDragSignal>(OnBeginDrag);
         }
 
         private void OnDestroy()
         {
             RemoveListeners();
-            _signalBus.TryUnsubscribe<StartBuildingPlacementSignal>(Open);
+            _signalBus.TryUnsubscribe<StartBuildingPlacementSignal>(OnOpen);
+            _signalBus.TryUnsubscribe<BeginBuildingDragSignal>(OnBeginDrag);
         }
 
-        public void Open()
+        public void OnOpen()
         {
             if (!_isListenersSet) SetListeners();
-            _panel.SetActive(true);
+            Open();
         }
 
-        private void Close()
-        {
-            _panel.SetActive(false);
-        }
-
-        private void SetListeners()
+        void SetListeners()
         {
             if (_isListenersSet || _placement == null) return;
 
@@ -74,9 +71,16 @@ namespace LittleMars.UI
 
             _isListenersSet = true;
         }
+        void RemoveListeners()
+        {
+            _acceptButton.onClick.RemoveAllListeners();
+            _rotateButton.onClick.RemoveAllListeners();
+            _removeButton.onClick.RemoveAllListeners();
+        }
 
         void Accept()
         {
+            Debug.Log("Accept");
             _placement.Accept();
             _audioSystem.PlayUISound(UISoundType.clickFirst);
             Close();
@@ -95,11 +99,10 @@ namespace LittleMars.UI
             Close();
         }
 
-        void RemoveListeners()
+        void OnBeginDrag()
         {
-            _acceptButton.onClick.RemoveAllListeners();
-            _rotateButton.onClick.RemoveAllListeners();
-            _removeButton.onClick.RemoveAllListeners();
+            _placement.OnBeginDrag();
+            if (_isOpen) Close();
         }
     }
 }

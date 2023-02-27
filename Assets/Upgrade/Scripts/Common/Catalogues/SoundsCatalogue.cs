@@ -18,10 +18,16 @@ namespace LittleMars.Common.Catalogues
             return _settings.UISoundsSettings.GetSound(typeIndex);
         }
 
+        public AudioClip GetNotSound(int typeIndex)
+        {
+            return _settings.NotSoundsSettings.GetSound(typeIndex);
+        }
+
         [Serializable]
         public class Settings
         {
             public UISoundsSettings UISoundsSettings;
+            public NotSoundSettings NotSoundsSettings;
         }
     }
 }

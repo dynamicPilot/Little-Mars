@@ -15,6 +15,7 @@ MonoBehaviour:
   Sounds:
     Sounds:
       UISoundsSettings: {fileID: 11400000, guid: 48092047830a96d42bb54d916e68b6f1, type: 2}
+      NotSoundsSettings: {fileID: 11400000, guid: 12043ddc9283cb94389431c83b219a86, type: 2}
   System:
     System:
       MusicGroup:

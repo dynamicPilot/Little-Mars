@@ -9,11 +9,14 @@ using LittleMars.SaveSystem;
 using LittleMars.Localization;
 using LittleMars.Configs;
 using LittleMars.Common.Signals;
+using LittleMars.Radios;
+using System;
 
 namespace LittleMars.Installers
 {
     public class ProjectInstaller : MonoInstaller<ProjectInstaller>
     {
+        [Inject] Settings _settings;
         public override void InstallBindings()
         {
             Debug.Log("Install buidings");
@@ -27,6 +30,7 @@ namespace LittleMars.Installers
             InstallCommands();
             InstallSaveSystem();
             InstallConfigSystem();
+            InstallSounds();
             InstallSignals();
         }
 
@@ -70,6 +74,14 @@ namespace LittleMars.Installers
 
         }
 
+        void InstallSounds()
+        {
+            Container.BindInterfacesAndSelfTo<RadioSystem>().AsSingle();
+            Container.BindFactory<RadioUI, RadioUI.Factory>()
+                .FromComponentInNewPrefab(_settings.RadioUI)
+                .WhenInjectedInto<RadioSystem>();
+        }
+
         void InstallSignals()
         {
             SignalBusInstaller.Install(Container);
@@ -81,6 +93,12 @@ namespace LittleMars.Installers
 
             Container.DeclareSignal<NeedSaveConfigSignal>();
             Container.DeclareSignal<NeedSaveDataSignal>();
+        }
+
+        [Serializable]
+        public class Settings
+        {
+            public GameObject RadioUI;
         }
     }
 }

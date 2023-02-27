@@ -1,4 +1,5 @@
-﻿using LittleMars.Buildings;
+﻿using LittleMars.AudioSystems;
+using LittleMars.Buildings;
 using LittleMars.Common;
 using LittleMars.Common.Interfaces;
 using LittleMars.Common.Signals;
@@ -20,18 +21,19 @@ namespace LittleMars.UI
         [SerializeField] ButtonWithStateView _dayStateButton;
         [SerializeField] ButtonWithStateView _nightStateButton;
 
-        //IBuilding _building = null;
         IBuildingFacade _building = null;
         BuildingController _controller;
         SignalBus _signalBus;
+        UISoundSystem _audioSystem;
 
         bool _isListenersSet = false;
 
         [Inject]
-        public void Constructor(BuildingController controller, SignalBus signalBus)
+        public void Constructor(BuildingController controller, SignalBus signalBus, UISoundSystem audioSystem)
         {
             _controller = controller;
             _signalBus = signalBus;
+            _audioSystem = audioSystem;
 
             Init();
         }
@@ -54,8 +56,7 @@ namespace LittleMars.UI
             _dayStateButton.Button.onClick.AddListener(delegate { ChangeTimetable(Period.day); });
             _nightStateButton.Button.onClick.AddListener(delegate { ChangeTimetable(Period.night); });
 
-            _removeButton.onClick.AddListener(delegate { _controller.Remove(_building); });
-            _removeButton.onClick.AddListener(Close);
+            _removeButton.onClick.AddListener(Remove);
         }
 
         private void RemoveListeners()
@@ -90,6 +91,11 @@ namespace LittleMars.UI
             _signalBus.Subscribe<BuildingStateChangedSignal>(OnBuildingStateChanged);
         }
 
+        public void CloseMenu()
+        {
+            Close();
+        }
+
         protected override void Close()
         {
             base.Close();
@@ -104,36 +110,44 @@ namespace LittleMars.UI
             _nightStateButton.SetState(_building.StateForPeriod(Period.night));
         }
 
-        private void TryChangeState()
+        void TryChangeState()
         {
             _controller.TryChangeState(_building);
-            _stateButton.ChangeStateToOpposite();
+            var state = _stateButton.ChangeStateToOpposite();
+            PlayTurnOnOffSound(state);
         }
 
-        private void ChangeTimetable(Period period)
+        void PlayTurnOnOffSound(States state)
+        {
+            if (state == States.on) _audioSystem.PlayUISound(UISoundType.turnOn);
+            else _audioSystem.PlayUISound(UISoundType.turnOff);
+        }
+
+        void ChangeTimetable(Period period)
         {
             _controller.ChangeTimetable(_building, Period.day);
             if (period == Period.day) _dayStateButton.ChangeStateToOpposite();
             else _nightStateButton.ChangeStateToOpposite();
+            _audioSystem.PlayUISound(UISoundType.clickFirst);
         }
 
-        private void OnStateChangedUpdate()
+        void Remove()
+        {
+            _audioSystem.PlayUISound(UISoundType.destroy);
+            _controller.Remove(_building);
+            Close();
+        }
+
+        void OnStateChangedUpdate()
         {
             _stateButton.SetState(_building.State());
         }
 
-        private void OnBuildingStateChanged(BuildingStateChangedSignal arg)
+        void OnBuildingStateChanged(BuildingStateChangedSignal arg)
         {
             if (arg.BuildingFacade != _building)
                 return;
             OnStateChangedUpdate();
         }
-
-
-        public void CloseMenu()
-        {
-            Close();
-        }
-
     }
 }

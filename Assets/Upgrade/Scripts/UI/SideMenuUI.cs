@@ -1,4 +1,5 @@
-﻿using LittleMars.Common;
+﻿using LittleMars.AudioSystems;
+using LittleMars.Common;
 using LittleMars.Common.Signals;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,54 +7,53 @@ using Zenject;
 
 namespace LittleMars.UI
 {
-    public class SideMenuUI : MonoBehaviour
+    public class SideMenuUI : MenuUI
     {
         [SerializeField] private MenuInitType _initType;
         [SerializeField] private Button _openButton;
         [SerializeField] private Button _closeButton;
-        [SerializeField] private GameObject _panel;
 
         SignalBus _signalBus;
-        bool _isOpened = false;
+        UISoundSystem _audioSystem;
         bool _isInit = false;
         private void Start()
         {
-            _isOpened = false;
-
-            _openButton.onClick.AddListener(Open);
-            _closeButton.onClick.AddListener(Close);
+            _openButton.onClick.AddListener(OnOpen);
+            _closeButton.onClick.AddListener(OnClose);
         }
 
         private void OnDestroy()
         {
-            _openButton.onClick.RemoveListener(Open);
-            _closeButton.onClick.RemoveListener(Close);
+            _openButton.onClick.RemoveListener(OnOpen);
+            _closeButton.onClick.RemoveListener(OnClose);
         }
 
         [Inject]
-        public void Constructor(SignalBus signalBus)
+        public void Constructor(SignalBus signalBus, UISoundSystem audioSystem)
         {
             _signalBus = signalBus;
+            _audioSystem = audioSystem;
             _isInit = false;
         }
 
-        private void Open()
+        void OnOpen()
         {
-            if (_isOpened) return;
+            _audioSystem.PlayUISound(UISoundType.clickThird);
+
+            if (_isOpen) return;
 
             InitMenu();
             SetOpenButtonState(false);
-            _isOpened = true;
-            _panel.SetActive(true);
+            Open();
         }
 
-        private void Close()
+        void OnClose()
         {
-            if (!_isOpened) return;
+            _audioSystem.PlayUISound(UISoundType.quit);
 
-            _isOpened = false;
+            if (!_isOpen) return;
             SetOpenButtonState(true);
-            _panel.SetActive(false);
+            Close();
         }
 
         private void InitMenu()
@@ -67,7 +67,7 @@ namespace LittleMars.UI
             });
         }
 
-        private void SetOpenButtonState(bool state)
+        void SetOpenButtonState(bool state)
         {
             _openButton.gameObject.SetActive(state);
         }

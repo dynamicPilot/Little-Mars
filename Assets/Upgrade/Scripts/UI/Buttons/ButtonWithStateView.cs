@@ -17,11 +17,12 @@ namespace LittleMars.UI.Buttons
             UpdateView();
         }
 
-        public void ChangeStateToOpposite()
+        public States ChangeStateToOpposite()
         {
             _state = (_state == States.on) ? States.off :
                 States.on;
             UpdateView();
+            return _state;
         }
 
         private void UpdateView()

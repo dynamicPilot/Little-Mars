@@ -20,3 +20,5 @@ MonoBehaviour:
   _turnOn: {fileID: 8300000, guid: 62ab2a02150d62c479c409cf9f0bef3a, type: 3}
   _turnOff: {fileID: 8300000, guid: 6735b112dac8ac24190582bcc4222e43, type: 3}
   _quit: {fileID: 8300000, guid: f919b1d9cf72d3e4f8ad9861990d5e8e, type: 3}
+  _zoomIn: {fileID: 8300000, guid: afe9089ca97bd5040b85c6334a619462, type: 3}
+  _zoomOut: {fileID: 8300000, guid: 9fdadbdd2f511724fa52bb9bf81b97ef, type: 3}

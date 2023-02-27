@@ -1,4 +1,5 @@
-﻿using LittleMars.Common;
+﻿using LittleMars.AudioSystems;
+using LittleMars.Common;
 using LittleMars.UI.LevelMenus;
 using TMPro;
 using UnityEngine;
@@ -24,10 +25,11 @@ namespace LittleMars.UI.GoalTextMenu
         }
 
         [Inject]
-        public void Constructor(GoalTextLevelMenu levelMenu)
+        public void Constructor(GoalTextLevelMenu levelMenu, SoundsForGameMenuUI sounds)
         {
             _gameMenu = levelMenu;
             _goalTextMenu = levelMenu;
+            _sounds = sounds;
 
             Init();
         }
@@ -51,12 +53,14 @@ namespace LittleMars.UI.GoalTextMenu
         protected override void Close()
         {
             base.Close();
+            _sounds.PlaySoundForCommandType(CommandType.quit);
             _openButton.interactable = true;
         }
 
-        private void OnOpenButtonClicked()
+        void OnOpenButtonClicked()
         {
             _openButton.interactable = false;
+            _sounds.PlaySoundForCommandType(CommandType.empty);
             if (!_isTextSet) SetGoalTexts();
             Open();
         }

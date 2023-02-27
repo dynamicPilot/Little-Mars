@@ -1,4 +1,5 @@
-﻿using LittleMars.Common.Signals;
+﻿using LittleMars.AudioSystems;
+using LittleMars.Common.Signals;
 using LittleMars.StartMenus;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,13 +13,15 @@ namespace LittleMars.UI.StartMenus
         [SerializeField] CarrouselPanelUI _carrouselUI;
 
         SignalBus _signalBus;
+        UISoundSystem _audioSystem;
         LangMenu _menu;
 
         [Inject]
-        public void Constructor(SignalBus signalBus, LangMenu menu)
+        public void Constructor(SignalBus signalBus, LangMenu menu, UISoundSystem audioSystem)
         {
             _signalBus = signalBus;
             _menu = menu;
+            _audioSystem = audioSystem;
             Init();
         }
 
@@ -38,7 +41,6 @@ namespace LittleMars.UI.StartMenus
             _signalBus?.TryUnsubscribe<NoConfigIsLoadedSignal>(OnNoConfigIsLoaded);
         }
 
-
         void OnNoConfigIsLoaded(NoConfigIsLoadedSignal args)
         {
             if (_isOpen) return;
@@ -57,6 +59,7 @@ namespace LittleMars.UI.StartMenus
         {
             base.Close();
 
+            _audioSystem.PlayUISound(Common.UISoundType.clickThird);
             var index = _carrouselUI.GetIndex();
             _menu.SetLangIndex(index);
             _menu.Close();

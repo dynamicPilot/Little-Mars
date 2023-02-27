@@ -48,7 +48,7 @@ namespace LittleMars.UI.BuildingSlots
         public void OnRemoveBuildingFromMap(RemoveBuildingSignal args)
         {
             // update amount -> more
-            Debug.Log("Remove building");
+            //Debug.Log("Remove building");
             var info = args.BuildingFacade.Info();
             OnAmountChanged(info.Type, info.Size, States.on);
         }
@@ -57,7 +57,7 @@ namespace LittleMars.UI.BuildingSlots
         {
             if (_amounts == null) FillAmounts();
             bool needSlotChange = UpdateAmount(type, size, state);
-            Debug.Log("OnAmountChange: need update? " + needSlotChange);
+            //Debug.Log("OnAmountChange: need update? " + needSlotChange);
             if (needSlotChange) ChangeSlotState(type, size, state);                
         }
 

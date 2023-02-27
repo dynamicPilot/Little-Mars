@@ -1,16 +1,11 @@
-﻿using LittleMars.Buildings;
-using LittleMars.Common.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LittleMars.Common.Interfaces;
 
 namespace LittleMars.Common.Signals
 {
     public struct MapSlotsAreReadySignal { }
 
     public struct StartBuildingPlacementSignal { }
+    public struct BeginBuildingDragSignal{ }
 
     public struct BuildingControllerOpenSignal
     {

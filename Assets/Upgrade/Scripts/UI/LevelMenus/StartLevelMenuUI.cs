@@ -1,4 +1,5 @@
-﻿using LittleMars.Common;
+﻿using LittleMars.AudioSystems;
+using LittleMars.Common;
 using LittleMars.Common.Signals;
 using LittleMars.LevelMenus;
 using LittleMars.UI.GoalDisplays;
@@ -16,6 +17,7 @@ namespace LittleMars.UI.LevelMenus
         [Header("Goals Display Slot")]
         [SerializeField] private GoalDisplayUI[] _displayUIs;
 
+
         protected override void Awake()
         {
             base.Awake();
@@ -23,9 +25,10 @@ namespace LittleMars.UI.LevelMenus
         }
 
         [Inject]
-        public void Constructor(LevelMenu levelMenu, SignalBus signalBus, Common.Levels.LevelInfo levelInfo)
+        public void Constructor(LevelMenu levelMenu, SignalBus signalBus, Common.Levels.LevelInfo levelInfo,
+            SoundsForGameMenuUI sounds)
         {
-            base.BaseConstructor(levelMenu, signalBus, levelInfo);
+            base.BaseConstructor(levelMenu, signalBus, levelInfo, sounds);
         }
 
         protected override void Init()

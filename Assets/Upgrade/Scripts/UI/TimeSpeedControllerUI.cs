@@ -1,4 +1,5 @@
-﻿using LittleMars.Common.Signals;
+﻿using LittleMars.AudioSystems;
+using LittleMars.Common.Signals;
 using LittleMars.Model.TimeUpdate;
 using LittleMars.UI.Buttons;
 using UnityEngine;
@@ -14,12 +15,14 @@ namespace LittleMars.UI
         
         SignalBus _signalBus;
         TimeSpeedManager _controller;
+        UISoundSystem _audioSystem;
 
         [Inject]
-        public void Constructor(SignalBus signalBus, TimeSpeedManager manager)
+        public void Constructor(SignalBus signalBus, TimeSpeedManager manager, UISoundSystem audioSystem)
         {
             _controller = manager;
             _signalBus = signalBus;
+            _audioSystem = audioSystem;
 
             Init();
         }
@@ -36,12 +39,13 @@ namespace LittleMars.UI
             _button.onClick.RemoveAllListeners();
         }
 
-        private void ChangeSpeed()
+        void ChangeSpeed()
         {
+            _audioSystem.PlayUISound(Common.UISoundType.clickThird);
             _controller.ChangeSpeed();
         }
 
-        private void OnTimeSpeedChanged()
+        void OnTimeSpeedChanged()
         {
             int index = _controller.GetSpeed();
             _button.interactable = (index != 0);

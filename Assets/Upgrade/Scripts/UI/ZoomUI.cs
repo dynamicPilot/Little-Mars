@@ -1,4 +1,6 @@
-﻿using LittleMars.Controllers;
+﻿using LittleMars.AudioSystems;
+using LittleMars.Common;
+using LittleMars.Controllers;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -11,11 +13,12 @@ namespace LittleMars.UI
         [SerializeField] Button _farButton;
 
         ZoomControl _zoomControl;
-
+        UISoundSystem _audioSystem;
         [Inject]
-        public void Constructor(ZoomControl zoomControl)
+        public void Constructor(ZoomControl zoomControl, UISoundSystem audioSystem)
         {
             _zoomControl = zoomControl;
+            _audioSystem = audioSystem;
         }
 
         private void OnEnable() => SetListeners();
@@ -24,8 +27,20 @@ namespace LittleMars.UI
 
         void SetListeners()
         {
-            _closerButton.onClick.AddListener(_zoomControl.ZoomIn);
-            _farButton.onClick.AddListener(_zoomControl.ZoomOut);
+            _closerButton.onClick.AddListener(ZoomIn);
+            _farButton.onClick.AddListener(ZoomOut);
+        }
+
+        void ZoomIn()
+        {
+            _audioSystem.PlayUISound(UISoundType.zoomIn);
+            _zoomControl.ZoomIn();
+        }
+
+        void ZoomOut()
+        {
+            _audioSystem.PlayUISound(UISoundType.zoomOut);
+            _zoomControl.ZoomOut();
         }
 
         void RemoveListeners()

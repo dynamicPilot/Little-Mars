@@ -7,7 +7,6 @@ namespace LittleMars.UI.AudioSystems
     {
         [SerializeField] ElementSoundSourceControl _sourceUIControl;
 
-
         public void PlayUISound(UISoundType type)
         {
             _sourceUIControl.PlaySound((int)type);

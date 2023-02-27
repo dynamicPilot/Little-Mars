@@ -1,4 +1,6 @@
-﻿using LittleMars.Common.Signals;
+﻿using LittleMars.AudioSystems;
+using LittleMars.Common;
+using LittleMars.Common.Signals;
 using LittleMars.UI.GoalDisplays;
 using LittleMars.UI.LevelMenus;
 using UnityEngine;
@@ -14,11 +16,14 @@ namespace LittleMars.UI.Achievements
         AchievementDisplayLevelMenu _achievementMenu;
 
         [Inject]
-        public void Constructor(SignalBus signalBus, AchievementDisplayLevelMenu achievementMenu)
+        public void Constructor(SignalBus signalBus, AchievementDisplayLevelMenu achievementMenu,
+            SoundsForGameMenuUI sounds)
         {
             _signalBus = signalBus;
             _achievementMenu = achievementMenu;
             _gameMenu = achievementMenu;
+            _sounds = sounds;
+
             _isOpen = false;
 
             Init();
@@ -36,7 +41,7 @@ namespace LittleMars.UI.Achievements
             _signalBus?.TryUnsubscribe<CallAchivementMenuSignal>(OnCallAchivementMenu);
         }
 
-        private void OnCallAchivementMenu(CallAchivementMenuSignal args)
+        void OnCallAchivementMenu(CallAchivementMenuSignal args)
         {
             if (_isOpen) return;
 
@@ -44,7 +49,7 @@ namespace LittleMars.UI.Achievements
             else Close();
         }
 
-        private bool CheckStrategy(int index)
+        bool CheckStrategy(int index)
         {
             Debug.Log("Check Strategy " + index);
             var strategy = _achievementMenu.GetDisplayStrategy(index);
@@ -58,7 +63,7 @@ namespace LittleMars.UI.Achievements
             }           
         }
 
-        private void UpdateGoalDisplay(IGoalDisplayStrategy strategy)
+        void UpdateGoalDisplay(IGoalDisplayStrategy strategy)
         {
             _displayUI.SetSlot(strategy);
         }

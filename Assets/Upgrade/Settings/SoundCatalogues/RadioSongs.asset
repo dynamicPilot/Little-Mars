@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea55444ee49d2f24a8ab56bc3509fcaa, type: 3}
+  m_Name: RadioSongs
+  m_EditorClassIdentifier: 
+  Songs:
+  - {fileID: 8300000, guid: 47d6a090658416b46b717b7949865319, type: 3}
+  - {fileID: 8300000, guid: 514591f0028b62540bbfd6dde6f6ac1a, type: 3}
+  - {fileID: 8300000, guid: 26c17a52d54a1084da96eba91838f6a9, type: 3}

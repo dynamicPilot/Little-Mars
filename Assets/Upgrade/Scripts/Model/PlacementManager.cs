@@ -37,6 +37,8 @@ namespace LittleMars.Model
             _checkFactory = checkFactory;
             _factory = factory;
             _signalBus = signalBus;
+
+            _placingBuilding = null;
         }
 
         public void StartPlacement(BuildingObject buildingObject, 
@@ -93,10 +95,6 @@ namespace LittleMars.Model
 
         public void Accept()
         {
-            //_viewSlotManager.AddBuildingToSlots(_placingBuilding.SlotIndexes, _placingBuilding.Type);
-            // map manager -> add building to slots
-            //_mapManager.AddBuildingToSlots(_placingBuilding.SlotIndexes, _placingBuilding.Type);
-            // building manager -> add building
             _buildingManager.AddBuilding(_placingBuilding);
             EndPlacement();
         }
@@ -107,13 +105,19 @@ namespace LittleMars.Model
             EndPlacement();
         }
 
-        private void EndPlacement()
+        public void OnBeginDrag()
+        {
+            if (_placingBuilding == null) return;
+            Remove();
+        }
+
+        void EndPlacement()
         {
             _placingBuilding = null;
             _check.Dispose();
         }
 
-        private void NewCheck(BuildingObject buildingObject)
+        void NewCheck(BuildingObject buildingObject)
         {
             if (_check != null) _check.Dispose();
             _check = _checkFactory.Create(buildingObject);

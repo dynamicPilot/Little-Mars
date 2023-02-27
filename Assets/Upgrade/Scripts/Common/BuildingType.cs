@@ -183,7 +183,18 @@
         destroy,
         turnOn,
         turnOff,
-        quit
+        quit,
+        zoomIn,
+        zoomOut
+    }
+
+    public enum NotSoundType
+    {
+        start,
+        end,
+        gameOver,
+        canNotDo,
+        achievement
     }
 }
 

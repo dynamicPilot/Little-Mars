@@ -1,4 +1,5 @@
-﻿using LittleMars.Common;
+﻿using LittleMars.AudioSystems;
+using LittleMars.Common;
 using LittleMars.UI.Effects;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,26 +7,24 @@ using Zenject;
 
 namespace LittleMars.UI.BuildingsSlots
 {
-
-
-
-
     public class ResourcesScreenController : IInitializable
     {
         readonly ResourceListFactory _listFactory;
         readonly BuildingSlotGameUI _gameUI;
         readonly BuildingObject _building;
+        readonly UISoundSystem _audioSystem;
 
         List<ListScreenEffectUI> _screens;
         List<bool> _slotIsReady;
         ScreenType _screenType;
 
         public ResourcesScreenController(ResourceListFactory listFactory, 
-            BuildingSlotGameUI gameUI, BuildingObject building)
+            BuildingSlotGameUI gameUI, BuildingObject building, UISoundSystem audioSystem)
         {
             _listFactory = listFactory;
             _gameUI = gameUI;
             _building = building;
+            _audioSystem = audioSystem;
 
             _screens = new List<ListScreenEffectUI>();
             _slotIsReady = new List<bool>();
@@ -42,10 +41,11 @@ namespace LittleMars.UI.BuildingsSlots
         public void ToNextScreen()
         {
             var index = ((int)_screenType + 1) % 3;
+            _audioSystem.PlayUISound(UISoundType.clickFirst);
             TranslateToScreen((ScreenType) index);
         }
 
-        private void TranslateToScreen(ScreenType type)
+        void TranslateToScreen(ScreenType type)
         {
             if (_screenType == type) return;
 
@@ -62,24 +62,24 @@ namespace LittleMars.UI.BuildingsSlots
             else ChangeScreen(type);
         }
 
-        private void ChangeScreen(ScreenType type)
+        void ChangeScreen(ScreenType type)
         {
             CloseScreen();
             _screenType = type;
             OpenScreen();
         }
 
-        private void OpenScreen()
+        void OpenScreen()
         {
             _screens[(int)_screenType].gameObject.SetActive(true);
         }
 
-        private void CloseScreen()
+        void CloseScreen()
         {
             _screens[(int)_screenType].gameObject.SetActive(false);
         }
 
-        private void CreateSlotsForScreen(ScreenType type)
+        void CreateSlotsForScreen(ScreenType type)
         {
             if (type == ScreenType.buildingCost)
             {
@@ -102,7 +102,7 @@ namespace LittleMars.UI.BuildingsSlots
             }
         }
 
-        private bool CreateSlots(ListScreenEffectUI screenUI, ResourceUnit<float>[] resources, string prefix)
+        bool CreateSlots(ListScreenEffectUI screenUI, ResourceUnit<float>[] resources, string prefix)
         {
             var rect = screenUI.GetComponent<RectTransform>();
             if (rect == null) return false;
@@ -116,7 +116,7 @@ namespace LittleMars.UI.BuildingsSlots
             return true;
         }
 
-        private void PrepareLists()
+        void PrepareLists()
         {
             _screens.Add(_gameUI.BuildingCostSlotParent);
             _screens.Add(_gameUI.ProductionCostSlotParent);

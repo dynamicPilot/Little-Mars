@@ -1,4 +1,5 @@
-﻿using LittleMars.Common;
+﻿using LittleMars.AudioSystems;
+using LittleMars.Common;
 using LittleMars.LevelMenus;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,9 +29,10 @@ namespace LittleMars.UI.LevelMenus
         }
 
         [Inject]
-        public void Constructor(LevelMenu levelMenu)
+        public void Constructor(LevelMenu levelMenu, SoundsForGameMenuUI sounds)
         {
             _gameMenu = levelMenu;
+            _sounds = sounds;
 
             Init();
         }
@@ -61,6 +63,7 @@ namespace LittleMars.UI.LevelMenus
         private void OnPauseMenuButtonClick()
         {
             if (!_isListenersSet) base.SetButtons();
+            _sounds.PlaySoundForCommandType(CommandType.empty);
             Open();
         }
     }

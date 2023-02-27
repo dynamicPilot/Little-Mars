@@ -1,4 +1,5 @@
-﻿using LittleMars.Common;
+﻿using LittleMars.AudioSystems;
+using LittleMars.Common;
 using LittleMars.Common.Signals;
 using LittleMars.LevelMenus;
 using UnityEngine;
@@ -7,7 +8,6 @@ using Zenject;
 
 namespace LittleMars.UI.LevelMenus
 {
-
     public class EndLevelMenuUI : LevelMenuUI
     {
         [Header("Buttons")]
@@ -22,9 +22,10 @@ namespace LittleMars.UI.LevelMenus
         }
 
         [Inject]
-        public void Constructor(LevelMenu levelMenu, SignalBus signalBus, Common.Levels.LevelInfo levelInfo)
+        public void Constructor(LevelMenu levelMenu, SignalBus signalBus, Common.Levels.LevelInfo levelInfo,
+            SoundsForGameMenuUI sounds)
         {
-            base.BaseConstructor(levelMenu, signalBus, levelInfo);
+            base.BaseConstructor(levelMenu, signalBus, levelInfo, sounds);
         }
 
         protected override void Init()
@@ -39,16 +40,12 @@ namespace LittleMars.UI.LevelMenus
             AddCommandToButtonListener(_restartButton, CommandType.restart);
         }
 
-        private void OnEndGame()
+        void OnEndGame()
         {
-            //Debug.Log("EndLevelMenuUI.OnEndGame");
             _signalBus.Unsubscribe<EndGameSignal>(OnEndGame);
 
-            //Debug.Log("try set menu!");
             SetMenu();
-            //Debug.Log("try set buttons!");
             SetButtons();
-            //Debug.Log("try to open!");
             Open();
         }
     }

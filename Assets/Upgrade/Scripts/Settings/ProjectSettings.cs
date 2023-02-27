@@ -1,5 +1,6 @@
 ﻿using LittleMars.Common.Catalogues;
 using LittleMars.Configs;
+using LittleMars.Installers;
 using LittleMars.Loaders;
 using LittleMars.SaveSystem;
 using System;
@@ -16,6 +17,7 @@ namespace LittleMars.Settings
         public CatalogueSettings Catalogues;
         public SaveSystemSettings SaveSystem;
         public ConfigSystemSettings ConfigSystem;
+        public ProjectSystemsSettings ProjectSystems;
 
         [Serializable]
         public class ScenesSettings
@@ -42,6 +44,12 @@ namespace LittleMars.Settings
             public PlayerSettings.Settings PlayerSettings;
         }
 
+        [Serializable]
+        public class ProjectSystemsSettings
+        {
+            public ProjectInstaller.Settings Installer;
+        }
+
         public override void InstallBindings()
         {
             Container.BindInstance(Scenes.SceneNames);
@@ -49,6 +57,7 @@ namespace LittleMars.Settings
             Container.BindInstance(SaveSystem.SaveFiles);
             Container.BindInstance(ConfigSystem.PlayerConfigs);
             Container.BindInstance(ConfigSystem.PlayerSettings);
+            Container.BindInstance(ProjectSystems.Installer);
         }
     }
 }

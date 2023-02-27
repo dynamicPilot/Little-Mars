@@ -1,4 +1,5 @@
-﻿using LittleMars.Common;
+﻿using LittleMars.AudioSystems;
+using LittleMars.Common;
 using LittleMars.LevelMenus;
 using LittleMars.Localization;
 using TMPro;
@@ -27,11 +28,12 @@ namespace LittleMars.UI.LevelMenus
         }
 
         protected void BaseConstructor(LevelMenu levelMenu, SignalBus signalBus, 
-            Common.Levels.LevelInfo levelInfo)
+            Common.Levels.LevelInfo levelInfo, SoundsForGameMenuUI sounds)
         {
             _gameMenu = levelMenu;
             _signalBus = signalBus;
             _info = levelInfo;
+            _sounds = sounds;
 
             Init();
         }

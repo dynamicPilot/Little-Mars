@@ -34,6 +34,7 @@ using LittleMars.Slots;
 using LittleMars.UI;
 using LittleMars.UI.Achievements;
 using LittleMars.UI.BuildingSlots;
+using LittleMars.UI.BuildingsSlots;
 using LittleMars.UI.GoalDisplays;
 using LittleMars.UI.GoalSlots;
 using LittleMars.UI.GoalTextMenu;
@@ -182,7 +183,9 @@ namespace LittleMars.Installers
         void InstallSounds()
         {
             Container.Bind<SoundsCatalogue>().AsSingle();
-            Container.Bind<AudioSystem>().AsSingle();
+            Container.Bind<UISoundSystem>().AsSingle();
+            Container.BindInterfacesAndSelfTo<NotSoundSystem>().AsSingle();
+            Container.Bind<SoundsForGameMenuUI>().AsSingle();
         }
 
         private void InstallTrackers()
@@ -410,6 +413,7 @@ namespace LittleMars.Installers
             Container.DeclareSignal<BuildingStateChangedSignal>();
             Container.DeclareSignal<TryChangeBuildingStateSignal>();
 
+            Container.DeclareSignal<BeginBuildingDragSignal>();
             Container.DeclareSignal<StartBuildingPlacementSignal>();
             Container.DeclareSignal<BuildingControllerOpenSignal>();
 
