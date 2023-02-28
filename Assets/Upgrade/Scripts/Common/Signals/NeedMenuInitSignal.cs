@@ -4,4 +4,7 @@
     {
         public MenuInitType Type;
     }
+
+    public struct NeedGoalInfoSignal
+    { }
 }

@@ -31,7 +31,7 @@ MonoBehaviour:
     Priority: 3
     DayProduction: []
     NightProduction: []
-    Connections: 0100000005000000
+    Connections: 
     Needs:
     - Type: 2
       Amount: 1

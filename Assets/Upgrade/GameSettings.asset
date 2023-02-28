@@ -36,6 +36,8 @@ MonoBehaviour:
       TimerTargetValue: 10
     EndGameDelay:
       SecondsDelay: 2
+    NotSettings:
+      NotDuration: 2
   Catalogue:
     Catalogue:
       Catalogue: {fileID: 11400000, guid: 2cfcb0c6ecefb024a91899b08e4d7c3d, type: 2}
@@ -44,6 +46,3 @@ MonoBehaviour:
   TextBlocks:
     Blocks:
       Blocks: {fileID: 4900000, guid: 7ad9f1dd6664038488682e7e23cbdd93, type: 3}
-  Sounds:
-    Sounds:
-      UISoundsSettings: {fileID: 11400000, guid: 48092047830a96d42bb54d916e68b6f1, type: 2}

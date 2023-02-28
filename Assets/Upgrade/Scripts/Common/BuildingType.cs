@@ -96,7 +96,8 @@
         building,
         goalType,
         field,
-        timer
+        timer,
+        routeError
     }
 
     public enum MenuInitType
@@ -130,7 +131,8 @@
         muteAll,
         empty,
         quit,
-        toLevel
+        toLevel,
+        goalsInfo
     }
 
     public enum ColorType
@@ -195,6 +197,12 @@
         gameOver,
         canNotDo,
         achievement
+    }
+
+    public enum NotErrorType
+    {
+        resource,
+        route
     }
 }
 

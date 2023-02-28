@@ -39,6 +39,11 @@ namespace LittleMars.Common.Catalogues
             return _settings.Catalogue.Icon(0, IconType.timer);
         }
 
+        public Sprite RouteErrorIcon()
+        {
+            return _settings.Catalogue.Icon(0, IconType.routeError);
+        }
+
         [Serializable]
         public class Settings
         {

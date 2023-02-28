@@ -66,6 +66,10 @@ namespace LittleMars.Model
                 _viewSlotManager.PlacingBuildingInSlots(indexesList);
                 _signalBus.Fire<StartBuildingPlacementSignal>();
             }
+            else
+            {
+                _signalBus.Fire<NeedRouteErrorNotSignal>();
+            }
         }
 
 

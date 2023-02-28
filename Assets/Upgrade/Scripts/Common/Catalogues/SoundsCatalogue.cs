@@ -28,6 +28,8 @@ namespace LittleMars.Common.Catalogues
         {
             public UISoundsSettings UISoundsSettings;
             public NotSoundSettings NotSoundsSettings;
+            public AudioClip RocketLaunch;
+            public AudioClip TimerSound;
         }
     }
 }

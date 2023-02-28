@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf6543bd0cd16ad458aedf97fdae9b3f, type: 3}
-  m_Name: 0_LevelSettings
+  m_Name: 1_LevelSettings
   m_EditorClassIdentifier: 
   Info:
     LevelInfo:
-      Number: 1
+      Number: 2
       StartSprite: {fileID: -6933934529716846700, guid: 6dfc9672df1d5ca42945eb7570208946, type: 3}
-      EndSprite: {fileID: 7829307810736791919, guid: 6dfc9672df1d5ca42945eb7570208946, type: 3}
+      EndSprite: {fileID: -6559670230340714738, guid: 6dfc9672df1d5ca42945eb7570208946, type: 3}
   Conditions:
     InitialConditions:
       Resources:
@@ -78,4 +78,4 @@ MonoBehaviour:
         GoalsArray: []
   TextBlocks:
     Blocks:
-      Blocks: {fileID: 4900000, guid: 7554f2e41b0168f4a8c9fb6035d10a55, type: 3}
+      Blocks: {fileID: 4900000, guid: 7318c795f7717674fb8cbd89e35eeadd, type: 3}

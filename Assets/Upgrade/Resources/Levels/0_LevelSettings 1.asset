@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf6543bd0cd16ad458aedf97fdae9b3f, type: 3}
-  m_Name: 0_LevelSettings
+  m_Name: 0_LevelSettings 1
   m_EditorClassIdentifier: 
   Info:
     LevelInfo:
@@ -21,16 +21,13 @@ MonoBehaviour:
     InitialConditions:
       Resources:
       - Type: 0
-        Amount: 60
+        Amount: 20
       - Type: 1
-        Amount: 14
+        Amount: 10
       - Type: 3
-        Amount: 14
+        Amount: 4
       BuildingTypes:
       - Type: 1
-        Size: 0
-        Amount: 1
-      - Type: 5
         Size: 0
         Amount: 1
       TradeUnits: []
@@ -38,7 +35,7 @@ MonoBehaviour:
     Lines:
       Rows: 2
       Columns: 2
-      BuildingTypes: 0100000005000000
+      BuildingTypes: 01000000
       Mode: 0
       CustomMap: {fileID: 0}
     Fields:
@@ -64,7 +61,7 @@ MonoBehaviour:
         GoalsArray:
         - Type: 0
           Unit:
-            Type: 5
+            Type: 1
             Size: 0
             Amount: 1
       HasBuildingGoalsWithTimer: 0

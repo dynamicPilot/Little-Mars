@@ -21,6 +21,7 @@ namespace LittleMars.Models
             _production = production;
             _signalBus = signalBus;
             _helper = helper;
+            _period = Period.day;
         }
         public void Initialize()
         {
@@ -43,6 +44,7 @@ namespace LittleMars.Models
 
         public void OnBuildingTimetableChanged(IBuildingFacade building)
         {
+            Debug.Log("OnBuildingTimetableChanged. Need change state? Period " + _period + " building state for period " + building.StateForPeriod(_period));
             if (building.StateForPeriod(_period) != building.State())
                 TryChangeBuildingState(building, building.StateForPeriod(_period), OperationMode.auto);
         }
@@ -90,10 +92,9 @@ namespace LittleMars.Models
             }
 
             // if building sould be turn off for this period by timetable
-            if (building.StateForPeriod(_period) == States.off 
-                && building.State() == States.on)
+            if (building.StateForPeriod(_period) == States.off)
             {
-                // turn off
+                if (building.State() == States.on) TryChangeBuildingState(building, States.off, OperationMode.auto);
                 Debug.Log($"The building sould be turn off for this period by timetable.");
                 return false;
             }

@@ -4,21 +4,11 @@
     "goal_0": [
       {
         "Lang": 0,
-        "Text": "Make two domes"
+        "Text": "Make and turn on a Solar Power Plant."
       },
       {
         "Lang": 1,
-        "Text": "Построить два купола"
-      }
-    ],
-   "goal_1": [
-      {
-        "Lang": 0,
-        "Text": "Make two mines"
-      },
-      {
-        "Lang": 1,
-        "Text": "Построить два самолета"
+        "Text": "Построить и пустить Солнечную элетростанцию."
       }
     ]
   }

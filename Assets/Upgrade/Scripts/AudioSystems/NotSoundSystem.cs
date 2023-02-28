@@ -36,6 +36,11 @@ namespace LittleMars.AudioSystems
             _signalBus?.TryUnsubscribe<CallAchivementMenuSignal>(OnAchievement);
         }
 
+        public void OnCanNotDo()
+        {
+            PlayNotSound(NotSoundType.canNotDo);
+        }
+
         void PlayNotSound(NotSoundType type)
         {
             _source.PlaySound((int)type);

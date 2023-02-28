@@ -89,8 +89,9 @@ namespace LittleMars.Rockets
             }
 
             PlaceRocket(rocket, cosmodrome);
-            Debug.Log($"Rocket will be placed to cosmodrome.");
+            //Debug.Log($"Rocket will be placed to cosmodrome.");
             _rockets[rocket].OnStartViewEffect();
+            _signalBus.Fire<RocketLaunchSignal>();
         }
 
         void RocketDepartures(Rocket rocket)
@@ -130,6 +131,7 @@ namespace LittleMars.Rockets
         {
             //RemoveDeparture(rocket);
             _rockets[rocket].OnEndViewEffect();
+            _signalBus.Fire<RocketLaunchSignal>();
             _rockets.Remove(rocket);
         }
 

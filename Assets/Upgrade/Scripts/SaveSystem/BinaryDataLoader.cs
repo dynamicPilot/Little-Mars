@@ -47,10 +47,10 @@ namespace LittleMars.SaveSystem
         {           
             var data = GetBinaryData();
 
-            if (data != null)
-            {
-                DeleteBinaryData();
-            }
+            //if (data != null)
+            //{
+            //    DeleteBinaryData();
+            //}
 
             return data;
         }

@@ -1,32 +1,58 @@
-﻿using LittleMars.Common.Signals;
+﻿using LittleMars.AudioSystems;
+using LittleMars.Common.Signals;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Zenject;
 
 namespace LittleMars.Notifications
 {
-    public class LevelNotificationManager
+    public class LevelNotificationManager : IInitializable, IDisposable
     {
         readonly SignalBus _signalBus;
+        readonly UI.Notifications.NotificationUI _notUI;
+        readonly NotSoundSystem _soundSystem;
 
-        NeedMenuInitSignal _signal;
-        public void ResourceNotification(int resourceIndex)
+        public LevelNotificationManager(SignalBus signalBus, UI.Notifications.NotificationUI notUI, 
+            NotSoundSystem soundSystem)
         {
-            
+            _signalBus = signalBus;
+            _notUI = notUI;
+            _soundSystem = soundSystem;
         }
 
-        public void RouteNotification()
+        public void Initialize()
         {
+            _signalBus.Subscribe<NeedResourceNotSignal>(OnNeedResourceNot);
+            _signalBus.Subscribe<NeedRouteErrorNotSignal>(OnRouteErrorNot);
+        }
 
+        public void Dispose()
+        {
+            _signalBus?.TryUnsubscribe<NeedResourceNotSignal>(OnNeedResourceNot);
+            _signalBus?.TryUnsubscribe<NeedRouteErrorNotSignal>(OnRouteErrorNot);
+        }
+
+        void OnNeedResourceNot(NeedResourceNotSignal args)
+        {
+            _notUI.ResourceNotification(args.Index);
+            MakeNotification();
+        }
+
+        void OnRouteErrorNot()
+        {
+            _notUI.RouteNotification();
+            MakeNotification();
         }
 
         void MakeNotification()
         {
-            // signal to ui
-            // signal to audio
+            _soundSystem.OnCanNotDo();
+        }
+
+
+        [Serializable]
+        public class Settings
+        {
+            public float NotDuration;
         }
     }
 }

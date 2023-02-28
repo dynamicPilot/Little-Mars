@@ -5,6 +5,7 @@ using LittleMars.Installers;
 using LittleMars.LevelMenus;
 using LittleMars.Localization;
 using LittleMars.Model.TimeUpdate;
+using LittleMars.Notifications;
 using LittleMars.SaveSystem;
 using LittleMars.Slots;
 using System;
@@ -36,6 +37,7 @@ namespace LittleMars.Settings
             public TimeUpdaterTickable.Settings UpdaterSettings;
             public BuildingTimer.Settings DomeTimer;
             public LevelMenusWorkflowTimer.Settings EndGameDelay;
+            public LevelNotificationManager.Settings NotSettings;
         }
 
         [Serializable]
@@ -63,6 +65,7 @@ namespace LittleMars.Settings
             Container.BindInstance(Time.UpdaterSettings);
             Container.BindInstance(Time.DomeTimer);
             Container.BindInstance(Time.EndGameDelay);
+            Container.BindInstance(Time.NotSettings);
 
             Container.BindInstance(TextBlocks.Blocks);
         }

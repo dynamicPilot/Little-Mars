@@ -1,5 +1,6 @@
 ﻿using LittleMars.AudioSystems;
 using LittleMars.Common;
+using LittleMars.Common.Signals;
 using LittleMars.UI.LevelMenus;
 using TMPro;
 using UnityEngine;
@@ -11,24 +12,26 @@ namespace LittleMars.UI.GoalTextMenu
     public class GoalTextMenuUI : GameMenuUI
     {
         [Header("OpenButton")]
-        [SerializeField] private Button _openButton;
+        [SerializeField] Button _openButton;
 
         [Header("Text Slot")]
-        [SerializeField] private TextMeshProUGUI[] _texts;
+        [SerializeField] TextMeshProUGUI[] _texts;
 
         GoalTextLevelMenu _goalTextMenu;
+        SignalBus _signalBus;
         bool _isTextSet = false;
         protected override void Awake()
         {
             base.Awake();
-            _buttons.Add(CommandType.empty, _openButton);
+            _buttons.Add(CommandType.goalsInfo, _openButton);
         }
 
         [Inject]
-        public void Constructor(GoalTextLevelMenu levelMenu, SoundsForGameMenuUI sounds)
+        public void Constructor(GoalTextLevelMenu levelMenu, SoundsForGameMenuUI sounds, SignalBus signalBus)
         {
             _gameMenu = levelMenu;
             _goalTextMenu = levelMenu;
+            _signalBus = signalBus;
             _sounds = sounds;
 
             Init();
@@ -36,18 +39,21 @@ namespace LittleMars.UI.GoalTextMenu
 
         public void Init()
         {
+            _signalBus.Subscribe<NeedGoalInfoSignal>(OnOpenButtonClicked);
             SetButtons();
         }
 
         private void OnDestroy()
         {
             RemoveListeners();
+            _signalBus?.TryUnsubscribe<NeedGoalInfoSignal>(OnOpenButtonClicked);
         }
 
         protected override void SetListeners()
         {
             base.SetListeners();
-            _openButton.onClick.AddListener(OnOpenButtonClicked);
+            //_openButton.onClick.AddListener(OnOpenButtonClicked);
+            AddCommandToButtonListener(_openButton, CommandType.goalsInfo, false);
         }
 
         protected override void Close()
@@ -59,6 +65,7 @@ namespace LittleMars.UI.GoalTextMenu
 
         void OnOpenButtonClicked()
         {
+            if (_isOpen) return;
             _openButton.interactable = false;
             _sounds.PlaySoundForCommandType(CommandType.empty);
             if (!_isTextSet) SetGoalTexts();

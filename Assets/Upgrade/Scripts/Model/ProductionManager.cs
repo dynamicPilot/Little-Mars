@@ -28,6 +28,7 @@ namespace LittleMars.Models
         ResourcesProductionChangedSignal _productionSignal;
         ResourcesNeedsChangedSignal _needsSignal;
         TotalProductionChangedSignal _totalProductionSignal;
+        NeedResourceNotSignal _needResourceNotSignal;
 
         int _count = 0;
 
@@ -72,6 +73,8 @@ namespace LittleMars.Models
             {
                 TotalProdution = _totalProduction
             };
+
+            _needResourceNotSignal = new();
 
             OnBalanceChanged();
         }
@@ -193,6 +196,7 @@ namespace LittleMars.Models
                 if (_resourcesBalance[unit.Type] < unit.Amount)
                 {
                     Debug.Log("No resources for " + unit.Type);
+                    OnNeedResource((int) unit.Type);
                     return false;
                 }
             }               
@@ -214,15 +218,21 @@ namespace LittleMars.Models
 
             return true;
         }
-        private void OnProductionChanged()
+        void OnProductionChanged()
         {
             _productionSignal.Period = _period;
             _signalBus.Fire(_productionSignal);
         }
 
-        private void OnBalanceChanged() => _signalBus.Fire(_balanceSignal);
+        void OnBalanceChanged() => _signalBus.Fire(_balanceSignal);
 
-        private void OnTotalProductionChanged() => _signalBus.Fire(_totalProductionSignal);
+        void OnTotalProductionChanged() => _signalBus.Fire(_totalProductionSignal);
+
+        void OnNeedResource(int resourceIndex)
+        {
+            _needResourceNotSignal.Index = resourceIndex;
+            _signalBus.Fire(_needResourceNotSignal);
+        }
 
     }
 }

@@ -8,24 +8,28 @@ namespace LittleMars.Model.TimeUpdate
     {
         SignalBus _signalBus;
         float _speed;
-
+        int _stopCounter;
         public TimeSpeedManager(SignalBus signalBus)
         {
-            _signalBus = signalBus;
+            _signalBus = signalBus;            
         }
 
         public void Initialize()
         {
             _speed = 1f;
-            Stop();
+            _stopCounter = 0;
+            Stop(false);
         }
-        public void Start()
+        public void Start(bool isExternal = true)
         {
+            if (isExternal) _stopCounter--;
+            if (_stopCounter > 0) return;
             UpdateTimeScale(_speed);
         }
 
-        public void Stop()
+        public void Stop(bool isExternal = true)
         {
+            if (isExternal) _stopCounter++;
             UpdateTimeScale(0f);
         }
 

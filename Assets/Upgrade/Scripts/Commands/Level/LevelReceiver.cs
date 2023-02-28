@@ -2,6 +2,8 @@
 using LittleMars.Common.Signals;
 using LittleMars.PlayerStates;
 using LittleMars.SceneControls;
+using LittleMars.UI.GoalTextMenu;
+using UnityEngine;
 using Zenject;
 
 namespace LittleMars.Commands.Level
@@ -55,13 +57,17 @@ namespace LittleMars.Commands.Level
             _signalBus.Fire<StartLevelSignal>();
             _signalBus.Subscribe<GameOverSignal>(OnGameOver);
         }
+
+        public void GoalInfo()
+        {
+            _signalBus.Fire<NeedGoalInfoSignal>();
+        }
         void ToNextLevel()
         {
             _playerState.ToNextLevel();
             _sceneControl.NextSceneType(SceneType.level);
             _signalBus.Fire<EndLevelSignal>();
         }
-
 
         void OnGameOver()
         {

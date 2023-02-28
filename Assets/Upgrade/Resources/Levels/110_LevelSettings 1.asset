@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf6543bd0cd16ad458aedf97fdae9b3f, type: 3}
-  m_Name: 0_LevelSettings
+  m_Name: 110_LevelSettings 1
   m_EditorClassIdentifier: 
   Info:
     LevelInfo:
@@ -21,32 +21,60 @@ MonoBehaviour:
     InitialConditions:
       Resources:
       - Type: 0
-        Amount: 60
+        Amount: 500
+      - Type: 6
+        Amount: 50
       - Type: 1
-        Amount: 14
+        Amount: 50
       - Type: 3
-        Amount: 14
+        Amount: 50
+      - Type: 2
+        Amount: 50
       BuildingTypes:
+      - Type: 7
+        Size: 0
+        Amount: 1
       - Type: 1
         Size: 0
         Amount: 1
       - Type: 5
         Size: 0
         Amount: 1
+      - Type: 0
+        Size: 0
+        Amount: 1
+      - Type: 3
+        Size: 0
+        Amount: 1
+      - Type: 2
+        Size: 0
+        Amount: 1
+      - Type: 4
+        Size: 0
+        Amount: 1
+      - Type: 6
+        Size: 0
+        Amount: 1
       TradeUnits: []
   Map:
     Lines:
-      Rows: 2
-      Columns: 2
-      BuildingTypes: 0100000005000000
+      Rows: 3
+      Columns: 3
+      BuildingTypes: 0000000005000000010000000300000002000000040000000600000007000000
       Mode: 0
       CustomMap: {fileID: 0}
     Fields:
       Mode: 0
-      Fields: []
+      Fields:
+      - Type: 1
+        Amount:
+          Type: 1
+          Units:
+          - Direction: 0
+            IsBackStep: 0
   Rockets:
     Rockets:
-      HasRockets: 0
+      HasRockets: 1
       Rockets:
       - ArrivedHour: 5
         DepartureHour: 16
@@ -64,12 +92,18 @@ MonoBehaviour:
         GoalsArray:
         - Type: 0
           Unit:
-            Type: 5
+            Type: 2
             Size: 0
             Amount: 1
       HasBuildingGoalsWithTimer: 0
       BuildingGoalsWithTimers:
-        GoalsArray: []
+        GoalsArray:
+        - Type: 0
+          Unit:
+            Type: 0
+            Size: 0
+            Amount: 1
+          Time: 3
       HasResourcesGoals: 0
       ResourceGoals:
         GoalsArray: []

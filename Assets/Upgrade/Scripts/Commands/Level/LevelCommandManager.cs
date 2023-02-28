@@ -9,16 +9,19 @@ namespace LittleMars.Commands.Level
 
         readonly StartCommand.Factory _startFactory;
         readonly MainMenuByStartCommand.Factory _mainMenuByStartFactory;
+        readonly GoalInfoCommand.Factory _goalInfoFactory;
 
         public LevelCommandManager(ProjectCommandManager projectManager,
             StartCommand.Factory startFactory,
             MainMenuByStartCommand.Factory mainMenuByStartFactory,
-            LevelReceiver levelReceiver)
+            LevelReceiver levelReceiver,
+            GoalInfoCommand.Factory goalInfoFactory)
             : base(projectManager)
         {
             _startFactory = startFactory;
             _mainMenuByStartFactory = mainMenuByStartFactory;
             _levelReceiver = levelReceiver;
+            _goalInfoFactory = goalInfoFactory;
         }
             
         protected override void CreateCommand(CommandType type)
@@ -34,6 +37,9 @@ namespace LittleMars.Commands.Level
                     break;
                 case CommandType.mainMenuByStart:
                     _commands.Add(type, _mainMenuByStartFactory.Create());
+                    break;
+                case CommandType.goalsInfo:
+                    _commands.Add(type, _goalInfoFactory.Create());
                     break;
                 default:
                     _commands.Add(type, GetCommandFromProjectManager(type, _levelReceiver));

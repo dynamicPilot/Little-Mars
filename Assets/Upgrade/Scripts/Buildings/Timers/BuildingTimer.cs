@@ -8,7 +8,6 @@ namespace LittleMars.Buildings.Timers
 {
     public class BuildingTimer : IFixedTickable
     {
-        //readonly Settings _settings;
         readonly SignalBus _signalBus;
         readonly BuildingType _type;
         readonly Size _size;
@@ -36,7 +35,8 @@ namespace LittleMars.Buildings.Timers
 
             _timer = 0f;
             _isRunning = true;
-            Debug.Log("Start timer");
+            //Debug.Log("Start timer");
+            _signalBus.Fire<TimerOnSignal>();
         }
 
         private void CheckTimer()
@@ -60,7 +60,8 @@ namespace LittleMars.Buildings.Timers
             if (!_isRunning) return;
             _isRunning = false;
 
-            Debug.Log("Stop timer");
+            //Debug.Log("Stop timer");
+            _signalBus.Fire<TimerOffSignal>();
         }
 
         public void FixedTick()

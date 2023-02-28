@@ -5,8 +5,8 @@ namespace LittleMars.UI.Effects
 {
     public class PressedUIEffect : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
-        [SerializeField] private GameObject _normalState;
-        [SerializeField] private GameObject _pressedState;
+        [SerializeField] GameObject _normalState;
+        [SerializeField] GameObject _pressedState;
 
         private void Awake()
         {
@@ -14,22 +14,21 @@ namespace LittleMars.UI.Effects
         }
         public void OnPointerDown(PointerEventData eventData)
         {
-            //Debug.Log("PRESSED!");
             PressedState();
         }
 
-        public void OnPointerUp(PointerEventData eventData)
+        public virtual void OnPointerUp(PointerEventData eventData)
         {
             NormalState();
         }
 
-        private void NormalState()
+        protected void NormalState()
         {
             _normalState.SetActive(true);
             _pressedState.SetActive(false);
         }
 
-        private void PressedState()
+        protected void PressedState()
         {
             _normalState.SetActive(false);
             _pressedState.SetActive(true);

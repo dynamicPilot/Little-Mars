@@ -2,44 +2,31 @@ using LittleMars.Animations;
 using LittleMars.AudioSystems;
 using LittleMars.Buildings;
 using LittleMars.CameraControls;
-using LittleMars.Commands;
 using LittleMars.Commands.Level;
 using LittleMars.Common;
 using LittleMars.Common.Catalogues;
-using LittleMars.Common.Interfaces;
-using LittleMars.Common.LevelGoal;
 using LittleMars.Common.Signals;
 using LittleMars.Connections;
 using LittleMars.Connections.View;
 using LittleMars.Controllers;
 using LittleMars.Effects;
+using LittleMars.Installers.Games;
 using LittleMars.LevelMenus;
 using LittleMars.Localization;
-using LittleMars.MainMenus;
 using LittleMars.Map;
-using LittleMars.Map.Routers;
 using LittleMars.Map.States;
-using LittleMars.Model;
-using LittleMars.Model.Facades;
 using LittleMars.Model.GoalDisplays;
-using LittleMars.Model.Interfaces;
-using LittleMars.Model.TimeUpdate;
-using LittleMars.Model.Trackers;
-using LittleMars.Models;
+using LittleMars.Notifications;
 using LittleMars.PlayerStates;
 using LittleMars.Rockets;
 using LittleMars.SceneControls;
 using LittleMars.Settings;
 using LittleMars.Slots;
-using LittleMars.UI;
 using LittleMars.UI.Achievements;
 using LittleMars.UI.BuildingSlots;
-using LittleMars.UI.BuildingsSlots;
 using LittleMars.UI.GoalDisplays;
-using LittleMars.UI.GoalSlots;
 using LittleMars.UI.GoalTextMenu;
 using LittleMars.UI.ResourceSlots;
-using LittleMars.UI.SlotUIFactories;
 using System;
 using UnityEngine;
 using Zenject;
@@ -48,12 +35,10 @@ namespace LittleMars.Installers
 {
     public class GameSceneInstaller : MonoInstaller
     {
-        [Inject]
-        Settings _settings = null;
-        [Inject]
-        IPlayerState _playerState;
-        [Inject]
-        LevelsCatalogue _levelCatalogue;
+        [Inject] Settings _settings = null;
+        [Inject] IPlayerState _playerState;
+        [Inject] LevelsCatalogue _levelCatalogue;
+
         public override void InstallBindings()
         {
             InstallLevelSettings();
@@ -67,6 +52,7 @@ namespace LittleMars.Installers
             InstallLocalizationSystem();
             InstallEffects();
             InstallSounds();
+            InstallNotSystem();
 
             InstallBuildings();           
             InstallConnections();
@@ -93,19 +79,34 @@ namespace LittleMars.Installers
         }
 
         void InstallLevel()
-        {
-            
+        {           
             Container.BindInterfacesAndSelfTo<LevelManager>().AsSingle();
             Container.BindInterfacesAndSelfTo<LevelSceneControl>().AsSingle();
         }
 
         void InstallLevelSettings()
+        {          
+            var settings = _levelCatalogue.GetLevel(_playerState.GetLevelNumber());
+            if (settings == null) InstallLevelSettingsByResource();
+            else InstallLevelSettingsByCatalogue(settings);
+        }
+
+        void InstallLevelSettingsByCatalogue(LevelSettings settings)
+        {
+            Container.BindInstance(settings.Info.LevelInfo);
+            Container.BindInstance(settings.Conditions.InitialConditions);
+            Container.BindInstance(settings.Map.Lines);
+            Container.BindInstance(settings.Map.Fields);
+            Container.BindInstance(settings.Goals.GoalsSettings);
+            Container.BindInstance(settings.TextBlocks.Blocks);
+            Container.BindInstance(settings.Rockets.Rockets);
+        }
+
+        void InstallLevelSettingsByResource()
         {
             Debug.Log("Installer : no settings from catalogue");
             LevelSettings.InstallFromResource(String.Concat(_settings.LevelSettingsFolderPath,
                 _playerState.GetLevelNumber(), "_", "LevelSettings"), Container);
-
-            //var settings = _levelCatalogue.GetLevel(_playerState.GetLevelNumber());            
         }
 
         void InstallInputControls()
@@ -140,32 +141,7 @@ namespace LittleMars.Installers
 
         private void InstallModel()
         {
-            Container.BindInterfacesAndSelfTo<OperationManager>().AsSingle();
-            Container.BindInterfacesAndSelfTo<ResourcesBalancer>().AsSingle();
-            Container.BindInterfacesAndSelfTo<ProductionManager>().AsSingle();
-            Container.BindInterfacesAndSelfTo<TimeSpeedManager>().AsSingle();
-            Container.BindInterfacesAndSelfTo<TimeUpdaterTickable>().AsSingle();
-
-            Container.Bind<TradeManager>().AsSingle();
-            Container.Bind<TimeManager>().AsSingle();            
-            Container.Bind<IconsCatalogue>().AsSingle();
-            Container.Bind<ColorsCatalogue>().AsSingle();
-            Container.Bind<ProductionHelper>().AsSingle();
-            Container.Bind<ConstructionHelper>().AsSingle();
-            Container.Bind<OperationHelper>().AsSingle();
-            Container.Bind<MapRouter>().AsSingle();
-            Container.Bind<PlacementManager>().AsSingle();
-            Container.Bind<BuildingController>().AsSingle();
-
-            Container.Bind<IModelFacade>().To<ModelFacade>().AsSingle();
-
-            Container.Bind<IPlacement>().To<PlacementManager>().FromResolve();
-
-            Container.BindFactory<BuildingType, Size, Path, Vector2, PlacingBuilding, PlacingBuilding.Factory>()
-                .WhenInjectedInto<PlacementManager>();
-            Container.BindFactory<MapRouterCheck, MapRouterCheck.Factory>().WhenInjectedInto<FieldManager>();
-            Container.BindFactory<BuildingObject, MapRouterCheckForBuilding, MapRouterCheckForBuilding.Factory>()
-                .WhenInjectedInto<PlacementManager>();
+            GameModelInstaller.Install(Container);
         }
 
         void InstallLocalizationSystem()
@@ -173,11 +149,15 @@ namespace LittleMars.Installers
             Container.BindInterfacesAndSelfTo<LevelLangsManager>().AsSingle();
         }
 
-
         void InstallEffects()
         {
             Container.BindInterfacesAndSelfTo<PeriodChangeEffectControl>().AsSingle();
             Container.BindInterfacesAndSelfTo<EndGameTweenKiller>().AsSingle();
+        }
+
+        void InstallNotSystem()
+        {
+            Container.BindInterfacesAndSelfTo<LevelNotificationManager>().AsSingle();
         }
 
         void InstallSounds()
@@ -188,40 +168,9 @@ namespace LittleMars.Installers
             Container.Bind<SoundsForGameMenuUI>().AsSingle();
         }
 
-        private void InstallTrackers()
+        void InstallTrackers()
         {
-            Container.BindInterfacesAndSelfTo<GoalsManager>().AsSingle();
-
-            Container.BindFactory<GoalsTrackerProvider<BuildingUnit<int>, BuildingGoalTracker>, 
-                GoalsTrackerProvider<BuildingUnit<int>, BuildingGoalTracker>.Factory>().WhenInjectedInto<GoalsManager>();
-            
-            Container.BindFactory<GoalsTrackerProvider<ResourceUnit<float>, ResourceProductionGoalTracker>, 
-                GoalsTrackerProvider<ResourceUnit<float>, ResourceProductionGoalTracker>.Factory>().WhenInjectedInto<GoalsManager>();
-            
-            Container.BindFactory<GoalsTrackerProvider<ResourceUnit<float>, ResourceBalanceGoalTracker>,
-                GoalsTrackerProvider<ResourceUnit<float>, ResourceBalanceGoalTracker>.Factory>().WhenInjectedInto<GoalsManager>();
-
-            Container.BindFactory<StaffTrackersProvider, StaffTrackersProvider.Factory>().WhenInjectedInto<GoalsManager>();
-
-            Container.BindFactory<Goal<BuildingUnit<int>>, int, IGoalTracker, TrackerFactory<BuildingUnit<int>>>()
-                .To<BuildingGoalTracker>()
-                .WhenInjectedInto<GoalsTrackerProvider<BuildingUnit<int>, BuildingGoalTracker>>();
-
-            Container.BindFactory<GoalWithTime<BuildingUnit<int>>, int, IGoalTracker, TrackerFactoryWithTimer<BuildingUnit<int>>>()
-                .To<BuildingGoalTrackerWithTimer>()
-                .WhenInjectedInto<GoalsTrackerProvider<BuildingUnit<int>, BuildingGoalTracker>>();
-
-            Container.BindFactory<Goal<ResourceUnit<float>>, int, IGoalTracker, TrackerFactory<ResourceUnit<float>>>()
-                .To<ResourceProductionGoalTracker>()
-                .WhenInjectedInto<GoalsTrackerProvider<ResourceUnit<float>, ResourceProductionGoalTracker>>();
-
-            Container.BindFactory<Goal<ResourceUnit<float>>, int, IGoalTracker, TrackerFactory<ResourceUnit<float>>>()
-                .To<ResourceProductionGoalTracker>()
-                .WhenInjectedInto<GoalsTrackerProvider<ResourceUnit<float>, ResourceProductionGoalTracker>>();
-
-            Container.BindFactory<int, IGoalTracker, FakeTrackerFactory>()
-                .To<BuildingTimerStaffGoalTracker>()
-                .WhenInjectedInto<StaffTrackersProvider>();
+            GameTrackersInstaller.Install(Container);
         }
 
         private void InstallBuildings()
@@ -291,18 +240,15 @@ namespace LittleMars.Installers
             Container.Bind<GoalTextLevelMenu>().AsSingle();
             Container.Bind<AchievementDisplayLevelMenu>().AsSingle();
 
-            Container.Bind<NullCommand>().AsSingle();
-            Container.BindFactory<NextCommand, NextCommand.Factory>();
             Container.BindFactory<StartCommand, StartCommand.Factory>();
-            Container.BindFactory<MainMenuCommand, MainMenuCommand.Factory>();
             Container.BindFactory<MainMenuByStartCommand, MainMenuByStartCommand.Factory>();
-
+            Container.BindFactory<GoalInfoCommand, GoalInfoCommand.Factory>();
             Container.BindFactory<EndLevelSignalGun, EndLevelSignalGun.Factory>()
                 .WhenInjectedInto<LevelMenusWorkflowTimer>();
         }
 
 
-        private void InstallGoalInfos()
+        void InstallGoalInfos()
         {
             Container.BindInterfacesAndSelfTo<GoalDisplayStrategiesManager>().AsSingle();
             Container.Bind<StaffGoalDisplayStrategiesManager>().AsSingle();
@@ -312,8 +258,7 @@ namespace LittleMars.Installers
             Container.Bind<StaffGoalDisplayStrategiesFactory>().AsSingle();
 
             Container.Bind<DisplayStrategiesFactory>().AsSingle();
-            Container.Bind<DisplayStrategyFactory>().AsSingle();
-            
+            Container.Bind<DisplayStrategyFactory>().AsSingle();           
 
             Container.BindFactory<GoalType, BuildingUnit<int>, IGoalInfo, GoalInfoFactory<BuildingUnit<int>>>()
                 .To<BuildingGoalInfo>()
@@ -339,71 +284,13 @@ namespace LittleMars.Installers
                 .WhenInjectedInto<DisplayStrategyFactory>();
         }
 
-        private void InstallUIAndManagers()
+        void InstallUIAndManagers()
         {
-            // PlacementMenuUI, GameUI -> bind via ZenjectBuinding Component -> GameUI object
-
-            Container.Bind<ResourceSlotUISetter>().AsCached();
-            Container.Bind<BuildingSlotUISetter>().AsCached();
-            Container.Bind<TimerSlotUISetter>().AsCached();
-            Container.Bind<GoalTypeUISetter>().AsCached();
-
-            Container.Bind<ISetSlot>().To<ResourceSlotUISetter>().WhenInjectedInto<SlotUIFactory<ResourceSlotUI>>();            
-            Container.Bind<ISetSlot>().To<ResourceSlotUISetter>().WhenInjectedInto<SlotUIFactory<ResourceBalanceSlotUI>>();
-            Container.Bind<ISetSlot>().To<ResourceSlotUISetter>().WhenInjectedInto<SlotUIFactory<ResourceGoalSlotUI>>();
-
-            Container.Bind<ISetSlot>().To<BuildingSlotUISetter>().WhenInjectedInto<SlotUIFactory<BuildingGoalSlotUI>>();
-            Container.Bind<ISetSlot>().To<BuildingSlotUISetter>().WhenInjectedInto<SlotUIFactory<BuildingGoalWithTimerSlotUI>>();
-            
-            Container.Bind<ISetSlot>().To<GoalTypeUISetter>().WhenInjectedInto<ResourceGoalSlotsUIFactory>();
-
-            Container.Bind<ISetSlot>().To<TimerSlotUISetter>().WhenInjectedInto<BuildingGoalSlotsUIFactory>();
-
-            Container.BindInterfacesAndSelfTo<ResourceSlotMenuManager>().AsSingle();
-            Container.BindInterfacesAndSelfTo<ResourcesBalanceMenuManager>().AsSingle();
-            Container.BindInterfacesAndSelfTo<GoalSlotMenuManager>().AsSingle();
-
-            Container.Bind<GoalSlotsUIFactory>().AsSingle();
-
-            Container.Bind<SlotUIFactory<ResourceSlotUI>>().AsSingle().NonLazy();
-            Container.Bind<SlotUIFactory<ResourceBalanceSlotUI>>().AsSingle().NonLazy();
-
-            Container.Bind<SlotUIFactory<BuildingGoalSlotUI>>().AsSingle().NonLazy();
-            Container.Bind<SlotUIFactory<BuildingGoalWithTimerSlotUI>>().AsSingle().NonLazy();
-            Container.Bind<SlotUIFactory<ResourceGoalSlotUI>>().AsSingle().NonLazy();
-
-            Container.BindFactory<BuildingGoalSlotsUIFactory, BuildingGoalSlotsUIFactory.Factory>().AsSingle();
-            Container.BindFactory<ResourceGoalSlotsUIFactory, ResourceGoalSlotsUIFactory.Factory>().AsSingle();
-
-            Container.BindFactory<ResourceSlotUI, PlaceholderFactory<ResourceSlotUI>>()
-                .FromComponentInNewPrefab(_settings.ResourceSlotPrefab)
-                .WithGameObjectName("ResourceSlot")
-                .WhenInjectedInto<SlotUIFactory<ResourceSlotUI>>();
-
-            Container.BindFactory<ResourceBalanceSlotUI, PlaceholderFactory<ResourceBalanceSlotUI>>()
-                .FromComponentInNewPrefab(_settings.ResourceBalanceSlotPrefab)
-                .WithGameObjectName("ResourceSlot")
-                .WhenInjectedInto<SlotUIFactory<ResourceBalanceSlotUI>>();
-
-            Container.BindFactory<BuildingGoalSlotUI, PlaceholderFactory<BuildingGoalSlotUI>>()
-                .FromComponentInNewPrefab(_settings.BuildingGoalSlotPrefab)
-                .WithGameObjectName("BuildingGoalSlot")
-                .WhenInjectedInto<SlotUIFactory<BuildingGoalSlotUI>>();
-
-            Container.BindFactory<BuildingGoalWithTimerSlotUI, PlaceholderFactory<BuildingGoalWithTimerSlotUI>>()
-                .FromComponentInNewPrefab(_settings.BuildingWithTimerGoalSlotPrefab)
-                .WithGameObjectName("BuildingGoalSlot")
-                .WhenInjectedInto<SlotUIFactory<BuildingGoalWithTimerSlotUI>>();
-
-            Container.BindFactory<ResourceGoalSlotUI, PlaceholderFactory<ResourceGoalSlotUI>>()
-                .FromComponentInNewPrefab(_settings.ResourceGoalSlotPrefab)
-                .WithGameObjectName("ResourceGoalSlot")
-                .WhenInjectedInto<SlotUIFactory<ResourceGoalSlotUI>>();
+            GameUIAndManagersInstaller.Install(Container);
         }
 
-        private void InstallSignals()
+        void InstallSignals()
         {
-            //SignalBusInstaller.Install(Container);
             Container.DeclareSignal<MapSlotsAreReadySignal>();
             Container.DeclareSignal<GoalStrategiesIsReadySignal>().OptionalSubscriber();
 
@@ -442,6 +329,7 @@ namespace LittleMars.Installers
             Container.DeclareSignal<TotalProductionChangedSignal>().OptionalSubscriber();
 
             Container.DeclareSignal<NeedMenuInitSignal>().OptionalSubscriber();
+            Container.DeclareSignal<NeedGoalInfoSignal>();
 
             Container.DeclareSignal<SlotConnectionsUpdatedSignal>();
 
@@ -449,6 +337,13 @@ namespace LittleMars.Installers
 
             Container.DeclareSignal<StartTouchSignal>();
             Container.DeclareSignal<EndTouchSignal>();
+
+            Container.DeclareSignal<RocketLaunchSignal>();
+            Container.DeclareSignal<TimerOnSignal>();
+            Container.DeclareSignal<TimerOffSignal>();
+
+            Container.DeclareSignal<NeedRouteErrorNotSignal>();
+            Container.DeclareSignal<NeedResourceNotSignal>();
         }
 
         [Serializable]

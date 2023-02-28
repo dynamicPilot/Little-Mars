@@ -103,7 +103,7 @@ namespace LittleMars.UI
             _signalBus.TryUnsubscribe<BuildingStateChangedSignal>(OnBuildingStateChanged);
         }
 
-        private void UpdateButtonsState()
+        void UpdateButtonsState()
         {
             _stateButton.SetState(_building.State());
             _dayStateButton.SetState(_building.StateForPeriod(Period.day));
@@ -125,9 +125,11 @@ namespace LittleMars.UI
 
         void ChangeTimetable(Period period)
         {
-            _controller.ChangeTimetable(_building, Period.day);
+            _controller.ChangeTimetable(_building, period);
+
             if (period == Period.day) _dayStateButton.ChangeStateToOpposite();
             else _nightStateButton.ChangeStateToOpposite();
+
             _audioSystem.PlayUISound(UISoundType.clickFirst);
         }
 

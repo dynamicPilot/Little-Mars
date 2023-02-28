@@ -1,0 +1,15 @@
+{
+  "Title": "scene",
+  "Blocks": {
+    "goal_0": [
+      {
+        "Lang": 0,
+        "Text": "Make and turn on a Supply Plant."
+      },
+      {
+        "Lang": 1,
+        "Text": "Построить и запустить Установку снабжения."
+      }
+    ]
+  }
+}

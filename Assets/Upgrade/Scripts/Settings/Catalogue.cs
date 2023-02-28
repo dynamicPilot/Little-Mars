@@ -62,6 +62,7 @@ namespace LittleMars.Settings
         public class OtherIconsSettings
         {
             public Sprite DefaultTimer;
+            public Sprite RouteError;
         }
 
         private void CreateResourceDictionary()
@@ -130,6 +131,10 @@ namespace LittleMars.Settings
             else if (type == IconType.timer)
             {
                 return _other.DefaultTimer;
+            }
+            else if (type == IconType.routeError)
+            {
+                return _other.RouteError;
             }
             else
             {

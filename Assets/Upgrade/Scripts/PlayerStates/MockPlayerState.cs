@@ -57,7 +57,8 @@ namespace LittleMars.PlayerStates
         public bool CheckNextLevelAndGetCheck()
         {
             var hasLevel = _catalogue.HasLevel(_nextLevelIndex);
-            _nextLevelIndex = (hasLevel) ? _levelIndex : _nextLevelIndex;
+            Debug.Log("Has level " + hasLevel);
+            _nextLevelIndex = (hasLevel) ? _nextLevelIndex : _levelIndex;
 
             return hasLevel;
         }

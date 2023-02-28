@@ -12,16 +12,18 @@ namespace LittleMars.UI.LevelMenus
     public class StartLevelMenuUI : LevelMenuUI
     {
         [Header("Buttons")]
-        [SerializeField] private Button _startButton;
+        [SerializeField] Button _startButton;
+        [SerializeField] Button _infoButton;
 
         [Header("Goals Display Slot")]
-        [SerializeField] private GoalDisplayUI[] _displayUIs;
+        [SerializeField] GoalDisplayUI[] _displayUIs;
 
 
         protected override void Awake()
         {
             base.Awake();
             _buttons.Add(CommandType.start, _startButton);
+            _buttons.Add(CommandType.goalsInfo, _infoButton);
         }
 
         [Inject]
@@ -40,6 +42,7 @@ namespace LittleMars.UI.LevelMenus
         {
             base.SetListeners();
             AddCommandToButtonListener(_startButton, CommandType.start);
+            AddCommandToButtonListener(_infoButton, CommandType.goalsInfo, false);
         }
 
         private void OnStrategiesIsReady(GoalStrategiesIsReadySignal args)
