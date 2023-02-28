@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dbe6ac507015cf74783c0a07c3eacbae
+guid: 7d84ef206c58c0740a2c784200af3968
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,106 +117,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_GoalsMenu
+      name: UI_Slider_green
       rect:
         serializedVersion: 2
-        x: 12
-        y: 20
-        width: 141
-        height: 88
+        x: 0
+        y: 25
+        width: 16
+        height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 12, y: 35, z: 11, w: 33}
+      border: {x: 5, y: 0, z: 5, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7856b60310ce904fb1a40e283f7e841
-      internalID: 1587081041
+      spriteID: b00d4332c0627524792aa4337c166567
+      internalID: 1407894199
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_GoalSlot
+      name: UI_Slider_blue
       rect:
         serializedVersion: 2
-        x: 165
-        y: 92
-        width: 32
-        height: 6
+        x: 0
+        y: 44
+        width: 16
+        height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 11, y: 0, z: 4, w: 0}
+      border: {x: 5, y: 0, z: 5, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2aabe10c3f454e429895796d1e5b018
-      internalID: 571457744
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_LightLine_on
-      rect:
-        serializedVersion: 2
-        x: 212
-        y: 60
-        width: 28
-        height: 36
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 11, y: 12, z: 11, w: 11}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4991af92f3951c8499fcccc9b278b99f
-      internalID: -1649054203
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_LightLine_off
-      rect:
-        serializedVersion: 2
-        x: 223
-        y: 27
-        width: 6
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 1, z: 0, w: 1}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 58727e62374cf0c41a811f5f257f8a25
-      internalID: 1214099453
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Handle
-      rect:
-        serializedVersion: 2
-        x: 83
-        y: 28
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0874de41339feb6418ce8d166b9c89ab
-      internalID: -1984428376
+      spriteID: 8fd0abe13c9358943ac9b30320931704
+      internalID: -1957770866
       vertices: []
       indices: 
       edges: []
@@ -232,11 +169,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_GoalSlot: 571457744
-      UI_Handle: -1984428376
-      UI_GoalsMenu: 1587081041
-      UI_LightLine_off: 1214099453
-      UI_LightLine_on: -1649054203
+      UI_Slider_green: 1407894199
+      UI_Slider_blue: -1957770866
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

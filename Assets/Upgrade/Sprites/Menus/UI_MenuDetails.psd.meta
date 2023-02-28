@@ -209,7 +209,7 @@ TextureImporter:
         width: 34
         height: 3
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 3, y: 0, z: 3, w: 0}
       outline: []
       physicsShape: []
@@ -217,6 +217,27 @@ TextureImporter:
       bones: []
       spriteID: 98627497d793aee409d8a516661513df
       internalID: -709697538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MenuDetails_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 95
+        width: 129
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 55, y: 9, z: 48, w: 11}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5515625c1ac3eb340bcab6a6bd65c7e5
+      internalID: -1907496997
       vertices: []
       indices: 
       edges: []
@@ -232,6 +253,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      UI_MenuDetails_0: -1907496997
       UI_LevelScreen: -476584970
       UI_MenuDivider_hor: -709697538
       UI_MenuPanel: 2134915326
