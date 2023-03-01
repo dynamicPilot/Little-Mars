@@ -11,6 +11,7 @@ using LittleMars.Configs;
 using LittleMars.Common.Signals;
 using LittleMars.Radios;
 using System;
+using LittleMars.AudioSystems;
 
 namespace LittleMars.Installers
 {
@@ -30,6 +31,7 @@ namespace LittleMars.Installers
             InstallCommands();
             InstallSaveSystem();
             InstallConfigSystem();
+            InstallLocalization();
             InstallSounds();
             InstallSignals();
         }
@@ -39,7 +41,7 @@ namespace LittleMars.Installers
             // bind test player
             Container.Bind<IPlayerState>().To<MockPlayerState>().AsSingle();
             //Container.BindInterfacesTo<PlayerState>();
-            Container.Bind<PlayerSettings>().AsSingle();
+            Container.Bind<LangSettings>().AsSingle();
         }
 
         private void InstallCommands()
@@ -74,12 +76,20 @@ namespace LittleMars.Installers
 
         }
 
+        void InstallLocalization()
+        {
+            Container.BindInterfacesAndSelfTo<LangManager>().AsSingle();
+        }
+
         void InstallSounds()
         {
             Container.BindInterfacesAndSelfTo<RadioSystem>().AsSingle();
             Container.BindFactory<RadioUI, RadioUI.Factory>()
                 .FromComponentInNewPrefab(_settings.RadioUI)
                 .WhenInjectedInto<RadioSystem>();
+
+            Container.BindInterfacesAndSelfTo<AudioSystem>().AsSingle();
+            Container.BindFactory<VolumeGroupData, VolumeGroupControl, VolumeGroupControl.Factory>().AsSingle();
         }
 
         void InstallSignals()

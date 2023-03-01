@@ -204,5 +204,11 @@
         resource,
         route
     }
+
+    public enum VolumeGroupType
+    {
+        music,
+        total
+    }
 }
 

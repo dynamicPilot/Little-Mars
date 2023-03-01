@@ -30,9 +30,10 @@ MonoBehaviour:
     PlayerConfigs:
       ConfigFileName: config.txt
     PlayerSettings:
-      DefaultMusicVolume: 0.7
-      DefaultTotalVolume: 0.7
       DefaultLang: 0
+  TextBlocks:
+    Blocks:
+      Blocks: {fileID: 4900000, guid: 7ad9f1dd6664038488682e7e23cbdd93, type: 3}
   ProjectSystems:
     Installer:
       RadioUI: {fileID: 5322782966691425155, guid: 619770be1e8417d4cba4c508489fe22c, type: 3}

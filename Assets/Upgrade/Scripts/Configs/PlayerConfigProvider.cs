@@ -1,18 +1,23 @@
-﻿namespace LittleMars.Configs
+﻿using LittleMars.AudioSystems;
+using LittleMars.Common;
+
+namespace LittleMars.Configs
 {
     public class PlayerConfigProvider
     {
-        readonly PlayerSettings _settings;
-
-        public PlayerConfigProvider(PlayerSettings settings)
+        readonly LangSettings _langSettings;
+        readonly AudioSystem _audioSystem;
+        public PlayerConfigProvider(LangSettings settings, AudioSystem audio)
         {
-            _settings = settings;
+            _langSettings = settings;
+            _audioSystem = audio;
         }
 
         public PlayerConfig GetData()
         {
-            return new PlayerConfig(_settings.IsMusicOn, _settings.MusicVolume,
-                _settings.IsSoundOn, _settings.SoundVolume, _settings.Lang);
+            var isMusicOn = _audioSystem.TryGetGroupVolume(VolumeGroupType.music, out var musicVolume);
+            var isSoundOn = _audioSystem.TryGetGroupVolume(VolumeGroupType.total, out var soundVolume);
+            return new PlayerConfig(isMusicOn, musicVolume, isSoundOn, soundVolume, _langSettings.Lang);
         }
     }
 }

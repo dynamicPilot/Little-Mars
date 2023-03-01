@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LittleMars.Common;
+using System;
 using UnityEngine.Audio;
 
 namespace LittleMars.AudioSystems
@@ -10,5 +11,6 @@ namespace LittleMars.AudioSystems
         public string Parameter;
         public float MinVolume;
         public float MaxVolume;
+        public float DefaultVolume;
     }
 }

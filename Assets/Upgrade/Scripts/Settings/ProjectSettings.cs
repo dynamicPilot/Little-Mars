@@ -2,10 +2,10 @@
 using LittleMars.Configs;
 using LittleMars.Installers;
 using LittleMars.Loaders;
+using LittleMars.Localization;
 using LittleMars.SaveSystem;
 using System;
 using UnityEngine;
-using UnityEngine.Diagnostics;
 using Zenject;
 
 namespace LittleMars.Settings
@@ -17,7 +17,9 @@ namespace LittleMars.Settings
         public CatalogueSettings Catalogues;
         public SaveSystemSettings SaveSystem;
         public ConfigSystemSettings ConfigSystem;
+        public TextBlocksSettings TextBlocks;
         public ProjectSystemsSettings ProjectSystems;
+
 
         [Serializable]
         public class ScenesSettings
@@ -41,7 +43,13 @@ namespace LittleMars.Settings
         public class ConfigSystemSettings
         {
             public PlayerConfigSystem.Settings PlayerConfigs;
-            public PlayerSettings.Settings PlayerSettings;
+            public LangSettings.Settings PlayerSettings;
+        }
+
+        [Serializable]
+        public class TextBlocksSettings
+        {
+            public LangManager.ProjectSettings Blocks;
         }
 
         [Serializable]
@@ -58,6 +66,8 @@ namespace LittleMars.Settings
             Container.BindInstance(ConfigSystem.PlayerConfigs);
             Container.BindInstance(ConfigSystem.PlayerSettings);
             Container.BindInstance(ProjectSystems.Installer);
+
+            Container.BindInstance(TextBlocks.Blocks);
         }
     }
 }

@@ -5,7 +5,6 @@ using Zenject;
 
 namespace LittleMars.MainMenus
 {
-
     public class LevelsMenu
     {
         readonly LevelsCatalogue _catalogue;

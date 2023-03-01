@@ -1,12 +1,9 @@
-﻿using LittleMars.Buildings;
-using LittleMars.Buildings.Timers;
+﻿using LittleMars.Buildings.Timers;
 using LittleMars.Common.Catalogues;
 using LittleMars.Installers;
 using LittleMars.LevelMenus;
-using LittleMars.Localization;
 using LittleMars.Model.TimeUpdate;
 using LittleMars.Notifications;
-using LittleMars.SaveSystem;
 using LittleMars.Slots;
 using System;
 using UnityEngine;
@@ -20,7 +17,6 @@ namespace LittleMars.Settings
         public ViewSettings View;
         public TimeSettings Time;
         public CatalogueSettings Catalogue;
-        public TextBlocksSettings TextBlocks;
         
 
         [Serializable]
@@ -47,11 +43,6 @@ namespace LittleMars.Settings
             public ColorsCatalogue.Settings Colors;            
         }
 
-        [Serializable]
-        public class TextBlocksSettings
-        {
-            public LevelLangsManager.SceneSettings Blocks;
-        }
 
         public override void InstallBindings()
         {
@@ -67,7 +58,6 @@ namespace LittleMars.Settings
             Container.BindInstance(Time.EndGameDelay);
             Container.BindInstance(Time.NotSettings);
 
-            Container.BindInstance(TextBlocks.Blocks);
         }
     }
 }

@@ -43,18 +43,29 @@ namespace LittleMars.Configs
 
         void Load()
         {
+            Debug.Log("Loading...");
             if (File.Exists(_path))
             {
+                Debug.Log("Has confug");
                 var config = _converter.FromJson<PlayerConfig>(_path);
+                PrintConfig(config);
                 _signalBus.Fire(new ConfigIsLoadedSignal { PlayerConfig = config, NeedUpdate = true });
             }
             else
             {
+                Debug.Log("No confug");
                 var config = _provider.GetData();
                 Save(config);
                 _signalBus.Fire(new NoConfigIsLoadedSignal { PlayerConfig = config });
             }
                 
+        }
+
+        void PrintConfig(PlayerConfig config)
+        {
+            Debug.Log($"Player Config : musicVolume {config.MusicVolume}, is Music on {config.IsMusicOn}.");
+            Debug.Log($"Player Config : soundsVolume {config.SoundsVolume}, is Sounds on {config.IsSoundsOn}.");
+            Debug.Log($"Player Config : langIndex {config.Lang}");
         }
 
 

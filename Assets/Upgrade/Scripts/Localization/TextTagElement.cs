@@ -14,14 +14,14 @@ namespace LittleMars.Localization
         [Header("Options")]
         [SerializeField] private bool _inInit = false;
 
-        LevelLangsManager _manager;
+        LangManager _manager;
+        ILevelLangManager _levelManager;
 
         [Inject]
-        public void Constructor(LevelLangsManager manager)
-        {
-           
+        public void Constructor(LangManager manager, ILevelLangManager levelManager)
+        {           
             _manager = manager;
-            Debug.Log("TextTagElement.Constructor: set manager." + (_manager == null));
+            _levelManager = levelManager;
             Init();
         }
 
@@ -32,8 +32,8 @@ namespace LittleMars.Localization
 
         public void SetText()
         {
-            Debug.Log("TextTagElement.SetText: is manager null " + (_manager == null));
-            _text.text = _manager.GetText(_tag, _tagGroup);
+            if (_tagGroup == TagGroup.scene) _text.text = _manager.GetText(_tag, _tagGroup);
+            else if (_tagGroup == TagGroup.level) _text.text = _levelManager.GetText(_tag, _tagGroup);
         }
     }
 }

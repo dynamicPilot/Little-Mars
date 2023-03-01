@@ -6,14 +6,14 @@ namespace LittleMars.UI.StartMenus
 {
     public class CarrouselPanelUI : MonoBehaviour
     {
-        [SerializeField] private Image _image;
-        [SerializeField] private Button _prevButton;
-        [SerializeField] private Button _nextButton;
+        [SerializeField] Image _image;
+        [SerializeField] Button _prevButton;
+        [SerializeField] Button _nextButton;
         [Header("Settings")]
         [SerializeField] SignCatalogueForUI _cataloque;
 
-        protected int _index;
-
+        int _index;
+        bool _hasChanged;
         private void OnEnable()
         {
             SetListeners();
@@ -34,6 +34,7 @@ namespace LittleMars.UI.StartMenus
         public void SetIndex(int index)
         {
             _index = index;
+            _hasChanged = false;
             CheckIndex();
             UpdateImage();
         }
@@ -43,16 +44,28 @@ namespace LittleMars.UI.StartMenus
             return _index;
         }
 
+        public bool NeedSave()
+        {
+            return _hasChanged;
+        }
+
         void Next()
         {
             _index++;
-            CheckIndex();
+            OnIndexChanged();
         }
 
         void Prev()
         {
             _index--;
+            OnIndexChanged();
+        }
+
+        void OnIndexChanged()
+        {
+            _hasChanged = true;
             CheckIndex();
+            UpdateImage();
         }
 
         void CheckIndex()
@@ -65,6 +78,5 @@ namespace LittleMars.UI.StartMenus
         {
             _image.sprite = _cataloque.Sprites[_index];
         }
-
     }
 }

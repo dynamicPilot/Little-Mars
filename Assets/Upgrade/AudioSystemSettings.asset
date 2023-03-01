@@ -23,10 +23,12 @@ MonoBehaviour:
       MusicGroup:
         Mixer: {fileID: 24100000, guid: 20e8dcd61e43e7a4b9987afebe7f5d37, type: 2}
         Parameter: music
-        MinVolume: -20
+        MinVolume: -70
         MaxVolume: 5
+        DefaultVolume: 0.7
       TotalGroup:
         Mixer: {fileID: 24100000, guid: e79b38e8303af3843ab59685d99552e0, type: 2}
         Parameter: total
-        MinVolume: -20
+        MinVolume: -70
         MaxVolume: 5
+        DefaultVolume: 0.7

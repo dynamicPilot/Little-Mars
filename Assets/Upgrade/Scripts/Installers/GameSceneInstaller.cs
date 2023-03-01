@@ -49,7 +49,7 @@ namespace LittleMars.Installers
             InstallModel();            
             InstallTrackers();
 
-            InstallLocalizationSystem();
+            InstallLocalization();
             InstallEffects();
             InstallSounds();
             InstallNotSystem();
@@ -144,7 +144,7 @@ namespace LittleMars.Installers
             GameModelInstaller.Install(Container);
         }
 
-        void InstallLocalizationSystem()
+        void InstallLocalization()
         {         
             Container.BindInterfacesAndSelfTo<LevelLangsManager>().AsSingle();
         }
@@ -246,7 +246,6 @@ namespace LittleMars.Installers
             Container.BindFactory<EndLevelSignalGun, EndLevelSignalGun.Factory>()
                 .WhenInjectedInto<LevelMenusWorkflowTimer>();
         }
-
 
         void InstallGoalInfos()
         {
