@@ -46,9 +46,9 @@ namespace LittleMars.AudioSystems
             volume = _groups[type].GetVolume();
             return !_groups[type].IsMute;
         }
-        public void ToDefault(VolumeGroupType type)
+        public float ToDefaultAndGetVolume(VolumeGroupType type)
         {
-            _groups[type].ToDefault();
+            return _groups[type].ToDefault();
         }
 
         public void UpdateIsMuteGroup(bool isMute, VolumeGroupType type)

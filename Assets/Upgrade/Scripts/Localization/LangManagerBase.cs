@@ -1,17 +1,18 @@
 ﻿using LittleMars.Common;
+using LittleMars.Configs;
 using UnityEngine;
 
 namespace LittleMars.Localization
 {
     public class LangManagerBase
     {
-        readonly Langs _lang;
+        readonly LangSettings _settings;
         readonly TagGroup _group;
         protected TextBlocks _blocks;
 
-        public LangManagerBase(Langs lang, TagGroup group)
+        public LangManagerBase(LangSettings settings, TagGroup group)
         {
-            _lang = lang;
+            _settings = settings;
             _blocks = null;
         }
 
@@ -20,7 +21,7 @@ namespace LittleMars.Localization
             Debug.Log("Get text....");
             if (!CheckBlockForGroup(group)) return "";
 
-            _blocks.TryGetText(tag, _lang, out string text);
+            _blocks.TryGetText(tag, _settings.LangIndex, out string text);
             Debug.Log("Get text...." + text);
             return text;
         }
@@ -29,7 +30,7 @@ namespace LittleMars.Localization
         {
             if (!CheckBlockForGroup(group)) return null;
 
-            _blocks.TryGetAllTextWithTag(tagPart, _lang, out string[] texts); ;
+            _blocks.TryGetAllTextWithTag(tagPart, _settings.LangIndex, out string[] texts); ;
             return texts;
         }
 

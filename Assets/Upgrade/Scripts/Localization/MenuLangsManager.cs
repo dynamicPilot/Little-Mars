@@ -6,7 +6,7 @@ namespace LittleMars.Localization
     public class MenuLangsManager : LangManagerBase, ILevelLangManager
     {
         public MenuLangsManager(LangSettings playerSettings) 
-            : base((Langs)playerSettings.Lang, TagGroup.level)
+            : base(playerSettings, TagGroup.level)
         {
         }
     }

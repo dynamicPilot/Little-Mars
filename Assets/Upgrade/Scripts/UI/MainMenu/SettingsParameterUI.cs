@@ -1,5 +1,6 @@
 ﻿using LittleMars.AudioSystems;
 using LittleMars.Common;
+using LittleMars.Common.Signals;
 using LittleMars.Localization;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,41 +15,64 @@ namespace LittleMars.UI.MainMenu
         [SerializeField] MuteStateButton _muteButton;
         [SerializeField] VolumeGroupType _type;
         
-        AudioSystem _audioSystem;       
+        AudioSystem _audioSystem;
+        UISoundSystem _soundSystem;
+        SignalBus _signalBus;
         bool _hasChanged;
 
         [Inject]
-        public void Constructor(AudioSystem audioSystem)
+        public void Constructor(AudioSystem audioSystem, UISoundSystem soundSystem, SignalBus signalBus)
         {
             _audioSystem = audioSystem;
+            _soundSystem = soundSystem;
+            _signalBus = signalBus;
             _hasChanged = false;
             Init();
         }
 
         void Init()
         {
-            SetListeners();            
+            SetListeners();
+            _signalBus.Subscribe<NeedTextUpdateSignal>(UpdateText);
         }
 
         private void OnDestroy()
         {
             RemoveListeners();
+            _signalBus?.TryUnsubscribe<NeedTextUpdateSignal>(UpdateText);
         }
 
         public void SetParameter(float value, bool isTurnedOn)
         {
-            Debug.Log($"Set {_type}: value {value}, is TurnedOn {isTurnedOn}");
-            _slider.value = value;
             _hasChanged = false;
-            _title.SetText();
-            SliderMode(isTurnedOn);
-
-            _muteButton.SetState((isTurnedOn) ? States.on : States.off);
+            UpdateText();
+            UpdateVolume(value, isTurnedOn);
         }
 
-        public bool NeedSave()
+        public bool NeedSave() => _hasChanged;
+
+        public void ToDefault()
         {
-            return _hasChanged;
+            var defaultVolume = _audioSystem.ToDefaultAndGetVolume(_type);
+            UpdateVolume(defaultVolume, true);
+            _hasChanged = true;
+        }
+        public void OnSliderMove(float value)
+        {
+            _hasChanged = true;
+            _audioSystem.ChangeGroupVolume(value, _type);
+        }
+
+        void UpdateVolume(float value, bool isTurnedOn)
+        {
+            _slider.value = value;
+            SliderMode(isTurnedOn);
+            MuteButtonMode(isTurnedOn);
+        }
+
+        void UpdateText()
+        {
+            _title.SetText();
         }
 
         void SliderMode(bool isActive)
@@ -56,22 +80,21 @@ namespace LittleMars.UI.MainMenu
             _slider.interactable = isActive;
         }
 
+        void MuteButtonMode(bool isActive)
+        {
+            _muteButton.SetState((isActive) ? States.on : States.off);
+        }
+
         void OnMuteButtonClick()
         {
             var state = _muteButton.ChangeStateToOpposite();
             _audioSystem.UpdateIsMuteGroup(!state, _type);
-        }
-
-        public void OnSliderMove(float value)
-        {
-            //Debug.Log("On slider move");
-            _hasChanged = true;
-            _audioSystem.ChangeGroupVolume(value, _type);
+            _soundSystem.PlayUISound(UISoundType.clickSecond);
+            SliderMode(state);
         }
 
         void SetListeners()
         {
-            //Debug.Log("set listeners");
             _slider.onValueChanged.AddListener(OnSliderMove);
             _muteButton.Button.onClick.AddListener(OnMuteButtonClick);
         }

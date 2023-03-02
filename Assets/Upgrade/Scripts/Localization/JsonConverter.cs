@@ -8,9 +8,9 @@ namespace LittleMars.Localization
 {
     public class JsonConverter
     {
-        public void ToJson<T>(T obj, string filePath) where T : class
+        public void ToJson<T>(T obj, string filePath, Formatting formatting = Formatting.Indented) where T : class
         {
-            string jsonString = JsonConvert.SerializeObject(obj, Formatting.Indented);
+            string jsonString = JsonConvert.SerializeObject(obj, formatting);
             File.WriteAllText(filePath, jsonString);
         }
 

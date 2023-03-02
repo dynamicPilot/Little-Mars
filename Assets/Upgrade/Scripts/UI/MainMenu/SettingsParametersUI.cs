@@ -19,7 +19,9 @@ namespace LittleMars.UI.MainMenu
 
         public void ResetToDefaults()
         {
-
+            _musicVolume.ToDefault();
+            _totalVolume.ToDefault();
+            _langUI.ToDefault();
         }
 
         public bool NeedSave()

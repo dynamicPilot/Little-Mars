@@ -7,10 +7,11 @@ namespace LittleMars.UI.Effects
     {
         [SerializeField] GameObject _normalState;
         [SerializeField] GameObject _pressedState;
+        [SerializeField] bool _normalOnAwake = true;
 
         private void Awake()
         {
-            NormalState();
+            if (_normalOnAwake) NormalState();
         }
         public void OnPointerDown(PointerEventData eventData)
         {

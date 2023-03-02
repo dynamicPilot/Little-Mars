@@ -24,21 +24,19 @@ namespace LittleMars.Localization
             Blocks.TryAdd(tag, blocks);
         }
 
-        public void TryGetText(string tag, Langs lang, out string text)
+        public void TryGetText(string tag, int index, out string text)
         {
-            int index = (int)lang;
             text = "";
 
             if (!Blocks.ContainsKey(tag)) return;
 
-            Debug.Log("Has this lang? " + (index < Blocks[tag].Length));
+            Debug.Log($"Has this lang {index} ? " + (index < Blocks[tag].Length));
             text = (index < Blocks[tag].Length) ? Blocks[tag][index].Text :
                 Blocks[tag][0].Text;
         }
 
-        public void TryGetAllTextWithTag(string tagPart, Langs lang, out string[] texts)
+        public void TryGetAllTextWithTag(string tagPart, int index, out string[] texts)
         {
-            int index = (int)lang;
             texts = null;
 
             var test = from tag in Blocks.Keys

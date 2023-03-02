@@ -61,6 +61,7 @@ namespace LittleMars.Installers
             //SignalBusInstaller.Install(Container);
             Container.DeclareSignal<ToLevelSignal>();
             Container.DeclareSignal<EndSceneSignal>();
+            Container.DeclareSignal<NeedTextUpdateSignal>();
         }
     }
 }

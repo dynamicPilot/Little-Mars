@@ -1,4 +1,5 @@
 ﻿using LittleMars.Common;
+using LittleMars.UI.AudioSystems;
 using LittleMars.UI.Effects;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -12,6 +13,7 @@ namespace LittleMars.UI.MainMenu
 
         public Button Button { get => _button; }
         States _state = States.on;
+
         public void SetState(States state)
         {
             if (_state != state) _state = state;
@@ -31,6 +33,7 @@ namespace LittleMars.UI.MainMenu
 
         void UpdateView()
         {
+            Debug.Log($"SetState {_state}");
             if (_state == States.on) NormalState();
             else PressedState();
         }

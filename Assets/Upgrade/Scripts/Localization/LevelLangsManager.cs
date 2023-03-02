@@ -13,7 +13,7 @@ namespace LittleMars.Localization
         
         public LevelLangsManager(LevelSettings levelSettings,
             JsonConverter jsonConverter, LangSettings playerSettings)
-            : base((Langs) playerSettings.Lang, TagGroup.level)
+            : base(playerSettings, TagGroup.level)
         {
             _levelSettings = levelSettings;
             _jsonConverter = jsonConverter;

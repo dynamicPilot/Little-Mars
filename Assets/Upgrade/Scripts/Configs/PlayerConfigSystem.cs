@@ -38,7 +38,7 @@ namespace LittleMars.Configs
 
         void Save(PlayerConfig config)
         {
-            _converter.ToJson(config, _path);
+            _converter.ToJson(config, _path, Newtonsoft.Json.Formatting.None);
         }
 
         void Load()

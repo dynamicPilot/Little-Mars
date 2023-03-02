@@ -12,7 +12,7 @@ namespace LittleMars.Localization
         readonly ProjectSettings _projectSettings;
 
         public LangManager(JsonConverter jsonConverter, ProjectSettings sceneSettings,
-            LangSettings playerSettings) : base((Langs)playerSettings.Lang, TagGroup.scene)
+            LangSettings playerSettings) : base(playerSettings, TagGroup.scene)
         {
             _jsonConverter = jsonConverter;
             _projectSettings = sceneSettings;

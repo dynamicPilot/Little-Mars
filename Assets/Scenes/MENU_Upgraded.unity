@@ -375,8 +375,10 @@ GameObject:
   m_Component:
   - component: {fileID: 98086374}
   - component: {fileID: 98086375}
+  - component: {fileID: 98086377}
+  - component: {fileID: 98086376}
   m_Layer: 5
-  m_Name: LangControlContainer
+  m_Name: LangParameter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -423,6 +425,40 @@ MonoBehaviour:
   m_FlexibleWidth: 1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &98086376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98086373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components:
+  - {fileID: 98086377}
+  _identifier: 
+  _useSceneContext: 1
+  _context: {fileID: 0}
+  _bindType: 0
+--- !u!114 &98086377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98086373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a9457ecd34580f4384b5cfd63fc06b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _image: {fileID: 4414019709438721668}
+  _prevButton: {fileID: 4414019711126616037}
+  _nextButton: {fileID: 4414019710353748918}
+  _cataloque: {fileID: 11400000, guid: ef21ac429322591438e328648b4200e7, type: 2}
 --- !u!1 &254371726
 GameObject:
   m_ObjectHideFlags: 0
@@ -3673,7 +3709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _musicVolume: {fileID: 5474100783272391049}
   _totalVolume: {fileID: 1383794425}
-  _langUI: {fileID: 4414019710526137605}
+  _langUI: {fileID: 98086377}
 --- !u!114 &2025523181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3690,6 +3726,7 @@ MonoBehaviour:
   _openButton: {fileID: 5848149800677069405}
   _defaultsButton: {fileID: 7044284484021520985}
   _backButton: {fileID: 3653626948671279989}
+  _defaultButtonText: {fileID: 9212170588504499876}
   _parameters: {fileID: 2025523180}
 --- !u!1 &2130168679
 GameObject:
@@ -5122,7 +5159,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4414019710526137603}
-  - component: {fileID: 4414019710526137605}
   m_Layer: 5
   m_Name: LangDisplay
   m_TagString: Untagged
@@ -5130,22 +5166,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &4414019710526137605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4414019710526137604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4b2ba8592f9d2946a7d6042f5a5c914, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _image: {fileID: 4414019709438721668}
-  _prevButton: {fileID: 4414019711126616037}
-  _nextButton: {fileID: 4414019710353748918}
-  _cataloque: {fileID: 11400000, guid: ef21ac429322591438e328648b4200e7, type: 2}
 --- !u!222 &4414019711126616035
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5298,6 +5318,7 @@ GameObject:
   - component: {fileID: 4025389061892986409}
   - component: {fileID: 7044284484021520985}
   - component: {fileID: 3229069237396210467}
+  - component: {fileID: 9212170588504499876}
   m_Layer: 5
   m_Name: ColoredButton_defaults
   m_TagString: Untagged
@@ -7777,3 +7798,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5474050826187607165}
   m_CullTransparentMesh: 1
+--- !u!114 &9212170588504499876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5474050826187607165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7668c98e4ff66c444a0154749368af60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tag: reset
+  _tagGroup: 0
+  _text: {fileID: 517780210}
+  _inInit: 0

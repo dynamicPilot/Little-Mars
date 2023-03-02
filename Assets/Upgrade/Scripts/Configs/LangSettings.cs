@@ -9,13 +9,13 @@ namespace LittleMars.Configs
     {
         readonly Settings _settings;
         readonly SignalBus _signalBus;
-        public int Lang { get; private set; }
+        public int LangIndex { get; private set; }
 
         public LangSettings(Settings settings, SignalBus signalBus)
         {
             _settings = settings;
             _signalBus = signalBus;
-            ToDefault();
+            ToDefaultAndGetLang();
         }
 
         public void Initialize()
@@ -29,15 +29,21 @@ namespace LittleMars.Configs
                 UpdateViaConfig(args.PlayerConfig);
         }
 
-        void ToDefault()
+        public int ToDefaultAndGetLang()
         {
-            Lang = (int)_settings.DefaultLang;
+            UpdateLang((int)_settings.DefaultLang);
+            return LangIndex;
+        }
+
+        public void UpdateLang(int langIndex)
+        {
+            LangIndex = langIndex;
         }
 
         void UpdateViaConfig(PlayerConfig config)
         {
             if (config == null) return;
-            Lang = (int)config.Lang;
+            LangIndex = (int)config.Lang;
         }
 
         [Serializable]

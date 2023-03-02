@@ -12,7 +12,7 @@ namespace LittleMars.UI.StartMenus
         [Header("Settings")]
         [SerializeField] SignCatalogueForUI _cataloque;
 
-        int _index;
+        protected int _index;
         bool _hasChanged;
         private void OnEnable()
         {
@@ -39,6 +39,12 @@ namespace LittleMars.UI.StartMenus
             UpdateImage();
         }
 
+        public void UpdateIndex(int index)
+        {
+            _index = index;
+            OnIndexChanged();
+        }
+
         public int GetIndex()
         {
             return _index;
@@ -52,20 +58,27 @@ namespace LittleMars.UI.StartMenus
         void Next()
         {
             _index++;
+            OnButtonClick();
             OnIndexChanged();
         }
 
         void Prev()
         {
             _index--;
+            OnButtonClick();
             OnIndexChanged();
         }
 
-        void OnIndexChanged()
+        protected virtual void OnIndexChanged()
         {
             _hasChanged = true;
             CheckIndex();
             UpdateImage();
+        }
+
+        protected virtual void OnButtonClick()
+        {
+
         }
 
         void CheckIndex()

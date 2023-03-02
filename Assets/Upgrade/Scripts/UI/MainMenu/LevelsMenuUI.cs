@@ -116,14 +116,14 @@ namespace LittleMars.UI.MainMenu
 
         void ToPrevPage()
         {
-            _audioSystem.PlayUISound(UISoundType.turnOff);
+            _audioSystem.PlayUISound(UISoundType.clickThird);
             _pageIndex--;
             SetNextPage();
         }
 
         void ToNextPage()
         {
-            _audioSystem.PlayUISound(UISoundType.turnOn);
+            _audioSystem.PlayUISound(UISoundType.clickThird);
             _pageIndex++;
             SetNextPage();
         }

@@ -38,10 +38,12 @@ namespace LittleMars.AudioSystems
             UpdateIsMute(!isOn);
         }
 
-        public void ToDefault()
+        public float ToDefault()
         {
             _volume = RealValueToFraction(_data.DefaultVolume);
-            _data.Mixer.SetFloat(_data.Parameter, _data.DefaultVolume);
+            UnMute();
+            return _volume;
+            //_data.Mixer.SetFloat(_data.Parameter, _data.DefaultVolume);
         }
 
         public float GetVolume()

@@ -17,7 +17,7 @@ namespace LittleMars.Configs
         {
             var isMusicOn = _audioSystem.TryGetGroupVolume(VolumeGroupType.music, out var musicVolume);
             var isSoundOn = _audioSystem.TryGetGroupVolume(VolumeGroupType.total, out var soundVolume);
-            return new PlayerConfig(isMusicOn, musicVolume, isSoundOn, soundVolume, _langSettings.Lang);
+            return new PlayerConfig(isMusicOn, musicVolume, isSoundOn, soundVolume, _langSettings.LangIndex);
         }
     }
 }

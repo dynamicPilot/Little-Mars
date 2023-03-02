@@ -669,6 +669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _normalState: {fileID: 8868387620024128417}
   _pressedState: {fileID: 354630087441013124}
+  _normalOnAwake: 0
   _button: {fileID: 4621348497275174600}
 --- !u!1 &8334728076175586171
 GameObject:
