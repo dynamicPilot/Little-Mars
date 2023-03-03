@@ -50,6 +50,8 @@ namespace LittleMars.Radios
             if (args.PlayerConfig == null) return;
             bool musicIsOn = args.PlayerConfig.IsMusicOn;
 
+            _isMute = !musicIsOn;
+
             if (musicIsOn) StartRadio();
         }
 
