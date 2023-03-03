@@ -127,8 +127,6 @@
         restart,
         start,
         back,
-        muteMusic,
-        muteAll,
         empty,
         quit,
         toLevel,

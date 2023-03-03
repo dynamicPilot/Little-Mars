@@ -44,7 +44,6 @@ namespace LittleMars.SaveSystem
 
         public void Dispose()
         {
-            Debug.Log("Dispose SavesSystemManager");
         }
 
         public class Factory : PlaceholderFactory<SavesSystemManager>

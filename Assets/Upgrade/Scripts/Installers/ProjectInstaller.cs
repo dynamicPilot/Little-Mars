@@ -90,6 +90,7 @@ namespace LittleMars.Installers
 
             Container.BindInterfacesAndSelfTo<AudioSystem>().AsSingle();
             Container.BindFactory<VolumeGroupData, VolumeGroupControl, VolumeGroupControl.Factory>().AsSingle();
+            Container.BindFactory<VolumeGroupData, MusicVolumeGroupControl, MusicVolumeGroupControl.Factory>().AsSingle();
         }
 
         void InstallSignals()
@@ -103,6 +104,9 @@ namespace LittleMars.Installers
 
             Container.DeclareSignal<NeedSaveConfigSignal>();
             Container.DeclareSignal<NeedSaveDataSignal>();
+
+            Container.DeclareSignal<MuteMusicSignal>();
+            Container.DeclareSignal<UnmuteMusicSignal>();
         }
 
         [Serializable]

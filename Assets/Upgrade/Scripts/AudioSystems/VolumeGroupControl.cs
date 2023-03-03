@@ -10,10 +10,12 @@ namespace LittleMars.AudioSystems
 
         VolumeGroupData _data;       
         float _volume;
+        protected bool _forcedIsMute;
 
         public VolumeGroupControl(VolumeGroupData data)
         {
             _data = data;
+            _forcedIsMute = false;
             ToDefault();
         }
 
@@ -29,6 +31,11 @@ namespace LittleMars.AudioSystems
         {
             if (isMute) Mute();
             else UnMute();
+        }
+
+        public virtual void UpdateForcedIsMute(bool isMute)
+        {
+
         }
 
         public void UpdateViaConfig(float volume, bool isOn)
@@ -60,14 +67,14 @@ namespace LittleMars.AudioSystems
             _volume = RealValueToFraction(value);
         }
 
-        void Mute()
+        protected virtual void Mute()
         {
             Debug.Log($"Mute {_data.Parameter}");
             IsMute = true;
             _data.Mixer.SetFloat(_data.Parameter, _data.MinVolume);
         }
 
-        void UnMute()
+        protected virtual void UnMute()
         {
             Debug.Log($"Unmute {_data.Parameter}");
             IsMute = false;

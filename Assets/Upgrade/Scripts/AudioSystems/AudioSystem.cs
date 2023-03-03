@@ -2,7 +2,7 @@
 using LittleMars.Common.Signals;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
+using TMPro;
 using Zenject;
 
 namespace LittleMars.AudioSystems
@@ -11,13 +11,16 @@ namespace LittleMars.AudioSystems
     {
         readonly Settings _settings;
         readonly VolumeGroupControl.Factory _factory;
+        readonly MusicVolumeGroupControl.Factory _musicFactory;
         readonly SignalBus _signalBus;
 
         Dictionary<VolumeGroupType, VolumeGroupControl> _groups;
 
-        public AudioSystem(VolumeGroupControl.Factory factory, SignalBus signalBus, Settings settings)
+        public AudioSystem(VolumeGroupControl.Factory factory, MusicVolumeGroupControl.Factory musicFactory,
+            SignalBus signalBus, Settings settings)
         {
             _factory = factory;
+            _musicFactory = musicFactory;
             _signalBus = signalBus;
             _settings = settings;
 
@@ -26,7 +29,6 @@ namespace LittleMars.AudioSystems
 
         public void Initialize()
         {
-            Debug.Log("Initialize AudioSystems");
             _signalBus.Subscribe<ConfigIsLoadedSignal>(OnConfigIsLoaded);
         }
 
@@ -54,6 +56,14 @@ namespace LittleMars.AudioSystems
         public void UpdateIsMuteGroup(bool isMute, VolumeGroupType type)
         {
             _groups[type].UpdateIsMute(isMute);
+
+            if (type == VolumeGroupType.total)
+                _groups[VolumeGroupType.music].UpdateForcedIsMute(isMute);
+        }
+
+        public bool GetIsMuteForGroup(VolumeGroupType type)
+        {
+            return _groups[type].IsMute;
         }
 
         void OnConfigIsLoaded(ConfigIsLoadedSignal args)
@@ -72,9 +82,10 @@ namespace LittleMars.AudioSystems
         void CreateGroups()
         {
             _groups = new();
-            _groups.Add(VolumeGroupType.music, _factory.Create(_settings.MusicGroup));
+            _groups.Add(VolumeGroupType.music, _musicFactory.Create(_settings.MusicGroup));
             _groups.Add(VolumeGroupType.total, _factory.Create(_settings.TotalGroup));
         }
+
 
         [Serializable]
         public class Settings

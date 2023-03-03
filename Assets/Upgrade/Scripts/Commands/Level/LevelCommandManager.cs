@@ -11,10 +11,8 @@ namespace LittleMars.Commands.Level
         readonly MainMenuByStartCommand.Factory _mainMenuByStartFactory;
         readonly GoalInfoCommand.Factory _goalInfoFactory;
 
-        public LevelCommandManager(ProjectCommandManager projectManager,
-            StartCommand.Factory startFactory,
-            MainMenuByStartCommand.Factory mainMenuByStartFactory,
-            LevelReceiver levelReceiver,
+        public LevelCommandManager(ProjectCommandManager projectManager, StartCommand.Factory startFactory,
+            MainMenuByStartCommand.Factory mainMenuByStartFactory, LevelReceiver levelReceiver,
             GoalInfoCommand.Factory goalInfoFactory)
             : base(projectManager)
         {

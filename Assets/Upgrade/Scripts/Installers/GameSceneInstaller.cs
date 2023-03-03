@@ -173,7 +173,7 @@ namespace LittleMars.Installers
             GameTrackersInstaller.Install(Container);
         }
 
-        private void InstallBuildings()
+        void InstallBuildings()
         {
             Container.BindInterfacesAndSelfTo<BuildingManager>().AsSingle();
             Container.Bind<BuildingStorage>().AsSingle();
@@ -186,7 +186,7 @@ namespace LittleMars.Installers
                 .UnderTransformGroup("Buildings");
         }
 
-        private void InstallViewSlots()
+        void InstallViewSlots()
         {            
             Container.BindInterfacesAndSelfTo<ViewSlotManager>().AsSingle();
             Container.Bind<ViewSlotFactory>().AsSingle();
@@ -198,7 +198,7 @@ namespace LittleMars.Installers
                 .UnderTransformGroup("Slots");
         }
 
-        private void InstallBuildingSlots()
+        void InstallBuildingSlots()
         {
             Container.BindInterfacesAndSelfTo<BuildingMenuManager>().AsSingle();
             Container.Bind<BuildingSlotFactory>().AsSingle();
@@ -209,7 +209,7 @@ namespace LittleMars.Installers
                 .WithGameObjectName("BuildingSlot");
         }
 
-        private void InstallConnections()
+        void InstallConnections()
         {
             Container.BindInterfacesAndSelfTo<ConnectionsManager>().AsSingle();
             Container.BindInterfacesAndSelfTo<ConnectionViewManager>().AsSingle();
@@ -219,32 +219,14 @@ namespace LittleMars.Installers
             Container.BindFactory<SlotConnections, SlotConnections.Factory>().AsSingle();
         }
 
-        private void InstallRockets()
+        void InstallRockets()
         {
             Container.BindInterfacesAndSelfTo<RocketsManager>().AsSingle();
         }
 
-        private void InstallLevelMenus()
+        void InstallLevelMenus()
         {
-            Container.BindInterfacesAndSelfTo<LevelMenusWorkflow>().AsSingle();
-
-            Container.Bind<AsyncSignalGunTimer>().AsSingle();
-            Container.Bind<LevelMenusWorkflowTimer>().AsSingle();
-
-            Container.Bind<LevelCommandManager>().AsSingle();
-            Container.Bind<LevelReceiver>().AsSingle();           
-
-            Container.Bind<LevelMenu>().AsSingle();
-
-            Container.Bind<GameOverLevelMenu>().AsSingle();
-            Container.Bind<GoalTextLevelMenu>().AsSingle();
-            Container.Bind<AchievementDisplayLevelMenu>().AsSingle();
-
-            Container.BindFactory<StartCommand, StartCommand.Factory>();
-            Container.BindFactory<MainMenuByStartCommand, MainMenuByStartCommand.Factory>();
-            Container.BindFactory<GoalInfoCommand, GoalInfoCommand.Factory>();
-            Container.BindFactory<EndLevelSignalGun, EndLevelSignalGun.Factory>()
-                .WhenInjectedInto<LevelMenusWorkflowTimer>();
+            GameLevelMenusInstaller.Install(Container);
         }
 
         void InstallGoalInfos()
