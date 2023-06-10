@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1ebf46769153a204391a7eb3ec780c57
+guid: bdc897f743159c74faa3eb32a85df201
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,127 +117,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_PlacementMenu
+      name: UI_Panels_filled_1
       rect:
         serializedVersion: 2
-        x: 2
-        y: 59
-        width: 214
-        height: 67
+        x: 1
+        y: 7
+        width: 253
+        height: 51
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 29, y: 19, z: 70, w: 27}
+      pivot: {x: 0, y: 0}
+      border: {x: 88, y: 0, z: 145, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ecf4bd02fefc7a41939faaa08edaf5d
-      internalID: -95721465
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Button_green_pressed_1
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 30
-        width: 22
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 9, y: 9, z: 9, w: 9}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dd071afcb56f5c041b925bbb01ae783e
-      internalID: 1203822559
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Button_yellow_pressed_1
-      rect:
-        serializedVersion: 2
-        x: 29
-        y: 30
-        width: 22
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 9, y: 9, z: 9, w: 9}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d0957222293e09d44968c4b1df8e7854
-      internalID: 1536073234
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Button_purple_pressed_1
-      rect:
-        serializedVersion: 2
-        x: 54
-        y: 30
-        width: 22
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 9, y: 9, z: 9, w: 9}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 54b42938e3dd6164380c403494e7b846
-      internalID: -1959131079
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Button_red_pressed_1
-      rect:
-        serializedVersion: 2
-        x: 79
-        y: 30
-        width: 22
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 9, y: 9, z: 9, w: 9}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: df43831de3701eb4eade9dd55da660a1
-      internalID: -926053052
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_ButtonBase_1
-      rect:
-        serializedVersion: 2
-        x: 105
-        y: 9
-        width: 47
-        height: 43
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 8, y: 7, z: 8, w: 6}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 05a1d3556bb4b5d45a1f957cc849cbc3
-      internalID: -351124157
+      spriteID: 9e3230e43d95c6548b5f9ae592d9f090
+      internalID: 2096254679
       vertices: []
       indices: 
       edges: []
@@ -253,12 +148,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_Button_purple_pressed_1: -1959131079
-      UI_ButtonBase_1: -351124157
-      UI_Button_green_pressed_1: 1203822559
-      UI_Button_red_pressed_1: -926053052
-      UI_PlacementMenu: -95721465
-      UI_Button_yellow_pressed_1: 1536073234
+      UI_Panels_filled_1: 2096254679
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1

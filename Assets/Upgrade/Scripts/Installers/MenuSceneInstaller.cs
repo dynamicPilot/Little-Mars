@@ -1,6 +1,8 @@
 ﻿using LittleMars.AudioSystems;
+using LittleMars.Buildings;
 using LittleMars.Commands;
 using LittleMars.Commands.MainMenu;
+using LittleMars.Common;
 using LittleMars.Common.Catalogues;
 using LittleMars.Common.Signals;
 using LittleMars.LevelMenus;
@@ -8,12 +10,19 @@ using LittleMars.Localization;
 using LittleMars.MainMenus;
 using LittleMars.SceneControls;
 using LittleMars.UI.MainMenu;
+using LittleMars.UI.Windows;
+using LittleMars.WindowManagers;
+using System;
+using UnityEngine;
 using Zenject;
 
 namespace LittleMars.Installers
 {
     public class MenuSceneInstaller : MonoInstaller<MenuSceneInstaller>
     {
+        [SerializeField] RectTransform _canvas;
+
+        [Inject] Settings _settings = null;
         public override void InstallBindings()
         {
             InstallMenu();
@@ -22,6 +31,7 @@ namespace LittleMars.Installers
             InstallSettings();
             InstallLocalization();
             InstallSignals();
+            InstallWindowManager();
         }
 
         void InstallMenu()
@@ -29,6 +39,17 @@ namespace LittleMars.Installers
             Container.BindInterfacesAndSelfTo<MenuSceneControl>().AsSingle();
             Container.Bind<LevelsMenu>().AsSingle();
             Container.Bind<ISlotOnClick>().To<LevelsInfoSlotsByClick>().AsSingle();
+        }
+
+        void InstallWindowManager()
+        {
+            Container.BindInstance(_canvas);
+            Container.BindInterfacesAndSelfTo<WindowManager>().AsSingle();
+            Container.Bind<WindowFactory>().AsSingle();
+
+            Container.BindFactory<WindowID, GameWindow, GameWindow.Factory>()
+                .FromSubContainerResolve()
+                .ByNewContextPrefab<GameWindowInstaller>(_settings.WindowPrefab);
         }
 
         void InstallCommands()
@@ -62,6 +83,12 @@ namespace LittleMars.Installers
             Container.DeclareSignal<ToLevelSignal>();
             Container.DeclareSignal<EndSceneSignal>();
             Container.DeclareSignal<NeedTextUpdateSignal>();
+        }
+
+        [Serializable]
+        public class Settings
+        {
+            public GameObject WindowPrefab;
         }
     }
 }
