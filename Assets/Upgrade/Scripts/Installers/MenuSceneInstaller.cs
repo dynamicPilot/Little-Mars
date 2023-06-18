@@ -1,8 +1,6 @@
 ﻿using LittleMars.AudioSystems;
-using LittleMars.Buildings;
 using LittleMars.Commands;
 using LittleMars.Commands.MainMenu;
-using LittleMars.Common;
 using LittleMars.Common.Catalogues;
 using LittleMars.Common.Signals;
 using LittleMars.LevelMenus;
@@ -20,9 +18,7 @@ namespace LittleMars.Installers
 {
     public class MenuSceneInstaller : MonoInstaller<MenuSceneInstaller>
     {
-        [SerializeField] RectTransform _canvas;
-
-        [Inject] Settings _settings = null;
+        [Inject] Settings _settings = null; // --> move to project level maybe
         public override void InstallBindings()
         {
             InstallMenu();
@@ -43,7 +39,6 @@ namespace LittleMars.Installers
 
         void InstallWindowManager()
         {
-            Container.BindInstance(_canvas);
             Container.BindInterfacesAndSelfTo<WindowManager>().AsSingle();
             Container.Bind<WindowFactory>().AsSingle();
 

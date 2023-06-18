@@ -3,6 +3,7 @@ using LittleMars.LevelMenus;
 using LittleMars.Model.GoalDisplays;
 using LittleMars.Model.TimeUpdate;
 using LittleMars.UI.GoalDisplays;
+using Zenject;
 
 namespace LittleMars.UI.Achievements
 {
@@ -12,7 +13,8 @@ namespace LittleMars.UI.Achievements
 
         public AchievementDisplayLevelMenu(LevelCommandManager commandManager,
             TimeSpeedManager timeSpeedManager,
-            GoalDisplayStrategiesManager manager) : base(commandManager, timeSpeedManager)
+            GoalDisplayStrategiesManager manager,
+            SignalBus signalBus) : base(commandManager, timeSpeedManager, signalBus)
         {
             _manager = manager;
         }

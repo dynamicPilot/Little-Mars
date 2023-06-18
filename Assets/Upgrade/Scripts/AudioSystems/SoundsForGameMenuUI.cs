@@ -16,6 +16,7 @@ namespace LittleMars.AudioSystems
         {
             if (type == CommandType.start) SoundForStart();
             else if (type == CommandType.quit) SoundForQuit();
+            else if (type == CommandType.turnPage) SoundForTurnPage();
             else SoundForDefault();
         }
 
@@ -32,6 +33,11 @@ namespace LittleMars.AudioSystems
         void SoundForDefault()
         {
             _audioSystem.PlayUISound(UISoundType.clickFirst);
+        }
+
+        void SoundForTurnPage()
+        {
+            _audioSystem.PlayUISound(UISoundType.clickThird);
         }
     }
 }

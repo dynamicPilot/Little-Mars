@@ -1,16 +1,18 @@
 ﻿using LittleMars.AudioSystems;
 using LittleMars.Common.Signals;
+using LittleMars.LevelMenus;
 using LittleMars.Localization;
 using LittleMars.MainMenus;
+using LittleMars.UI.LevelMenus;
+using LittleMars.WindowManagers;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
 namespace LittleMars.UI.MainMenu
 {
-    public class SettingsMenuUI : MenuUI
+    public class SettingsMenuUI : MenuUIWithControls
     {
-        [SerializeField] Button _openButton;
         [SerializeField] Button _defaultsButton;
         [SerializeField] Button _backButton;
 
@@ -23,8 +25,11 @@ namespace LittleMars.UI.MainMenu
         SignalBus _signalBus;
 
         [Inject]
-        public void Constructor(UISoundSystem soundSystem, SettingsMenu menu,SignalBus signalBus)
+        public void Constructor(GameMenu gameMenu, SoundsForGameMenuUI sounds, 
+            SettingsMenu menu, SignalBus signalBus, UISoundSystem soundSystem)
         {
+            _gameMenu = gameMenu;
+            _sounds = sounds;
             _soundSystem = soundSystem;
             _signalBus = signalBus;
             _menu = menu;
@@ -43,33 +48,32 @@ namespace LittleMars.UI.MainMenu
             _signalBus?.TryUnsubscribe<NeedTextUpdateSignal>(UpdateText);
         }
 
-        void SetListeners()
+        protected override void SetListeners()
         {
-            _openButton.onClick.AddListener(OnOpenButtonClick);
-            _backButton.onClick.AddListener(OnBackButtonClick);
             _defaultsButton.onClick.AddListener(OnResetButtonClick);
+            _backButton.onClick.AddListener(OnBackButtonClick);
+            base.SetListeners();
         }
 
-        void RemoveListeners()
+        protected override void RemoveListeners()
         {
-            _openButton.onClick.RemoveListener(OnOpenButtonClick);
-            _backButton.onClick.RemoveListener(OnBackButtonClick);
             _defaultsButton.onClick.RemoveListener(OnResetButtonClick);
+            _backButton.onClick.RemoveListener(OnBackButtonClick);
+            base.RemoveListeners();
         }
 
-        void OnOpenButtonClick()
+        public override void OnOpenMenu()
         {
-            _soundSystem.PlayUISound(Common.UISoundType.clickFirst);
-
             var config = _menu.GetPlayerConfig();
             if (config == null)
             {
                 Debug.Log("Null config");
-                Close();
+                NullCongig();
+                return;
             }
             _parameters.SetParameters(config);
             UpdateText();
-            Open();
+            base.OnOpenMenu();
         }
 
         void OnBackButtonClick()
@@ -77,13 +81,17 @@ namespace LittleMars.UI.MainMenu
             var needSave = _parameters.NeedSave();
             if (needSave) _menu.SavePlayerConfig();
             _soundSystem.PlayUISound(Common.UISoundType.quit);
-            Close();
         }
 
         void OnResetButtonClick()
         {
             _soundSystem.PlayUISound(Common.UISoundType.clickFirst);
             _parameters.ResetToDefaults();
+        }
+
+        void NullCongig()
+        {
+            _gameMenu.OpenWindowById(WindowID.menu_mainMenu, _id, WindowState.hide);
         }
 
         void UpdateText()

@@ -7,11 +7,12 @@ namespace LittleMars.LevelMenus
 {
     public class PauseLevelMenu : LevelMenu
     {
-        readonly SignalBus _signalBus;
-        public PauseLevelMenu(LevelCommandManager commandManager, TimeSpeedManager timeManager, SignalBus signalBus) 
-            : base(commandManager, timeManager)
+        //readonly SignalBus _signalBus;
+        public PauseLevelMenu(LevelCommandManager commandManager, TimeSpeedManager timeManager, 
+            SignalBus signalBus) 
+            : base(commandManager, timeManager, signalBus)
         {
-            _signalBus = signalBus;
+            //_signalBus = signalBus;
         }
 
         public void SaveSettings()

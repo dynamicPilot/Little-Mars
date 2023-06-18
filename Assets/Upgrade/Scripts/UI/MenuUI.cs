@@ -16,6 +16,9 @@ namespace LittleMars.UI
             _isOpen = false;
         }
 
+        public virtual void OnOpenMenu() => Open();
+        public virtual void OnCloseMenu() => Close();
+
         protected virtual void Open()
         {
             _panel.SetActive(true);

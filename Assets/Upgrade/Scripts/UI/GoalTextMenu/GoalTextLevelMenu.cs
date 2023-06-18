@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Zenject;
 
 namespace LittleMars.UI.GoalTextMenu
 {
@@ -15,7 +16,8 @@ namespace LittleMars.UI.GoalTextMenu
     {
         readonly LevelLangsManager _langManager;
         public GoalTextLevelMenu(LevelCommandManager commandManager, 
-            TimeSpeedManager timeManager, LevelLangsManager langManager) : base(commandManager, timeManager)
+            TimeSpeedManager timeManager, LevelLangsManager langManager,
+            SignalBus signalBus) : base(commandManager, timeManager, signalBus)
         {
             _langManager = langManager;
         }

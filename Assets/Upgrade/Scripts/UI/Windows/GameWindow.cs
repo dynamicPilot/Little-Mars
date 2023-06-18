@@ -17,6 +17,18 @@ namespace LittleMars.UI.Windows
             _window = factory.Create();
         }
 
+        public bool Open()
+        {
+            if (_window != null) _window.Open();
+            return _window != null;
+        }
+
+        public bool Close()
+        {
+            if (_window != null) _window.Close();
+            return _window != null;
+        }
+
         public class Factory : PlaceholderFactory<WindowID, GameWindow>
         { }
     }

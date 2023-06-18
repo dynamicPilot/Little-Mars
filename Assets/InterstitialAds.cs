@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Advertisements;
 
-public class InterstitialAds : MonoBehaviour, IUnityAdsListener
+public class InterstitialAds : MonoBehaviour//, IUnityAdsListener
 {
     [SerializeField] string gameID = "4298193";
     [SerializeField] private string placementID = "Interstitial_Android";
@@ -27,7 +27,7 @@ public class InterstitialAds : MonoBehaviour, IUnityAdsListener
     }
     IEnumerator StartAdvertisement()
     {
-        Advertisement.AddListener(this);
+        //Advertisement.AddListener(this);
         Advertisement.Initialize(gameID, testMode);
 
         if (panel == null)
@@ -36,12 +36,14 @@ public class InterstitialAds : MonoBehaviour, IUnityAdsListener
         }
 
         if (panel != null) panel.SetActive(true);
+        
+        // for test --- rewrite it
+        yield return null;
+        //while (!Advertisement.IsReady(placementID))
+        //{
+        //    
+        //}
 
-        while (!Advertisement.IsReady(placementID))
-        {
-            yield return null;
-        }
-            
         Advertisement.Show(placementID);
     }
 

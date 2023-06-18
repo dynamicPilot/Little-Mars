@@ -33,8 +33,8 @@ public class BannerAds : MonoBehaviour
 
         Advertisement.Initialize(gameID, testMode);
 
-        while (!Advertisement.IsReady(placementID))
-            yield return null;
+        //while (!Advertisement.IsReady(placementID))
+        yield return null;
 
         Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
         Advertisement.Banner.Show(placementID);

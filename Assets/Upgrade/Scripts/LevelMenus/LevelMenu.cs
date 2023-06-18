@@ -2,6 +2,7 @@
 using LittleMars.Commands.Level;
 using LittleMars.Common;
 using LittleMars.Model.TimeUpdate;
+using Zenject;
 
 namespace LittleMars.LevelMenus
 {
@@ -11,8 +12,8 @@ namespace LittleMars.LevelMenus
     public class LevelMenu : GameMenu
     {
         readonly TimeSpeedManager _timeManager;
-        public LevelMenu(LevelCommandManager commandManager, TimeSpeedManager timeManager)
-            : base(commandManager)
+        public LevelMenu(LevelCommandManager commandManager, TimeSpeedManager timeManager, SignalBus signalBus)
+            : base(commandManager, signalBus)
         {
             _timeManager = timeManager;
         }

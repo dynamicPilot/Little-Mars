@@ -130,7 +130,8 @@
         empty,
         quit,
         toLevel,
-        goalsInfo
+        goalsInfo,
+        turnPage
     }
 
     public enum ColorType

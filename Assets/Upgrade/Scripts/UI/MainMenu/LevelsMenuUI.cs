@@ -1,7 +1,9 @@
 ﻿using LittleMars.AudioSystems;
 using LittleMars.Common;
+using LittleMars.LevelMenus;
 using LittleMars.MainMenus;
 using LittleMars.Settings;
+using LittleMars.UI.LevelMenus;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,18 +13,15 @@ using Zenject;
 
 namespace LittleMars.UI.MainMenu
 {
-    public class LevelsMenuUI : MenuUI
+    public class LevelsMenuUI : MenuUIWithControls
     {
         [SerializeField] LevelsPageUI _pageUI;
 
         [Header("Buttons")]
-        [SerializeField] Button _openButton;
         [SerializeField] Button _toNextButton;
         [SerializeField] Button _toPrevButton;
-        [SerializeField] Button _backButton;
 
         LevelsMenu _menu;
-        UISoundSystem _audioSystem;
         ISlotOnClick _onClick;
         LevelSettings[] _levels = null;
         List<bool> _isDoneLevels = null;
@@ -32,17 +31,19 @@ namespace LittleMars.UI.MainMenu
         int _slotsPerPage = 0;
 
         [Inject]
-        public void Constructor(LevelsMenu menu, ISlotOnClick onClick, UISoundSystem audioSystem)
+        public void Constructor(LevelsMenu menu, GameMenu gameMenu, ISlotOnClick onClick, 
+            SoundsForGameMenuUI sounds)
         {
             _menu = menu;
+            _gameMenu = gameMenu;
+            _sounds = sounds;
             _onClick = onClick;
-            _audioSystem = audioSystem;
             Init();
         }
 
         void Init()
         {
-            SetListeners();
+            SetButtons();
         }
 
         private void OnDestroy()
@@ -52,34 +53,32 @@ namespace LittleMars.UI.MainMenu
             _isDoneLevels = null;
         }
 
-        void SetListeners()
+        protected override void SetListeners()
         {
-            _openButton.onClick.AddListener(OnOpenButtonClick);
             _toNextButton.onClick.AddListener(ToNextPage);
             _toPrevButton.onClick.AddListener(ToPrevPage);
-            _backButton.onClick.AddListener(Close);
+            base.SetListeners();
         }
 
-        void RemoveListeners()
+        protected override void RemoveListeners()
         {
-            _openButton.onClick.RemoveListener(OnOpenButtonClick);
             _toNextButton.onClick.RemoveAllListeners();
             _toPrevButton.onClick.RemoveAllListeners();
-            _backButton.onClick.RemoveListener(Close);
+            base.RemoveListeners();
         }
 
-        void OnOpenButtonClick()
+        public override void OnOpenMenu()
         {
             if (_levels == null) SetLevels();
             UpdateIsDoneLevels();
 
-            _pageIndex = 0;            
-            Open();
+            _pageIndex = 0;
+            base.OnOpenMenu();
         }
 
         protected override void Open()
         {
-            _audioSystem.PlayUISound(UISoundType.clickFirst);
+            //_audioSystem.PlayUISound(UISoundType.clickFirst);
             SetPage();
             base.Open();
         }
@@ -116,14 +115,14 @@ namespace LittleMars.UI.MainMenu
 
         void ToPrevPage()
         {
-            _audioSystem.PlayUISound(UISoundType.clickThird);
+            _sounds.PlaySoundForCommandType(CommandType.turnPage);
             _pageIndex--;
             SetNextPage();
         }
 
         void ToNextPage()
         {
-            _audioSystem.PlayUISound(UISoundType.clickThird);
+            _sounds.PlaySoundForCommandType(CommandType.turnPage);
             _pageIndex++;
             SetNextPage();
         }
