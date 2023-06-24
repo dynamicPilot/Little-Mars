@@ -14,7 +14,7 @@ namespace LittleMars.LevelMenus
             GoalDisplayStrategiesManager strategyManager,
             StaffGoalDisplayStrategiesManager staffStrategyManager,
             SignalBus signalBus)
-            : base(commandManager, timeManager, signalBus)
+            : base(commandManager, timeManager, null, signalBus)
         {
             _strategyManager = strategyManager;
             _staffStrategyManager = staffStrategyManager;

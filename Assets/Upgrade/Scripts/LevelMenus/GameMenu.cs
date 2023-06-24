@@ -30,6 +30,15 @@ namespace LittleMars.LevelMenus
                 NextSenderState = (int) state });
         }
 
+        public void SetWindowState(WindowID id, WindowState state)
+        {
+            _signalBus.TryFire(new WindowStateByIdSignal
+            {
+                Id = (int)id,
+                SenderState = (int)state
+            });
+        }
+
         public virtual void Open()
         { }
 

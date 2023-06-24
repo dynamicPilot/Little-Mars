@@ -32,6 +32,11 @@ namespace LittleMars.Model.GoalDisplays
             _signalBus.Fire(new GoalStrategiesIsReadySignal { Strategies = _strategies.ToArray() });
         }
 
+        public IGoalDisplayStrategy[] GetStrategies()
+        {
+            return _strategies.ToArray();
+        }
+
         public IGoalDisplayStrategy GetStrategy(int index)
         {
             Debug.Log("Need strategy with index : " + index);

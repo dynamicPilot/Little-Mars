@@ -23,6 +23,9 @@ namespace LittleMars.UI.LevelMenus
         [Header("Windows Control Buttons")]
         [SerializeField] List<WindowControlWithStateUnit> _windowButtons;
 
+        [Header("Windows Close Buttons")]
+        [SerializeField] List<WindowStateControlUnit<Button>> _windowStateButtons;
+
         protected GameMenu _gameMenu;
         protected SoundsForGameMenuUI _sounds;
 
@@ -38,6 +41,9 @@ namespace LittleMars.UI.LevelMenus
 
             foreach (var unit in _windowButtons)
                 AddWindowsIDToButtonListener(unit.Unit, unit.WindowID, unit.SenderState);
+
+            foreach (var unit in _windowStateButtons)
+                AddWindowStateToButtonListener(unit.Unit, unit.SenderState);
         }
 
         protected virtual void RemoveListeners()
@@ -67,6 +73,16 @@ namespace LittleMars.UI.LevelMenus
         {
             button.onClick.AddListener(delegate { 
                 _gameMenu.OpenWindowById(id, _id, state); });
+
+            if (_sounds != null)
+                button.onClick.AddListener(delegate { _sounds.PlaySoundForCommandType(CommandType.back); });
+        }
+
+        protected void AddWindowStateToButtonListener(Button button, WindowState state)
+        {
+            button.onClick.AddListener(delegate {
+                _gameMenu.SetWindowState(_id, state);
+            });
 
             if (_sounds != null)
                 button.onClick.AddListener(delegate { _sounds.PlaySoundForCommandType(CommandType.back); });

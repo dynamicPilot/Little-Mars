@@ -120,7 +120,7 @@ namespace LittleMars.Installers
             Container.DeclareSignal<UnmuteMusicSignal>();
 
             Container.DeclareSignal<OpenWindowByIdSignal>();
-            Container.DeclareSignal<CloseWindowByIdSignal>();
+            Container.DeclareSignal<WindowStateByIdSignal>();
         }
 
         [Serializable]

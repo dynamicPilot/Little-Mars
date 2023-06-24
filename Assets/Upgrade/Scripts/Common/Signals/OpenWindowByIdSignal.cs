@@ -7,9 +7,10 @@
         public int NextSenderState;
     }
 
-    public struct CloseWindowByIdSignal
+    public struct WindowStateByIdSignal
     {
         public int Id;
+        public int SenderState;
     }
 
 }

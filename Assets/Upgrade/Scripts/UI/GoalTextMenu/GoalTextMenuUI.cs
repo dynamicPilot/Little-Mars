@@ -1,37 +1,29 @@
 ﻿using LittleMars.AudioSystems;
-using LittleMars.Common;
-using LittleMars.Common.Signals;
 using LittleMars.UI.LevelMenus;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 
 namespace LittleMars.UI.GoalTextMenu
 {
-    public class GoalTextMenuUI : GameMenuUI
+    public class GoalTextMenuUI : MenuUIWithControls
     {
-        [Header("OpenButton")]
-        [SerializeField] Button _openButton;
-
         [Header("Text Slot")]
         [SerializeField] TextMeshProUGUI[] _texts;
 
         GoalTextLevelMenu _goalTextMenu;
-        SignalBus _signalBus;
+        //SignalBus _signalBus;
         bool _isTextSet = false;
-        protected override void Awake()
-        {
-            base.Awake();
-            _buttons.Add(CommandType.goalsInfo, _openButton);
-        }
+        //protected override void Awake()
+        //{
+        //    base.Awake();
+        //}
 
         [Inject]
-        public void Constructor(GoalTextLevelMenu levelMenu, SoundsForGameMenuUI sounds, SignalBus signalBus)
+        public void Constructor(GoalTextLevelMenu levelMenu, SoundsForGameMenuUI sounds)
         {
             _gameMenu = levelMenu;
             _goalTextMenu = levelMenu;
-            _signalBus = signalBus;
             _sounds = sounds;
 
             Init();
@@ -39,37 +31,28 @@ namespace LittleMars.UI.GoalTextMenu
 
         public void Init()
         {
-            _signalBus.Subscribe<NeedGoalInfoSignal>(OnOpenButtonClicked);
+            //_signalBus.Subscribe<NeedGoalInfoSignal>(OnOpenButtonClicked);
             SetButtons();
         }
 
         private void OnDestroy()
         {
             RemoveListeners();
-            _signalBus?.TryUnsubscribe<NeedGoalInfoSignal>(OnOpenButtonClicked);
+            //_signalBus?.TryUnsubscribe<NeedGoalInfoSignal>(OnOpenButtonClicked);
         }
 
-        protected override void SetListeners()
-        {
-            base.SetListeners();
-            //_openButton.onClick.AddListener(OnOpenButtonClicked);
-            AddCommandToButtonListener(_openButton, CommandType.goalsInfo, false);
-        }
 
-        protected override void Close()
-        {
-            base.Close();
-            _sounds.PlaySoundForCommandType(CommandType.quit);
-            _openButton.interactable = true;
-        }
+        //protected override void Close()
+        //{
+        //    base.Close();
+        //    _sounds.PlaySoundForCommandType(CommandType.quit);
+        //}
 
-        void OnOpenButtonClicked()
+        public override void OnOpenMenu()
         {
-            if (_isOpen) return;
-            _openButton.interactable = false;
-            _sounds.PlaySoundForCommandType(CommandType.empty);
+            //if (_isOpen) return;
+            //_sounds.PlaySoundForCommandType(CommandType.empty);
             if (!_isTextSet) SetGoalTexts();
-            Open();
         }
 
         private void SetGoalTexts()

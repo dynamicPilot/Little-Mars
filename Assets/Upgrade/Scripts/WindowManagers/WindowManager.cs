@@ -6,6 +6,33 @@ using Zenject;
 
 namespace LittleMars.WindowManagers
 {
+
+    public class LevelWindowControl : IInitializable
+    {
+        SignalBus _signalBus;
+
+        public LevelWindowControl(SignalBus signalBus)
+        {
+            _signalBus = signalBus;
+        }
+
+        public void Initialize()
+        {
+            _signalBus.Subscribe<GoalStrategiesIsReadySignal>(OnStrategiesIsReadySignal);
+        }
+
+        void OnStrategiesIsReadySignal()
+        {
+            _signalBus.Unsubscribe<GoalStrategiesIsReadySignal>(OnStrategiesIsReadySignal);
+            _signalBus.Fire(new OpenWindowByIdSignal
+            {
+                Id = (int)WindowID.level_startMenu,
+                SenderId = -1,
+                NextSenderState = 0
+            });
+        }
+    }
+
     // should be local for scene, factory can be project level
     public class WindowManager : IInitializable
     {
@@ -25,6 +52,7 @@ namespace LittleMars.WindowManagers
         public void Initialize()
         {
             _signalBus.Subscribe<OpenWindowByIdSignal>(OnOpenWindowById);
+            _signalBus.Subscribe<WindowStateByIdSignal>(OnWindowStateById);
             CreateStartSceneWindows();
         }
 
@@ -39,7 +67,14 @@ namespace LittleMars.WindowManagers
             bool needCloseSender = (_windows.ContainsKey(arg.Id)) ? 
                 OpenWindow(arg.Id) : CreateWindow(arg.Id);
 
-            if (needCloseSender) CloseWindow(arg.SenderId, arg.NextSenderState);
+            if (needCloseSender && arg.NextSenderState != (int) WindowState.show) 
+                CloseWindow(arg.SenderId, arg.NextSenderState);
+        }
+
+        void OnWindowStateById(WindowStateByIdSignal arg)
+        {
+            CloseWindow(arg.Id, arg.SenderState);
+
         }
 
         bool OpenWindow(int id)
@@ -59,6 +94,7 @@ namespace LittleMars.WindowManagers
 
         void CloseWindow(int id, int nextState)
         {
+            if (id < 0) return;
             if (!_windows.ContainsKey(id)) return;
 
             if ((WindowState)nextState == WindowState.hide) HideWindow(id);
@@ -76,7 +112,7 @@ namespace LittleMars.WindowManagers
             var window = _windows[id];
             _windows.Remove(id);
 
-            GameObject.Destroy(window);
+            GameObject.Destroy(window.gameObject);
         }
 
 

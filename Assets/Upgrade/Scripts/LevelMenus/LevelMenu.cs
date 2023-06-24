@@ -1,7 +1,9 @@
 ﻿using LittleMars.AudioSystems;
 using LittleMars.Commands.Level;
 using LittleMars.Common;
+using LittleMars.Model.GoalDisplays;
 using LittleMars.Model.TimeUpdate;
+using LittleMars.UI.GoalDisplays;
 using Zenject;
 
 namespace LittleMars.LevelMenus
@@ -12,10 +14,13 @@ namespace LittleMars.LevelMenus
     public class LevelMenu : GameMenu
     {
         readonly TimeSpeedManager _timeManager;
-        public LevelMenu(LevelCommandManager commandManager, TimeSpeedManager timeManager, SignalBus signalBus)
+        protected readonly GoalDisplayStrategiesManager _strategiesManager;
+        public LevelMenu(LevelCommandManager commandManager, TimeSpeedManager timeManager,
+            GoalDisplayStrategiesManager strategiesManager, SignalBus signalBus)
             : base(commandManager, signalBus)
         {
             _timeManager = timeManager;
+            _strategiesManager = strategiesManager;
         }
 
         public override void Open()
@@ -26,6 +31,12 @@ namespace LittleMars.LevelMenus
         {
             _timeManager.Start();
         }
+
+        public virtual IGoalDisplayStrategy[] GetStrategies()
+        {
+            return _strategiesManager.GetStrategies();
+        }
+
 
     }
 }

@@ -17,7 +17,7 @@ namespace LittleMars.UI.GoalTextMenu
         readonly LevelLangsManager _langManager;
         public GoalTextLevelMenu(LevelCommandManager commandManager, 
             TimeSpeedManager timeManager, LevelLangsManager langManager,
-            SignalBus signalBus) : base(commandManager, timeManager, signalBus)
+            SignalBus signalBus) : base(commandManager, timeManager, null, signalBus)
         {
             _langManager = langManager;
         }

@@ -1,10 +1,5 @@
-﻿using LittleMars.UI.Windows;
-using LittleMars.WindowManagers;
+﻿using LittleMars.WindowManagers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine.UI;
 
 namespace LittleMars.Common
@@ -14,6 +9,13 @@ namespace LittleMars.Common
     {
         public T Unit;
         public WindowID WindowID;
+    }
+
+    [Serializable]
+    public class WindowStateControlUnit<T>
+    {
+        public T Unit;
+        public WindowState SenderState;
     }
 
     [Serializable]

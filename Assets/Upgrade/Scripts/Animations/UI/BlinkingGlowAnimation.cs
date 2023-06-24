@@ -10,7 +10,12 @@ namespace LittleMars.Animations.UI
         [SerializeField] private float _endFade;
         [SerializeField] private float _period;
 
-        string _id = "blinkingGlow";
+        [Header("Animation ID")]
+        [SerializeField] private bool _needSetId = true;
+        [SerializeField] string _id = "blinkingGlow";
+
+        [Header("TimeScale Settings")]
+        [SerializeField] bool _unscaledTime = false;
 
         private void Start()
         {
@@ -30,18 +35,25 @@ namespace LittleMars.Animations.UI
                 .Append(_indicator.DOFade(0f, _period))
                 .Append(_indicator.DOFade(_endFade, _period))
                 .Append(_indicator.DOFade(0f, _period))
-                .SetLoops(-1)
-                .SetId(_id);
+                .SetLoops(-1);
+
+            if (_unscaledTime) sequence.SetUpdate(_unscaledTime);
+            if (_needSetId) sequence.SetId(_id);
         }
 
         public void Play()
         {
-            DOTween.Play(_id);
+            if (_needSetId) DOTween.Play(_id);
         }
 
         public void Pause()
         {
-            DOTween.Pause(_id);
+            if (_needSetId) DOTween.Pause(_id);
+        }
+
+        public void OnDestroy()
+        {
+            DOTween.KillAll();
         }
     }
 }

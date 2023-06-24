@@ -73,6 +73,8 @@ namespace LittleMars.Installers
 
         void InstallExecutionOrder()
         {
+            Container.BindExecutionOrder<LevelWindowControl>(-20);
+            Container.BindExecutionOrder<WindowManager>(-20);
             Container.BindExecutionOrder<ViewSlotManager>(-20);
             Container.BindExecutionOrder<ConnectionsManager>(-20);
             Container.BindExecutionOrder<ResourceSlotMenuManager>(-20);
@@ -236,6 +238,8 @@ namespace LittleMars.Installers
         {
             WindowManagerInstaller.WindowPrefab = _settings.WindowPrefab;
             WindowManagerInstaller.Install(Container);
+
+            Container.BindInterfacesAndSelfTo<LevelWindowControl>().AsSingle();
         }
 
         void InstallGoalInfos()
