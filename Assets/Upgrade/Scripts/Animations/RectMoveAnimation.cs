@@ -16,6 +16,9 @@ namespace LittleMars.Animations
         [SerializeField] float _prepandDelay;
         [SerializeField] float _appendDelay;
 
+        [Header("TimeScale Settings")]
+        [SerializeField] bool _unscaledTime = false;
+
         private void OnEnable() => StartAnimation();
         protected virtual void StartAnimation() => DoMove();
 
@@ -30,6 +33,8 @@ namespace LittleMars.Animations
                 .AppendCallback(OnAppendCallback)
                 .AppendInterval(_appendDelay)
                 .SetLoops(-1);
+
+            if (_unscaledTime) sequence.SetUpdate(_unscaledTime);
         }
 
         protected virtual void OnPrepandCallback()
