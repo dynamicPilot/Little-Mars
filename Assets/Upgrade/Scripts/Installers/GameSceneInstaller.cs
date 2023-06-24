@@ -27,6 +27,8 @@ using LittleMars.UI.BuildingSlots;
 using LittleMars.UI.GoalDisplays;
 using LittleMars.UI.GoalTextMenu;
 using LittleMars.UI.ResourceSlots;
+using LittleMars.UI.Windows;
+using LittleMars.WindowManagers;
 using System;
 using UnityEngine;
 using Zenject;
@@ -63,6 +65,7 @@ namespace LittleMars.Installers
             InstallBuildingSlots();
             InstallLevelMenus();
             InstallUIAndManagers();
+            InstallWindowManager();
 
             InstallSignals();
             InstallExecutionOrder();
@@ -229,6 +232,12 @@ namespace LittleMars.Installers
             GameLevelMenusInstaller.Install(Container);
         }
 
+        void InstallWindowManager()
+        {
+            WindowManagerInstaller.WindowPrefab = _settings.WindowPrefab;
+            WindowManagerInstaller.Install(Container);
+        }
+
         void InstallGoalInfos()
         {
             Container.BindInterfacesAndSelfTo<GoalDisplayStrategiesManager>().AsSingle();
@@ -338,6 +347,7 @@ namespace LittleMars.Installers
             public GameObject BuildingGoalSlotPrefab;
             public GameObject ResourceGoalSlotPrefab;
             public GameObject BuildingWithTimerGoalSlotPrefab;
+            public GameObject WindowPrefab;
             public string LevelSettingsFolderPath;
         }
     }

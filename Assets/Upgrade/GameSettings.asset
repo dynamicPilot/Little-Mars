@@ -22,6 +22,7 @@ MonoBehaviour:
       BuildingGoalSlotPrefab: {fileID: 474087436855090685, guid: c65bb41fbae0e7f439e3f60c1204a5ff, type: 3}
       ResourceGoalSlotPrefab: {fileID: 4603246194714571924, guid: e0b2a1a1d8c8bde4ca4d01eb4f125bf1, type: 3}
       BuildingWithTimerGoalSlotPrefab: {fileID: 8742945647509767125, guid: 42272ccb3bd2f0e4f99acd5185f5522a, type: 3}
+      WindowPrefab: {fileID: 5486035586830579011, guid: 0ecb256c923af67448eeb098dd78e076, type: 3}
       LevelSettingsFolderPath: Levels/
     SpawnerSettings:
       Size: 0.22
@@ -43,6 +44,3 @@ MonoBehaviour:
       Catalogue: {fileID: 11400000, guid: 2cfcb0c6ecefb024a91899b08e4d7c3d, type: 2}
     Colors:
       Colors: {fileID: 11400000, guid: 3ded3825d971beb43b946807fd9c69f4, type: 2}
-  TextBlocks:
-    Blocks:
-      Blocks: {fileID: 4900000, guid: 7ad9f1dd6664038488682e7e23cbdd93, type: 3}

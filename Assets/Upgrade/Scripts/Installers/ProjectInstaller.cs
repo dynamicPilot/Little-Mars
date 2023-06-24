@@ -12,6 +12,8 @@ using LittleMars.Common.Signals;
 using LittleMars.Radios;
 using System;
 using LittleMars.AudioSystems;
+using LittleMars.WindowManagers;
+using LittleMars.UI.Windows;
 
 namespace LittleMars.Installers
 {
@@ -33,6 +35,7 @@ namespace LittleMars.Installers
             InstallConfigSystem();
             InstallLocalization();
             InstallSounds();
+            InstallWindows();
             InstallSignals();
         }
 
@@ -93,6 +96,14 @@ namespace LittleMars.Installers
             Container.BindFactory<VolumeGroupData, MusicVolumeGroupControl, MusicVolumeGroupControl.Factory>().AsSingle();
         }
 
+        void InstallWindows()
+        {
+            //Container.Bind<WindowFactory>().AsSingle();
+            //Container.BindFactory<WindowID, GameWindow, GameWindow.Factory>()
+            //    .FromSubContainerResolve()
+            //    .ByNewContextPrefab<GameWindowInstaller>(_settings.WindowPrefab);
+        }
+
         void InstallSignals()
         {
             SignalBusInstaller.Install(Container);
@@ -116,6 +127,7 @@ namespace LittleMars.Installers
         public class Settings
         {
             public GameObject RadioUI;
+            //public GameObject WindowPrefab;
         }
     }
 }

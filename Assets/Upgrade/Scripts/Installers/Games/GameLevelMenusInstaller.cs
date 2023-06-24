@@ -6,6 +6,7 @@ using Zenject;
 
 namespace LittleMars.Installers.Games
 {
+
     public class GameLevelMenusInstaller : Installer<GameLevelMenusInstaller>
     {
         public override void InstallBindings()

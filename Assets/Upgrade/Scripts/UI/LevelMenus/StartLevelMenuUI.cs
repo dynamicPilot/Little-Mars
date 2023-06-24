@@ -18,7 +18,6 @@ namespace LittleMars.UI.LevelMenus
         [Header("Goals Display Slot")]
         [SerializeField] GoalDisplayUI[] _displayUIs;
 
-
         protected override void Awake()
         {
             base.Awake();

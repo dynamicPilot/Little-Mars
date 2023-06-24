@@ -3,6 +3,7 @@ using LittleMars.Commands;
 using LittleMars.Commands.MainMenu;
 using LittleMars.Common.Catalogues;
 using LittleMars.Common.Signals;
+using LittleMars.Installers.Games;
 using LittleMars.LevelMenus;
 using LittleMars.Localization;
 using LittleMars.MainMenus;
@@ -18,7 +19,7 @@ namespace LittleMars.Installers
 {
     public class MenuSceneInstaller : MonoInstaller<MenuSceneInstaller>
     {
-        [Inject] Settings _settings = null; // --> move to project level maybe
+        [Inject] Settings _settings = null;
         public override void InstallBindings()
         {
             InstallMenu();
@@ -39,12 +40,14 @@ namespace LittleMars.Installers
 
         void InstallWindowManager()
         {
-            Container.BindInterfacesAndSelfTo<WindowManager>().AsSingle();
-            Container.Bind<WindowFactory>().AsSingle();
+            WindowManagerInstaller.WindowPrefab = _settings.WindowPrefab;
+            WindowManagerInstaller.Install(Container);
+            //Container.BindInterfacesAndSelfTo<WindowManager>().AsSingle();
+            //Container.Bind<WindowFactory>().AsSingle();
 
-            Container.BindFactory<WindowID, GameWindow, GameWindow.Factory>()
-                .FromSubContainerResolve()
-                .ByNewContextPrefab<GameWindowInstaller>(_settings.WindowPrefab);
+            //Container.BindFactory<WindowID, GameWindow, GameWindow.Factory>()
+            //    .FromSubContainerResolve()
+            //    .ByNewContextPrefab<GameWindowInstaller>(_settings.WindowPrefab);
         }
 
         void InstallCommands()
