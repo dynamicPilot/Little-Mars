@@ -1,5 +1,6 @@
 ﻿using LittleMars.Common;
 using Zenject;
+using UnityEngine;
 
 namespace LittleMars.SceneControls
 {
@@ -22,6 +23,7 @@ namespace LittleMars.SceneControls
 
         protected void Load()
         {
+            Debug.Log("SceneControl: Load.");
             Unsubscribe();
             _projectControl.Load();
         }

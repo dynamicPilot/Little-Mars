@@ -28,7 +28,8 @@ namespace LittleMars.Installers.Games
 
             Container.BindFactory<StartCommand, StartCommand.Factory>();
             Container.BindFactory<MainMenuByStartCommand, MainMenuByStartCommand.Factory>();
-            Container.BindFactory<GoalInfoCommand, GoalInfoCommand.Factory>();
+            Container.BindFactory<GoalInfoCommand, GoalInfoCommand.Factory>(); // -> may be will be removed
+            Container.BindFactory<RestartLevelCommand, RestartLevelCommand.Factory>();
 
             Container.BindFactory<EndLevelSignalGun, EndLevelSignalGun.Factory>()
                 .WhenInjectedInto<LevelMenusWorkflowTimer>();

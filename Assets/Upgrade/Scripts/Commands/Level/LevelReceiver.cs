@@ -50,6 +50,7 @@ namespace LittleMars.Commands.Level
         }
         public virtual void Restart()
         {
+            Debug.Log("Level Receiver: restart");
             _sceneControl.NextSceneType(SceneType.level);
             _signalBus.Fire<EndSceneSignal>();
         }

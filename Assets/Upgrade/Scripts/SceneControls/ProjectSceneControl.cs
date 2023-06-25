@@ -1,5 +1,6 @@
 ﻿using LittleMars.Common;
 using LittleMars.Loaders;
+using UnityEngine;
 
 namespace LittleMars.SceneControls
 {
@@ -13,6 +14,10 @@ namespace LittleMars.SceneControls
             _loader = loader;
         }
         public void NextSceneType(SceneType type) => _nextSceneType = type;
-        public void Load() => _loader.LoadSceneAsync(_nextSceneType);
+        public void Load()
+        {
+            Debug.Log("ProjectSceneControl: Load.Type " + _nextSceneType);
+            _loader.LoadSceneAsync(_nextSceneType);
+        }
     }
 }
