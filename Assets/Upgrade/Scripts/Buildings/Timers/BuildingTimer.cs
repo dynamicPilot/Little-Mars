@@ -72,6 +72,12 @@ namespace LittleMars.Buildings.Timers
             CheckTimer();
         }
 
+        public void ResetTimer()
+        {
+            StopTimer();
+            _wasEverOn = false;
+        }
+
         private BuildingTimerIsOverSignal GetSignal()
         {
             Debug.Log($"Create signal for timer over for type { _type} ans size {_size}.");

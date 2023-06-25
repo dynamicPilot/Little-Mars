@@ -21,6 +21,12 @@ namespace LittleMars.Buildings.BuildingStates
             _timer.StartTimer();
         }
 
+        public override void OnRemove()
+        {
+            _timer.ResetTimer();
+            base.OnRemove();
+        }
+
         public new class Factory : PlaceholderFactory<DomeOffState>
         { }
     }

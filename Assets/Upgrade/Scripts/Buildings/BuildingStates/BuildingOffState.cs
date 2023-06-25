@@ -36,7 +36,7 @@ namespace LittleMars.Buildings.BuildingStates
             _view.SetViewActiveState(true);
         }
 
-        public void OnRemove()
+        public virtual void OnRemove()
         {
             _view.SetViewActiveState(false);
         }

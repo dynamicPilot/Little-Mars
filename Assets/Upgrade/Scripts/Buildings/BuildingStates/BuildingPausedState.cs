@@ -4,6 +4,9 @@ using Zenject;
 
 namespace LittleMars.Buildings.BuildingStates
 {
+    /// <summary>
+    /// Building State for pause.
+    /// </summary>
     public class BuildingPausedState : IBuildingState
     {
         readonly BuildingView _view;
@@ -26,7 +29,7 @@ namespace LittleMars.Buildings.BuildingStates
             _model.CallBuildingController(_building);
         }
 
-        public void OnRemove()
+        public virtual void OnRemove()
         {
             _view.SetViewActiveState(false);
         }

@@ -1,5 +1,4 @@
 ﻿using LittleMars.Buildings.View;
-using LittleMars.Common;
 using LittleMars.Common.Interfaces;
 using System;
 using UnityEngine;
@@ -16,70 +15,6 @@ namespace LittleMars.Buildings.BuildingStates
 
     public class PausedStateFactory : PlaceholderFactory<BuildingPausedState>
     { }
-    public class BuildingOnStateFactory : IFactory<BuildingOnState>
-    {
-        BuildingType _type;
-        BuildingOnState.Factory _factory;
-        DomeOnState.Factory _domeFactory;
-
-        public BuildingOnStateFactory(BuildingType type, BuildingOnState.Factory factory, 
-            DomeOnState.Factory domeFactory)
-        {
-            _type = type;
-            _factory = factory;
-            _domeFactory = domeFactory;
-        }
-
-        public BuildingOnState Create()
-        {
-            if (_type == BuildingType.dome) return _domeFactory.Create();
-            else return _factory.Create();
-        }
-    }
-
-    public class BuildingOffStateFactory : IFactory<BuildingOffState>
-    {
-        BuildingType _type;
-        BuildingOffState.Factory _factory;
-        DomeOffState.Factory _domeFactory;
-
-        public BuildingOffStateFactory(BuildingType type, BuildingOffState.Factory factory, 
-            DomeOffState.Factory domeFactory)
-        {
-            _type = type;
-            _factory = factory;
-            _domeFactory = domeFactory;
-        }
-
-        public BuildingOffState Create()
-        {
-            if (_type == BuildingType.dome) return _domeFactory.Create();
-            else return _factory.Create();
-        }
-    }
-
-    public class BuildingPausedStateFactory : IFactory<BuildingPausedState>
-    {
-        BuildingType _type;
-        BuildingPausedState.Factory _factory;
-        DomePausedState.Factory _domeFactory;
-
-        public BuildingPausedStateFactory(BuildingType type, BuildingPausedState.Factory factory, 
-            DomePausedState.Factory domeFactory)
-        {
-            _type = type;
-            _factory = factory;
-            _domeFactory = domeFactory;
-        }
-
-        public BuildingPausedState Create()
-        {
-            if (_type == BuildingType.dome) return _domeFactory.Create();
-            else return _factory.Create();
-        }
-    }
-
-
 
     public class BuildingOnState : IBuildingState
     {
@@ -107,7 +42,7 @@ namespace LittleMars.Buildings.BuildingStates
             _view.SetViewActiveState(true);
         }
 
-        public void OnRemove()
+        public virtual void OnRemove()
         {
             _view.SetViewActiveState(false);
         }
