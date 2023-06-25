@@ -4,6 +4,8 @@ using LittleMars.Connections;
 using LittleMars.Slots.States;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine;
 using Zenject;
 
 namespace LittleMars.Slots
@@ -75,6 +77,7 @@ namespace LittleMars.Slots
         public void UpdateSlotConnections(Indexes ind, Dictionary<Direction, Connection> connections)
         {
             if (_slots == null) return;
+            Debug.Log("Update Slot Connections for index: row " + ind.Row + " col " + ind.Column);
             _slots[ind.Row][ind.Column].UpdateIndicators(connections);
         }
 

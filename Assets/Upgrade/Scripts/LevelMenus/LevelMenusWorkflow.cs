@@ -1,5 +1,6 @@
 ﻿using LittleMars.Common;
 using LittleMars.Common.Signals;
+using UnityEngine;
 using Zenject;
 
 namespace LittleMars.LevelMenus
@@ -31,11 +32,13 @@ namespace LittleMars.LevelMenus
 
         private void ChangeStateTo(MenuState state)
         {
+            Debug.Log("LevelMenusWorkflow: Change state to" + state);
             _state = state;
         }
 
         private bool CanChangeStateTo(MenuState state)
         {
+            Debug.Log("LevelMenusWorkflow: CanChangeStateTo " + state + ". CurrentState " + _state);
             if (state == MenuState.achievement)
                 return _state == MenuState.none;
             else
@@ -60,7 +63,9 @@ namespace LittleMars.LevelMenus
         // achievement
         private void OnAchievementReached(AchievementReachedSignal args)
         {
-            _signalBus.Unsubscribe<AchievementReachedSignal>(OnAchievementReached);
+            Debug.Log("LevelMenusWorkflow: Achivement Reached");
+            //_signalBus.Unsubscribe<AchievementReachedSignal>(OnAchievementReached);
+
             if (CanChangeStateTo(MenuState.achievement))
             {
                 ChangeStateTo(MenuState.achievement);

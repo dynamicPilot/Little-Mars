@@ -44,7 +44,7 @@ namespace LittleMars.Models
 
         public void OnBuildingTimetableChanged(IBuildingFacade building)
         {
-            Debug.Log("OnBuildingTimetableChanged. Need change state? Period " + _period + " building state for period " + building.StateForPeriod(_period));
+            //Debug.Log("OnBuildingTimetableChanged. Need change state? Period " + _period + " building state for period " + building.StateForPeriod(_period));
             if (building.StateForPeriod(_period) != building.State())
                 TryChangeBuildingState(building, building.StateForPeriod(_period), OperationMode.auto);
         }
@@ -56,7 +56,7 @@ namespace LittleMars.Models
 
         public bool TryChangeBuildingState(IBuildingFacade building, States state, OperationMode mode)
         {
-            Debug.Log($"Try change state for building {building.Info().Type}. To: {state}. Mode: {mode}.");
+            //Debug.Log($"Try change state for building {building.Info().Type}. To: {state}. Mode: {mode}.");
 
             if (state == States.on && CheckForTurnOn(building, mode))
             {
@@ -74,20 +74,20 @@ namespace LittleMars.Models
 
         private bool CheckForTurnOn(IBuildingFacade building, OperationMode mode)
         {
-            Debug.Log($"Check for TURN ON.");
+            //Debug.Log($"Check for TURN ON.");
 
             // if the building was turned off by user -> not turn is on by auto
             if (building.OperationMode() == OperationMode.manual
                 && mode != OperationMode.manual)
             {
-                Debug.Log($"The building was turned off by user -> not turn is on by auto");
+                //Debug.Log($"The building was turned off by user -> not turn is on by auto");
                 return false;
             }
 
             // if building has all connections to other buildings to be on
             if (!_helper.HasAllConnections(building))
             {
-                Debug.Log($"The building does not have all connections.");
+                //Debug.Log($"The building does not have all connections.");
                 return false;
             }
 
@@ -95,13 +95,13 @@ namespace LittleMars.Models
             if (building.StateForPeriod(_period) == States.off)
             {
                 if (building.State() == States.on) TryChangeBuildingState(building, States.off, OperationMode.auto);
-                Debug.Log($"The building sould be turn off for this period by timetable.");
+                //Debug.Log($"The building sould be turn off for this period by timetable.");
                 return false;
             }
 
             if (building.State() == States.on)
             {
-                Debug.Log($"The building is already turn on.");
+                //Debug.Log($"The building is already turn on.");
                 return false;
             }
 
@@ -110,7 +110,7 @@ namespace LittleMars.Models
 
         private bool CheckForTurnOff(IBuildingFacade building, OperationMode mode)
         {
-            Debug.Log($"Check for TURN OFF.");
+            //Debug.Log($"Check for TURN OFF.");
             if (building.State() == States.off) return false;
 
             return true;
@@ -128,7 +128,7 @@ namespace LittleMars.Models
             building.ChangeState(state, mode);
 
             // raise event is needed
-            Debug.Log($"Change state for building {building.Info().Type} to {state}.");
+            //Debug.Log($"Change state for building {building.Info().Type} to {state}.");
             _signalBus.TryFire(new BuildingStateChangedSignal { BuildingFacade = building });
         }
 

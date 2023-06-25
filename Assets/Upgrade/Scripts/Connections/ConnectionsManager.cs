@@ -59,8 +59,14 @@ namespace LittleMars.Connections
 
         private void OnAddBuilding(AddBuildingSignal args)
         {
+            Debug.Log("ConnectionsManager : OnAddBuilding");
             var indexes = args.BuildingFacade.MapSlotIndexes();
             var slots = new List<SlotConnections>();
+
+            // TO TEST
+            Debug.Log(".... building " + args.BuildingFacade.Info().Type);
+            Debug.Log(".... map slot indexes");
+            foreach(var index in indexes) Debug.Log("....row " + index.Row + " column " + index.Column);
 
             // add connections to this building
             foreach (Indexes index in indexes)

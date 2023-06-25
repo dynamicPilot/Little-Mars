@@ -17,7 +17,7 @@ namespace LittleMars.Slots
         
         public void OnDrop(BuildingObject buildingObject)
         {
-            Debug.Log("Drop " + buildingObject.name);
+            //Debug.Log("Drop " + buildingObject.name);
             _state.OnDrop(buildingObject);
         }
     }

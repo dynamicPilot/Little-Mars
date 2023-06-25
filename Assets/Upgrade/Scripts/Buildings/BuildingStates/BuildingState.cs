@@ -47,7 +47,7 @@ namespace LittleMars.Buildings.BuildingStates
             var newState = (_timetable[period] == States.on) ?
                 States.off : States.on;
             _timetable[period] = newState;
-            Debug.Log("New period timetable " + _timetable[period]);
+            //Debug.Log("New period timetable " + _timetable[period]);
         }
 
         public void ChangeState(States state, OperationMode mode)
@@ -60,7 +60,7 @@ namespace LittleMars.Buildings.BuildingStates
 
             _buildingState = _manager.CreateState(GetBState());
 
-            Debug.Log($"BuildingState: state was changed to {_state}");
+            //Debug.Log($"BuildingState: state was changed to {_state}");
             _buildingState.SetView();
         }
 

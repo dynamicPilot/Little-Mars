@@ -2,6 +2,7 @@
 using LittleMars.Slots;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using Zenject;
 
 namespace LittleMars.Connections.View
@@ -28,6 +29,7 @@ namespace LittleMars.Connections.View
 
         private void OnSlotConnectionsUpdated(SlotConnectionsUpdatedSignal args)
         {
+            //Debug.Log("ConnectionViewManager : OnSlotConnectionsUpdated");
             var queue = new Queue<SlotConnections>();
             var checkedSlots = new List<SlotConnections>();
 

@@ -38,13 +38,13 @@ namespace LittleMars.Buildings
             _buildings.Add(building);
             _signalBus?.TryFire(new AddBuildingSignal { BuildingFacade = building });
 
-            Debug.Log($"Add building. Total building number is {_buildings.Count}.");
+            //Debug.Log($"Add building. Total building number is {_buildings.Count}.");
             _operation.TryChangeBuildingState(building, Common.States.on, OperationMode.manual);            
         }
 
         public void RemoveBuilding(IBuildingFacade building)
         {
-            Debug.Log($"Remove building with {building.Info().Type}");
+            //Debug.Log($"Remove building with {building.Info().Type}");
             _operation.TryChangeBuildingState(building, Common.States.off, OperationMode.manual);
             _provider.FreeBuilding(building);
             _buildings.Remove(building);

@@ -15,7 +15,7 @@ MonoBehaviour:
   Info:
     LevelInfo:
       Number: 2
-      StartSprite: {fileID: -6933934529716846700, guid: 6dfc9672df1d5ca42945eb7570208946, type: 3}
+      StartSprite: {fileID: 7829307810736791919, guid: 6dfc9672df1d5ca42945eb7570208946, type: 3}
       EndSprite: {fileID: -6559670230340714738, guid: 6dfc9672df1d5ca42945eb7570208946, type: 3}
   Conditions:
     InitialConditions:

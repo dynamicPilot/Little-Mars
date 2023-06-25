@@ -80,7 +80,7 @@ namespace LittleMars.UI
 
         void Accept()
         {
-            Debug.Log("Accept");
+            //Debug.Log("Accept");
             _placement.Accept();
             _audioSystem.PlayUISound(UISoundType.clickFirst);
             Close();

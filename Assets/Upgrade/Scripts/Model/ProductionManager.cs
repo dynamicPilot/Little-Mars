@@ -190,7 +190,7 @@ namespace LittleMars.Models
 
         public bool HasResources(ResourceUnit<float>[] needs)
         {
-            Debug.Log("ProductionManager: Check resources.");
+            //Debug.Log("ProductionManager: Check resources.");
             foreach (ResourceUnit<float> unit in needs)
             {
                 if (_resourcesBalance[unit.Type] < unit.Amount)
@@ -205,7 +205,7 @@ namespace LittleMars.Models
 
         public bool HasResourcesForNeeds(ResourceUnit<float>[] needs)
         {
-            Debug.Log("ProductionManager: Check resources for need.");
+            //Debug.Log("ProductionManager: Check resources for need.");
             foreach (ResourceUnit<float> unit in needs)
             {
                 if (_resourcesBalance[unit.Type] + _production[unit.Type][_period] - _needs[unit.Type] 

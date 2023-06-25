@@ -37,8 +37,8 @@ namespace LittleMars.Installers.Games
                 .WhenInjectedInto<GoalsTrackerProvider<ResourceUnit<float>, ResourceProductionGoalTracker>>();
 
             Container.BindFactory<Goal<ResourceUnit<float>>, int, IGoalTracker, TrackerFactory<ResourceUnit<float>>>()
-                .To<ResourceProductionGoalTracker>()
-                .WhenInjectedInto<GoalsTrackerProvider<ResourceUnit<float>, ResourceProductionGoalTracker>>();
+                .To<ResourceBalanceGoalTracker>()
+                .WhenInjectedInto<GoalsTrackerProvider<ResourceUnit<float>, ResourceBalanceGoalTracker>>();
 
             Container.BindFactory<int, IGoalTracker, FakeTrackerFactory>()
                 .To<BuildingTimerStaffGoalTracker>()

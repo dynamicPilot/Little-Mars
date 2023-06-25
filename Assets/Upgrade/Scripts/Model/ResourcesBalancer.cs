@@ -41,7 +41,7 @@ namespace LittleMars.Models
                 _buildingsByPriority[priority] = new List<IBuildingFacade>();
 
             _buildingsByPriority[priority].Add(building);
-            Debug.Log("Add building " + building.Info().Type + " for priority " + building.Priority());
+            //Debug.Log("Add building " + building.Info().Type + " for priority " + building.Priority());
         }
 
         private void OnRemoveBuilding(RemoveBuildingSignal arg)

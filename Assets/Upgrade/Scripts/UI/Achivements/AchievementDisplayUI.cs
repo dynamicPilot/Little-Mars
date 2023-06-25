@@ -3,6 +3,7 @@ using LittleMars.Common;
 using LittleMars.Common.Signals;
 using LittleMars.UI.GoalDisplays;
 using LittleMars.UI.LevelMenus;
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -38,15 +39,25 @@ namespace LittleMars.UI.Achievements
         private void OnDestroy()
         {
             RemoveListeners();
-            _signalBus?.TryUnsubscribe<CallAchivementMenuSignal>(OnCallAchivementMenu);
+            //_signalBus?.TryUnsubscribe<CallAchivementMenuSignal>(OnCallAchivementMenu);
         }
 
         void OnCallAchivementMenu(CallAchivementMenuSignal args)
         {
+            Debug.Log("OnCallAchivementMenu");
             if (_isOpen) return;
 
-            if (CheckStrategy(args.GoalIndex)) Open();
-            else Close();
+            Debug.Log("......CheckStrategy");
+            if (CheckStrategy(args.GoalIndex))
+            {
+                Debug.Log("......Open");
+                Open();
+            }
+            else
+            {
+                Debug.Log("......Close");
+                Close();
+            }
         }
 
         bool CheckStrategy(int index)

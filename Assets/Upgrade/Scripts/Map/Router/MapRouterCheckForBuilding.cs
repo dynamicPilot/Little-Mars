@@ -53,7 +53,7 @@ namespace LittleMars.Map.Routers
         public void Dispose()
         {
             _resources = null;
-            Debug.Log("Dispose MapRouterCheckForBuilding");
+            //Debug.Log("Dispose MapRouterCheckForBuilding");
         }
 
         public class Factory : PlaceholderFactory<BuildingObject, MapRouterCheckForBuilding>

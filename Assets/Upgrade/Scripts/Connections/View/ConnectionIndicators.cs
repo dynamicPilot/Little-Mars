@@ -16,8 +16,14 @@ namespace LittleMars.Connections.View
 
         public void UpdateIndicators(Dictionary<Direction, Connection> connections)
         {
-            if (!_canShow) return;
-            else if (_indicators == null) CreateIndicatorsDictionary();
+            Debug.Log("Update indicators for building");
+            //if (!_canShow)
+            //{
+            //    Debug.Log("... can not show");
+            //    return;
+            //}
+            //else
+            if (_indicators == null) CreateIndicatorsDictionary();
 
             // update indicators
             foreach(Direction direction in connections.Keys)
@@ -34,6 +40,7 @@ namespace LittleMars.Connections.View
 
         public void HideIndicators()
         {
+            Debug.Log("Hide indicator");
             if (_indicators == null) return;
 
             foreach (Direction direction in _indicators.Keys)
@@ -44,12 +51,13 @@ namespace LittleMars.Connections.View
 
         private void CreateIndicatorsDictionary()
         {
-            _indicators = new Dictionary<Direction, ConnectionIndicator>();
-
-            _indicators.Add(Direction.left, _left);
-            _indicators.Add(Direction.up, _up);
-            _indicators.Add(Direction.right, _right);
-            _indicators.Add(Direction.down, _down);
+            _indicators = new Dictionary<Direction, ConnectionIndicator>
+            {
+                { Direction.left, _left },
+                { Direction.up, _up },
+                { Direction.right, _right },
+                { Direction.down, _down }
+            };
         }
 
         private void HideIndicator(Direction direction)
@@ -61,6 +69,7 @@ namespace LittleMars.Connections.View
 
         private void UpdateIndicator(Direction direction, BuildingType type)
         {
+            Debug.Log("Update indicator for direction " + direction + " of type " + type);
             if (!_indicators[direction].gameObject.activeSelf) 
                 _indicators[direction].gameObject.SetActive(true);
 

@@ -50,11 +50,11 @@ namespace LittleMars.Model
             var indexesList = new List<Indexes>();
             int rotationCount = 0;
 
-            Debug.Log($"Start placement: {buildingObject.Info.Type}. Path type is {path.Type}.");
+            //Debug.Log($"Start placement: {buildingObject.Info.Type}. Path type is {path.Type}.");
             if (_router.TryBuildRouteFrom(path, slot, _check,
                     out List<MapSlotExtended> route, ref rotationCount))
             {
-                Debug.Log("Has Route");
+                //Debug.Log("Has Route");
                 foreach (MapSlotExtended part in route) indexesList.Add(part.Indexes);
 
                 _placingBuilding = _factory.Create(buildingObject.Info.Type,

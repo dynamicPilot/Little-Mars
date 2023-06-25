@@ -28,7 +28,7 @@ namespace LittleMars.Model.GoalDisplays
         private void CreateStrategies()
         {
             _strategies = _factory.CreateStrategies();
-            Debug.Log("Strategies is created : " + _strategies.Count);
+            //Debug.Log("Strategies is created : " + _strategies.Count);
             _signalBus.Fire(new GoalStrategiesIsReadySignal { Strategies = _strategies.ToArray() });
         }
 
@@ -39,7 +39,7 @@ namespace LittleMars.Model.GoalDisplays
 
         public IGoalDisplayStrategy GetStrategy(int index)
         {
-            Debug.Log("Need strategy with index : " + index);
+            //Debug.Log("Need strategy with index : " + index);
             if (index >= _strategies.Count || index < 0) return null;
             return _strategies[index];
         }
