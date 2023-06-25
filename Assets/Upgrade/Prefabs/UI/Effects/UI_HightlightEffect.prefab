@@ -109,7 +109,7 @@ RectTransform:
   m_Children:
   - {fileID: 6625193963733634355}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -150,6 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf986157fb62b494f8a88a6112ff7679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _useId: 0
+  _id: 
   _transform: {fileID: 6625193963733634355}
   _image: {fileID: 5895625416503168877}
   _startPosition: {x: -33, y: 0, z: 0}

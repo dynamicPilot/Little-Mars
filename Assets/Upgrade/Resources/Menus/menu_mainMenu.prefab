@@ -399,6 +399,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092a3a2b1c214b747916242ed2d516d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _useId: 1
+  _id: MainMenu_rocket_2
+  _startOnEnable: 1
   _transform: {fileID: 7532259193379191406}
   _image: {fileID: 2100259640383738900}
   _startPosition: {x: 0, y: 90, z: 0}
@@ -420,6 +423,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a926efd809a6bab4987a56ff882da52c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _useId: 1
+  _id: MainMenu_rocketFlip_2
+  _startOnEnable: 0
   _transform: {fileID: 7532259193379191406}
   _duration: 0.5
   _startRotate: {x: 0, y: 0, z: 0}
@@ -669,6 +675,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092a3a2b1c214b747916242ed2d516d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _useId: 1
+  _id: MainMenu_rocket_1
+  _startOnEnable: 1
   _transform: {fileID: 7582332391981729473}
   _image: {fileID: 7954525225085573676}
   _startPosition: {x: 0, y: -90, z: 0}
@@ -690,6 +699,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a926efd809a6bab4987a56ff882da52c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _useId: 1
+  _id: MainMenu_rocketFlip_1
+  _startOnEnable: 0
   _transform: {fileID: 7582332391981729473}
   _duration: 0.5
   _startRotate: {x: 0, y: 0, z: 0}
@@ -799,6 +811,7 @@ GameObject:
   - component: {fileID: 8544857254502361709}
   - component: {fileID: 1604879264352739988}
   - component: {fileID: 1673760861004080801}
+  - component: {fileID: 2872302720100862371}
   - component: {fileID: 5935201988390692312}
   - component: {fileID: 5888930885387428500}
   m_Layer: 5
@@ -872,6 +885,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _menuUI: {fileID: 5935201988390692312}
+--- !u!114 &2872302720100862371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3245574281687798040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047e410d7749e0544a60b5361513223a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _killAllOnDisable: 0
+  _killAllOnDestroy: 1
 --- !u!114 &5935201988390692312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1333,6 +1360,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7eed74cb732bc4c8fba89f3c0ca90d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _useId: 1
+  _id: MainMenu_circular_2
+  _startOnEnable: 1
   _transform: {fileID: 3568548324529588881}
   _image: {fileID: 818851524530955450}
   _upperPosition: {x: 0, y: 128, z: 0}
@@ -1427,6 +1457,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7eed74cb732bc4c8fba89f3c0ca90d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _useId: 1
+  _id: MainMenu_circular_1
+  _startOnEnable: 1
   _transform: {fileID: 6912984825635938479}
   _image: {fileID: 7295455927836288471}
   _upperPosition: {x: 0, y: 128, z: 0}
@@ -1521,6 +1554,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7eed74cb732bc4c8fba89f3c0ca90d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _useId: 1
+  _id: MainMenu_circular_4
+  _startOnEnable: 1
   _transform: {fileID: 4979333479255520003}
   _image: {fileID: 361374578192248010}
   _upperPosition: {x: 0, y: 128, z: 0}
@@ -1674,6 +1710,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7eed74cb732bc4c8fba89f3c0ca90d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _useId: 1
+  _id: MainMenu_circular_3
+  _startOnEnable: 1
   _transform: {fileID: 6570117356246228867}
   _image: {fileID: 1660847769764091672}
   _upperPosition: {x: 0, y: 128, z: 0}
@@ -2343,6 +2382,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ColoredButton_game
       objectReference: {fileID: 0}
+    - target: {fileID: 8782478928339632680, guid: 2de80e1f70b4c90469cc1bf83a13a55a, type: 3}
+      propertyPath: _id
+      value: MainMenu_highlight_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8782478928339632680, guid: 2de80e1f70b4c90469cc1bf83a13a55a, type: 3}
+      propertyPath: _useId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9168156930300727563, guid: 2de80e1f70b4c90469cc1bf83a13a55a, type: 3}
       propertyPath: m_SizeDelta.x
       value: -14
@@ -2508,6 +2555,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ColoredButton_chooseLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 8782478928339632680, guid: 2de80e1f70b4c90469cc1bf83a13a55a, type: 3}
+      propertyPath: _id
+      value: MainMenu_highlight_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8782478928339632680, guid: 2de80e1f70b4c90469cc1bf83a13a55a, type: 3}
+      propertyPath: _useId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9168156930300727563, guid: 2de80e1f70b4c90469cc1bf83a13a55a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.8
@@ -2553,6 +2608,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2751017221832736408}
     m_Modifications:
+    - target: {fileID: 3833443019359023945, guid: fa5454cf466f32241b5e5456d4e37ae6, type: 3}
+      propertyPath: _useId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3833443019359023945, guid: fa5454cf466f32241b5e5456d4e37ae6, type: 3}
+      propertyPath: _needSetId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4156309865727917178, guid: fa5454cf466f32241b5e5456d4e37ae6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2637,6 +2700,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_PanelGlowEffect
       objectReference: {fileID: 0}
+    - target: {fileID: 8266266294613108009, guid: fa5454cf466f32241b5e5456d4e37ae6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2658,6 +2725,14 @@ PrefabInstance:
     - target: {fileID: 2510867359639846634, guid: 6b0d76337e33ae84b96887652195f92d, type: 3}
       propertyPath: m_Name
       value: GlowEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 7092670101443945949, guid: 6b0d76337e33ae84b96887652195f92d, type: 3}
+      propertyPath: _id
+      value: MainMenu_blinkingGlow
+      objectReference: {fileID: 0}
+    - target: {fileID: 7092670101443945949, guid: 6b0d76337e33ae84b96887652195f92d, type: 3}
+      propertyPath: _useId
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7620622903988430777, guid: 6b0d76337e33ae84b96887652195f92d, type: 3}
       propertyPath: m_Pivot.x
@@ -2879,6 +2954,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8738098607103919831, guid: 2de80e1f70b4c90469cc1bf83a13a55a, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8782478928339632680, guid: 2de80e1f70b4c90469cc1bf83a13a55a, type: 3}
+      propertyPath: _id
+      value: MainMenu_highlight_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8782478928339632680, guid: 2de80e1f70b4c90469cc1bf83a13a55a, type: 3}
+      propertyPath: _useId
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9168156930300727563, guid: 2de80e1f70b4c90469cc1bf83a13a55a, type: 3}

@@ -53,6 +53,7 @@ namespace LittleMars.UI.GoalTextMenu
             //if (_isOpen) return;
             //_sounds.PlaySoundForCommandType(CommandType.empty);
             if (!_isTextSet) SetGoalTexts();
+            base.OnOpenMenu();
         }
 
         private void SetGoalTexts()

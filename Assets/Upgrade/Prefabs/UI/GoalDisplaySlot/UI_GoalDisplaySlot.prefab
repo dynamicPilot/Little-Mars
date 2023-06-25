@@ -1170,7 +1170,7 @@ GameObject:
   - component: {fileID: 8993138812123952636}
   - component: {fileID: 1239827065914413722}
   m_Layer: 5
-  m_Name: GoalDisplaySlot
+  m_Name: UI_GoalDisplaySlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

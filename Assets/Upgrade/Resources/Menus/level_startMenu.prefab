@@ -522,6 +522,7 @@ GameObject:
   - component: {fileID: 149218274682352508}
   - component: {fileID: 1009824157149224391}
   - component: {fileID: 4079198997360763522}
+  - component: {fileID: 8580312365753546660}
   - component: {fileID: 6902511111296463296}
   - component: {fileID: 1744527346419032099}
   m_Layer: 5
@@ -650,6 +651,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _menuUI: {fileID: 6902511111296463296}
+--- !u!114 &8580312365753546660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5435672541660531271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047e410d7749e0544a60b5361513223a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _killAllOnDisable: 1
+  _killAllOnDestroy: 0
 --- !u!114 &6902511111296463296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2343,6 +2358,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 80ec57d5f0cbfd443bd65c00294669f0, type: 3}
+    - target: {fileID: 7017020336728993663, guid: 2de80e1f70b4c90469cc1bf83a13a55a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8252219510220703422, guid: 2de80e1f70b4c90469cc1bf83a13a55a, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2366,6 +2385,14 @@ PrefabInstance:
     - target: {fileID: 8738098607103919831, guid: 2de80e1f70b4c90469cc1bf83a13a55a, type: 3}
       propertyPath: m_Name
       value: ColoredButton_start
+      objectReference: {fileID: 0}
+    - target: {fileID: 8782478928339632680, guid: 2de80e1f70b4c90469cc1bf83a13a55a, type: 3}
+      propertyPath: _id
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8782478928339632680, guid: 2de80e1f70b4c90469cc1bf83a13a55a, type: 3}
+      propertyPath: _useId
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9168156930300727563, guid: 2de80e1f70b4c90469cc1bf83a13a55a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2753,6 +2780,10 @@ PrefabInstance:
     - target: {fileID: 3833443019359023945, guid: fa5454cf466f32241b5e5456d4e37ae6, type: 3}
       propertyPath: _id
       value: panelGlow
+      objectReference: {fileID: 0}
+    - target: {fileID: 3833443019359023945, guid: fa5454cf466f32241b5e5456d4e37ae6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3833443019359023945, guid: fa5454cf466f32241b5e5456d4e37ae6, type: 3}
       propertyPath: _unscaledTime

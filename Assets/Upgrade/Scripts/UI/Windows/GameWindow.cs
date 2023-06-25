@@ -19,6 +19,7 @@ namespace LittleMars.UI.Windows
 
         public bool Open()
         {
+            Debug.Log("GameWindow: open " + (_window != null));
             if (_window != null) _window.Open();
             return _window != null;
         }

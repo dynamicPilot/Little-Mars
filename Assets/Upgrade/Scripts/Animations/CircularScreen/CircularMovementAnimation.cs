@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace LittleMars.Animations.CircularScreen
 {
-    public class CircularMovementAnimation : TweenAnimation
+    public class CircularMovementAnimation : TweenAnimationUI
     {
         [SerializeField] RectTransform _transform;
         [SerializeField] Image _image;
@@ -15,23 +15,13 @@ namespace LittleMars.Animations.CircularScreen
         [SerializeField] float _duration;
 
         bool _isInAnimation = false;
-        private void OnEnable()
-        {
-            CheckForStartMoveOrPlay();
-        }
-
+        public override void StartAnimation() => CheckForStartMoveOrPlay();
         protected override void OnDisable()
         {
-            DOTween.Pause(this);
+            DOTween.Pause(_id);
         }
 
-        private void OnDestroy()
-        {
-            DOTween.KillAll();
-        }
-
-        void Play() => DOTween.Play(this);
-
+        void Play() => DOTween.Play(_id);
 
         void CheckForStartMoveOrPlay()
         {
@@ -58,6 +48,8 @@ namespace LittleMars.Animations.CircularScreen
                 .Append(_transform.DOLocalMove(_upperPosition, _duration).SetEase(Ease.Linear))
                 .AppendCallback(OnAppendCallback)
                 .SetLoops(-1);
+
+            if (_useId) sequence.SetId(_id);
         }
         void DoPrepandMove(float duration)
         {
@@ -65,6 +57,8 @@ namespace LittleMars.Animations.CircularScreen
             sequence.Append(_transform.DOLocalMove(_upperPosition, duration).SetEase(Ease.Linear))
                 .AppendCallback(OnAppendCallback)
                 .OnComplete(DoCircularMove);
+
+            if (_useId) sequence.SetId(_id);
         }
 
         void OnPrepandCallback()

@@ -7,7 +7,7 @@ namespace LittleMars.Animations.CircularScreen
         [Header("Flip Animation")]
         [SerializeField] FlipAnimation _flipAnimation;
 
-        protected override void StartAnimation()
+        public override void StartAnimation()
         {
             _flipAnimation.StartAnimation();
             base.StartAnimation();

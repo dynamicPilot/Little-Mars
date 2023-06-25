@@ -1,30 +1,16 @@
 ﻿using DG.Tweening;
-using System.Linq;
 using UnityEngine;
 
 namespace LittleMars.Animations
 {
-    public class FlipAnimation : TweenAnimation
+    public class FlipAnimation : TweenAnimationUI
     {
         [SerializeField] RectTransform _transform;
         [Header("Settings")]
         [SerializeField] float _duration;
         [SerializeField] Vector3 _startRotate;
         [SerializeField] Vector3 _endRotate;
-
-        public void StartAnimation()
-        {
-            DoFlip();
-        }
-
-        //public void Play()
-        //{
-        //    DOTween.Play(this);
-        //}
-        //public void Pause()
-        //{
-        //    DOTween.Pause(this);
-        //}
+        public override void StartAnimation() => DoFlip();
 
         void DoFlip()
         {
@@ -34,6 +20,8 @@ namespace LittleMars.Animations
                 .AppendInterval(_duration)
                 .AppendCallback(OnAppendCallback)
                 .SetLoops(-1);
+
+            if (_useId) sequence.SetId(_id);
         }
 
         void OnPrepandCallback()

@@ -7,29 +7,16 @@ using UnityEngine.UI;
 namespace LittleMars.Animations.UI
 {
 
-    public class BlinkingGlowAnimation : TweenAnimation
+    public class BlinkingGlowAnimation : TweenAnimationUI
     {
-        [SerializeField] private Image _indicator;
-        [SerializeField] private float _endFade;
-        [SerializeField] private float _period;
-
-        [Header("Animation ID")]
-        [SerializeField] private bool _needSetId = true;
-        [SerializeField] string _id = "blinkingGlow";
+        [SerializeField] Image _indicator;
+        [SerializeField] float _endFade;
+        [SerializeField] float _period;
 
         [Header("TimeScale Settings")]
         [SerializeField] bool _unscaledTime = false;
 
-        private void Start()
-        {
-            StartAnimation();
-        }
-
-        public void StartAnimation()
-        {
-            Blinking();
-        }
-
+        public override void StartAnimation() => Blinking();
         private void Blinking()
         {
             Sequence sequence = DOTween.Sequence();
@@ -41,22 +28,17 @@ namespace LittleMars.Animations.UI
                 .SetLoops(-1);
 
             if (_unscaledTime) sequence.SetUpdate(_unscaledTime);
-            if (_needSetId) sequence.SetId(_id);
+            if (_useId) sequence.SetId(_id);
         }
 
-        public void Play()
-        {
-            if (_needSetId) DOTween.Play(_id);
-        }
+        //public void Play()
+        //{
+        //    if (_useId) DOTween.Play(_id);
+        //}
 
-        public void Pause()
-        {
-            if (_needSetId) DOTween.Pause(_id);
-        }
-
-        public void OnDestroy()
-        {
-            DOTween.KillAll();
-        }
+        //public void Pause()
+        //{
+        //    if (_useId) DOTween.Pause(_id);
+        //}
     }
 }

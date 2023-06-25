@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 namespace LittleMars.Animations
 {
-    public class RectMoveAnimation : TweenAnimation
+    /// <summary>
+    /// Animation. Move RectTransform with Image from startPosition to endPosition with delays.
+    /// </summary>
+    public class RectMoveAnimation : TweenAnimationUI
     {
         [SerializeField] RectTransform _transform;
         [SerializeField] Image _image;
@@ -19,8 +22,7 @@ namespace LittleMars.Animations
         [Header("TimeScale Settings")]
         [SerializeField] bool _unscaledTime = false;
 
-        private void OnEnable() => StartAnimation();
-        protected virtual void StartAnimation() => DoMove();
+        public override void StartAnimation() => DoMove();
 
         void DoMove()
         {
@@ -35,6 +37,7 @@ namespace LittleMars.Animations
                 .SetLoops(-1);
 
             if (_unscaledTime) sequence.SetUpdate(_unscaledTime);
+            if (_useId) sequence.SetId(_id);
         }
 
         protected virtual void OnPrepandCallback()

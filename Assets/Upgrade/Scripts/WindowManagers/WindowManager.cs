@@ -74,7 +74,6 @@ namespace LittleMars.WindowManagers
         void OnWindowStateById(WindowStateByIdSignal arg)
         {
             CloseWindow(arg.Id, arg.SenderState);
-
         }
 
         bool OpenWindow(int id)

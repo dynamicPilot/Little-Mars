@@ -212,11 +212,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c307c7b7a85d101469efa886078b037a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _useId: 0
+  _id: MainMenu_blinkingGlows_
   _indicators:
   - {fileID: 2183269066115052780}
   - {fileID: 8258190449712796994}
   _endFade: 0.5
   _period: 1.2
-  _needSetId: 0
-  _id: blinkingGlow_
   _unscaledTime: 0
