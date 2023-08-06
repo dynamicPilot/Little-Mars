@@ -9,7 +9,8 @@
         level_goalsInfo,
         level_achievement,
         level_end,
-        level_gameOver
+        level_gameOver,
+        level_state
     }
 
     public enum WindowState

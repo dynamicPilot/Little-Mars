@@ -1,31 +1,27 @@
 ﻿using LittleMars.AudioSystems;
 using LittleMars.Common;
 using LittleMars.Common.Signals;
+using LittleMars.WindowManagers;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
 namespace LittleMars.UI
 {
-    public class SideMenuUI : MenuUI
+    public class SideMenuUI : MonoBehaviour
     {
-        [SerializeField] private MenuInitType _initType;
         [SerializeField] private Button _openButton;
-        [SerializeField] private Button _closeButton;
 
         SignalBus _signalBus;
         UISoundSystem _audioSystem;
-        bool _isInit = false;
         private void Start()
         {
-            _openButton.onClick.AddListener(OnOpen);
-            _closeButton.onClick.AddListener(OnClose);
+            _openButton.onClick.AddListener(OnButtonClick);
         }
 
         private void OnDestroy()
         {
-            _openButton.onClick.RemoveListener(OnOpen);
-            _closeButton.onClick.RemoveListener(OnClose);
+            _openButton.onClick.RemoveListener(OnButtonClick);
         }
 
         [Inject]
@@ -33,43 +29,21 @@ namespace LittleMars.UI
         {
             _signalBus = signalBus;
             _audioSystem = audioSystem;
-            _isInit = false;
         }
 
-        void OnOpen()
+        void OnButtonClick()
         {
             _audioSystem.PlayUISound(UISoundType.clickThird);
 
-            if (_isOpen) return;
-
-            InitMenu();
-            SetOpenButtonState(false);
-            Open();
-        }
-
-        void OnClose()
-        {
-            _audioSystem.PlayUISound(UISoundType.quit);
-
-            if (!_isOpen) return;
-            SetOpenButtonState(true);
-            Close();
-        }
-
-        private void InitMenu()
-        {
-            if (_isInit) return;
-
-            _isInit = true;
-            _signalBus.Fire(new NeedMenuInitSignal
+            Debug.Log("Button click");
+            // for test -> better to level workflow
+            _signalBus.TryFire(new OpenWindowByIdSignal
             {
-                Type = _initType
+                Id = (int)WindowID.level_state,
+                SenderId = -1,
+                NextSenderState = 0,
+                Context = null
             });
-        }
-
-        void SetOpenButtonState(bool state)
-        {
-            _openButton.gameObject.SetActive(state);
         }
     }
 }

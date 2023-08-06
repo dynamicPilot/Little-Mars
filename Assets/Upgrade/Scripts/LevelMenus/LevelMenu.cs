@@ -4,6 +4,7 @@ using LittleMars.Common;
 using LittleMars.Model.GoalDisplays;
 using LittleMars.Model.TimeUpdate;
 using LittleMars.UI.GoalDisplays;
+using UnityEngine;
 using Zenject;
 
 namespace LittleMars.LevelMenus
@@ -29,6 +30,7 @@ namespace LittleMars.LevelMenus
         }
         public override void Close()
         {
+            Debug.Log("LevelMenu^ close");
             _timeManager.Start();
         }
 

@@ -29,8 +29,8 @@ namespace LittleMars.Installers.Games
             Container.Bind<ISetSlot>().To<TimerSlotUISetter>().WhenInjectedInto<BuildingGoalSlotsUIFactory>();
 
             Container.BindInterfacesAndSelfTo<ResourceSlotMenuManager>().AsSingle();
-            Container.BindInterfacesAndSelfTo<ResourcesBalanceMenuManager>().AsSingle();
-            Container.BindInterfacesAndSelfTo<GoalSlotMenuManager>().AsSingle();
+            Container.Bind<ResourcesBalanceMenuManager>().AsSingle();
+            Container.Bind<GoalSlotMenuManager>().AsSingle();
 
             Container.Bind<GoalSlotsUIFactory>().AsSingle();
 

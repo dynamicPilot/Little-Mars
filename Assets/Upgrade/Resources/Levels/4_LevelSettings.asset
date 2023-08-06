@@ -89,16 +89,16 @@ MonoBehaviour:
       HasBuildingGoalsWithTimer: 0
       BuildingGoalsWithTimers:
         GoalsArray: []
-      HasResourcesGoals: 1
+      HasResourcesGoals: 0
       ResourceGoals:
+        GoalsArray: []
+      HasProductionGoals: 1
+      ProductionGoals:
         GoalsArray:
         - Type: 0
           Unit:
             Type: 3
             Amount: 40
-      HasProductionGoals: 0
-      ProductionGoals:
-        GoalsArray: []
   TextBlocks:
     Blocks:
-      Blocks: {fileID: 4900000, guid: cd42a0ec5b5e8dc4093f3962a84cb357, type: 3}
+      Blocks: {fileID: 4900000, guid: 3c0fb37713e2a42448866e797e459e5a, type: 3}

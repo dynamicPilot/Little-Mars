@@ -7,66 +7,50 @@ using Zenject;
 
 namespace LittleMars.UI.GoalSlots
 {
-    public class GoalSlotMenuManager : SideMenu, IInitializable, IDisposable
+    public class GoalSlotMenuManager : SideMenuPart
     {
         readonly GoalSlotsUIFactory _factory;
-        readonly SignalBus _signalBus;
-        readonly GameUI _gameUI;
         readonly GoalsManager _goalsManager;
         // _slots
         List<IGoalSlot> _slots = null;
 
-        public GoalSlotMenuManager(GoalSlotsUIFactory factory, SignalBus signalBus, GameUI gameUI, GoalsManager goalsManager)
-            : base(Common.MenuInitType.goals)
+        public GoalSlotMenuManager(GoalSlotsUIFactory factory, GoalsManager goalsManager)
+            //: base(signalBus)
         {
             _factory = factory;
-            _signalBus = signalBus;
-            _gameUI = gameUI;
             _goalsManager = goalsManager;
         }
 
-        public void Initialize()
+        //protected override void SubscribeToUpdate()
+        //{
+        //    _signalBus.TryUnsubscribe<GoalUpdatedSignal>(OnGoalUpdated);
+        //}
+
+        //protected override void UnsubscribeToUpdate()
+        //{
+        //    _signalBus.TryUnsubscribe<GoalUpdatedSignal>(OnGoalUpdated);
+        //}
+
+        public override void CreateSlots(RectTransform transform)
         {
-            _signalBus.Subscribe<NeedMenuInitSignal>(OnNeedInit);            
+            _slots = _factory.CreateSlots(transform);
         }
 
-        public void Dispose()
-        {
-            _signalBus.TryUnsubscribe<GoalUpdatedSignal>(OnGoalUpdated);
-        }
-
-        public override void OnNeedInit(NeedMenuInitSignal args)
-        {
-            base.OnNeedInit(args);
-            CreateSlots();
-            InitialSlotsUpdate();
-
-            _signalBus.Unsubscribe<NeedMenuInitSignal>(OnNeedInit);
-            _signalBus.Subscribe<GoalUpdatedSignal>(OnGoalUpdated);
-        }
-
-        private void CreateSlots()
-        {
-            _slots = _factory.CreateSlots(_gameUI.GoalsSlotParent);
-        }
-
-        private void InitialSlotsUpdate()
+        public override void UpdateSlots()
         {
             var trackers = _goalsManager.GetTrackers();
 
-            for(int i = 0; i < trackers.Count; i++)
+            for (int i = 0; i < trackers.Count; i++)
             {
                 OnGoalUpdated(trackers[i].GetInfo());
             }
         }
 
-        private void OnGoalUpdated(GoalUpdatedSignal args)
+        void OnGoalUpdated(GoalUpdatedSignal args)
         {
             int index = args.Index;
 
             if (_slots.Count <= index) return;
-
-            Debug.Log("Call slot for update!");
             _slots[index].UpdateSlot(args);
         }
     }

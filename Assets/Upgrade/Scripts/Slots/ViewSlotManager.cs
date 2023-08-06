@@ -5,7 +5,6 @@ using LittleMars.Slots.States;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine;
 using Zenject;
 
 namespace LittleMars.Slots

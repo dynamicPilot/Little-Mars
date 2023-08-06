@@ -25,6 +25,7 @@ namespace LittleMars.Installers.Games
             Container.Bind<GameOverLevelMenu>().AsSingle();
             Container.Bind<GoalTextLevelMenu>().AsSingle();
             Container.Bind<AchievementDisplayLevelMenu>().AsSingle();
+            Container.Bind<GameStateLevelMenu>().AsSingle();
 
             Container.BindFactory<StartCommand, StartCommand.Factory>();
             Container.BindFactory<MainMenuByStartCommand, MainMenuByStartCommand.Factory>();
