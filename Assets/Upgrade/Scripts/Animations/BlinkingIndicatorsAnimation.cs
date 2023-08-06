@@ -4,35 +4,41 @@ using UnityEngine;
 
 namespace LittleMars.Animations
 {
-    internal class BlinkingIndicatorsAnimation : TweenAnimation
+    internal class BlinkingIndicatorsAnimation : TweenAnimationObject
     {
         [SerializeField] private SpriteRenderer[] _indicator;
         [SerializeField] private float _period;
+        //[SerializeField] string _id = "blinking";
 
-        string _id = "blinking";
-
-        private void Start()
+        public void AddToId(string suffix)
         {
-            SetAnimations();
+            string.Concat(_id, "_", suffix);
+            StartAnimation();
         }
 
-        private void SetAnimations()
+        public override void StartAnimation()
         {
-            for(int i = 0; i < _indicator.Length; i++)
+            base.StartAnimation();
+
+            var suffix = Mathf.CeilToInt(Random.value * 1000);
+            _id = string.Concat(_id, "_", suffix.ToString(),"_");
+
+            for (int i = 0; i < _indicator.Length; i++)
             {
-                StartBlinking(_indicator[i]);
+                StartBlinking(_indicator[i], i);
             }
         }
 
-        private void StartBlinking(SpriteRenderer indicator)
+        void StartBlinking(SpriteRenderer indicator, int index)
         {
             Sequence sequence = DOTween.Sequence();
+            var id = string.Concat(_id, index.ToString());
+            _ids.Add(id);
 
             sequence
                 .Append(indicator.DOFade(0f, _period))
                 .Append(indicator.DOFade(1f, _period))
-                .SetLoops(-1)
-                .SetId(_id);
+                .SetLoops(-1).SetId(id);
         }
     }
 }

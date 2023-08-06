@@ -27,7 +27,8 @@ namespace LittleMars.LevelMenus
             _signalBus.TryFire(new OpenWindowByIdSignal { 
                 Id = (int)id, 
                 SenderId = (int) senderId, 
-                NextSenderState = (int) state });
+                NextSenderState = (int) state,
+                Context = null });
         }
 
         public void SetWindowState(WindowID id, WindowState state)

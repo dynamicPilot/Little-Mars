@@ -17,10 +17,10 @@ namespace LittleMars.UI.Windows
             _window = factory.Create();
         }
 
-        public bool Open()
+        public bool Open(WindowContext context)
         {
             Debug.Log("GameWindow: open " + (_window != null));
-            if (_window != null) _window.Open();
+            if (_window != null) _window.Open(context);
             return _window != null;
         }
 

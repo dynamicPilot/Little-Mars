@@ -126,6 +126,25 @@ BoxCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -235,6 +254,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8023f360aaa5af74b883a51440d0e435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _useIdsWhenStop: 1
+  _id: indFarmS
+  _startOnEnable: 1
   _indicator:
   - {fileID: 1607980984984853510}
   _period: 1
@@ -392,6 +414,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7673390681012201764}
     m_Modifications:
     - target: {fileID: 7528708390340797746, guid: 6b622e5e2fb7fd2419c2f2514f691c1e, type: 3}
@@ -443,6 +466,9 @@ PrefabInstance:
       value: Indicator
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b622e5e2fb7fd2419c2f2514f691c1e, type: 3}
 --- !u!4 &682387466493406312 stripped
 Transform:
@@ -464,8 +490,13 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 6992384567078402194}
     m_Modifications:
+    - target: {fileID: 2930161112304256273, guid: 456f034806b369c47af056e41da345c2, type: 3}
+      propertyPath: _id
+      value: effectFarmS
+      objectReference: {fileID: 0}
     - target: {fileID: 2930161112304256278, guid: 456f034806b369c47af056e41da345c2, type: 3}
       propertyPath: m_Name
       value: Effect_blinkingLight_smallRounded
@@ -515,6 +546,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 456f034806b369c47af056e41da345c2, type: 3}
 --- !u!4 &824348563323308088 stripped
 Transform:

@@ -13,9 +13,15 @@ namespace LittleMars.Buildings.View
             ChangeCollidersState(false);
         }
 
-        public void OnStart() => ChangeCollidersState(true);
+        public void OnStart()
+        {
+            ChangeCollidersState(true);
+        }
 
-        public void OnRemove() => ChangeCollidersState(false);
+        public void OnRemove()
+        {
+            ChangeCollidersState(false);
+        }
 
 
         public void RotateView(float angle)

@@ -142,6 +142,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8023f360aaa5af74b883a51440d0e435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _useIdsWhenStop: 1
+  _id: indSolarS
+  _startOnEnable: 1
   _indicator:
   - {fileID: 8924605738254363307}
   _period: 1
@@ -373,6 +376,25 @@ BoxCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -394,6 +416,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 5863773855978132344}
     m_Modifications:
     - target: {fileID: 1527597777694656317, guid: ff853fe2f6ac0864bbd3c68ae7c5cb88, type: 3}
@@ -445,6 +468,9 @@ PrefabInstance:
       value: SmallIndicators
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff853fe2f6ac0864bbd3c68ae7c5cb88, type: 3}
 --- !u!4 &1383827716505889598 stripped
 Transform:
@@ -467,6 +493,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 5863773855978132344}
     m_Modifications:
     - target: {fileID: 7528708390340797746, guid: 6b622e5e2fb7fd2419c2f2514f691c1e, type: 3}
@@ -518,6 +545,9 @@ PrefabInstance:
       value: Indicator
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b622e5e2fb7fd2419c2f2514f691c1e, type: 3}
 --- !u!212 &4364120724635015218 stripped
 SpriteRenderer:
@@ -539,8 +569,13 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7031482572285982601}
     m_Modifications:
+    - target: {fileID: 4551843906437676427, guid: 1ff7a40ad0883724c99dda57875ee3ac, type: 3}
+      propertyPath: _id
+      value: effectSolarS
+      objectReference: {fileID: 0}
     - target: {fileID: 4551843906437676428, guid: 1ff7a40ad0883724c99dda57875ee3ac, type: 3}
       propertyPath: m_Name
       value: Effect_BlinkingLight
@@ -590,6 +625,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ff7a40ad0883724c99dda57875ee3ac, type: 3}
 --- !u!114 &2612632183115731594 stripped
 MonoBehaviour:

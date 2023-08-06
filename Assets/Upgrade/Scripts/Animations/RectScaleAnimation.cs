@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LittleMars.Animations
 {
-    public class RectScaleAnimation : TweenAnimation
+    public class RectScaleAnimation : TweenAnimationUI
     {
         [SerializeField] private RectTransform _transform;
 
@@ -14,23 +14,24 @@ namespace LittleMars.Animations
         [SerializeField] private Vector3 _maxScale;
         
         float _signleMoveDuration;
-        private void Start()
+
+        public override void StartAnimation()
         {
             _signleMoveDuration = _period / 4f;
             ToMinScale();
         }
 
-        private void ToMinScale()
+        void ToMinScale()
         {
-            _transform.DOScale(_minScale, _signleMoveDuration).OnComplete(Scaling);
+            _transform.DOScale(_minScale, _signleMoveDuration).SetId(_id).OnComplete(Scaling);
         }
-        private void Scaling()
+        void Scaling()
         {
             var sequence = DOTween.Sequence();
             sequence.Append(_transform.DOScale(_maxScale, _signleMoveDuration * 2f))
                 .Append(_transform.DOScale(_minScale, _signleMoveDuration * 2f))
                 .SetEase(Ease.InOutSine)
-                .SetLoops(-1);
+                .SetLoops(-1).SetId(_id);
         }
     }
 }

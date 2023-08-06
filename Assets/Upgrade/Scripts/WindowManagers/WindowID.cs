@@ -6,7 +6,10 @@
         menu_settings,
         menu_mainMenu,
         level_startMenu,
-        level_goalsInfo
+        level_goalsInfo,
+        level_achievement,
+        level_end,
+        level_gameOver
     }
 
     public enum WindowState

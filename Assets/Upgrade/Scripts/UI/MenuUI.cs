@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using LittleMars.WindowManagers;
+using UnityEngine;
 
 namespace LittleMars.UI
 {
@@ -10,13 +11,17 @@ namespace LittleMars.UI
         [SerializeField] protected GameObject _panel;
 
         protected bool _isOpen;
-
+        protected WindowContext _context = null;
         protected virtual void Awake()
         {
             _isOpen = false;
         }
 
-        public virtual void OnOpenMenu() => Open();
+        public virtual void OnOpenMenu(WindowContext context)
+        {
+            _context = context;
+            Open();
+        }
         public virtual void OnCloseMenu() => Close();
 
         protected virtual void Open()

@@ -500,6 +500,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8023f360aaa5af74b883a51440d0e435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _useIdsWhenStop: 1
+  _id: indSupplySm
+  _startOnEnable: 1
   _indicator:
   - {fileID: 8924605738254363307}
   - {fileID: 4729058140989556822}
@@ -649,6 +652,25 @@ BoxCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -719,6 +741,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 6206408912524420673}
     m_Modifications:
     - target: {fileID: 4751226470885791938, guid: c9999eaad97325e43bcd85e3128eed21, type: 3}
@@ -770,6 +793,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9999eaad97325e43bcd85e3128eed21, type: 3}
 --- !u!212 &498233102703803087 stripped
 SpriteRenderer:
@@ -791,6 +817,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 6206408912524420673}
     m_Modifications:
     - target: {fileID: 7528708390340797746, guid: 6b622e5e2fb7fd2419c2f2514f691c1e, type: 3}
@@ -843,6 +870,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1499249486918015660, guid: 6b622e5e2fb7fd2419c2f2514f691c1e, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b622e5e2fb7fd2419c2f2514f691c1e, type: 3}
 --- !u!212 &4364120724635015218 stripped
 SpriteRenderer:
@@ -864,6 +894,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 6206408912524420673}
     m_Modifications:
     - target: {fileID: 4751226470885791938, guid: c9999eaad97325e43bcd85e3128eed21, type: 3}
@@ -916,6 +947,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9999eaad97325e43bcd85e3128eed21, type: 3}
 --- !u!212 &4526276587738345481 stripped
 SpriteRenderer:
@@ -937,6 +971,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 6920187551265379805}
     m_Modifications:
     - target: {fileID: 2387953850106207135, guid: c06ad662968e52b43b9219245c2b042b, type: 3}
@@ -983,11 +1018,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8677465709915315960, guid: c06ad662968e52b43b9219245c2b042b, type: 3}
+      propertyPath: _id
+      value: effectSupplySm
+      objectReference: {fileID: 0}
     - target: {fileID: 8677465709915315967, guid: c06ad662968e52b43b9219245c2b042b, type: 3}
       propertyPath: m_Name
       value: Effect_blinkingRoundedLight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c06ad662968e52b43b9219245c2b042b, type: 3}
 --- !u!4 &2088128194561178030 stripped
 Transform:

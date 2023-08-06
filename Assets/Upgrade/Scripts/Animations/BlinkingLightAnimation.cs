@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LittleMars.Animations
 {
-    public class BlinkingLightAnimation : TweenAnimation
+    public class BlinkingLightAnimation : TweenAnimationEffect
     {
         [SerializeField] private Transform _lineLight;
         [SerializeField] private SpriteRenderer _light0;
@@ -22,24 +22,17 @@ namespace LittleMars.Animations
         float _duration;
         bool _needDelay = false;
 
-        private void Start()
+        public override void StartAnimation()
         {
-            SetAnimation();
-        }
-        public void Play()
-        {
-            DOTween.Play(this);
-        }
-
-        public void Pause()
-        {
-            DOTween.Pause(this);
-        }
-
-        public void SetAnimation()
-        {
+            SetId();
             PrepaireParams();
             Blinking();
+        }
+
+        void SetId()
+        {
+            var suffix = Mathf.CeilToInt(Random.value * 1000);
+            _id = string.Concat(_id, "_", suffix.ToString());
         }
 
         private void PrepaireParams()
@@ -67,7 +60,7 @@ namespace LittleMars.Animations
                 .Append(_light1.DOFade(1f, _duration))
                 .Append(_light1.DOFade(0f, _duration))
                 .AppendInterval(_pauseDuration)
-                .SetLoops(-1);
+                .SetLoops(-1).SetId(_id);
         }
 
         private void BeforeCallback()

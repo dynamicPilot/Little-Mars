@@ -7,8 +7,7 @@ namespace LittleMars.Buildings.View.Indicators
 {
     public class BuildingColorIndicator : BuildingIndicator
     {
-        [SerializeField] private SpriteRenderer[] _renderers;
-
+        [SerializeField] SpriteRenderer[] _renderers;
         ColorsCatalogue _colors;
 
         [Inject]

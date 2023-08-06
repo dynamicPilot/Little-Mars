@@ -4,6 +4,7 @@ using LittleMars.LevelMenus;
 using LittleMars.MainMenus;
 using LittleMars.Settings;
 using LittleMars.UI.LevelMenus;
+using LittleMars.WindowManagers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -67,13 +68,13 @@ namespace LittleMars.UI.MainMenu
             base.RemoveListeners();
         }
 
-        public override void OnOpenMenu()
+        public override void OnOpenMenu(WindowContext context)
         {
             if (_levels == null) SetLevels();
             UpdateIsDoneLevels();
 
             _pageIndex = 0;
-            base.OnOpenMenu();
+            base.OnOpenMenu(context);
         }
 
         protected override void Open()

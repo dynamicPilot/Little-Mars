@@ -21,5 +21,10 @@ namespace LittleMars.Buildings.View
         {
             return _effects != null;
         }
+
+        public void AddToId(string suffix)
+        {
+            _indicators?.AddToId(suffix);
+        }
     }
 }

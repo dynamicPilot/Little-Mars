@@ -24,12 +24,12 @@ namespace LittleMars.WindowManagers
         void OnStrategiesIsReadySignal()
         {
             _signalBus.Unsubscribe<GoalStrategiesIsReadySignal>(OnStrategiesIsReadySignal);
-            _signalBus.Fire(new OpenWindowByIdSignal
-            {
-                Id = (int)WindowID.level_startMenu,
-                SenderId = -1,
-                NextSenderState = 0
-            });
+            //_signalBus.Fire(new OpenWindowByIdSignal
+            //{
+            //    Id = (int)WindowID.level_startMenu,
+            //    SenderId = -1,
+            //    NextSenderState = 0
+            //});
         }
     }
 
@@ -59,13 +59,13 @@ namespace LittleMars.WindowManagers
         void CreateStartSceneWindows()
         {
             for (int i = 0; i < _sceneWindows.StartWindows.Length; i++) 
-                CreateWindow((int)_sceneWindows.StartWindows[i]);
+                CreateWindow((int)_sceneWindows.StartWindows[i], null);
         }
 
         void OnOpenWindowById(OpenWindowByIdSignal arg)
         {
             bool needCloseSender = (_windows.ContainsKey(arg.Id)) ? 
-                OpenWindow(arg.Id) : CreateWindow(arg.Id);
+                OpenWindow(arg.Id, arg.Context) : CreateWindow(arg.Id, arg.Context);
 
             if (needCloseSender && arg.NextSenderState != (int) WindowState.show) 
                 CloseWindow(arg.SenderId, arg.NextSenderState);
@@ -76,19 +76,19 @@ namespace LittleMars.WindowManagers
             CloseWindow(arg.Id, arg.SenderState);
         }
 
-        bool OpenWindow(int id)
+        bool OpenWindow(int id, WindowContext context)
         {
             var window = _windows[id];
-            if (window != null) return window.Open();
+            if (window != null) return window.Open(context);
             return false;
         }
 
-        bool CreateWindow(int id)
+        bool CreateWindow(int id, WindowContext context)
         {
             var window = _windowFactory.Create((WindowID)id, _sceneWindows.Canvas);
             // check for duplicates
             _windows[id] = window;
-            return OpenWindow(id);
+            return OpenWindow(id, context);
         }
 
         void CloseWindow(int id, int nextState)

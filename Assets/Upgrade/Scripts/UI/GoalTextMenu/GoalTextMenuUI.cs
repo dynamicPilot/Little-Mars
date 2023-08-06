@@ -1,5 +1,6 @@
 ﻿using LittleMars.AudioSystems;
 using LittleMars.UI.LevelMenus;
+using LittleMars.WindowManagers;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -48,12 +49,12 @@ namespace LittleMars.UI.GoalTextMenu
         //    _sounds.PlaySoundForCommandType(CommandType.quit);
         //}
 
-        public override void OnOpenMenu()
+        public override void OnOpenMenu(WindowContext context)
         {
             //if (_isOpen) return;
             //_sounds.PlaySoundForCommandType(CommandType.empty);
             if (!_isTextSet) SetGoalTexts();
-            base.OnOpenMenu();
+            base.OnOpenMenu(context);
         }
 
         private void SetGoalTexts()

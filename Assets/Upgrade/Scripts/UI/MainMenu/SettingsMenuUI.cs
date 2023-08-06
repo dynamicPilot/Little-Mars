@@ -8,6 +8,7 @@ using LittleMars.WindowManagers;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 namespace LittleMars.UI.MainMenu
 {
@@ -62,7 +63,7 @@ namespace LittleMars.UI.MainMenu
             base.RemoveListeners();
         }
 
-        public override void OnOpenMenu()
+        public override void OnOpenMenu(WindowContext context)
         {
             var config = _menu.GetPlayerConfig();
             if (config == null)
@@ -73,7 +74,7 @@ namespace LittleMars.UI.MainMenu
             }
             _parameters.SetParameters(config);
             UpdateText();
-            base.OnOpenMenu();
+            base.OnOpenMenu(context);
         }
 
         void OnBackButtonClick()

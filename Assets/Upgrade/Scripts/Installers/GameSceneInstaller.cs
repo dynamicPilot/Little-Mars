@@ -73,7 +73,7 @@ namespace LittleMars.Installers
 
         void InstallExecutionOrder()
         {
-            Container.BindExecutionOrder<LevelWindowControl>(-20);
+            Container.BindExecutionOrder<LevelMenusWorkflow>(-20);
             Container.BindExecutionOrder<WindowManager>(-20);
             Container.BindExecutionOrder<ViewSlotManager>(-20);
             Container.BindExecutionOrder<ConnectionsManager>(-20);
@@ -310,6 +310,7 @@ namespace LittleMars.Installers
 
             Container.DeclareSignal<AchievementReachedSignal>();
             Container.DeclareSignal<CallAchivementMenuSignal>();
+            Container.DeclareSignal<AchievementIsClosedSignal>();
 
             Container.DeclareSignal<EndGameReachedSignal>();
             Container.DeclareSignal<EndGameSignal>();

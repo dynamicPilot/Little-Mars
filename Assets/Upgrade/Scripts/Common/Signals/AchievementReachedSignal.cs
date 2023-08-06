@@ -10,4 +10,7 @@
         public int GoalIndex;
     }
 
+    public struct AchievementIsClosedSignal
+    { }
+
 }

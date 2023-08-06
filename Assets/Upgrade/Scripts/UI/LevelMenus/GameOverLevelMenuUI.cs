@@ -3,66 +3,50 @@ using LittleMars.Common;
 using LittleMars.Common.Signals;
 using LittleMars.LevelMenus;
 using LittleMars.UI.GoalDisplays;
+using LittleMars.WindowManagers;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
 namespace LittleMars.UI.LevelMenus
 {
-    public class GameOverLevelMenuUI : LevelMenuUI
+    public class GameOverLevelMenuUI : LevelMenuUIWithControls
     {
-        [Header("Buttons")]
-        [SerializeField] private Button _nextButton;
-        [SerializeField] private Button _restartButton;
-
         [Header("Goals Display Slot")]
         [SerializeField] private GoalDisplayUI _displayUI;
 
         GameOverLevelMenu _gameOverMenu;
 
-        protected override void Awake()
-        {
-            base.Awake();
-            _buttons.Add(CommandType.next, _nextButton);
-            _buttons.Add(CommandType.restart, _restartButton);
-        }
-
         [Inject]
-        public void Constructor(GameOverLevelMenu levelMenu, SignalBus signalBus, Common.Levels.LevelInfo levelInfo,
+        public void Constructor(GameOverLevelMenu levelMenu, Common.Levels.LevelInfo levelInfo,
             SoundsForGameMenuUI sounds)
         {
-            base.BaseConstructor(levelMenu, signalBus, levelInfo, sounds);
+            base.BaseConstructor(levelMenu,levelInfo, sounds);
             _gameOverMenu = levelMenu;
         }
 
-        protected override void Init()
+        protected override void Init() => SetButtons();
+
+        public override void OnOpenMenu(WindowContext context)
         {
-            _signalBus.Subscribe<GameOverSignal>(OnGameOver);
-        }
-
-        protected override void SetListeners()
-        {
-            base.SetListeners();
-
-            AddCommandToButtonListener(_nextButton, CommandType.next);
-            AddCommandToButtonListener(_restartButton, CommandType.restart);
-        }
-
-
-        void OnGameOver(GameOverSignal args)
-        {
-            _signalBus.Unsubscribe<GameOverSignal>(OnGameOver);
-
-            // set display
             SetMenu();
-            SetGoalDisplays(GetStrategy(args));
-            SetButtons();
-            Open();
+            SetGoalDisplays(GetStrategy(context));
+            base.OnOpenMenu(context);
         }
 
-        IGoalDisplayStrategy GetStrategy(GameOverSignal args)
+        bool CheckContext(WindowContext context)
         {
-            return _gameOverMenu.GetStrategy(args.GoalIndex, args.IsStaff);
+            return (context != null && context.Indexes != null
+                && context.Indexes.Length > 1);
+        }
+
+
+        IGoalDisplayStrategy GetStrategy(WindowContext context)
+        {
+            if (!CheckContext(context)) return null;
+
+            var isStaff = context.Indexes[1] == 1;
+            return _gameOverMenu.GetStrategy(context.Indexes[0], isStaff);
         }
 
         void SetGoalDisplays(IGoalDisplayStrategy strategy)

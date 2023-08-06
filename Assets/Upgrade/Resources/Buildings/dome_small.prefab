@@ -102,6 +102,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8023f360aaa5af74b883a51440d0e435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _useId: 1
+  _id: indDomeSmall
+  _startOnEnable: 0
+  _startOnStart: 1
   _indicator:
   - {fileID: 9165987676943841900}
   - {fileID: 344022886896829221}
@@ -299,6 +303,25 @@ BoxCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -404,6 +427,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7518482442111175476}
     m_Modifications:
     - target: {fileID: 2387953850106207135, guid: c06ad662968e52b43b9219245c2b042b, type: 3}
@@ -507,6 +531,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c06ad662968e52b43b9219245c2b042b, type: 3}
 --- !u!4 &2571656609521515910 stripped
 Transform:
@@ -529,6 +556,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7817608158549208698}
     m_Modifications:
     - target: {fileID: 1525808253946142488, guid: 6b622e5e2fb7fd2419c2f2514f691c1e, type: 3}
@@ -592,6 +620,9 @@ PrefabInstance:
       value: Indicator2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b622e5e2fb7fd2419c2f2514f691c1e, type: 3}
 --- !u!212 &3736969704081183040 stripped
 SpriteRenderer:
@@ -613,6 +644,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7817608158549208698}
     m_Modifications:
     - target: {fileID: 1525808253946142488, guid: 6b622e5e2fb7fd2419c2f2514f691c1e, type: 3}
@@ -676,6 +708,9 @@ PrefabInstance:
       value: Indicator0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b622e5e2fb7fd2419c2f2514f691c1e, type: 3}
 --- !u!212 &4070911245866387701 stripped
 SpriteRenderer:
@@ -697,6 +732,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7817608158549208698}
     m_Modifications:
     - target: {fileID: 1525808253946142488, guid: 6b622e5e2fb7fd2419c2f2514f691c1e, type: 3}
@@ -760,6 +796,9 @@ PrefabInstance:
       value: Indicator3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b622e5e2fb7fd2419c2f2514f691c1e, type: 3}
 --- !u!212 &1841807180633324354 stripped
 SpriteRenderer:
@@ -781,6 +820,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7817608158549208698}
     m_Modifications:
     - target: {fileID: 1525808253946142488, guid: 6b622e5e2fb7fd2419c2f2514f691c1e, type: 3}
@@ -844,6 +884,9 @@ PrefabInstance:
       value: Indicator1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b622e5e2fb7fd2419c2f2514f691c1e, type: 3}
 --- !u!212 &344022886896829221 stripped
 SpriteRenderer:

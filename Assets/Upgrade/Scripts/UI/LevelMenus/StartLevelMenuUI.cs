@@ -3,6 +3,7 @@ using LittleMars.Common;
 using LittleMars.Common.Signals;
 using LittleMars.LevelMenus;
 using LittleMars.UI.GoalDisplays;
+using LittleMars.WindowManagers;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -23,11 +24,11 @@ namespace LittleMars.UI.LevelMenus
 
         protected override void Init() => SetButtons();
 
-        public override void OnOpenMenu()
+        public override void OnOpenMenu(WindowContext context)
         {
             SetGoalDisplays(_levelMenu.GetStrategies());
             SetMenu();
-            base.OnOpenMenu();
+            base.OnOpenMenu(context);
         }
 
         void SetGoalDisplays(IGoalDisplayStrategy[] strategies)
