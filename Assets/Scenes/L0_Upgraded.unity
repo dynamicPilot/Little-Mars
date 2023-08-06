@@ -6318,14 +6318,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _panel: {fileID: 0}
-  _buttonType: 1
-  _commonButton: {fileID: 0}
+  _id: 0
+  _commandButtons: []
+  _windowButtons: []
+  _windowStateButtons: []
   _imageMode: 1
   _image: {fileID: 0}
   _levelNumberText: {fileID: 0}
   _headerText: {fileID: 0}
-  _nextButton: {fileID: 0}
-  _restartButton: {fileID: 0}
   _displayUI: {fileID: 0}
 --- !u!114 &1451830500
 MonoBehaviour:

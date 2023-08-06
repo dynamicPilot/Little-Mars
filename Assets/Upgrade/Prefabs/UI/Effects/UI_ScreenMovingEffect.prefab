@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 461072560900791295}
   - component: {fileID: 461072560900791294}
   m_Layer: 5
-  m_Name: ScreenMovingEffect
+  m_Name: UI_ScreenMovingEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
