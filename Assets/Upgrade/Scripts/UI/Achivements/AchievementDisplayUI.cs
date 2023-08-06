@@ -64,8 +64,8 @@ namespace LittleMars.UI.Achievements
 
         bool CheckContext(WindowContext context)
         {
-            if (context != null && context.Indexes != null
-                && context.Indexes.Length > 0)
+            if (context == null && context.Indexes == null
+                && context.Indexes.Length < 1)
             {
                 return false;
             }

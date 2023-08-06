@@ -1,0 +1,35 @@
+{
+  "Title": "scene",
+  "Blocks": {
+    "goal_0": [
+      {
+        "Lang": 0,
+        "Text": "Make and turn on a Mine."
+      },
+      {
+        "Lang": 1,
+        "Text": "Построить и запустить Шахту."
+      }
+    ],
+    "goal_1": [
+      {
+        "Lang": 0,
+        "Text": "Make and turn on a Factory."
+      },
+      {
+        "Lang": 1,
+        "Text": "Построить и запустить Фабрику."
+      }
+    ],
+    "goal_2": [
+      {
+        "Lang": 0,
+        "Text": "Have 40 machines in storage."
+      },
+      {
+        "Lang": 1,
+        "Text": "Иметь 40 машин в запасе."
+      }
+    ]
+  }
+}
