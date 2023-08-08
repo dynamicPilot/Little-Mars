@@ -25,8 +25,8 @@ namespace LittleMars.Models
         Period _period;
 
         ResourcesBalanceUpdatedSignal _balanceSignal;
-        ResourcesProductionChangedSignal _productionSignal;
-        ResourcesNeedsChangedSignal _needsSignal;
+        //ResourcesProductionChangedSignal _productionSignal;
+        //ResourcesNeedsChangedSignal _needsSignal;
         TotalProductionChangedSignal _totalProductionSignal;
         NeedResourceNotSignal _needResourceNotSignal;
 
@@ -58,16 +58,16 @@ namespace LittleMars.Models
                 ResourcesBalance = _resourcesBalance
             };
 
-            _productionSignal = new ResourcesProductionChangedSignal
-            {
-                Period = _period,
-                Production = _production
-            };
+            //_productionSignal = new ResourcesProductionChangedSignal
+            //{
+            //    Period = _period,
+            //    Production = _production
+            //};
 
-            _needsSignal = new ResourcesNeedsChangedSignal
-            {
-                Needs = _needs
-            };
+            //_needsSignal = new ResourcesNeedsChangedSignal
+            //{
+            //    Needs = _needs
+            //};
 
             _totalProductionSignal = new TotalProductionChangedSignal
             {
@@ -91,7 +91,7 @@ namespace LittleMars.Models
             if (_period == period) return;
             _period = period;
 
-            OnProductionChanged();
+            //OnProductionChanged();
         }
 
         private void OnHourlySignal(HourlySignal args) => UpdateBalance();
@@ -162,7 +162,7 @@ namespace LittleMars.Models
                     _production[resource][period] += multiplier * production[resource][period];
             }
 
-            OnProductionChanged();
+            //OnProductionChanged();
         }
 
         public void UpdateNeeds(ResourceUnit<float>[] needs, States state)
@@ -173,7 +173,7 @@ namespace LittleMars.Models
             foreach(ResourceUnit<float> unit in needs) 
                 _needs[unit.Type] += multiplier * unit.Amount;
 
-            _signalBus.Fire(_needsSignal);
+            //_signalBus.Fire(_needsSignal);
 
         }
 
@@ -218,11 +218,19 @@ namespace LittleMars.Models
 
             return true;
         }
-        void OnProductionChanged()
+
+        public Dictionary<Resource, float> GetNeeds() => _needs;
+        public Dictionary<Resource, Dictionary<Period, float>> GetProduction(out Period period)
         {
-            _productionSignal.Period = _period;
-            _signalBus.Fire(_productionSignal);
+            period = _period;
+            return _production;
+
         }
+        //void OnProductionChanged()
+        //{
+        //    _productionSignal.Period = _period;
+        //    _signalBus.Fire(_productionSignal);
+        //}
 
         void OnBalanceChanged() => _signalBus.Fire(_balanceSignal);
 

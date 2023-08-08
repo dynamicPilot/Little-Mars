@@ -2,13 +2,8 @@ using LittleMars.AudioSystems;
 using LittleMars.Common;
 using LittleMars.Common.Signals;
 using LittleMars.LevelMenus;
-using LittleMars.UI.Achievements;
 using LittleMars.UI.LevelMenus;
-using LittleMars.UI.ResourceSlots;
-using LittleMars.UI.SlotUIFactories;
 using LittleMars.WindowManagers;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -21,14 +16,16 @@ public class GameStateLevelMenuUI : MenuUIWithControls
     [SerializeField] RectTransform _goalsSlotParent;
 
     GameStateLevelMenu _stateMenu;
+    SignalBus _signalBus;
     bool _isSlotCreated = false;
     [Inject]
-    public void Constructor(GameStateLevelMenu stateMenu, SoundsForGameMenuUI sounds)
+    public void Constructor(GameStateLevelMenu stateMenu, SoundsForGameMenuUI sounds, SignalBus signalBus)
     {
         _stateMenu = stateMenu;
         _gameMenu = stateMenu;
         _sounds = sounds;
         _isSlotCreated = false;
+        _signalBus = signalBus;
         Init();
     }
 
@@ -54,7 +51,8 @@ public class GameStateLevelMenuUI : MenuUIWithControls
 
     protected override void Close()
     {
-        // signal that close
+        // signal
+        _signalBus.TryFire(new WindowIsClosedSignal { MenuState = (int)MenuState.state });
         base.Close();
     }
 

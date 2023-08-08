@@ -10,7 +10,16 @@
         public int GoalIndex;
     }
 
+    public struct CallGameStateMenuSignal
+    {
+    }
+
     public struct AchievementIsClosedSignal
     { }
+
+    public struct WindowIsClosedSignal
+    {
+        public int MenuState;
+    }
 
 }

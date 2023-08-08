@@ -46,13 +46,13 @@ namespace LittleMars.UI.Achievements
 
         public override void OnOpenMenu(WindowContext context)
         {
-            Debug.Log("OnCallAchivementMenu");
+            //Debug.Log("OnCallAchivementMenu");
             if (_isOpen) return;
 
-            Debug.Log("......Check Context");
+            //Debug.Log("......Check Context");
             if (CheckContext(context))
             {
-                Debug.Log("......Open");
+                //Debug.Log("......Open");
                 base.OnOpenMenu(context);
             }
             else
@@ -94,7 +94,7 @@ namespace LittleMars.UI.Achievements
         protected override void Close()
         {
             // signal
-            _signalBus.TryFire<AchievementIsClosedSignal>();
+            _signalBus.TryFire(new WindowIsClosedSignal { MenuState = (int) MenuState.achievement});
             base.Close();
         }
     }

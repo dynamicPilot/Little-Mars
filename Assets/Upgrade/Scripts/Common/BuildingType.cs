@@ -166,6 +166,7 @@
         achievement,
         end,
         gameOver,
+        state,
         none
     }
 

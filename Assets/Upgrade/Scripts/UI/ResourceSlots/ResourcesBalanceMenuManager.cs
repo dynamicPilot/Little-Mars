@@ -44,27 +44,30 @@ namespace LittleMars.UI.ResourceSlots
 
         public override void UpdateSlots()
         {
+            UpdateNeedsForSlots(_productionManager.GetNeeds());
+            var production = _productionManager.GetProduction(out var period);
+            UpdateProductionForSlots(period, production);
         }
 
-        void UpdateProductionForSlots(ResourcesProductionChangedSignal args)
+        void UpdateProductionForSlots(Period period, Dictionary<Resource, Dictionary<Period, float>> production)
         {
             if (_slots == null) return;
 
-            foreach (Resource resource in args.Production.Keys)
+            foreach (Resource resource in production.Keys)
             {
                 if (!_slots.ContainsKey(resource)) continue;
-                _slots[resource].UpdatePlusValue(args.Production[resource][args.Period]);
+                _slots[resource].UpdatePlusValue(production[resource][period]);
             }
         }
 
-        void UpdateNeedsForSlots(ResourcesNeedsChangedSignal args)
+        void UpdateNeedsForSlots(Dictionary<Resource, float> needs)
         {
             if (_slots == null) return;
 
-            foreach (Resource resource in args.Needs.Keys)
+            foreach (Resource resource in needs.Keys)
             {
                 if (!_slots.ContainsKey(resource)) continue;
-                _slots[resource].UpdateMinusValue(args.Needs[resource]);
+                _slots[resource].UpdateMinusValue(needs[resource]);
             }
         }
     }

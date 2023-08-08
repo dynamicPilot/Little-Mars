@@ -35,11 +35,5 @@ namespace LittleMars.LevelMenus
             _goalManager.OnOpenMenu();
         }
 
-        public override void Close()
-        {
-            base.Close();
-            Debug.Log("GameStateLevelMenu : CLOSE");
-        }
-
     }
 }

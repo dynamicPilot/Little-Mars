@@ -13,6 +13,7 @@ namespace LittleMars.LevelMenus
 
         MenuState _state;
         OpenWindowByIdSignal _achivementSignal;
+        OpenWindowByIdSignal _gameStateSignal;
 
         public LevelMenusWorkflow(SignalBus signalBus, LevelMenusWorkflowTimer timer)
         {
@@ -26,6 +27,14 @@ namespace LittleMars.LevelMenus
                 Context = new WindowContext()
             };
 
+            _gameStateSignal = new OpenWindowByIdSignal
+            {
+                Id = (int)WindowID.level_state,
+                SenderId = -1,
+                NextSenderState = 0,
+                Context = null
+            };
+
             _timer = timer;
         }
 
@@ -34,14 +43,16 @@ namespace LittleMars.LevelMenus
             _signalBus.Subscribe<GoalStrategiesIsReadySignal>(OnStrategiesIsReady);
             _signalBus.Subscribe<StartLevelSignal>(OnStartLevel);
             _signalBus.Subscribe<AchievementReachedSignal>(OnAchievementReached);
-            _signalBus.Subscribe<AchievementIsClosedSignal>(OnAchievemtIsClosed);
             _signalBus.Subscribe<EndGameReachedSignal>(OnEndGameReached);
             _signalBus.Subscribe<GameOverSignal>(OnGameOver);
+            _signalBus.Subscribe<CallGameStateMenuSignal>(OnCallForGameStateMenu);
+            _signalBus.Subscribe<WindowIsClosedSignal>(OnWindowIsClosed);
         }
 
         void ChangeStateTo(MenuState state)
         {
             Debug.Log("LevelMenusWorkflow: Change state to" + state);
+            if (state != MenuState.none && state != _state) HideOpenedWindow();
             _state = state;
         }
 
@@ -70,20 +81,17 @@ namespace LittleMars.LevelMenus
             });
         }
 
-        // start menu closures for the game
-        private void OnStartLevel()
+        // start menu -> go to the game
+        void OnStartLevel()
         {
             _signalBus.Unsubscribe<StartLevelSignal>(OnStartLevel);
             ChangeStateTo(MenuState.none);
         }
 
-
         // achievement
         void OnAchievementReached(AchievementReachedSignal args)
         {
             Debug.Log("LevelMenusWorkflow: Achivement Reached");
-            //_signalBus.Unsubscribe<AchievementReachedSignal>(OnAchievementReached);
-
             if (CanChangeStateTo(MenuState.achievement))
             {
                 ChangeStateTo(MenuState.achievement);
@@ -91,17 +99,16 @@ namespace LittleMars.LevelMenus
             }
         }
 
-        void OnAchievemtIsClosed()
+        void OnCallForGameStateMenu()
         {
-            ChangeStateTo(MenuState.none);
+            ChangeStateTo(MenuState.state);
+            _signalBus.Fire(_gameStateSignal);
         }
-
 
         // end game is reached -> need call for a delay before end game menu appearce
         void OnEndGameReached()
         {
-            EndGameUnsubscribe();
-            ChangeStateTo(MenuState.end);
+            EndGameUnsubscribe();           
             _timer.StartEndMenuTimer();
             _signalBus.Subscribe<EndGameSignal>(OnEndGame);
         }
@@ -109,12 +116,13 @@ namespace LittleMars.LevelMenus
         void OnEndGame()
         {
             _signalBus.Unsubscribe<EndGameSignal>(OnEndGame);
+            ChangeStateTo(MenuState.end);
             // open end menu
             _signalBus.Fire(new OpenWindowByIdSignal
             {
                 Id = (int)WindowID.level_end,
-                SenderId = (int)WindowID.level_achievement,
-                NextSenderState = (int)WindowState.hide,
+                SenderId = -1,
+                NextSenderState = 0,
                 Context = null
             });
         }
@@ -127,8 +135,8 @@ namespace LittleMars.LevelMenus
             _signalBus.Fire(new OpenWindowByIdSignal
             {
                 Id = (int)WindowID.level_gameOver,
-                SenderId = (int)WindowID.level_achievement,
-                NextSenderState = (int)WindowState.hide,
+                SenderId = -1,
+                NextSenderState = 0,
                 Context = new WindowContext(new int[2] { args.GoalIndex, (args.IsStaff) ? 1 : 0 })
             });
         }
@@ -143,13 +151,31 @@ namespace LittleMars.LevelMenus
         {
             _achivementSignal.Context.Indexes = new int[1] { goalIndex };
             _signalBus.Fire(_achivementSignal);
-            // open achievemt menu
-            //_signalBus.Fire(new OpenWindowByIdSignal
-            //{
-            //    Id = (int)WindowID.level_achievement,
-            //    SenderId = -1,
-            //    NextSenderState = 0
-            //});
+        }
+
+        void OnWindowIsClosed(WindowIsClosedSignal arg)
+        {
+            var state = (MenuState)arg.MenuState;
+            if (_state == state) ChangeStateTo(MenuState.none);
+        }
+
+        void HideOpenedWindow()
+        {
+            if (_state == MenuState.none) return;
+
+            var id = -1;
+            if (_state == MenuState.state) id = (int)WindowID.level_state;
+            else if (_state == MenuState.achievement) id = (int)WindowID.level_achievement;
+
+            if (id < 0) return;
+
+            Debug.Log("LevelMenuWorkflow: close window " + (MenuState)id);
+            _signalBus.Fire(new WindowStateByIdSignal
+            {
+                Id = id,
+                SenderState = (int)WindowState.hide,
+            });
+
         }
     }
 }

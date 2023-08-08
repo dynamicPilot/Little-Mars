@@ -48,7 +48,7 @@ namespace LittleMars.Model.Trackers
             _isDone = isDone;
             if (_isDone)
             {               
-                Debug.Log("Done!");
+                //Debug.Log("Done!");
                 OnGoalIsDone();
                 if (_isFirstDone) _isFirstDone = false;
             }

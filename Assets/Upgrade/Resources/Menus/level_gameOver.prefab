@@ -976,8 +976,6 @@ MonoBehaviour:
     SenderState: 0
   - Unit: {fileID: 5934681845720850536}
     SenderState: 0
-  - Unit: {fileID: 1597425903925782053}
-    SenderState: 0
   _imageMode: 1
   _image: {fileID: 4603745779217826882}
   _levelNumberText: {fileID: 1201157613090405734}
@@ -2064,17 +2062,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaea0d1460b1c684c82f02f1fc0f3282, type: 3}
---- !u!114 &1597425903925782053 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3274540906861507748, guid: aaea0d1460b1c684c82f02f1fc0f3282, type: 3}
-  m_PrefabInstance: {fileID: 4276928701347123841}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &4431914402437256592 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 494236337524836113, guid: aaea0d1460b1c684c82f02f1fc0f3282, type: 3}

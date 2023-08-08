@@ -310,7 +310,9 @@ namespace LittleMars.Installers
 
             Container.DeclareSignal<AchievementReachedSignal>();
             Container.DeclareSignal<CallAchivementMenuSignal>();
+            Container.DeclareSignal<CallGameStateMenuSignal>();
             Container.DeclareSignal<AchievementIsClosedSignal>();
+            Container.DeclareSignal<WindowIsClosedSignal>();
 
             Container.DeclareSignal<EndGameReachedSignal>();
             Container.DeclareSignal<EndGameSignal>();
@@ -319,8 +321,8 @@ namespace LittleMars.Installers
             Container.DeclareSignal<EndSceneSignal>();
 
             Container.DeclareSignal<ResourcesBalanceUpdatedSignal>();
-            Container.DeclareSignal<ResourcesProductionChangedSignal>().OptionalSubscriber();
-            Container.DeclareSignal<ResourcesNeedsChangedSignal>().OptionalSubscriber();
+            //Container.DeclareSignal<ResourcesProductionChangedSignal>().OptionalSubscriber();
+            //Container.DeclareSignal<ResourcesNeedsChangedSignal>().OptionalSubscriber();
             Container.DeclareSignal<TotalProductionChangedSignal>().OptionalSubscriber();
 
             Container.DeclareSignal<NeedMenuInitSignal>().OptionalSubscriber();
