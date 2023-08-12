@@ -11,17 +11,20 @@ namespace LittleMars.UI
     public class SideMenuUI : MonoBehaviour
     {
         [SerializeField] private Button _openButton;
+        [SerializeField] private Button _menuButton;
 
         SignalBus _signalBus;
         UISoundSystem _audioSystem;
         private void Start()
         {
-            _openButton.onClick.AddListener(OnButtonClick);
+            _openButton.onClick.AddListener(OnStateButtonClick);
+            _menuButton.onClick.AddListener(OnMenuButtonClick);
         }
 
         private void OnDestroy()
         {
-            _openButton.onClick.RemoveListener(OnButtonClick);
+            _openButton.onClick.RemoveListener(OnStateButtonClick);
+            _menuButton.onClick.RemoveListener(OnMenuButtonClick);
         }
 
         [Inject]
@@ -31,15 +34,30 @@ namespace LittleMars.UI
             _audioSystem = audioSystem;
         }
 
-        void OnButtonClick()
+        void OnStateButtonClick()
         {
             _audioSystem.PlayUISound(UISoundType.clickThird);
 
-            Debug.Log("Button click");
+            //Debug.Log("Button click");
             // for test -> better to level workflow
             _signalBus.TryFire(new OpenWindowByIdSignal
             {
                 Id = (int)WindowID.level_state,
+                SenderId = -1,
+                NextSenderState = 0,
+                Context = null
+            });
+        }
+
+        void OnMenuButtonClick()
+        {
+            _audioSystem.PlayUISound(UISoundType.clickThird);
+
+            //Debug.Log("Button click");
+            // for test -> better to level workflow
+            _signalBus.TryFire(new OpenWindowByIdSignal
+            {
+                Id = (int)WindowID.level_pause,
                 SenderId = -1,
                 NextSenderState = 0,
                 Context = null

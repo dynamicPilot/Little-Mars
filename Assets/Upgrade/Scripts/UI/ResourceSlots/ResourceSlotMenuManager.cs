@@ -39,6 +39,8 @@ namespace LittleMars.UI.ResourceSlots
             {
                 _slots.Add((Resource)i, _factory.CreateSlot(i, _gameUI.ResourceSlotParent));
             }
+
+            _gameUI.ResourceGridControl.SetWidth((int)Resource.all);
         }
 
         private void UpdateSlots(ResourcesBalanceUpdatedSignal args)
