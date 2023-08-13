@@ -1285,7 +1285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _useIdsWhenStop: 1
-  _id: indCosmo
+  _id: ind_cosmo
   _startOnEnable: 1
   _indicator:
   - {fileID: 5891357520487214169}

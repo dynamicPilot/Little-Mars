@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _useIdsWhenStop: 1
-  _id: indFarmS
+  _id: ind_farmSmall
   _startOnEnable: 1
   _indicator:
   - {fileID: 1607980984984853510}
@@ -495,7 +495,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2930161112304256273, guid: 456f034806b369c47af056e41da345c2, type: 3}
       propertyPath: _id
-      value: effectFarmS
+      value: effect_farmSmall
       objectReference: {fileID: 0}
     - target: {fileID: 2930161112304256278, guid: 456f034806b369c47af056e41da345c2, type: 3}
       propertyPath: m_Name

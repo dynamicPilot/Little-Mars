@@ -501,7 +501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _useIdsWhenStop: 1
-  _id: indSupplySm
+  _id: ind_supplySmall
   _startOnEnable: 1
   _indicator:
   - {fileID: 8924605738254363307}
@@ -1020,7 +1020,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8677465709915315960, guid: c06ad662968e52b43b9219245c2b042b, type: 3}
       propertyPath: _id
-      value: effectSupplySm
+      value: effect_supplySmall
       objectReference: {fileID: 0}
     - target: {fileID: 8677465709915315967, guid: c06ad662968e52b43b9219245c2b042b, type: 3}
       propertyPath: m_Name

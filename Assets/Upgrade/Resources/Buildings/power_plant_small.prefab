@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _useIdsWhenStop: 1
-  _id: indSolarS
+  _id: ind_solarSmall
   _startOnEnable: 1
   _indicator:
   - {fileID: 8924605738254363307}
@@ -574,7 +574,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4551843906437676427, guid: 1ff7a40ad0883724c99dda57875ee3ac, type: 3}
       propertyPath: _id
-      value: effectSolarS
+      value: effect_solarSmall
       objectReference: {fileID: 0}
     - target: {fileID: 4551843906437676428, guid: 1ff7a40ad0883724c99dda57875ee3ac, type: 3}
       propertyPath: m_Name

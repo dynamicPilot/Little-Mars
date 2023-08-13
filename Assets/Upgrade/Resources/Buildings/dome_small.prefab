@@ -102,10 +102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8023f360aaa5af74b883a51440d0e435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _useId: 1
-  _id: indDomeSmall
+  _useIdsWhenStop: 1
+  _id: ind_domeSmall
   _startOnEnable: 0
-  _startOnStart: 1
   _indicator:
   - {fileID: 9165987676943841900}
   - {fileID: 344022886896829221}
@@ -489,6 +488,10 @@ PrefabInstance:
     - target: {fileID: 3248698102535736558, guid: c06ad662968e52b43b9219245c2b042b, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.0655
+      objectReference: {fileID: 0}
+    - target: {fileID: 8677465709915315960, guid: c06ad662968e52b43b9219245c2b042b, type: 3}
+      propertyPath: _id
+      value: effect_domeSmall
       objectReference: {fileID: 0}
     - target: {fileID: 8677465709915315967, guid: c06ad662968e52b43b9219245c2b042b, type: 3}
       propertyPath: m_Name
