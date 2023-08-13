@@ -17,7 +17,7 @@ namespace LittleMars.Model
         readonly BuildingManager _buildingManager;
         readonly ViewSlotManager _viewSlotManager;
         readonly MapRouter _router;
-
+        readonly ConstructionHelper _constructionHelper;
         readonly MapRouterCheckForBuilding.Factory _checkFactory;
         readonly PlacingBuilding.Factory _factory;
 
@@ -25,10 +25,12 @@ namespace LittleMars.Model
         
         PlacingBuilding _placingBuilding;
         MapRouterCheckForBuilding _check;
+        BuildingObject _buildingObject;
 
         public PlacementManager(MapManager mapManager, BuildingManager buildingManager,
             ViewSlotManager viewSlotManager, MapRouter router, SignalBus signalBus,
-            MapRouterCheckForBuilding.Factory checkFactory, PlacingBuilding.Factory factory)
+            MapRouterCheckForBuilding.Factory checkFactory, PlacingBuilding.Factory factory,
+            ConstructionHelper constructionHelper)
         {
             _mapManager = mapManager;
             _buildingManager = buildingManager;
@@ -39,12 +41,15 @@ namespace LittleMars.Model
             _signalBus = signalBus;
 
             _placingBuilding = null;
+            _constructionHelper = constructionHelper;
         }
 
         public void StartPlacement(BuildingObject buildingObject, 
             Indexes indexes, Vector2 position)
         {
             NewCheck(buildingObject);
+            _buildingObject = buildingObject;
+
             var path = buildingObject.Construction.BuildingPath;
             var slot = _mapManager.Slots[indexes.Row][indexes.Column];
             var indexesList = new List<Indexes>();
@@ -100,6 +105,7 @@ namespace LittleMars.Model
         public void Accept()
         {
             _buildingManager.AddBuilding(_placingBuilding);
+            _constructionHelper.Accept(_buildingObject);
             EndPlacement();
         }
 
@@ -118,6 +124,7 @@ namespace LittleMars.Model
         void EndPlacement()
         {
             _placingBuilding = null;
+            _buildingObject = null;
             _check.Dispose();
         }
 

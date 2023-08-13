@@ -10,60 +10,56 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf6543bd0cd16ad458aedf97fdae9b3f, type: 3}
-  m_Name: 5_LevelSettings
+  m_Name: 6_LevelSettings
   m_EditorClassIdentifier: 
   Info:
     LevelInfo:
-      Number: 6
-      StartSprite: {fileID: -1698118926978975151, guid: b2fe90ad038c4eb499c845c6dfe703e1, type: 3}
-      EndSprite: {fileID: 7783697490668850122, guid: b2fe90ad038c4eb499c845c6dfe703e1, type: 3}
+      Number: 7
+      StartSprite: {fileID: -6933934529716846700, guid: 6dfc9672df1d5ca42945eb7570208946, type: 3}
+      EndSprite: {fileID: 7787343451972466102, guid: 6dfc9672df1d5ca42945eb7570208946, type: 3}
   Conditions:
     InitialConditions:
       Resources:
       - Type: 0
         Amount: 480
       - Type: 1
-        Amount: 131
+        Amount: 158
       - Type: 3
-        Amount: 100
+        Amount: 92
       - Type: 2
-        Amount: 10
+        Amount: 5
+      - Type: 5
+        Amount: 20
       BuildingTypes:
       - Type: 1
         Size: 0
-        Amount: 5
+        Amount: 3
       - Type: 5
         Size: 0
-        Amount: 3
+        Amount: 2
       - Type: 0
-        Size: 1
+        Size: 0
         Amount: 1
       - Type: 3
         Size: 0
         Amount: 1
-      - Type: 2
-        Size: 0
-        Amount: 1
-      - Type: 4
-        Size: 0
-        Amount: 1
-      - Type: 6
+      - Type: 7
         Size: 0
         Amount: 1
       TradeUnits: []
   Map:
     Lines:
-      Rows: 4
+      Rows: 3
       Columns: 4
-      BuildingTypes: 00000000030000000100000005000000020000000400000006000000
-      Mode: 1
-      CustomMap: {fileID: 11400000, guid: de5fc3722d4c32e4383a7d6251dc2acd, type: 2}
+      BuildingTypes: 0000000003000000010000000500000007000000
+      Mode: 0
+      CustomMap: {fileID: 0}
     Fields:
       Mode: 0
       Fields: []
   Rockets:
     Rockets:
-      HasRockets: 0
+      HasRockets: 1
       Rockets:
       - ArrivedHour: 5
         DepartureHour: 16
@@ -81,7 +77,7 @@ MonoBehaviour:
         GoalsArray:
         - Type: 0
           Unit:
-            Type: 6
+            Type: 7
             Size: 0
             Amount: 1
       HasBuildingGoalsWithTimer: 0
@@ -95,7 +91,7 @@ MonoBehaviour:
         GoalsArray:
         - Type: 0
           Unit:
-            Type: 5
+            Type: 0
             Amount: 10
   TextBlocks:
     Blocks:

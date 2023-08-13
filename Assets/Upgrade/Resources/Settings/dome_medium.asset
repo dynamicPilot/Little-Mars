@@ -10,23 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9af2459a72fc9ee4c9a6ef2a0dfc4dee, type: 3}
-  m_Name: dome_small
+  m_Name: dome_medium
   m_EditorClassIdentifier: 
   Info:
     Type: 0
-    Size: 0
+    Size: 1
   Construction:
     ResourcesForBuilding:
     - Type: 0
-      Amount: 50
+      Amount: 80
     - Type: 1
-      Amount: 15
+      Amount: 30
     - Type: 3
-      Amount: 10
+      Amount: 20
     ResourcesInMap: 
     BuildingPath:
-      Type: 0
-      Units: []
+      Type: 1
+      Units:
+      - Direction: 2
+        IsBackStep: 0
   Operation:
     Priority: 3
     DayProduction: []
@@ -34,11 +36,11 @@ MonoBehaviour:
     Connections: 0100000005000000
     Needs:
     - Type: 2
-      Amount: 1
+      Amount: 2
     - Type: 4
-      Amount: 10
+      Amount: 18
     - Type: 6
-      Amount: 10
+      Amount: 18
   View:
-    Sprite: {fileID: 850561691, guid: 18a094995219cc641b540a0e2ca342b6, type: 3}
-    Shape: {fileID: 21300000, guid: dc5b0c6fcc08d4e458a541ba540a0ce8, type: 3}
+    Sprite: {fileID: -272331302, guid: ff3b59f954dfd1145809433fb3e7d116, type: 3}
+    Shape: {fileID: 21300000, guid: 14b271228ac4858418e71d359171094c, type: 3}
