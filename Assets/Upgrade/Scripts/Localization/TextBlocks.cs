@@ -1,9 +1,6 @@
-﻿using LittleMars.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using UnityEngine;
 
 namespace LittleMars.Localization
 {
@@ -30,7 +27,7 @@ namespace LittleMars.Localization
 
             if (!Blocks.ContainsKey(tag)) return;
 
-            Debug.Log($"Has this lang {index} ? " + (index < Blocks[tag].Length));
+            //Debug.Log($"Has this lang {index} ? " + (index < Blocks[tag].Length));
             text = (index < Blocks[tag].Length) ? Blocks[tag][index].Text :
                 Blocks[tag][0].Text;
         }
@@ -39,6 +36,7 @@ namespace LittleMars.Localization
         {
             texts = null;
 
+            //Debug.Log("TextBlocks: blocks count " + Blocks.Count.ToString());
             var test = from tag in Blocks.Keys
                        where tag.Contains(tagPart)
                        select (index < Blocks[tag].Length) ? Blocks[tag][index].Text : Blocks[tag][0].Text;

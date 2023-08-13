@@ -1,6 +1,7 @@
 ﻿using LittleMars.Common;
 using LittleMars.Configs;
 using UnityEngine;
+using static Unity.Collections.AllocatorManager;
 
 namespace LittleMars.Localization
 {
@@ -13,6 +14,7 @@ namespace LittleMars.Localization
         public LangManagerBase(LangSettings settings, TagGroup group)
         {
             _settings = settings;
+            _group = group;
             _blocks = null;
         }
 
@@ -36,6 +38,7 @@ namespace LittleMars.Localization
 
         bool CheckBlockForGroup(TagGroup group)
         {
+            //Debug.Log("LangManagerBase: check block for group...");
             if (_blocks == null) return false;
             else if (group != _group) return false;
 

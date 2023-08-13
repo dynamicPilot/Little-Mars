@@ -34,6 +34,7 @@ namespace LittleMars.UI.GoalTextMenu
         {
             //_signalBus.Subscribe<NeedGoalInfoSignal>(OnOpenButtonClicked);
             SetButtons();
+            _isTextSet = false;
         }
 
         private void OnDestroy()
@@ -57,11 +58,16 @@ namespace LittleMars.UI.GoalTextMenu
             base.OnOpenMenu(context);
         }
 
-        private void SetGoalTexts()
+        void SetGoalTexts()
         {
             var texts = _goalTextMenu.GetGoalTexts();
-            if (texts == null) return;
+            if (texts == null)
+            {
+                //Debug.Log("GoalTextMenuUI: null goal text");
+                return;
+            }
 
+            //Debug.Log("GoalTextMenuUI: set goal text");
             _isTextSet = true;
             int index = 0;
 
