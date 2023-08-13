@@ -48,7 +48,7 @@ namespace LittleMars.Connections
 
         public void AddBuilding(BuildingType type, BuildingType[] connectionsNeeded)
         {
-            Debug.Log("Add building to the connection slot");
+            //Debug.Log("Add building to the connection slot");
             _provided= type;
             _needed.AddRange(connectionsNeeded);
 
@@ -108,23 +108,23 @@ namespace LittleMars.Connections
 
         private void SetConnections()
         {
-            Debug.Log("SET SLOT CONNECTIONS FOR " + _provided);
+            //Debug.Log("SET SLOT CONNECTIONS FOR " + _provided);
             foreach(Direction direction in _neighbors.Keys)
             {
-                Debug.Log("Try add provided connection to neighbor " + direction);
+                //Debug.Log("Try add provided connection to neighbor " + direction);
                 var oppDirection = GetOppositeDirection(direction);
-                Debug.Log("...... opposite direction " + oppDirection);
+                //Debug.Log("...... opposite direction " + oppDirection);
                 // provided by self
                 bool needAdd = _neighbors[direction].TryAddConnection(oppDirection, _provided);
-                Debug.Log("...... need add to self when need for neighbour? " + needAdd);
+                //Debug.Log("...... need add to self when need for neighbour? " + needAdd);
                 if (needAdd) AddConnection(direction, _provided);
 
                 // needed to self
                 for (int i = 0; i < _needed.Count; i++)
                 {
-                    Debug.Log("Try get connection from neighbor " + _needed[i].ToString());
+                    //Debug.Log("Try get connection from neighbor " + _needed[i].ToString());
                     needAdd = _neighbors[direction].TryGetConnection(oppDirection, _needed[i]);
-                    Debug.Log("...... need add to self? " + needAdd);
+                    //Debug.Log("...... need add to self? " + needAdd);
                     if (needAdd) AddConnection(direction, _needed[i]);
                 }
             }
@@ -144,7 +144,7 @@ namespace LittleMars.Connections
 
         private void AddConnection(Direction direction, BuildingType type)
         {
-            Debug.Log("...... add connection of " + type + " to " + _provided + " to direction " + direction);
+            //Debug.Log("...... add connection of " + type + " to " + _provided + " to direction " + direction);
             _connections[direction] = new Connection(type, States.on);
 
             // update connection in scene

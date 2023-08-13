@@ -14,7 +14,7 @@ namespace LittleMars.Commands.MainMenu
         }
         protected override void CreateCommand(CommandType type)
         {
-            Debug.Log($"Need command for {type}");
+            //Debug.Log($"Need command for {type}");
             switch (type)
             {
                 case CommandType.next:

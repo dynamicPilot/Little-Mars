@@ -3,6 +3,7 @@ using LittleMars.Common.Signals;
 using LittleMars.Common;
 using System;
 using Zenject;
+using UnityEngine;
 
 namespace LittleMars.Model.Trackers
 {
@@ -18,9 +19,10 @@ namespace LittleMars.Model.Trackers
             _goal = goal;
 
             _isDone = false;
-            _currentBalance = 0f;
 
-            SetSignals(index);
+            _currentBalance = 0f; // add start check for goal before first update
+            //Debug.Log("Create balance goal slot. Goal is "+ _goal.Unit.Amount);
+            SetSignals(index);      
             _signalBus.Subscribe<ResourcesBalanceUpdatedSignal>(OnResourceBalanceUpdated);
         }
 
@@ -45,9 +47,10 @@ namespace LittleMars.Model.Trackers
             var current = args.ResourcesBalance[_goal.Unit.Type];
             if (current == _currentBalance) return;
 
+            //Debug.Log("OnResourceBalanceUpdate: " + current + " current balance " + _currentBalance);
             _currentBalance = current;
             OnGoalUpdated();
-            CheckIsDone(_currentBalance == _goal.Unit.Amount);
+            CheckIsDone(_currentBalance >= _goal.Unit.Amount);
         }
 
         protected override void UpdateOnUpdatedSignal()

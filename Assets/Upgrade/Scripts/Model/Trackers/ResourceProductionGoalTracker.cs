@@ -47,7 +47,7 @@ namespace LittleMars.Model.Trackers
 
             _currentProduction = current;
             OnGoalUpdated();
-            CheckIsDone(_currentProduction == _goal.Unit.Amount);
+            CheckIsDone(_currentProduction >= _goal.Unit.Amount);
         }
 
         protected override void UpdateOnUpdatedSignal()

@@ -63,9 +63,9 @@ namespace LittleMars.Configs
 
         void PrintConfig(PlayerConfig config)
         {
-            Debug.Log($"Player Config : musicVolume {config.MusicVolume}, is Music on {config.IsMusicOn}.");
-            Debug.Log($"Player Config : soundsVolume {config.SoundsVolume}, is Sounds on {config.IsSoundsOn}.");
-            Debug.Log($"Player Config : langIndex {config.Lang}");
+            //Debug.Log($"Player Config : musicVolume {config.MusicVolume}, is Music on {config.IsMusicOn}.");
+            //Debug.Log($"Player Config : soundsVolume {config.SoundsVolume}, is Sounds on {config.IsSoundsOn}.");
+            //Debug.Log($"Player Config : langIndex {config.Lang}");
         }
 
 

@@ -791,8 +791,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2918705673402999955, guid: be5b93848e24f3740887beab4d091bae, type: 3}
+      propertyPath: _id
+      value: achiv_goalSlot_progress
+      objectReference: {fileID: 0}
+    - target: {fileID: 2918705673402999955, guid: be5b93848e24f3740887beab4d091bae, type: 3}
+      propertyPath: _useId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2918705673402999955, guid: be5b93848e24f3740887beab4d091bae, type: 3}
       propertyPath: _unscaledTime
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2918705673402999955, guid: be5b93848e24f3740887beab4d091bae, type: 3}
+      propertyPath: _startOnEnable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3888692953954524567, guid: be5b93848e24f3740887beab4d091bae, type: 3}
       propertyPath: m_AnchorMax.y

@@ -76,7 +76,7 @@ namespace LittleMars.Slots
         public void UpdateSlotConnections(Indexes ind, Dictionary<Direction, Connection> connections)
         {
             if (_slots == null) return;
-            Debug.Log("Update Slot Connections for index: row " + ind.Row + " col " + ind.Column);
+            //Debug.Log("Update Slot Connections for index: row " + ind.Row + " col " + ind.Column);
             _slots[ind.Row][ind.Column].UpdateIndicators(connections);
         }
 

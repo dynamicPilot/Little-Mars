@@ -25,16 +25,16 @@ namespace LittleMars.Model.TimeUpdate
             if (isExternal) _stopCounter--;
             if (_stopCounter > 0)
             {
-                Debug.Log("TimeSpeedManager: stop couner > 0");
+                //Debug.Log("TimeSpeedManager: stop couner > 0");
                 return;
             }
             UpdateTimeScale(_speed);
-            Debug.Log("TimeSpeedManager: Start");
+            //Debug.Log("TimeSpeedManager: Start");
         }
 
         public void Stop(bool isExternal = true)
         {
-            Debug.Log("TimeSpeedManager: Stop");
+            //Debug.Log("TimeSpeedManager: Stop");
             if (isExternal) _stopCounter++;
             UpdateTimeScale(0f);
         }

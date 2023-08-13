@@ -57,7 +57,7 @@ namespace LittleMars.UI.Achievements
             }
             else
             {
-                Debug.Log("......Close");
+                //Debug.Log("......Close");
                 _achievementMenu.SetWindowState(_id, WindowState.hide);
             }
         }
@@ -74,13 +74,13 @@ namespace LittleMars.UI.Achievements
 
         bool CheckStrategy(int index)
         {
-            Debug.Log("Check Strategy " + index);
+            //Debug.Log("Check Strategy " + index);
             var strategy = _achievementMenu.GetDisplayStrategy(index);
 
             if (strategy == null) return false;
             else
             {
-                Debug.Log("Updating strategy");
+                //Debug.Log("Updating strategy");
                 UpdateGoalDisplay(strategy);
                 return true;
             }           

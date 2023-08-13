@@ -18,11 +18,11 @@ namespace LittleMars.Localization
 
         public string GetText(string tag, TagGroup group)
         {
-            Debug.Log("Get text....");
+            //Debug.Log("Get text....");
             if (!CheckBlockForGroup(group)) return "";
 
             _blocks.TryGetText(tag, _settings.LangIndex, out string text);
-            Debug.Log("Get text...." + text);
+            //Debug.Log("Get text...." + text);
             return text;
         }
 

@@ -51,14 +51,14 @@ namespace LittleMars.LevelMenus
 
         void ChangeStateTo(MenuState state)
         {
-            Debug.Log("LevelMenusWorkflow: Change state to" + state);
+            //Debug.Log("LevelMenusWorkflow: Change state to" + state);
             if (state != MenuState.none && state != _state) HideOpenedWindow();
             _state = state;
         }
 
         bool CanChangeStateTo(MenuState state)
         {
-            Debug.Log("LevelMenusWorkflow: CanChangeStateTo " + state + ". CurrentState " + _state);
+            //Debug.Log("LevelMenusWorkflow: CanChangeStateTo " + state + ". CurrentState " + _state);
             if (state == MenuState.achievement)
                 return _state == MenuState.none;
             else
@@ -91,7 +91,7 @@ namespace LittleMars.LevelMenus
         // achievement
         void OnAchievementReached(AchievementReachedSignal args)
         {
-            Debug.Log("LevelMenusWorkflow: Achivement Reached");
+            //Debug.Log("LevelMenusWorkflow: Achivement Reached");
             if (CanChangeStateTo(MenuState.achievement))
             {
                 ChangeStateTo(MenuState.achievement);
@@ -169,7 +169,7 @@ namespace LittleMars.LevelMenus
 
             if (id < 0) return;
 
-            Debug.Log("LevelMenuWorkflow: close window " + (MenuState)id);
+            //Debug.Log("LevelMenuWorkflow: close window " + (MenuState)id);
             _signalBus.Fire(new WindowStateByIdSignal
             {
                 Id = id,

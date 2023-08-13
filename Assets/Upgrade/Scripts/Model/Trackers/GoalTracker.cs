@@ -31,6 +31,7 @@ namespace LittleMars.Model.Trackers
 
         public virtual void OnGoalIsDone()
         {
+            Debug.Log("Goal is done! Goal index " + _isDoneSignal.Index.ToString());
             _isDoneSignal.IsFirstDone = _isFirstDone;
             _signalBus.Fire(_isDoneSignal);
         }

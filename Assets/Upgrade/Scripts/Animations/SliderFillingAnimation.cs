@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace LittleMars.Animations
 {
-    public class SliderFillingAnimation : TweenAnimation
+    public class SliderFillingAnimation : TweenAnimationUI
     {
         [SerializeField] private Slider _slider;
 
@@ -14,17 +14,17 @@ namespace LittleMars.Animations
         [SerializeField] private float _endValue = 1f;
         [SerializeField] private bool _unscaledTime = false;
 
-        public void StartAnimation()
+        public override void StartAnimation()
         {
-            CheckValues();
-            _slider.value = _startValue;
+            CheckValues();            
             FillingIndicator();
         }
 
         void FillingIndicator()
         {
-            _slider.DOValue(_endValue, _duration).SetUpdate(_unscaledTime);
-
+            //Debug.Log("Filling....." + _unscaledTime);
+            _slider.value = _startValue;
+            _slider.DOValue(_endValue, _duration).SetUpdate(_unscaledTime).SetId(_id);
         }
 
         void CheckValues()

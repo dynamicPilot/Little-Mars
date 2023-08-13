@@ -11,8 +11,9 @@ namespace LittleMars.Map.Helpers
     {
         public static List<BuildingType> GetBuildingTypesForSlot(BuildingType[] initialTypes)
         {
+            if (initialTypes == null || initialTypes.Length == 0) return null;
             List<BuildingType> types = new List<BuildingType>();
-
+            
             if (initialTypes[0] == BuildingType.none) return types;
             else if (initialTypes[0] == BuildingType.all)
             {
@@ -28,8 +29,12 @@ namespace LittleMars.Map.Helpers
 
         public static List<Resource> GetResourcesForSlot(Resource[] initialResources)
         {
+            if (initialResources == null || initialResources.Length == 0)
+            {
+                initialResources = new Resource[1] { Resource.none };
+            }
             List<Resource> resources = new List<Resource>();
-
+            
             if (initialResources[0] == Resource.none) return resources;
             else if (initialResources[0] == Resource.all)
             {

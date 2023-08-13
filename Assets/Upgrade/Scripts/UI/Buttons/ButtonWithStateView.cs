@@ -17,7 +17,8 @@ namespace LittleMars.UI.Buttons
         public void SetState(States state)
         {
             if (_state != state) _state = state;
-            if (!_updateOnClick) UpdateView();
+            //if (!_updateOnClick) UpdateView();
+            UpdateView();
         }
 
         public States ChangeStateToOpposite()
@@ -33,6 +34,7 @@ namespace LittleMars.UI.Buttons
 
         void UpdateView()
         {
+            Debug.Log("Button: update view");
             if (_state == States.on) NormalState();
             else PressedState();
         }

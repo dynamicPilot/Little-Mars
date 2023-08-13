@@ -30,7 +30,7 @@ namespace LittleMars.LevelMenus
         }
         public override void Close()
         {
-            Debug.Log("LevelMenu^ close");
+            //Debug.Log("LevelMenu^ close");
             _timeManager.Start();
         }
 

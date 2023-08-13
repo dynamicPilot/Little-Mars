@@ -44,7 +44,7 @@ public class GameStateLevelMenuUI : MenuUIWithControls
 
     void CreateSlots()
     {
-        Debug.Log("GameStateLevelMenuUI: create slots");
+        //Debug.Log("GameStateLevelMenuUI: create slots");
         _isSlotCreated = true;
         _stateMenu.CreateSlots(_resourcesSlotParent, _goalsSlotParent);
     }

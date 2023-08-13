@@ -2,6 +2,7 @@
 using LittleMars.Map.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Zenject;
 using static LittleMars.Settings.LevelSettings;
 
@@ -40,13 +41,12 @@ namespace LittleMars.Map.States
                 MapLine line = _mapSettings.CustomMap.Lines[i];
                 for (int j = 0; j < columns; j++)
                 {
-                    var types = MapFactoryStaticHelper.GetBuildingTypesForSlot(line.Slots[i].Buildings.ToArray());
-                    if (types != null && types.Count > 0)
-                    {
-                        foreach (BuildingType building in types) slots[i][j].AddBuilding(building);
-                    }
+                    var types = MapFactoryStaticHelper.GetBuildingTypesForSlot(line.Slots[j].Buildings.ToArray());
+                    if (types == null || types.Count > 0) types = _mapSettings.BuildingTypes.ToList();
 
-                    var resources = MapFactoryStaticHelper.GetResourcesForSlot(line.Slots[i].Resources.ToArray());
+                    foreach (BuildingType building in types) slots[i][j].AddBuilding(building);
+
+                    var resources = MapFactoryStaticHelper.GetResourcesForSlot(line.Slots[j].Resources.ToArray());
                     if (resources != null && resources.Count > 0)
                     {
                         foreach (Resource resource in resources) slots[i][j].AddResource(resource);

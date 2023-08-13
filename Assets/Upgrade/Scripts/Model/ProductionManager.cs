@@ -51,6 +51,7 @@ namespace LittleMars.Models
 
             _signalBus.Subscribe<PeriodChangeSignal>(OnPeriodChanged);
             _signalBus.Subscribe<HourlySignal>(OnHourlySignal);
+            _signalBus.Subscribe<StartLevelSignal>(OnStartLevel);
 
             // signals
             _balanceSignal = new ResourcesBalanceUpdatedSignal
@@ -83,6 +84,12 @@ namespace LittleMars.Models
         {
             _signalBus?.TryUnsubscribe<PeriodChangeSignal>(OnPeriodChanged);
             _signalBus?.TryUnsubscribe<HourlySignal>(OnHourlySignal);
+        }
+
+        void OnStartLevel()
+        {
+            _signalBus.Unsubscribe<StartLevelSignal>(OnStartLevel);
+            OnBalanceChanged();
         }
 
         private void OnPeriodChanged(PeriodChangeSignal arg)

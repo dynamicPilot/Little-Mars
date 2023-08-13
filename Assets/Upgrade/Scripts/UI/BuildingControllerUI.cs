@@ -106,7 +106,9 @@ namespace LittleMars.UI
         void UpdateButtonsState()
         {
             _stateButton.SetState(_building.State());
+            Debug.Log("State for period. Day: " + _building.StateForPeriod(Period.day));
             _dayStateButton.SetState(_building.StateForPeriod(Period.day));
+            Debug.Log("State for period. Night: " + _building.StateForPeriod(Period.night));
             _nightStateButton.SetState(_building.StateForPeriod(Period.night));
         }
 
