@@ -167,6 +167,7 @@
         end,
         gameOver,
         state,
+        waitingEnd,
         none
     }
 

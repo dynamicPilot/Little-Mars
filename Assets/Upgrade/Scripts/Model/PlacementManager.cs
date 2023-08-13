@@ -105,6 +105,7 @@ namespace LittleMars.Model
         public void Accept()
         {
             _buildingManager.AddBuilding(_placingBuilding);
+            //Debug.Log("Rotation index: " + _placingBuilding.RotationCount);
             _constructionHelper.Accept(_buildingObject);
             EndPlacement();
         }

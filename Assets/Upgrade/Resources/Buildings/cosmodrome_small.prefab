@@ -382,9 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f6d401939c35ac4292927b72e89af09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotatedParts:
-  - {fileID: 4893669087070414340}
-  - {fileID: 8073313834236255555}
+  _rotatedParts: []
   _colliders:
   - {fileID: 8265235817047746731}
   - {fileID: 8033246761801144311}

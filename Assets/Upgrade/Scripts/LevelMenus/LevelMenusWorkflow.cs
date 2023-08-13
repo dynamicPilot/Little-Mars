@@ -52,7 +52,8 @@ namespace LittleMars.LevelMenus
         void ChangeStateTo(MenuState state)
         {
             //Debug.Log("LevelMenusWorkflow: Change state to" + state);
-            if (state != MenuState.none && state != _state) HideOpenedWindow();
+            if (state != MenuState.none && state != _state && state != MenuState.waitingEnd) 
+                HideOpenedWindow();
             _state = state;
         }
 
@@ -61,6 +62,8 @@ namespace LittleMars.LevelMenus
             //Debug.Log("LevelMenusWorkflow: CanChangeStateTo " + state + ". CurrentState " + _state);
             if (state == MenuState.achievement)
                 return _state == MenuState.none;
+            else if (_state == MenuState.waitingEnd)
+                return false;
             else
                 return false;
         }
@@ -108,7 +111,8 @@ namespace LittleMars.LevelMenus
         // end game is reached -> need call for a delay before end game menu appearce
         void OnEndGameReached()
         {
-            EndGameUnsubscribe();           
+            EndGameUnsubscribe();
+            ChangeStateTo(MenuState.waitingEnd);
             _timer.StartEndMenuTimer();
             _signalBus.Subscribe<EndGameSignal>(OnEndGame);
         }
