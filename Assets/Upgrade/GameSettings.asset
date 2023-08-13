@@ -37,6 +37,7 @@ MonoBehaviour:
       TimerTargetValue: 10
     EndGameDelay:
       SecondsDelay: 2
+      LongDelay: 8
     NotSettings:
       NotDuration: 2
   Catalogue:
