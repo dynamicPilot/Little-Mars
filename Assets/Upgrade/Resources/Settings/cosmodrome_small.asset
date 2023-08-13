@@ -41,8 +41,12 @@ MonoBehaviour:
     Priority: 0
     DayProduction: []
     NightProduction: []
-    Connections: 
-    Needs: []
+    Connections: 00000000
+    Needs:
+    - Type: 4
+      Amount: 20
+    - Type: 6
+      Amount: 5
   View:
     Sprite: {fileID: 2146463019, guid: 071d55151a0f1bc46a5c244041f191fc, type: 3}
     Shape: {fileID: -1414759368, guid: 3ea37c8d335c1b14f903803c47b468f9, type: 3}
