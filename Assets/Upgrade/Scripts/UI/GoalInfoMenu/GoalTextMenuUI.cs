@@ -57,9 +57,15 @@ namespace LittleMars.UI.GoalInfoMenu
         public override void OnOpenMenu(WindowContext context)
         {
             //if (_isOpen) return;
+            SetSlots();
             //_sounds.PlaySoundForCommandType(CommandType.empty);
-            if (!_isTextSet) SetGoalTexts();
             base.OnOpenMenu(context);
+        }
+
+        void SetSlots()
+        {
+            SetGoalTexts();
+            _signMenuUI.SetSlots();
         }
 
         void SetGoalTexts()

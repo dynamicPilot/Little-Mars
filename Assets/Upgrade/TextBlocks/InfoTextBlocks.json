@@ -11,34 +11,144 @@
         "Text": "Купол"
       }
     ],
-    "powerPlant": [
+    "power_plant": [
       {
         "Lang": 0,
-        "Text": "Music Volume"
+        "Text": "Solar power Plant"
       },
       {
         "Lang": 1,
-        "Text": "Громкость музыки"
+        "Text": "Электростанция"
       }
     ],
-    "totalV": [
+    "mine": [
       {
         "Lang": 0,
-        "Text": "Total Volume"
+        "Text": "Mine"
       },
       {
         "Lang": 1,
-        "Text": "Общая громкость"
+        "Text": "Шахта"
       }
     ],
-    "reset": [
+    "farm": [
       {
         "Lang": 0,
-        "Text": "RESET"
+        "Text": "Farm"
       },
       {
         "Lang": 1,
-        "Text": "СБРОС"
+        "Text": "Ферма"
+      }
+    ],
+    "factory": [
+      {
+        "Lang": 0,
+        "Text": "Farm"
+      },
+      {
+        "Lang": 1,
+        "Text": "Ферма"
+      }
+    ],
+    "supply_plant": [
+      {
+        "Lang": 0,
+        "Text": "Supply Plant"
+      },
+      {
+        "Lang": 1,
+        "Text": "Завод снабжения"
+      }
+    ],
+    "workshop": [
+      {
+        "Lang": 0,
+        "Text": "Workshop"
+      },
+      {
+        "Lang": 1,
+        "Text": "Мастерская"
+      }
+    ],
+    "cosmodrome": [
+      {
+        "Lang": 0,
+        "Text": "Cosmodrome"
+      },
+      {
+        "Lang": 1,
+        "Text": "Космодром"
+      }
+    ],
+    "timer": [
+      {
+        "Lang": 0,
+        "Text": "Time to operate"
+      },
+      {
+        "Lang": 1,
+        "Text": "Время работы"
+      }
+    ],
+    "resources": [
+      {
+        "Lang": 0,
+        "Text": "Resource in storage"
+      },
+      {
+        "Lang": 1,
+        "Text": "Ресурс в хранилище"
+      }
+    ],
+    "production": [
+      {
+        "Lang": 0,
+        "Text": "Resource total production"
+      },
+      {
+        "Lang": 1,
+        "Text": "Произведено ресурса"
+      }
+    ],
+    "small": [
+      {
+        "Lang": 0,
+        "Text": "Small"
+      },
+      {
+        "Lang": 1,
+        "Text": "Малый"
+      }
+    ],
+    "medium": [
+      {
+        "Lang": 0,
+        "Text": "Medium"
+      },
+      {
+        "Lang": 1,
+        "Text": "Малый"
+      }
+    ],
+    "large": [
+      {
+        "Lang": 0,
+        "Text": "Large"
+      },
+      {
+        "Lang": 1,
+        "Text": "Малый"
+      }
+    ],
+    "extraLarge": [
+      {
+        "Lang": 0,
+        "Text": "Large"
+      },
+      {
+        "Lang": 1,
+        "Text": "Малый"
       }
     ]
   }

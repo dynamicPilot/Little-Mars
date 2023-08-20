@@ -10,6 +10,7 @@ using LittleMars.Connections;
 using LittleMars.Connections.View;
 using LittleMars.Controllers;
 using LittleMars.Effects;
+using LittleMars.GoalInfoMenu;
 using LittleMars.Installers.Games;
 using LittleMars.LevelMenus;
 using LittleMars.Localization;
@@ -66,6 +67,8 @@ namespace LittleMars.Installers
             InstallLevelMenus();
             InstallUIAndManagers();
             InstallWindowManager();
+
+            InstallTooltipAndInfoSystem();
 
             InstallSignals();
             InstallExecutionOrder();
@@ -240,7 +243,7 @@ namespace LittleMars.Installers
             WindowManagerInstaller.WindowPrefab = _settings.WindowPrefab;
             WindowManagerInstaller.Install(Container);
 
-            Container.BindInterfacesAndSelfTo<LevelWindowControl>().AsSingle();
+            //Container.BindInterfacesAndSelfTo<LevelWindowControl>().AsSingle();
         }
 
         void InstallGoalInfos()
@@ -277,6 +280,11 @@ namespace LittleMars.Installers
 
             Container.BindFactory<IGoalInfo, BuildingTimerStaffGoalDisplayStrategy, BuildingTimerStaffGoalDisplayStrategy.Factory>()
                 .WhenInjectedInto<DisplayStrategyFactory>();
+        }
+
+        void InstallTooltipAndInfoSystem()
+        {
+            Container.BindInterfacesAndSelfTo<SignInfoMenu>().AsSingle();
         }
 
         void InstallUIAndManagers()

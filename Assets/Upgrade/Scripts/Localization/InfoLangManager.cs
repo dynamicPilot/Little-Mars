@@ -31,6 +31,11 @@ namespace LittleMars.Localization
             _blocks = _jsonConverter.FromJsonTextAsset<TextBlocks>(_infoTextSettings.Blocks);
         }
 
+        public string GetInfo(string tag)
+        {
+            return base.GetText(tag, TagGroup.info);
+        }
+
         [Serializable]
         public class Settings
         {
