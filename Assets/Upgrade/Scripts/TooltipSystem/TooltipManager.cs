@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets.Upgrade.Scripts.TooltipSystem
+namespace LittleMars.TooltipSystem
 {
-    internal class GoalBuildingTooltipManager
+    public class TooltipManager
     {
     }
 }

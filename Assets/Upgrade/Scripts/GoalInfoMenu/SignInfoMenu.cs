@@ -3,8 +3,6 @@ using LittleMars.Common.Catalogues;
 using LittleMars.Common.LevelGoal;
 using LittleMars.Localization;
 using LittleMars.Model;
-using LittleMars.Settings;
-using System;
 using System.Collections.Generic;
 using Zenject;
 
