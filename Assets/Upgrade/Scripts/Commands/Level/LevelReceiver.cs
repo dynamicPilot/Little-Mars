@@ -3,7 +3,7 @@ using LittleMars.Common;
 using LittleMars.Common.Signals;
 using LittleMars.PlayerStates;
 using LittleMars.SceneControls;
-using LittleMars.UI.GoalTextMenu;
+using LittleMars.UI.GoalInfoMenu;
 using UnityEngine;
 using Zenject;
 

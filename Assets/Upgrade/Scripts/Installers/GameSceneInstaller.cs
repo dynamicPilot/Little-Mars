@@ -25,7 +25,7 @@ using LittleMars.Slots;
 using LittleMars.UI.Achievements;
 using LittleMars.UI.BuildingSlots;
 using LittleMars.UI.GoalDisplays;
-using LittleMars.UI.GoalTextMenu;
+using LittleMars.UI.GoalInfoMenu;
 using LittleMars.UI.ResourceSlots;
 using LittleMars.UI.Windows;
 using LittleMars.WindowManagers;
@@ -152,6 +152,7 @@ namespace LittleMars.Installers
         void InstallLocalization()
         {         
             Container.BindInterfacesAndSelfTo<LevelLangsManager>().AsSingle();
+            Container.BindInterfacesAndSelfTo<InfoLangManager>().AsSingle();
         }
 
         void InstallEffects()
@@ -355,6 +356,7 @@ namespace LittleMars.Installers
             public GameObject ResourceGoalSlotPrefab;
             public GameObject BuildingWithTimerGoalSlotPrefab;
             public GameObject WindowPrefab;
+            public GameObject SignSlotPrefab;
             public string LevelSettingsFolderPath;
         }
     }

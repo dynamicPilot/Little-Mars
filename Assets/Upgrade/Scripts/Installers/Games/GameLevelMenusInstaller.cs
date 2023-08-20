@@ -1,7 +1,7 @@
 ﻿using LittleMars.Commands.Level;
+using LittleMars.GoalInfoMenu;
 using LittleMars.LevelMenus;
 using LittleMars.UI.Achievements;
-using LittleMars.UI.GoalTextMenu;
 using Zenject;
 
 namespace LittleMars.Installers.Games

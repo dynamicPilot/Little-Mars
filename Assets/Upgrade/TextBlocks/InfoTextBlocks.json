@@ -1,0 +1,45 @@
+{
+  "Title": "info",
+  "Blocks": {
+    "dome": [
+      {
+        "Lang": 0,
+        "Text": "Dome"
+      },
+      {
+        "Lang": 1,
+        "Text": "Купол"
+      }
+    ],
+    "powerPlant": [
+      {
+        "Lang": 0,
+        "Text": "Music Volume"
+      },
+      {
+        "Lang": 1,
+        "Text": "Громкость музыки"
+      }
+    ],
+    "totalV": [
+      {
+        "Lang": 0,
+        "Text": "Total Volume"
+      },
+      {
+        "Lang": 1,
+        "Text": "Общая громкость"
+      }
+    ],
+    "reset": [
+      {
+        "Lang": 0,
+        "Text": "RESET"
+      },
+      {
+        "Lang": 1,
+        "Text": "СБРОС"
+      }
+    ]
+  }
+}

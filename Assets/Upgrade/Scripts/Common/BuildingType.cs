@@ -156,7 +156,8 @@
     public enum TagGroup
     {
         scene,
-        level
+        level,
+        info
     }
 
     public enum MenuState

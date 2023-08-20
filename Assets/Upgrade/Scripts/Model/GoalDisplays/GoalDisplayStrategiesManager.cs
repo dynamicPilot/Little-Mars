@@ -1,12 +1,14 @@
 ﻿using LittleMars.Common.Signals;
 using LittleMars.UI.GoalDisplays;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using UnityEngine;
 using Zenject;
 
 namespace LittleMars.Model.GoalDisplays
 {
+    /// <summary>
+    /// Call factory to create IGoalDisplayStrategies and keep all strategies.
+    /// </summary>
     public class GoalDisplayStrategiesManager : IInitializable
     {
         readonly GoalDisplayStrategiesFactory _factory;
@@ -44,10 +46,10 @@ namespace LittleMars.Model.GoalDisplays
             return _strategies[index];
         }
 
-        public IGoalDisplayStrategy[] GetStates()
-        {
-            return _strategies.ToArray();
-        }
+        //public IGoalDisplayStrategy[] GetStates()
+        //{
+        //    return _strategies.ToArray();
+        //}
 
         public void DisposeStrategy(int index)
         {

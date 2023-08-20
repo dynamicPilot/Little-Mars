@@ -2,6 +2,7 @@
 using LittleMars.Common.Catalogues;
 using LittleMars.Installers;
 using LittleMars.LevelMenus;
+using LittleMars.Localization;
 using LittleMars.Model.TimeUpdate;
 using LittleMars.Notifications;
 using LittleMars.Slots;
@@ -17,6 +18,7 @@ namespace LittleMars.Settings
         public ViewSettings View;
         public TimeSettings Time;
         public CatalogueSettings Catalogue;
+        public InfoTextSettings InfoTexts;
         
 
         [Serializable]
@@ -43,6 +45,12 @@ namespace LittleMars.Settings
             public ColorsCatalogue.Settings Colors;            
         }
 
+        [Serializable]
+        public class InfoTextSettings
+        {
+            public InfoLangManager.Settings InfoTexts;
+        }
+
 
         public override void InstallBindings()
         {
@@ -58,6 +66,7 @@ namespace LittleMars.Settings
             Container.BindInstance(Time.EndGameDelay);
             Container.BindInstance(Time.NotSettings);
 
+            Container.BindInstance(InfoTexts.InfoTexts);
         }
     }
 }

@@ -1,16 +1,20 @@
 ﻿using LittleMars.AudioSystems;
+using LittleMars.GoalInfoMenu;
 using LittleMars.UI.LevelMenus;
 using LittleMars.WindowManagers;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace LittleMars.UI.GoalTextMenu
+namespace LittleMars.UI.GoalInfoMenu
 {
     public class GoalTextMenuUI : MenuUIWithControls
     {
         [Header("Text Slot")]
         [SerializeField] TextMeshProUGUI[] _texts;
+
+        [Header("Sign Info Menu UI")]
+        [SerializeField] SignInfoMenuUI _signMenuUI;
 
         GoalTextLevelMenu _goalTextMenu;
         //SignalBus _signalBus;

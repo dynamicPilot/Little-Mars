@@ -6,6 +6,7 @@ using Zenject;
 
 namespace LittleMars.Localization
 {
+
     public class LangManager : LangManagerBase, IInitializable
     {
         readonly JsonConverter _jsonConverter;
