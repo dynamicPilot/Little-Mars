@@ -49,11 +49,11 @@ public class GameStateLevelMenuUI : MenuUIWithControls
         _stateMenu.CreateSlots(_resourcesSlotParent, _goalsSlotParent);
     }
 
-    protected override void Close()
-    {
-        // signal
-        _signalBus.TryFire(new WindowIsClosedSignal { MenuState = (int)MenuState.state });
-        base.Close();
-    }
+    //protected override void Close()
+    //{
+    //    // signal
+    //    _signalBus.TryFire(new WindowIsClosedSignal { MenuState = (int)MenuState.state });
+    //    base.Close();
+    //}
 
 }

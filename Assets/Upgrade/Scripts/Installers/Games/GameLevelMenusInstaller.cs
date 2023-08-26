@@ -1,6 +1,7 @@
 ﻿using LittleMars.Commands.Level;
 using LittleMars.GoalInfoMenu;
 using LittleMars.LevelMenus;
+using LittleMars.TooltipSystem;
 using LittleMars.UI.Achievements;
 using Zenject;
 
@@ -26,6 +27,7 @@ namespace LittleMars.Installers.Games
             Container.Bind<GoalTextLevelMenu>().AsSingle();
             Container.Bind<AchievementDisplayLevelMenu>().AsSingle();
             Container.Bind<GameStateLevelMenu>().AsSingle();
+            //Container.Bind<TooltipMenu>().AsSingle();
 
             Container.BindFactory<StartCommand, StartCommand.Factory>();
             Container.BindFactory<MainMenuByStartCommand, MainMenuByStartCommand.Factory>();

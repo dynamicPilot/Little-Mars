@@ -46,7 +46,7 @@ namespace LittleMars.LevelMenus
             _signalBus.Subscribe<EndGameReachedSignal>(OnEndGameReached);
             _signalBus.Subscribe<GameOverSignal>(OnGameOver);
             _signalBus.Subscribe<CallGameStateMenuSignal>(OnCallForGameStateMenu);
-            _signalBus.Subscribe<WindowIsClosedSignal>(OnWindowIsClosed);
+            //_signalBus.Subscribe<WindowIsClosedSignal>(OnWindowIsClosed);
         }
 
         void ChangeStateTo(MenuState state)
@@ -157,11 +157,11 @@ namespace LittleMars.LevelMenus
             _signalBus.Fire(_achivementSignal);
         }
 
-        void OnWindowIsClosed(WindowIsClosedSignal arg)
-        {
-            var state = (MenuState)arg.MenuState;
-            if (_state == state) ChangeStateTo(MenuState.none);
-        }
+        //void OnWindowIsClosed(WindowIsClosedSignal arg)
+        //{
+        //    var state = (MenuState)arg.MenuState;
+        //    if (_state == state) ChangeStateTo(MenuState.none);
+        //}
 
         void HideOpenedWindow()
         {

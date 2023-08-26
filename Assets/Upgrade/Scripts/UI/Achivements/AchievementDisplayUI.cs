@@ -91,11 +91,11 @@ namespace LittleMars.UI.Achievements
             _displayUI.SetSlot(strategy);
         }
 
-        protected override void Close()
-        {
-            // signal
-            _signalBus.TryFire(new WindowIsClosedSignal { MenuState = (int) MenuState.achievement});
-            base.Close();
-        }
+        //protected override void Close()
+        //{
+        //    // signal
+        //    _signalBus.TryFire(new WindowIsClosedSignal { MenuState = (int) MenuState.achievement});
+        //    base.Close();
+        //}
     }
 }

@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 using Zenject;
 
-namespace Assets.Upgrade.Scripts.Settings
+namespace LittleMars.Settings
 {
     [CreateAssetMenu(menuName = "LittleMars/Settings/Window Settings")]
     public class GameWindowSettings: ScriptableObjectInstaller<GameWindowSettings>

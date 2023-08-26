@@ -23,6 +23,7 @@ using LittleMars.Rockets;
 using LittleMars.SceneControls;
 using LittleMars.Settings;
 using LittleMars.Slots;
+using LittleMars.TooltipSystem;
 using LittleMars.UI.Achievements;
 using LittleMars.UI.BuildingSlots;
 using LittleMars.UI.GoalDisplays;
@@ -285,6 +286,7 @@ namespace LittleMars.Installers
         void InstallTooltipAndInfoSystem()
         {
             Container.BindInterfacesAndSelfTo<SignInfoMenu>().AsSingle();
+            
         }
 
         void InstallUIAndManagers()
