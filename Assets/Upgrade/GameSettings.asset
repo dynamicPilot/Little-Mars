@@ -24,6 +24,7 @@ MonoBehaviour:
       BuildingWithTimerGoalSlotPrefab: {fileID: 8742945647509767125, guid: 42272ccb3bd2f0e4f99acd5185f5522a, type: 3}
       WindowPrefab: {fileID: 5486035586830579011, guid: 0ecb256c923af67448eeb098dd78e076, type: 3}
       SignSlotPrefab: {fileID: 250276328882144104, guid: c0c0af23c6f09944690022afbe65ae9d, type: 3}
+      TooltipPrefab: {fileID: 7185791373988463608, guid: 039d825e30e63b94ab912a2be138fb12, type: 3}
       LevelSettingsFolderPath: Levels/
     SpawnerSettings:
       Size: 0.22

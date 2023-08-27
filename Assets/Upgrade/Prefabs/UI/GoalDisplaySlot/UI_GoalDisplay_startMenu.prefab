@@ -806,10 +806,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rectTransform: {fileID: 7126636386860143481}
-  _containerScale: 1.5
   _button: {fileID: 6247965173522740587}
   _direction: 1
-  _offset: 10
+  _offset: 5
 --- !u!114 &6247965173522740587
 MonoBehaviour:
   m_ObjectHideFlags: 0

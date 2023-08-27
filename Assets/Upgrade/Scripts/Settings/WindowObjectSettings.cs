@@ -8,17 +8,17 @@ namespace LittleMars.Settings
     [CreateAssetMenu(menuName = "LittleMars/Settings/WindowObject Settings")]
     public class WindowObjectSettings : ScriptableObjectInstaller<WindowObjectSettings>
     {
-        public TooltipSettings Tooltips;
+        //public TooltipSettings Tooltips;
 
-        [Serializable]
-        public class TooltipSettings
-        {
-            public WindowObjectInstaller.Settings Installer;
-        }
+        //[Serializable]
+        //public class TooltipSettings
+        //{
+        //    public WindowObjectInstaller.Settings Installer;
+        //}
 
-        public override void InstallBindings()
-        {
-            Container.BindInstance(Tooltips.Installer);
-        }
+        //public override void InstallBindings()
+        //{
+        //    Container.BindInstance(Tooltips.Installer);
+        //}
     }
 }

@@ -165,6 +165,45 @@ namespace LittleMars.Controllers
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""TooltipActionMap"",
+            ""id"": ""7c2ff594-5d25-43c0-9c86-3e2880c6801c"",
+            ""actions"": [
+                {
+                    ""name"": ""PrimaryTouchContact"",
+                    ""type"": ""Button"",
+                    ""id"": ""e83e556c-33f4-4d15-a6cd-77840964eb7a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""0289e593-b26b-4348-88e6-45b8b93aa527"",
+                    ""path"": ""<Touchscreen>/primaryTouch/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PrimaryTouchContact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""da93aef7-fb3c-4b30-a26b-2e139db71838"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PrimaryTouchContact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -176,6 +215,9 @@ namespace LittleMars.Controllers
             m_ViewActionMap_SecondaryTouchPosition = m_ViewActionMap.FindAction("SecondaryTouchPosition", throwIfNotFound: true);
             m_ViewActionMap_SecondaryTouchContact = m_ViewActionMap.FindAction("SecondaryTouchContact", throwIfNotFound: true);
             m_ViewActionMap_ScrollWheelYDirection = m_ViewActionMap.FindAction("ScrollWheelYDirection", throwIfNotFound: true);
+            // TooltipActionMap
+            m_TooltipActionMap = asset.FindActionMap("TooltipActionMap", throwIfNotFound: true);
+            m_TooltipActionMap_PrimaryTouchContact = m_TooltipActionMap.FindAction("PrimaryTouchContact", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -311,6 +353,52 @@ namespace LittleMars.Controllers
             }
         }
         public ViewActionMapActions @ViewActionMap => new ViewActionMapActions(this);
+
+        // TooltipActionMap
+        private readonly InputActionMap m_TooltipActionMap;
+        private List<ITooltipActionMapActions> m_TooltipActionMapActionsCallbackInterfaces = new List<ITooltipActionMapActions>();
+        private readonly InputAction m_TooltipActionMap_PrimaryTouchContact;
+        public struct TooltipActionMapActions
+        {
+            private @TouchControls m_Wrapper;
+            public TooltipActionMapActions(@TouchControls wrapper) { m_Wrapper = wrapper; }
+            public InputAction @PrimaryTouchContact => m_Wrapper.m_TooltipActionMap_PrimaryTouchContact;
+            public InputActionMap Get() { return m_Wrapper.m_TooltipActionMap; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(TooltipActionMapActions set) { return set.Get(); }
+            public void AddCallbacks(ITooltipActionMapActions instance)
+            {
+                if (instance == null || m_Wrapper.m_TooltipActionMapActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_TooltipActionMapActionsCallbackInterfaces.Add(instance);
+                @PrimaryTouchContact.started += instance.OnPrimaryTouchContact;
+                @PrimaryTouchContact.performed += instance.OnPrimaryTouchContact;
+                @PrimaryTouchContact.canceled += instance.OnPrimaryTouchContact;
+            }
+
+            private void UnregisterCallbacks(ITooltipActionMapActions instance)
+            {
+                @PrimaryTouchContact.started -= instance.OnPrimaryTouchContact;
+                @PrimaryTouchContact.performed -= instance.OnPrimaryTouchContact;
+                @PrimaryTouchContact.canceled -= instance.OnPrimaryTouchContact;
+            }
+
+            public void RemoveCallbacks(ITooltipActionMapActions instance)
+            {
+                if (m_Wrapper.m_TooltipActionMapActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            public void SetCallbacks(ITooltipActionMapActions instance)
+            {
+                foreach (var item in m_Wrapper.m_TooltipActionMapActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_TooltipActionMapActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        public TooltipActionMapActions @TooltipActionMap => new TooltipActionMapActions(this);
         public interface IViewActionMapActions
         {
             void OnPrimaryTouchPosition(InputAction.CallbackContext context);
@@ -318,6 +406,10 @@ namespace LittleMars.Controllers
             void OnSecondaryTouchPosition(InputAction.CallbackContext context);
             void OnSecondaryTouchContact(InputAction.CallbackContext context);
             void OnScrollWheelYDirection(InputAction.CallbackContext context);
+        }
+        public interface ITooltipActionMapActions
+        {
+            void OnPrimaryTouchContact(InputAction.CallbackContext context);
         }
     }
 }

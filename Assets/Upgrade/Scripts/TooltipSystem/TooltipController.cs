@@ -1,8 +1,4 @@
-﻿using LittleMars.Common.Signals;
-using LittleMars.Signals;
-using LittleMars.WindowManagers;
-using UnityEngine;
-using Zenject;
+﻿using UnityEngine;
 
 namespace LittleMars.TooltipSystem
 {
@@ -17,8 +13,13 @@ namespace LittleMars.TooltipSystem
 
         public void CallTooltip(TooltipContext context)
         {
-            Debug.Log("Call for tooltip by TooltipManager");
+            //Debug.Log("Call for tooltip by TooltipManager");
             _manager.CallForTooltip(context);
+        }
+
+        public void HideTooltip()
+        {
+            _manager.CallForHideTooltip();
         }
     }
 }

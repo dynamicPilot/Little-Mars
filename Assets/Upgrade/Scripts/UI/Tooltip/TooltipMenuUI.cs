@@ -12,8 +12,8 @@ namespace LittleMars.UI.Tooltip
 {
     public class TooltipMenuUI : MonoBehaviour
     {
-        [Header("Buttons")]
-        [SerializeField] Button _hideButton;
+        //[Header("Buttons")]
+        //[SerializeField] Button _hideButton;
         [Header("Panel")]
         [SerializeField] GameObject _panel;
 
@@ -21,38 +21,39 @@ namespace LittleMars.UI.Tooltip
         [SerializeField] TooltipTextSetter _textSetter;
 
         TooltipMenu _menu;
+        bool _isOpen = false;
         [Inject]
         public void Constructor(TooltipMenu menu)
         {
             _menu = menu;
             if (_menu == null)
                 Debug.Log("No TooltipMenu");
-            Init();
+            _isOpen = false;
         }
 
-        void Init() => SetButtons();
+        //void Init() => SetButtons();
 
-        void SetButtons()
-        {
-            Debug.Log("Set buttons ");
-            if (_hideButton == null) Debug.Log("Null button ");
-            _hideButton.onClick.AddListener(CallForHideTooltip);
-        }
+        //void SetButtons()
+        //{
+        //    Debug.Log("Set buttons ");
+        //    if (_hideButton == null) Debug.Log("Null button ");
+        //    _hideButton.onClick.AddListener(CallForHideTooltip);
+        //}
 
-        private void OnDestroy()
-        {
-            _hideButton.onClick.RemoveAllListeners();
-        }
+        //private void OnDestroy()
+        //{
+        //    _hideButton.onClick.RemoveAllListeners();
+        //}
 
         public void OnOpenMenu(TooltipContext context)
         {
             if (!TrySetTooltip(context)) CallForHideTooltip();
-            else _panel.SetActive(true);
+            else Open();
         }
 
         public void OnCloseMenu()
-        {
-            _panel.SetActive(false);
+        {            
+            Close();
         }
 
         void CallForHideTooltip()
@@ -63,6 +64,19 @@ namespace LittleMars.UI.Tooltip
         bool TrySetTooltip(TooltipContext context)
         {
             return _positionSetter.TrySetTooltip(context);
+        }
+
+        void Open()
+        {
+            _isOpen = true;
+            _menu.Open();
+            _panel.SetActive(true);
+        }
+
+        void Close()
+        {
+            _isOpen = false;
+            _panel.SetActive(false);
         }
 
         //protected override void Close()

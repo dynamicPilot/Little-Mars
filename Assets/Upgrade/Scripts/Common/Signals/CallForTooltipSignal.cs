@@ -2,11 +2,10 @@
 
 namespace LittleMars.Signals
 {
-    public class CallForTooltipSignal
+    public struct CallForTooltipSignal
     {
-        public TooltipContext Context;
     }
 
-    public struct HideTooltipSignal
+    public struct CallForHideTooltipSignal
     { }
 }

@@ -1,24 +1,27 @@
 ﻿using LittleMars.Signals;
 using LittleMars.UI.Tooltip;
-using System;
-using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Zenject;
+using LittleMars.UI.Windows;
 
 namespace LittleMars.TooltipSystem
 {
+    /// <summary>
+    /// Level Tooltip Manager.
+    /// </summary>
     public class TooltipManager : IInitializable
     {
-        readonly TooltipObject.Factory _factory;
+        readonly TooltipFactory _factory;
+        readonly SceneWindows _sceneWindows;
+        readonly SignalBus _signalBus;
 
         TooltipObject _tooltip;
 
-        public TooltipManager(TooltipObject.Factory factory)
+        public TooltipManager(TooltipFactory factory, SceneWindows sceneWindows, SignalBus signalBus)
         {
             _factory = factory;
+            _sceneWindows = sceneWindows;
+            _signalBus = signalBus;
             _tooltip = null;
         }
 
@@ -29,7 +32,7 @@ namespace LittleMars.TooltipSystem
 
         public void CallForTooltip(TooltipContext context)
         {
-            Debug.Log("Called for tooltip");
+            Debug.Log("TooltipManager: called for tooltip");
             if (context == null) return;
             else if (_tooltip == null) CreateTooltip();
             else if (_tooltip.gameObject.activeSelf) HideTooltip();
@@ -41,11 +44,15 @@ namespace LittleMars.TooltipSystem
         {
             if (_tooltip.gameObject.activeSelf)
                 HideTooltip();
+
+            _signalBus.Fire<CallForHideTooltipSignal>();
         }
 
         void ShowTooltip(TooltipContext context)
         {
+            SetTooltipToTopOrder();
             _tooltip.Open(context);
+            _signalBus.Fire<CallForTooltipSignal>();
         }
 
         void HideTooltip()
@@ -53,13 +60,15 @@ namespace LittleMars.TooltipSystem
             _tooltip.Close();
         }
 
+        void SetTooltipToTopOrder()
+        {
+            _tooltip.gameObject.transform.SetSiblingIndex(_sceneWindows.Canvas.GetSiblingIndex() - 1);
+        }
+
         void CreateTooltip()
         {
             Debug.Log("Called for creating tooltip....");
-            _tooltip = _factory.Create();
-            Debug.Log("Create tooltip");
+            _tooltip = _factory.Create(_sceneWindows.Canvas);
         }
-
-
     }
 }

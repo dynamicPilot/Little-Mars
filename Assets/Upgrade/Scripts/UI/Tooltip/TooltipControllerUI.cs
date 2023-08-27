@@ -1,12 +1,6 @@
 ﻿using LittleMars.Common;
+using LittleMars.Signals;
 using LittleMars.TooltipSystem;
-using LittleMars.WindowManagers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -16,7 +10,6 @@ namespace LittleMars.UI.Tooltip
     public class TooltipControllerUI: MonoBehaviour
     {
         [SerializeField] RectTransform _rectTransform;
-        [SerializeField] RectTransform _windowRectTransform;
         [SerializeField] Button _button;
 
         [Header ("Tooltip Settings")]
@@ -24,18 +17,23 @@ namespace LittleMars.UI.Tooltip
         [SerializeField] float _offset;
 
         TooltipController _controller;
+        SignalBus _signalBus;
+
+        int _clickCount = 0;
 
         [Inject]
-        public void Constructor(TooltipController controller, RectTransform windowRectTransform)
+        public void Constructor(TooltipController controller, SignalBus signalBus)
         {
             _controller = controller;
-            _windowRectTransform = windowRectTransform;
+            _signalBus = signalBus;
+            _clickCount = 0;
             Init();
         }
 
         void Init()
         {
             _button.onClick.AddListener(OnButtonClick);
+            _signalBus.Subscribe<CallForHideTooltipSignal>(ResetClickCount);
         }
 
         private void OnDestroy()
@@ -45,42 +43,23 @@ namespace LittleMars.UI.Tooltip
 
         void OnButtonClick()
         {
-            var context = GetTooltipContext();
-            _controller.CallTooltip(context);
+            //Debug.Log("Button click " + _clickCount);
+            _clickCount++;
+
+            if (_clickCount == 1)
+                _controller.CallTooltip(GetTooltipContext());
         }
 
-
-        Vector2 CalculateTooltipPostion()
+        void ResetClickCount()
         {
-            var position = _rectTransform.localPosition;
-            var height = _rectTransform.rect.height;
-            var width = _rectTransform.rect.width;
-            _offset = 0;
-
-            Debug.Log("Tooltip width  : " + width + " height " + height + " position " + position.x + " " + (position.x + width).ToString());
-
-            //if (_direction == Direction.left || _direction == Direction.right)
-            //{
-            //    position.y += height / 2;
-            //    if (_direction == Direction.right) position.x += width + _offset;
-            //    else position.x -= _offset;
-            //}
-            //else if (_direction == Direction.up || _direction == Direction.down)
-            //{
-            //    position.x += width / 2;
-            //    if (_direction == Direction.down) position.y += width + _offset;
-            //    else position.y -= _offset;
-            //}
-
-            //Debug.Log("Tooltip width  : " + width + " height " + height);
-            return new Vector2 (Mathf.RoundToInt(position.x), Mathf.RoundToInt(position.y + _windowRectTransform.rect.height / 2));
+            // reset click count if player
+            // clicks again after tooltip was shown
+            _clickCount = 0;
         }
 
         TooltipContext GetTooltipContext()
         {
-            var position = CalculateTooltipPostion();
-
-            return new TooltipContext(_direction, position, "");
+            return new TooltipContext(_direction, _offset, _rectTransform);
         }
     }
 }

@@ -141,6 +141,45 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "TooltipActionMap",
+            "id": "7c2ff594-5d25-43c0-9c86-3e2880c6801c",
+            "actions": [
+                {
+                    "name": "PrimaryTouchContact",
+                    "type": "Button",
+                    "id": "e83e556c-33f4-4d15-a6cd-77840964eb7a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0289e593-b26b-4348-88e6-45b8b93aa527",
+                    "path": "<Touchscreen>/primaryTouch/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PrimaryTouchContact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "da93aef7-fb3c-4b30-a26b-2e139db71838",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PrimaryTouchContact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

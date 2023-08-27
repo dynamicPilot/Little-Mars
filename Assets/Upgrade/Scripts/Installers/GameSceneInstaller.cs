@@ -22,6 +22,7 @@ using LittleMars.PlayerStates;
 using LittleMars.Rockets;
 using LittleMars.SceneControls;
 using LittleMars.Settings;
+using LittleMars.Signals;
 using LittleMars.Slots;
 using LittleMars.TooltipSystem;
 using LittleMars.UI.Achievements;
@@ -29,6 +30,7 @@ using LittleMars.UI.BuildingSlots;
 using LittleMars.UI.GoalDisplays;
 using LittleMars.UI.GoalInfoMenu;
 using LittleMars.UI.ResourceSlots;
+using LittleMars.UI.Tooltip;
 using LittleMars.UI.Windows;
 using LittleMars.WindowManagers;
 using System;
@@ -286,7 +288,15 @@ namespace LittleMars.Installers
         void InstallTooltipAndInfoSystem()
         {
             Container.BindInterfacesAndSelfTo<SignInfoMenu>().AsSingle();
-            
+            Container.BindInterfacesAndSelfTo<TooltipManager>().AsSingle();
+
+            Container.Bind<TooltipController>().AsSingle();
+            Container.Bind<CanvasUtils>().AsSingle();
+            Container.Bind<TooltipFactory>().AsSingle();
+
+            Container.BindFactory<TooltipObject, TooltipObject.Factory>()
+                .FromComponentInNewPrefab(_settings.TooltipPrefab)
+                .WithGameObjectName("Tooltip");
         }
 
         void InstallUIAndManagers()
@@ -344,6 +354,7 @@ namespace LittleMars.Installers
             Container.DeclareSignal<BuildingTimerIsOverSignal>();
 
             Container.DeclareSignal<StartTouchSignal>();
+            Container.DeclareSignal<TooltipStartTouchSignal>();
             Container.DeclareSignal<EndTouchSignal>();
 
             Container.DeclareSignal<RocketLaunchSignal>();
@@ -352,6 +363,9 @@ namespace LittleMars.Installers
 
             Container.DeclareSignal<NeedRouteErrorNotSignal>();
             Container.DeclareSignal<NeedResourceNotSignal>();
+
+            Container.DeclareSignal<CallForHideTooltipSignal>();
+            Container.DeclareSignal<CallForTooltipSignal>();
         }
 
         [Serializable]
@@ -367,6 +381,7 @@ namespace LittleMars.Installers
             public GameObject BuildingWithTimerGoalSlotPrefab;
             public GameObject WindowPrefab;
             public GameObject SignSlotPrefab;
+            public GameObject TooltipPrefab;
             public string LevelSettingsFolderPath;
         }
     }
