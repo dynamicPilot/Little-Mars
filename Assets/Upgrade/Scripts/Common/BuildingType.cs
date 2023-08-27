@@ -212,5 +212,12 @@
         music,
         total
     }
+
+    public enum TooltipType
+    {
+        goal,
+        connections,
+        fields
+    }
 }
 

@@ -25,7 +25,7 @@ namespace LittleMars.TooltipSystem
             transform.SetParent(container);
             transform.localScale = new UnityEngine.Vector3(1f, 1f, 1f);
             // add checking of the index
-            transform.SetSiblingIndex(transform.GetSiblingIndex() - 1);
+            //transform.SetSiblingIndex(transform.GetSiblingIndex() - 1);
 
             var rectTransform = transform.GetComponent<RectTransform>();
             if (rectTransform == null) return;

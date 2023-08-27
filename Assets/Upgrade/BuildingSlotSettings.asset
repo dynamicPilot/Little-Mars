@@ -17,3 +17,4 @@ MonoBehaviour:
       BuildingObjectFolderPath: Settings/
       ResourceListSlotPrefab: {fileID: 6394964419672730296, guid: e1c312104c0cc8d4a9dac5becc62d2a2, type: 3}
       ConnectionListSlotPrefab: {fileID: 8907451138946302747, guid: 78edc6b9f4338f445ae380750674c3e9, type: 3}
+      TooltipControllerPrefab: {fileID: 3810034089111740226, guid: a9a3a5a89872fc941862208e832f9c1a, type: 3}

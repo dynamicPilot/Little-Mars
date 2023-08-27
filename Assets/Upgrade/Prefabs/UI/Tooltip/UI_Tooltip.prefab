@@ -588,7 +588,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd4fff2ca3950034fb33d75733a6ed95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hideButton: {fileID: 3167344168184305178}
   _panel: {fileID: 7185791373988463608}
   _positionSetter: {fileID: 1682228448372297503}
   _textSetter: {fileID: 3348725872738110770}
@@ -804,14 +803,3 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 770432194536283649, guid: 556d3ba5d38dd7a4997eda3bc0399f85, type: 3}
   m_PrefabInstance: {fileID: 788083263300107182}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3167344168184305178 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2385640272435948980, guid: 556d3ba5d38dd7a4997eda3bc0399f85, type: 3}
-  m_PrefabInstance: {fileID: 788083263300107182}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

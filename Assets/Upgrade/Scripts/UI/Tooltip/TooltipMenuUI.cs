@@ -63,6 +63,7 @@ namespace LittleMars.UI.Tooltip
 
         bool TrySetTooltip(TooltipContext context)
         {
+            _textSetter.SetText(context.Text);
             return _positionSetter.TrySetTooltip(context);
         }
 

@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace LittleMars.UI.Tooltip
 {
     public class TooltipTextSetter : MonoBehaviour
     {
         [SerializeField] TooltipUI _tooltipUI;
+
+        public void SetText(string text)
+        {
+            _tooltipUI.SetText(text);
+        }
 
     }
 }

@@ -150,6 +150,16 @@
         "Lang": 1,
         "Text": "Малый"
       }
+    ],
+    "goalCommon": [
+      {
+        "Lang": 0,
+        "Text": "Press ? for info"
+      },
+      {
+        "Lang": 1,
+        "Text": "Нажмите на ? для инфо"
+      }
     ]
   }
 }

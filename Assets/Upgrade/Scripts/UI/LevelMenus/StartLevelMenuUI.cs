@@ -3,6 +3,7 @@ using LittleMars.Common;
 using LittleMars.Common.Signals;
 using LittleMars.LevelMenus;
 using LittleMars.UI.GoalDisplays;
+using LittleMars.UI.Tooltip;
 using LittleMars.WindowManagers;
 using UnityEngine;
 using UnityEngine.UI;
@@ -40,6 +41,7 @@ namespace LittleMars.UI.LevelMenus
 
                 _displayUIs[i].gameObject.SetActive(true);
                 _displayUIs[i].SetSlot(strategies[i]);
+                _displayUIs[i].GetComponent<GoalTooltipControllerTextUI>().SetIndex(i);
                 index++;
             }
 

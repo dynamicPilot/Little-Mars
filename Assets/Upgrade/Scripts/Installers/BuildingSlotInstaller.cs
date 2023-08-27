@@ -6,6 +6,7 @@ using LittleMars.UI.BuildingsSlots;
 using LittleMars.UI.Effects;
 using LittleMars.UI.ResourceSlots;
 using LittleMars.UI.SlotUIFactories;
+using LittleMars.UI.Tooltip;
 using System;
 using UnityEngine;
 using Zenject;
@@ -28,8 +29,10 @@ namespace LittleMars.Installers
             Container.BindInterfacesAndSelfTo<ResourcesScreenController>().AsSingle();
             Container.BindInterfacesAndSelfTo<ConnectionsListUI>().AsSingle();
             Container.BindInterfacesAndSelfTo<FieldsListUI>().AsSingle();
+            Container.BindInterfacesAndSelfTo<BuildingSlotTooltipUI>().AsSingle();
 
             Container.Bind<ResourceListFactory>().AsSingle();
+            Container.Bind<BuildingSlotTooltipControllerFactory>().AsSingle();
             Container.Bind<FieldSlotUISetter>().AsCached();
             //Container.Bind<SlotUIFactory<SlotUI>>().AsCached();
 
@@ -65,6 +68,10 @@ namespace LittleMars.Installers
             Container.BindFactory<SlotUI, PlaceholderFactory<SlotUI>>()
                 .FromComponentInNewPrefab(_settings.ConnectionListSlotPrefab)
                 .WithGameObjectName("ConnectionSlot");
+
+            Container.BindFactory<string[], TooltipType, BuildingSlotTooltipControllerTextUI, BuildingSlotTooltipControllerTextUI.Factory>()
+                .FromComponentInNewPrefab(_settings.TooltipControllerPrefab)
+                .WithGameObjectName("TooltipController");
         }
 
         [Serializable]
@@ -73,6 +80,7 @@ namespace LittleMars.Installers
             public string BuildingObjectFolderPath;
             public GameObject ResourceListSlotPrefab;
             public GameObject ConnectionListSlotPrefab;
+            public GameObject TooltipControllerPrefab;
         }
     }
 }
