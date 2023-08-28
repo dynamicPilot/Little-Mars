@@ -81,7 +81,7 @@
         "Text": "Космодром"
       }
     ],
-    "timer": [
+    "time": [
       {
         "Lang": 0,
         "Text": "Time to operate"
@@ -91,7 +91,7 @@
         "Text": "Время работы"
       }
     ],
-    "resources": [
+    "storage": [
       {
         "Lang": 0,
         "Text": "Resource in storage"
@@ -169,6 +169,16 @@
       {
         "Lang": 1,
         "Text": "Металлы"
+      }
+    ],
+    "machines": [
+      {
+        "Lang": 0,
+        "Text": "Machines"
+      },
+      {
+        "Lang": 1,
+        "Text": "Машины"
       }
     ],
     "connectionsCommon": [

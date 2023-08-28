@@ -70,7 +70,7 @@ namespace LittleMars.UI.Tooltip
         void Open()
         {
             _isOpen = true;
-            _menu.Open();
+            //_menu.Open();
             _panel.SetActive(true);
         }
 

@@ -289,8 +289,8 @@ namespace LittleMars.Installers
         {
             Container.BindInterfacesAndSelfTo<SignInfoMenu>().AsSingle();
             Container.BindInterfacesAndSelfTo<TooltipManager>().AsSingle();
+            Container.BindInterfacesAndSelfTo<TooltipController>().AsSingle();
 
-            Container.Bind<TooltipController>().AsSingle();
             Container.Bind<CanvasUtils>().AsSingle();
             Container.Bind<TooltipFactory>().AsSingle();
 

@@ -6,23 +6,23 @@ namespace LittleMars.TooltipSystem
     public class TooltipMenu
     {
         readonly TooltipManager _tooltipManager;
-        readonly SignalBus _signalBus;
+        //readonly SignalBus _signalBus;
 
-        public TooltipMenu(TooltipManager tooltipManager, SignalBus signalBus)
+        public TooltipMenu(TooltipManager tooltipManager)//, SignalBus signalBus)
         {
             _tooltipManager = tooltipManager;
-            _signalBus = signalBus;
+            //_signalBus = signalBus;
         }
 
-        public void Open()
-        {
-            _signalBus.Subscribe<TooltipStartTouchSignal>(CallForHideTooltip);
-        }
+        //public void Open()
+        //{
+        //    //_signalBus.Subscribe<TooltipStartTouchSignal>(CallForHideTooltip);
+        //}
 
         public void CallForHideTooltip()
         {
             _tooltipManager.CallForHideTooltip();
-            _signalBus.Unsubscribe<TooltipStartTouchSignal>(CallForHideTooltip);
+            //_signalBus.Unsubscribe<TooltipStartTouchSignal>(CallForHideTooltip);
         }
     }
 }
