@@ -21,10 +21,14 @@ namespace LittleMars.UI.Tooltip
             _type = type;
         }
 
+        public void SetTagsAndInfo()
+        {
+
+        }
+
         protected override void SetText()
         {
-            _text = "test";
-            //_text = _textForBuildingSlot.GetText(_tags, _type);
+            _text = _textForBuildingSlot.GetText(_tags, _type);
         }
 
         public class Factory : PlaceholderFactory<string[], TooltipType, BuildingSlotTooltipControllerTextUI>

@@ -45,13 +45,19 @@ namespace LittleMars.UI.Tooltip
         void OnButtonClick()
         {
             _clickCount++;
-
+            Debug.Log("TooltipControllerUI: counter is " + _clickCount);
+            
             if (_clickCount == 1)
+            {
+                Debug.Log("TooltipControllerUI: call for tooltip");
                 _controller.CallTooltip(GetTooltipContext());
+            }
+                
         }
 
         void ResetClickCount()
         {
+            Debug.Log("TooltipControllerUI: reset counter");
             // reset click count if player
             // clicks again after tooltip was shown
             _clickCount = 0;

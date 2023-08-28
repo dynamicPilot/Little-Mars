@@ -10,12 +10,30 @@ namespace LittleMars.TooltipSystem
     public class TooltipControllerTextForBuildSlots
     {
         readonly InfoLangManager _infoLangManager;
+
+        public TooltipControllerTextForBuildSlots(InfoLangManager infoLangManager)
+        {
+            _infoLangManager = infoLangManager;
+        }
+
         public string GetText(string[] tags, TooltipType type)
         {
-            //var tag = String.Concat(_groupPrefix, index.ToString());
-            var text = "";//_infoLangManager.GetText("goalCommon", Common.TagGroup.info);
+            var text = GetCommonPart(type);
 
+            for (int i = 0; i < tags.Length; i++)
+            {
+                var separator = (i == tags.Length - 1) ? "" : ",";
+                text = string.Concat(text, " ", _infoLangManager.GetText(tags[i], Common.TagGroup.info), separator); 
+            }
+
+            text = string.Concat(text, ".");
             return text;
+        }
+
+        string GetCommonPart(TooltipType type)
+        {
+            var commonText = string.Concat(type.ToString(), "Common");
+            return _infoLangManager.GetText(commonText, Common.TagGroup.info);
         }
     }
 }

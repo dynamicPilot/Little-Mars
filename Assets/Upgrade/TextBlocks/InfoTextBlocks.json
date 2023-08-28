@@ -160,6 +160,36 @@
         "Lang": 1,
         "Text": "Нажмите на ? для инфо"
       }
+    ],
+    "metalls": [
+      {
+        "Lang": 0,
+        "Text": "Metalls"
+      },
+      {
+        "Lang": 1,
+        "Text": "Металлы"
+      }
+    ],
+    "connectionsCommon": [
+      {
+        "Lang": 0,
+        "Text": "Next to"
+      },
+      {
+        "Lang": 1,
+        "Text": "Радом с"
+      }
+    ],
+    "fieldsCommon": [
+      {
+        "Lang": 0,
+        "Text": "Place on map slot with"
+      },
+      {
+        "Lang": 1,
+        "Text": "Разместите на слоте с"
+      }
     ]
   }
 }

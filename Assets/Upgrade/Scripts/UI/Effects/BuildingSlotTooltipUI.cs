@@ -1,16 +1,9 @@
 ﻿using LittleMars.Common;
 using LittleMars.UI.BuildingsSlots;
-using LittleMars.UI.SlotUIFactories;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Zenject;
-using UnityEngine;
 using Debug = UnityEngine.Debug;
 using LittleMars.UI.Tooltip;
+using System.Collections.Generic;
 
 namespace LittleMars.UI.Effects
 {
@@ -50,6 +43,7 @@ namespace LittleMars.UI.Effects
             var type = (_hasConnections) ? TooltipType.connections : TooltipType.fields;
             var tags = GetTags();
 
+            //Debug.Log("TextUI: tags count is " + tags.Length + " type " + type);
             _factory.CreateSlot(tags, type, _gameUI.TooltipControllerParent);
         }
         string[] GetTags()
@@ -62,14 +56,28 @@ namespace LittleMars.UI.Effects
             else return null;
         }
 
-        string[] GetTagsForFields()
-        {
-            return null;
-        }
-
         string[] GetTagsForConnections()
         {
-            return null;
+            var tags = new List<string>();
+            for (int i = 0; i < _building.Operation.Connections.Length; i++)
+            {
+                var type = _building.Operation.Connections[i];
+                //Debug.Log("    add connection type to " + type);
+                tags.Add(type.ToString());
+            }
+            return tags.ToArray();
+        }
+
+        string[] GetTagsForFields()
+        {
+            var tags = new List<string>();
+            for (int i = 0; i < _building.Construction.ResourcesInMap.Length; i++)
+            {
+                var type = _building.Construction.ResourcesInMap[i];
+                //Debug.Log("    add field type to " + type);
+                tags.Add(type.ToString());
+            }
+            return tags.ToArray();
         }
     }
 }

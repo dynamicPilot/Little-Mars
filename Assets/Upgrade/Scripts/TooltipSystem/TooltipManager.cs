@@ -42,6 +42,7 @@ namespace LittleMars.TooltipSystem
 
         public void CallForHideTooltip()
         {
+            Debug.Log("TooltipManager: called for hide tooltip");
             if (_tooltip.gameObject.activeSelf)
                 HideTooltip();
 
