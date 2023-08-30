@@ -1,6 +1,7 @@
 ﻿using LittleMars.Model.GoalDisplays;
 using LittleMars.UI.ResourceSlots;
 using LittleMars.UI.SlotUIFactories;
+using LittleMars.UI.Tooltip;
 using UnityEngine;
 using Zenject;
 
@@ -53,6 +54,11 @@ namespace LittleMars.UI.GoalDisplays
         private void ShowPart(GameObject part)
         {
             part.SetActive(true);
+        }
+        public void SetTooltip(GoalToolipInfo tooltipInfo, int goalIndex)
+        {
+            if (tooltipInfo == null) return;
+            tooltipInfo.SetTooltipInfo(goalIndex, _goalInfo.WithTimer());
         }
 
         public class Factory : PlaceholderFactory<IGoalInfo, ResourceGoalDisplayStrategy>

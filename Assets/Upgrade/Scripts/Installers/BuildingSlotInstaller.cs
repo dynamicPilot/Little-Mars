@@ -69,7 +69,7 @@ namespace LittleMars.Installers
                 .FromComponentInNewPrefab(_settings.ConnectionListSlotPrefab)
                 .WithGameObjectName("ConnectionSlot");
 
-            Container.BindFactory<string[], TooltipType, BuildingSlotTooltipControllerTextUI, BuildingSlotTooltipControllerTextUI.Factory>()
+            Container.BindFactory<string[], TooltipType, BuildingSlotTooltipInfo, BuildingSlotTooltipInfo.Factory>()
                 .FromComponentInNewPrefab(_settings.TooltipControllerPrefab)
                 .WithGameObjectName("TooltipController");
         }

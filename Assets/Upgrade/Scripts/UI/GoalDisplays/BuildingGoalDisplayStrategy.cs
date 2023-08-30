@@ -1,6 +1,7 @@
 ﻿using LittleMars.Model.GoalDisplays;
 using LittleMars.UI.ResourceSlots;
 using LittleMars.UI.SlotUIFactories;
+using LittleMars.UI.Tooltip;
 using UnityEngine;
 using Zenject;
 
@@ -38,6 +39,12 @@ namespace LittleMars.UI.GoalDisplays
         public void SetTimerPart(ResourceSlotUI part)
         {
             HidePart(part.gameObject);
+        }
+
+        public void SetTooltip(GoalToolipInfo tooltipInfo, int goalIndex)
+        {
+            if (tooltipInfo == null) return;
+            tooltipInfo.SetTooltipInfo(goalIndex, _goalInfo.WithTimer());
         }
 
         private void HidePart(GameObject part)

@@ -1,4 +1,5 @@
 ﻿using LittleMars.UI.ResourceSlots;
+using LittleMars.UI.Tooltip;
 using System;
 
 namespace LittleMars.UI.GoalDisplays
@@ -8,6 +9,7 @@ namespace LittleMars.UI.GoalDisplays
         void SetBuildingPart(BuildingSlotUI part);
         void SetResourcePart(ResourceAndGoalTypeSlotUI part);
         void SetTimerPart(ResourceSlotUI part);
+        void SetTooltip(GoalToolipInfo tooltipInfo, int goalIndex);
 
     }
 }

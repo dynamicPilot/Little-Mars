@@ -34,6 +34,11 @@ namespace LittleMars.Common.Catalogues
             return _settings.Catalogue.Icon((int)type, IconType.field);
         }
 
+        public Sprite SlotIsBlockedIcon()
+        {
+            return _settings.Catalogue.Icon(0, IconType.blockedSlot);
+        }
+
         public Sprite TimerTypeIcon()
         {
             return _settings.Catalogue.Icon(0, IconType.timer);

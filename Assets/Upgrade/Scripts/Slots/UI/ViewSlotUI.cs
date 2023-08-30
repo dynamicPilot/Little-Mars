@@ -19,9 +19,9 @@ namespace LittleMars.Slots.UI
             _canvas.worldCamera = Camera.main;
         }
 
-        public void UpdateSigns(Resource[] resources)
+        public void UpdateSigns(Resource[] resources, bool isBlocked)
         {
-            _signUI.UpdateSigns(resources);
+            _signUI.UpdateSigns(resources, isBlocked);
         }
 
         public void HideSigns()

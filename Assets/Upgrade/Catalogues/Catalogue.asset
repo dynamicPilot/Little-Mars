@@ -30,8 +30,8 @@ MonoBehaviour:
     Workshop: {fileID: 1395761084, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
   Goal:
     Storage: {fileID: -1938603965, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
-    Production: {fileID: 7143536599680955399, guid: ba56e4d3d204d0b4aaab077b6935912e, type: 3}
-    Time: {fileID: 308360067, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
+    Production: {fileID: 21300000, guid: b0cba0a319a49104183c3fd15c09c699, type: 3}
+    Time: {fileID: -541044406, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
   Fields:
     Metals: {fileID: -168386757, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
   _other:

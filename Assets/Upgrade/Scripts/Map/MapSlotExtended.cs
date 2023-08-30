@@ -21,6 +21,11 @@ namespace LittleMars.Map
             _neighbors = new Dictionary<Direction, MapSlotExtended>();
         }
 
+        public void AddIsBlocked()
+        {
+            IsBlocked = true;
+        }
+
         public void AddNeighbor(Direction direction, MapSlotExtended neighbor)
         {
             _neighbors.Add(direction, neighbor);

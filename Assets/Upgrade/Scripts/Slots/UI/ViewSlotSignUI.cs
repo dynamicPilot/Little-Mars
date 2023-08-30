@@ -17,21 +17,46 @@ namespace LittleMars.Slots.UI
             _signs = new List<SignImage>();
         }
 
-        public void UpdateSigns(Resource[] resources)
+        public void UpdateSigns(Resource[] resources, bool isBlocked)
         {
-            if (resources == null) return;
+            if (resources == null && !isBlocked) return;
 
-            int i;
-            for (i = 0; i < resources.Length; i++)
+            int index = 0;
+
+            if (isBlocked)
             {
-                if (i > _signs.Count - 1) CreateSigns();
-                _signs[i].Resource(resources[i]);
-                _signs[i].gameObject.SetActive(true);
+                // create isBlocked Icon
+                CreateIsBlockedSlot(ref index);
             }
-            
-            if (i < _signs.Count)
+
+            if (resources != null && resources.Length > 0)
+                CreateResourcesSlots(resources, ref index);
+
+            HideOtherSlots(index);
+        }
+        void CreateIsBlockedSlot(ref int index)
+        {
+            if (index > _signs.Count - 1) CreateSigns();
+            _signs[index].IsBlocked();
+            _signs[index].gameObject.SetActive(true);
+            index++;
+        }
+
+        void CreateResourcesSlots(Resource[] resources, ref int index)
+        {
+            for (; index < resources.Length; index++)
             {
-                for (int j = i; j < _signs.Count; j++)
+                if (index > _signs.Count - 1) CreateSigns();
+                _signs[index].Resource(resources[index]);
+                _signs[index].gameObject.SetActive(true);
+            }
+        }
+
+        void HideOtherSlots(int index)
+        {
+            if (index < _signs.Count)
+            {
+                for (int j = index; j < _signs.Count; j++)
                     _signs[j].gameObject.SetActive(false);
             }
         }

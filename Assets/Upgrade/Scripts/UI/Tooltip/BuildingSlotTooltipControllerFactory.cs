@@ -9,14 +9,14 @@ namespace LittleMars.UI.Tooltip
     /// </summary>
     public class BuildingSlotTooltipControllerFactory
     {
-        readonly BuildingSlotTooltipControllerTextUI.Factory _factory;
+        readonly BuildingSlotTooltipInfo.Factory _factory;
 
-        public BuildingSlotTooltipControllerFactory(BuildingSlotTooltipControllerTextUI.Factory factory)
+        public BuildingSlotTooltipControllerFactory(BuildingSlotTooltipInfo.Factory factory)
         {
             _factory = factory;
         }
 
-        public BuildingSlotTooltipControllerTextUI CreateSlot(string[] tags, TooltipType type, RectTransform container)
+        public BuildingSlotTooltipInfo CreateSlot(string[] tags, TooltipType type, RectTransform container)
         {
             var slot = _factory.Create(tags, type);
             slot.transform.SetParent(container);

@@ -40,8 +40,8 @@ namespace LittleMars.UI.LevelMenus
                 if (i >= _displayUIs.Length) return;
 
                 _displayUIs[i].gameObject.SetActive(true);
-                _displayUIs[i].SetSlot(strategies[i]);
-                _displayUIs[i].GetComponent<GoalTooltipControllerTextUI>().SetIndex(i);
+                _displayUIs[i].SetSlot(strategies[i], i);
+                //_displayUIs[i].GetComponent<GoalTooltipControllerTextUI>().SetIndex(i);
                 index++;
             }
 

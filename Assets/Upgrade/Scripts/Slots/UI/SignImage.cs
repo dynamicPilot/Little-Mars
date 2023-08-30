@@ -3,6 +3,8 @@ using LittleMars.Common.Catalogues;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
+using Zenject.ReflectionBaking.Mono.Cecil;
+using Resource = LittleMars.Common.Resource;
 
 namespace LittleMars.Slots.UI
 {
@@ -18,13 +20,24 @@ namespace LittleMars.Slots.UI
             _iconsCatalogue = iconsCatalogue;
         }
 
-        public void Resource(Resource resource)
+        public void IsBlocked()
         {
-            var icon = GetIcon(resource);
+            var icon = GetIsBlockedIcon();
             SetIcon(icon);
         }
 
-        Sprite GetIcon(Resource resource)
+        public void Resource(Resource resource)
+        {
+            var icon = GetResourceIcon(resource);
+            SetIcon(icon);
+        }
+
+        Sprite GetIsBlockedIcon()
+        {
+            return _iconsCatalogue.SlotIsBlockedIcon();
+        }
+
+        Sprite GetResourceIcon(Resource resource)
         {
             var icon = _iconsCatalogue.FieldTypeIcon(resource);
             icon = icon != null ? icon : _iconsCatalogue.ResourceIcon(resource);

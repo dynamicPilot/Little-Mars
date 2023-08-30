@@ -35,7 +35,7 @@ namespace LittleMars.Slots
         }
 
         public void Indexes(int row, int columns) => _data.SetIndexes(row, columns);
-        public void Resources(IEnumerable<Resource> resources) => _viewUI.UpdateSigns(resources.ToArray());
+        public void Resources(IEnumerable<Resource> resources, bool isBlocked) => _viewUI.UpdateSigns(resources.ToArray(), isBlocked);
         public void TryAddBuilding(BuildingObject buildingObject)
         {
             _model.StartBuildingPlacement(buildingObject, _data.Indexes, _view.Position);

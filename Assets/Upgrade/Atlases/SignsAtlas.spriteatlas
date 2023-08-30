@@ -1,0 +1,193 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SignsAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 8a249969a4cbfd34299c4f82c49f9826, type: 3}
+    - {fileID: 102900000, guid: d3984a5bb029d1d4ebb3fa433d20d6c7, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - d262e56096213a744b4b8212c50f364a: -504879171
+    - c5d644f1a11fc0d4abd667b078b92910: 21300000
+    - 14b271228ac4858418e71d359171094c: 21300000
+    - b930f7b29c0d0584486bf6e18a777f51: 21300000
+    - dbf5b53364fd22a4bbbf04b56ddd8ff8: 21300000
+    - 41dbff3350adc8642966ca38ec19be75: 1395761084
+    - 41dbff3350adc8642966ca38ec19be75: -1590278226
+    - 41dbff3350adc8642966ca38ec19be75: -168386757
+    - 41dbff3350adc8642966ca38ec19be75: -1542091369
+    - 41dbff3350adc8642966ca38ec19be75: 1047183583
+    - 41dbff3350adc8642966ca38ec19be75: -772789695
+    - 41dbff3350adc8642966ca38ec19be75: 1219344384
+    - 41dbff3350adc8642966ca38ec19be75: 1937459234
+    - 41dbff3350adc8642966ca38ec19be75: 1093994708
+    - 41dbff3350adc8642966ca38ec19be75: -822232554
+    - 41dbff3350adc8642966ca38ec19be75: 307206352
+    - b0cba0a319a49104183c3fd15c09c699: 21300000
+    - 9f7d4464cf8daa5418920d6909679740: -541044406
+    - 9f7d4464cf8daa5418920d6909679740: 308360067
+    - 9f7d4464cf8daa5418920d6909679740: -1938603965
+    - 9f7d4464cf8daa5418920d6909679740: 955785522
+    - 9f7d4464cf8daa5418920d6909679740: -1036831400
+    - 9f7d4464cf8daa5418920d6909679740: 62905270
+    - 9f7d4464cf8daa5418920d6909679740: 425383175
+    - 9f7d4464cf8daa5418920d6909679740: -1619362539
+    - dd0280843c3120945b45f38c36411d94: 21300000
+    - 19d74065783a39f4cb92392035e63e3b: 21300000
+    - 7d6d4495f46e7504e90a762998d7f313: 21300000
+    - 020f11b6eb457244aba8f13df461c0aa: 21300000
+    - cbccbe37a85acb64aaf8b26019060d07: 21300000
+    - 31214da79b24a764287d1f955b370487: 21300000
+    - 554b27a86c7465b4dbcba4d455250467: 21300000
+    - 13e895e814a302447aacad22d8c9e8eb: 21300000
+    - a2f5f7d93e2b4414986b44383db3ea33: 21300000
+    - c52493db9ae974546a1fc438210b23c0: 21300000
+    - 5fc5402c403f75f41b2df1cf06f6749f: 21300000
+    - 654be45c3d8a5a04eaf02614edc6d3d2: 2793645
+    - 654be45c3d8a5a04eaf02614edc6d3d2: 1634601718
+    - b10fa68c4f0f2334c85326f439416859: 21300000
+    - 0a01ae2d03708ad46ad7c3bcc372e713: 21300000
+    - 3ea37c8d335c1b14f903803c47b468f9: -1414759368
+    - eeac9dbd0bf9fd545b902c2e68c66de1: 21300000
+    - 5086136e8311fe643b2e3e47343e11a4: 21300000
+    - aeeda27e31c3e804d9fd45227992d56d: 21300000
+    - 179fcf9ef43f1b444acda13da3a8e0a4: 55390254
+    - 179fcf9ef43f1b444acda13da3a8e0a4: 1203078673
+    - 179fcf9ef43f1b444acda13da3a8e0a4: -1450987326
+    - aeddae1ff22b6194cb916360a5fead80: 21300000
+    - dc5b0c6fcc08d4e458a541ba540a0ce8: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -504879171, guid: d262e56096213a744b4b8212c50f364a, type: 3}
+  - {fileID: 21300000, guid: c5d644f1a11fc0d4abd667b078b92910, type: 3}
+  - {fileID: 21300000, guid: 14b271228ac4858418e71d359171094c, type: 3}
+  - {fileID: 21300000, guid: b930f7b29c0d0584486bf6e18a777f51, type: 3}
+  - {fileID: 21300000, guid: dbf5b53364fd22a4bbbf04b56ddd8ff8, type: 3}
+  - {fileID: 1395761084, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
+  - {fileID: -1590278226, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
+  - {fileID: -168386757, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
+  - {fileID: -1542091369, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
+  - {fileID: 1047183583, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
+  - {fileID: -772789695, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
+  - {fileID: 1219344384, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
+  - {fileID: 1937459234, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
+  - {fileID: 1093994708, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
+  - {fileID: -822232554, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
+  - {fileID: 307206352, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
+  - {fileID: 21300000, guid: b0cba0a319a49104183c3fd15c09c699, type: 3}
+  - {fileID: -541044406, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
+  - {fileID: 308360067, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
+  - {fileID: -1938603965, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
+  - {fileID: 955785522, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
+  - {fileID: -1036831400, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
+  - {fileID: 62905270, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
+  - {fileID: 425383175, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
+  - {fileID: -1619362539, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
+  - {fileID: 21300000, guid: dd0280843c3120945b45f38c36411d94, type: 3}
+  - {fileID: 21300000, guid: 19d74065783a39f4cb92392035e63e3b, type: 3}
+  - {fileID: 21300000, guid: 7d6d4495f46e7504e90a762998d7f313, type: 3}
+  - {fileID: 21300000, guid: 020f11b6eb457244aba8f13df461c0aa, type: 3}
+  - {fileID: 21300000, guid: cbccbe37a85acb64aaf8b26019060d07, type: 3}
+  - {fileID: 21300000, guid: 31214da79b24a764287d1f955b370487, type: 3}
+  - {fileID: 21300000, guid: 554b27a86c7465b4dbcba4d455250467, type: 3}
+  - {fileID: 21300000, guid: 13e895e814a302447aacad22d8c9e8eb, type: 3}
+  - {fileID: 21300000, guid: a2f5f7d93e2b4414986b44383db3ea33, type: 3}
+  - {fileID: 21300000, guid: c52493db9ae974546a1fc438210b23c0, type: 3}
+  - {fileID: 21300000, guid: 5fc5402c403f75f41b2df1cf06f6749f, type: 3}
+  - {fileID: 2793645, guid: 654be45c3d8a5a04eaf02614edc6d3d2, type: 3}
+  - {fileID: 1634601718, guid: 654be45c3d8a5a04eaf02614edc6d3d2, type: 3}
+  - {fileID: 21300000, guid: b10fa68c4f0f2334c85326f439416859, type: 3}
+  - {fileID: 21300000, guid: 0a01ae2d03708ad46ad7c3bcc372e713, type: 3}
+  - {fileID: -1414759368, guid: 3ea37c8d335c1b14f903803c47b468f9, type: 3}
+  - {fileID: 21300000, guid: eeac9dbd0bf9fd545b902c2e68c66de1, type: 3}
+  - {fileID: 21300000, guid: 5086136e8311fe643b2e3e47343e11a4, type: 3}
+  - {fileID: 21300000, guid: aeeda27e31c3e804d9fd45227992d56d, type: 3}
+  - {fileID: 55390254, guid: 179fcf9ef43f1b444acda13da3a8e0a4, type: 3}
+  - {fileID: 1203078673, guid: 179fcf9ef43f1b444acda13da3a8e0a4, type: 3}
+  - {fileID: -1450987326, guid: 179fcf9ef43f1b444acda13da3a8e0a4, type: 3}
+  - {fileID: 21300000, guid: aeddae1ff22b6194cb916360a5fead80, type: 3}
+  - {fileID: 21300000, guid: dc5b0c6fcc08d4e458a541ba540a0ce8, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - UI_Sign_settings
+  - UI_Sign_musicOn
+  - UI_ShapeSize_m
+  - UI_Sign_unmuteAll
+  - UI_Sign_day
+  - UI_BuildingsSign_workshop
+  - UI_BuildingsSign_farm
+  - UI_MapSign_metal
+  - UI_BuildingsSign_supplyPlant
+  - UI_BuildingsSign_powerPlant
+  - UI_BuildingsSign_size
+  - UI_BuildingsSign_factory
+  - UI_BuildingsSign_dome
+  - UI_BuildingsSign_mine
+  - UI_BuildingsSign_cosmodrome
+  - UI_BuildingsSign_money
+  - UI_Sign_production
+  - UI_ResourcesSign_clock
+  - UI_Sign_machines
+  - UI_Sign_box
+  - UI_Sign_meal
+  - UI_Sign_water
+  - UI_Sign_metal
+  - UI_Sign_energy
+  - UI_Sign_money
+  - UI_Sign_repeat
+  - UI_Sign_night
+  - UI_Sign_play
+  - UI_Sign_on
+  - UI_Sign_quast
+  - UI_Sign_pause
+  - UI_Sign_storage
+  - UI_Sign_menu
+  - UI_Sign_muteAll
+  - UI_Sign_accept
+  - UI_Sign_quit
+  - UI_LimitSign_1
+  - UI_LimitSign_0
+  - UI_ShapeSize_l
+  - UI_Sign_musicOff
+  - UI_ShapeSize_xl
+  - UI_Sign_speed1
+  - UI_Sign_next
+  - UI_Sign_person
+  - UI_Lang_1
+  - UI_Lang_0
+  - UI_Lang_2
+  - UI_Sign_speed2
+  - UI_ShapeSize_s
+  m_RenderDataMap: {}
+  m_Tag: SignsAtlas
+  m_IsVariant: 0

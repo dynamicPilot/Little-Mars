@@ -11,7 +11,7 @@ namespace LittleMars.UI.Tooltip
     {
         [SerializeField] RectTransform _rectTransform;
         [SerializeField] Button _button;
-        [SerializeField] TooltipControllerTextUI _tooltipText;
+        [SerializeField] TooltipInfo _tooltipInfo;
 
         [Header ("Tooltip Settings")]
         [SerializeField] Direction _direction;
@@ -67,7 +67,7 @@ namespace LittleMars.UI.Tooltip
 
         TooltipContext GetTooltipContext()
         {
-            return new TooltipContext(_direction, _offset, _rectTransform, _tooltipText.GetText());
+            return new TooltipContext(_direction, _offset, _rectTransform, _tooltipInfo.GetText());
         }
     }
 }

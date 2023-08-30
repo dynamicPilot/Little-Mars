@@ -41,6 +41,8 @@ namespace LittleMars.Map.States
                 MapLine line = _mapSettings.CustomMap.Lines[i];
                 for (int j = 0; j < columns; j++)
                 {
+                    if (line.Slots[j].IsBlocked) slots[i][j].AddIsBlocked();
+
                     var types = MapFactoryStaticHelper.GetBuildingTypesForSlot(line.Slots[j].Buildings.ToArray());
                     if (types == null || types.Count > 0) types = _mapSettings.BuildingTypes.ToList();
 

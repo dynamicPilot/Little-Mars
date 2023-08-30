@@ -8,9 +8,9 @@ namespace LittleMars.UI.GoalDisplays
         [Header("Effects")]
         [SerializeField] private SliderFillingAnimation _sliderAnimation;
 
-        public override void SetSlot(IGoalDisplayStrategy strategy)
+        public override void SetSlot(IGoalDisplayStrategy strategy, int goalIndex)
         {
-            base.SetSlot(strategy);
+            base.SetSlot(strategy, goalIndex);
             _sliderAnimation.StartAnimation();
         }
     }

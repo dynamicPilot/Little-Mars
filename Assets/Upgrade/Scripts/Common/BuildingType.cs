@@ -97,7 +97,8 @@
         goalType,
         field,
         timer,
-        routeError
+        routeError,
+        blockedSlot
     }
 
     public enum MenuInitType

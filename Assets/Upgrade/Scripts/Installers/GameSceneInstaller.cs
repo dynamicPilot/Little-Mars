@@ -294,8 +294,8 @@ namespace LittleMars.Installers
             Container.Bind<CanvasUtils>().AsSingle();
             Container.Bind<TooltipFactory>().AsSingle();
 
-            Container.Bind<TooltipControllerTextForGoal>().AsSingle();
-            Container.Bind<TooltipControllerTextForBuildSlots>().AsSingle();
+            Container.Bind<GoalTooltipTextGetter>().AsSingle();
+            Container.Bind<BuildingSlotTooltipTextGetter>().AsSingle();
 
             Container.BindFactory<TooltipObject, TooltipObject.Factory>()
                 .FromComponentInNewPrefab(_settings.TooltipPrefab)

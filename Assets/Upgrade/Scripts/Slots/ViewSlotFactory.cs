@@ -37,7 +37,7 @@ namespace LittleMars.Slots
                 for (int j = 0; j < columns; j++)
                 {
                     var slot = _factory.Create(coordinates[i][j]);
-                    slot.Resources(mapSlots[i][j].Resources);
+                    slot.Resources(mapSlots[i][j].Resources, mapSlots[i][j].IsBlocked);
                     slot.Indexes(i, j);
                     row.Add(slot);
                 }

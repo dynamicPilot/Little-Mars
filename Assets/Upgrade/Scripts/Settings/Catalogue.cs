@@ -63,6 +63,7 @@ namespace LittleMars.Settings
         {
             public Sprite DefaultTimer;
             public Sprite RouteError;
+            public Sprite BlockedSlot;
         }
 
         private void CreateResourceDictionary()
@@ -135,6 +136,10 @@ namespace LittleMars.Settings
             else if (type == IconType.routeError)
             {
                 return _other.RouteError;
+            }
+            else if (type == IconType.blockedSlot)
+            {
+                return _other.BlockedSlot;
             }
             else
             {
