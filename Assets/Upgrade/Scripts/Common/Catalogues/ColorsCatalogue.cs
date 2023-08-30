@@ -18,6 +18,11 @@ namespace LittleMars.Common.Catalogues
             return _settings.Colors.GetColor((int)state, ColorType.bState);
         }
 
+        public Color ConnectionColor(BuildingType type)
+        {
+            return _settings.Colors.GetColor((int)type, ColorType.connection);
+        }
+
         [Serializable]
         public class Settings
         {

@@ -1,18 +1,28 @@
 ﻿using LittleMars.Common;
+using LittleMars.Common.Catalogues;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace LittleMars.Connections.View
 {
     public class ConnectionIndicators : MonoBehaviour
     {
-        [SerializeField] private ConnectionIndicator _left;
-        [SerializeField] private ConnectionIndicator _up;
-        [SerializeField] private ConnectionIndicator _right;
-        [SerializeField] private ConnectionIndicator _down;
+        [SerializeField] ConnectionIndicator _left;
+        [SerializeField] ConnectionIndicator _up;
+        [SerializeField] ConnectionIndicator _right;
+        [SerializeField] ConnectionIndicator _down;
 
         Dictionary<Direction, ConnectionIndicator> _indicators = null;
+        ColorsCatalogue _colors;
+
         bool _canShow = false;
+
+        [Inject]
+        public void Constructor(ColorsCatalogue colors)
+        {
+            _colors = colors;
+        }
 
         public void UpdateIndicators(Dictionary<Direction, Connection> connections)
         {
@@ -73,7 +83,10 @@ namespace LittleMars.Connections.View
             if (!_indicators[direction].gameObject.activeSelf) 
                 _indicators[direction].gameObject.SetActive(true);
 
-            _indicators[direction].SetIndicator(Color.cyan);
+            // change color
+            // get colot of type
+            var color = _colors.ConnectionColor(type);
+            _indicators[direction].SetIndicator(color);
         }
     }
 }
