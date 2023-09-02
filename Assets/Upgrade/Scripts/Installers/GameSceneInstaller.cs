@@ -378,6 +378,7 @@ namespace LittleMars.Installers
             public GameObject BuildingPrefab;
             public GameObject BuildingSlotPrefab;
             public GameObject ResourceSlotPrefab;
+            public GameObject MenuResourceSlotPrefab;
             public GameObject ResourceBalanceSlotPrefab;
             public GameObject BuildingGoalSlotPrefab;
             public GameObject ResourceGoalSlotPrefab;

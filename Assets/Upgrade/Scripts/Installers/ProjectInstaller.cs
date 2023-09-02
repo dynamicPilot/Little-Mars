@@ -42,8 +42,8 @@ namespace LittleMars.Installers
         void InstallPlayer()
         {
             // bind test player
-            Container.Bind<IPlayerState>().To<MockPlayerState>().AsSingle();
-            //Container.BindInterfacesTo<PlayerState>();
+            //Container.Bind<IPlayerState>().To<MockPlayerState>().AsSingle();
+            Container.BindInterfacesTo<PlayerState>().AsSingle();
             Container.Bind<LangSettings>().AsSingle();
         }
 

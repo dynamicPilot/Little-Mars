@@ -6,6 +6,7 @@ using LittleMars.Localization;
 using LittleMars.Model.TimeUpdate;
 using LittleMars.Notifications;
 using LittleMars.Slots;
+using LittleMars.UI.ResourceSlots;
 using System;
 using UnityEngine;
 using Zenject;
@@ -26,6 +27,7 @@ namespace LittleMars.Settings
         {
             public GameSceneInstaller.Settings SlotPrefab;
             public ViewSlotFactory.Settings SpawnerSettings;
+            public ResourceLimiter.Settings ResourcesLimits; 
         }
 
         [Serializable]
@@ -56,6 +58,7 @@ namespace LittleMars.Settings
         {
             Container.BindInstance(View.SlotPrefab);
             Container.BindInstance(View.SpawnerSettings);
+            Container.BindInstance(View.ResourcesLimits);
 
             Container.BindInstance(Catalogue.Catalogue);
             Container.BindInstance(Catalogue.Colors);
