@@ -59,7 +59,7 @@ MonoBehaviour:
       Mode: 1
       CustomMap: {fileID: 11400000, guid: de5fc3722d4c32e4383a7d6251dc2acd, type: 2}
     Fields:
-      Mode: 0
+      Mode: 2
       Fields: []
   Rockets:
     Rockets:

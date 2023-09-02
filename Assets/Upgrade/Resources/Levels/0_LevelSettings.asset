@@ -39,7 +39,7 @@ MonoBehaviour:
       Mode: 0
       CustomMap: {fileID: 0}
     Fields:
-      Mode: 0
+      Mode: 2
       Fields: []
   Rockets:
     Rockets:

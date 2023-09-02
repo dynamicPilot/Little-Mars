@@ -10,45 +10,65 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf6543bd0cd16ad458aedf97fdae9b3f, type: 3}
-  m_Name: 2_LevelSettings
+  m_Name: 9_LevelSettings
   m_EditorClassIdentifier: 
   Info:
     LevelInfo:
-      Number: 3
-      StartSprite: {fileID: -6559670230340714738, guid: 6dfc9672df1d5ca42945eb7570208946, type: 3}
-      EndSprite: {fileID: -5003087959020400790, guid: 6dfc9672df1d5ca42945eb7570208946, type: 3}
+      Number: 10
+      StartSprite: {fileID: -6933934529716846700, guid: 6dfc9672df1d5ca42945eb7570208946, type: 3}
+      EndSprite: {fileID: 9140034174522297836, guid: b2fe90ad038c4eb499c845c6dfe703e1, type: 3}
   Conditions:
     InitialConditions:
       Resources:
       - Type: 0
-        Amount: 160
+        Amount: 380
       - Type: 1
-        Amount: 37
-      - Type: 2
-        Amount: 50
+        Amount: 55
       - Type: 3
-        Amount: 27
+        Amount: 54
+      - Type: 2
+        Amount: 5
       BuildingTypes:
       - Type: 1
         Size: 0
-        Amount: 1
+        Amount: 4
       - Type: 5
         Size: 0
-        Amount: 1
+        Amount: 2
       - Type: 0
+        Size: 0
+        Amount: 1
+      - Type: 3
+        Size: 0
+        Amount: 1
+      - Type: 2
+        Size: 0
+        Amount: 1
+      - Type: 4
+        Size: 0
+        Amount: 1
+      - Type: 6
         Size: 0
         Amount: 1
       TradeUnits: []
   Map:
     Lines:
-      Rows: 2
-      Columns: 2
-      BuildingTypes: 010000000500000000000000
+      Rows: 3
+      Columns: 4
+      BuildingTypes: 00000000030000000100000005000000020000000400000006000000
       Mode: 0
       CustomMap: {fileID: 0}
     Fields:
-      Mode: 2
-      Fields: []
+      Mode: 0
+      Fields:
+      - Type: 1
+        Amount:
+          Type: 1
+          Units:
+          - Direction: 0
+            IsBackStep: 0
+          - Direction: 1
+            IsBackStep: 0
   Rockets:
     Rockets:
       HasRockets: 0
@@ -64,24 +84,27 @@ MonoBehaviour:
             Amount: 10
   Goals:
     GoalsSettings:
-      HasBuildingGoals: 0
+      HasBuildingGoals: 1
       BuildingGoals:
-        GoalsArray: []
-      HasBuildingGoalsWithTimer: 1
-      BuildingGoalsWithTimers:
         GoalsArray:
         - Type: 0
           Unit:
-            Type: 0
+            Type: 6
             Size: 0
             Amount: 1
-          Time: 8
-      HasResourcesGoals: 0
-      ResourceGoals:
+      HasBuildingGoalsWithTimer: 0
+      BuildingGoalsWithTimers:
         GoalsArray: []
+      HasResourcesGoals: 1
+      ResourceGoals:
+        GoalsArray:
+        - Type: 0
+          Unit:
+            Type: 5
+            Amount: 20
       HasProductionGoals: 0
       ProductionGoals:
         GoalsArray: []
   TextBlocks:
     Blocks:
-      Blocks: {fileID: 4900000, guid: 0d58d9ff54954df4f8c7795464f40733, type: 3}
+      Blocks: {fileID: 4900000, guid: 242c653df86599f4896c1dc973d45e10, type: 3}

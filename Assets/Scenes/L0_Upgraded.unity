@@ -7507,8 +7507,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 138407337}
   - {fileID: 149259150}
+  - {fileID: 138407337}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9496,6 +9496,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2029061424}
     m_Modifications:
+    - target: {fileID: 2865395808329478202, guid: 8de43bed1b79e2d468741e47bacdb9f4, type: 3}
+      propertyPath: m_text
+      value: i
+      objectReference: {fileID: 0}
+    - target: {fileID: 3523918156166027414, guid: 8de43bed1b79e2d468741e47bacdb9f4, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4774188110206638472, guid: 8de43bed1b79e2d468741e47bacdb9f4, type: 3}
       propertyPath: m_Name
       value: OpenBalanceMenuButton
@@ -9530,11 +9538,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4774188110206638475, guid: 8de43bed1b79e2d468741e47bacdb9f4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 40
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 4774188110206638475, guid: 8de43bed1b79e2d468741e47bacdb9f4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 20
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 4774188110206638475, guid: 8de43bed1b79e2d468741e47bacdb9f4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9566,11 +9574,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4774188110206638475, guid: 8de43bed1b79e2d468741e47bacdb9f4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 33
+      value: 33.686035
       objectReference: {fileID: 0}
     - target: {fileID: 4774188110206638475, guid: 8de43bed1b79e2d468741e47bacdb9f4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -61.6
+      value: -64.614265
       objectReference: {fileID: 0}
     - target: {fileID: 4774188110206638475, guid: 8de43bed1b79e2d468741e47bacdb9f4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9583,6 +9591,22 @@ PrefabInstance:
     - target: {fileID: 4774188110206638475, guid: 8de43bed1b79e2d468741e47bacdb9f4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774188110206638475, guid: 8de43bed1b79e2d468741e47bacdb9f4, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774188110206638477, guid: 8de43bed1b79e2d468741e47bacdb9f4, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7808638874126129697, guid: 8de43bed1b79e2d468741e47bacdb9f4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8930555743675312525, guid: 8de43bed1b79e2d468741e47bacdb9f4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.43509865
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -50,7 +50,7 @@ MonoBehaviour:
       Mode: 1
       CustomMap: {fileID: 11400000, guid: c3a492a13b2db624db4c8d6966d1e56d, type: 2}
     Fields:
-      Mode: 0
+      Mode: 2
       Fields: []
   Rockets:
     Rockets:
@@ -87,4 +87,4 @@ MonoBehaviour:
         GoalsArray: []
   TextBlocks:
     Blocks:
-      Blocks: {fileID: 4900000, guid: c3c256a7e08c86148ad7e501ac57728d, type: 3}
+      Blocks: {fileID: 4900000, guid: 859629a6e68c11b4788630c5ed5e49bc, type: 3}

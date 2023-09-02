@@ -1,15 +1,1 @@
-{
-  "Title": "level",
-  "Blocks": {
-    "goal_0": [
-      {
-        "Lang": 0,
-        "Text": "Make and turn on a Solar Power Plant."
-      },
-      {
-        "Lang": 1,
-        "Text": "РџРѕСЃС‚СЂРѕРёС‚СЊ Рё РїСѓСЃС‚РёС‚СЊ РЎРѕР»РЅРµС‡РЅСѓСЋ СЌР»РµС‚СЂРѕСЃС‚Р°РЅС†РёСЋ."
-      }
-    ]
-  }
-}
+{"Title": "level", "Blocks": {"goal_0": [{"Lang": 0, "Text": "Make and turn on a Solar Power Plant."}, {"Lang": 1, "Text": "Построить и пустить Солнечную элетростанцию."}]}}

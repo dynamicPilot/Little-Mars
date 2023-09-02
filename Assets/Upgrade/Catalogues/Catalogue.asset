@@ -29,11 +29,12 @@ MonoBehaviour:
     Factory: {fileID: 1219344384, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
     Workshop: {fileID: 1395761084, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
   Goal:
-    Storage: {fileID: -1938603965, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
+    Storage: {fileID: 21300000, guid: 554b27a86c7465b4dbcba4d455250467, type: 3}
     Production: {fileID: 21300000, guid: b0cba0a319a49104183c3fd15c09c699, type: 3}
     Time: {fileID: -541044406, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
   Fields:
     Metals: {fileID: -168386757, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
   _other:
     DefaultTimer: {fileID: -541044406, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
-    RouteError: {fileID: -168386757, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
+    RouteError: {fileID: 21300000, guid: dc668b5ce5d369744952d5394826c7e6, type: 3}
+    BlockedSlot: {fileID: 21300000, guid: d3f77d9f46fad41439b2c5fedca82389, type: 3}
