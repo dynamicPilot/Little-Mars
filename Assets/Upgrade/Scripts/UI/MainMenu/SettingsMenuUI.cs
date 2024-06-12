@@ -8,7 +8,6 @@ using LittleMars.WindowManagers;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 namespace LittleMars.UI.MainMenu
 {

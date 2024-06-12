@@ -38,6 +38,7 @@ namespace LittleMars.Configs
 
         void Save(PlayerConfig config)
         {
+            Debug.Log("Saving...");
             _converter.ToJson(config, _path, Newtonsoft.Json.Formatting.None);
         }
 
@@ -55,8 +56,10 @@ namespace LittleMars.Configs
             {
                 Debug.Log("No confug");
                 var config = _provider.GetData();
+                Debug.Log("Creating config file " + config != null);
                 Save(config);
-                _signalBus.Fire(new NoConfigIsLoadedSignal { PlayerConfig = config });
+                //_signalBus.Fire(new NoConfigIsLoadedSignal { PlayerConfig = config });
+                _signalBus.Fire(new ConfigIsLoadedSignal { PlayerConfig = config, NeedUpdate = true });
             }
                 
         }

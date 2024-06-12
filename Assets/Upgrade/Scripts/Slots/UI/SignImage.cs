@@ -3,7 +3,6 @@ using LittleMars.Common.Catalogues;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
-using Zenject.ReflectionBaking.Mono.Cecil;
 using Resource = LittleMars.Common.Resource;
 
 namespace LittleMars.Slots.UI

@@ -1,7 +1,6 @@
 ﻿using LittleMars.WindowManagers;
 using UnityEngine;
 using Zenject;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 namespace LittleMars.UI.Windows
 {

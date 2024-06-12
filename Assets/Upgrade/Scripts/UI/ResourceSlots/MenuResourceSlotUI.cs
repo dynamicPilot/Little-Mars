@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using Zenject.ReflectionBaking.Mono.Cecil;
 
 namespace LittleMars.UI.ResourceSlots
 {

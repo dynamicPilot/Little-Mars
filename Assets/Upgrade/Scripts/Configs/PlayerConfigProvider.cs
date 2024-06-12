@@ -1,5 +1,6 @@
 ﻿using LittleMars.AudioSystems;
 using LittleMars.Common;
+using UnityEngine;
 
 namespace LittleMars.Configs
 {
@@ -17,6 +18,7 @@ namespace LittleMars.Configs
         {
             var isMusicOn = _audioSystem.TryGetGroupVolume(VolumeGroupType.music, out var musicVolume);
             var isSoundOn = _audioSystem.TryGetGroupVolume(VolumeGroupType.total, out var soundVolume);
+            Debug.Log("PlayerConfigProvider: Creating data...");
             return new PlayerConfig(isMusicOn, musicVolume, isSoundOn, soundVolume, _langSettings.LangIndex);
         }
     }

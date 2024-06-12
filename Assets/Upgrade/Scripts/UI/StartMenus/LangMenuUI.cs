@@ -43,6 +43,7 @@ namespace LittleMars.UI.StartMenus
 
         void OnNoConfigIsLoaded(NoConfigIsLoadedSignal args)
         {
+            Debug.Log("OnNoConfigIsLoaded");
             if (_isOpen) return;
             
             StartLangMenu(args.PlayerConfig);
@@ -50,9 +51,10 @@ namespace LittleMars.UI.StartMenus
 
         void StartLangMenu(PlayerConfig config)
         {
+            Debug.Log("StartLangMenu");
             _menu.Open(config);
             _carrouselUI.SetIndex(config.Lang);
-            Open();
+            base.Open();
         }
 
         protected override void Close()
