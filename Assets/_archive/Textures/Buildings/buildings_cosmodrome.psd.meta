@@ -1,90 +1,66 @@
 fileFormatVersion: 2
-guid: 0e2b0fd898e75ba4a97c91e3e051fc76
+guid: fa9ce8368d9ffe24da17ea1f722039fe
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1168926902407322946
-    second: buildings_background
+      213: -6597184954613126606
+    second: buildings_cosmodrome_port_0
   - first:
-      213: 7643761922474946111
-    second: buildings_farm_1
+      213: 6317667604031072180
+    second: buildings_cosmodrome_port_1
   - first:
-      213: -5308527982003062785
-    second: buildings_farm_effect
+      213: -1117929649168250818
+    second: buildings_cosmodrome_port_2
   - first:
-      213: -8922806545422484088
-    second: buildings_mine
+      213: -4682785863620640748
+    second: buildings_cosmodrome_port_effect
   - first:
-      213: -7916908332688520428
-    second: buildings_mine_1
+      213: -6097598672898950083
+    second: buildings_cosmodrome_fuel_0
   - first:
-      213: 6625692385018236696
-    second: buildings_solar_plant
+      213: -6711571434386271689
+    second: buildings_cosmodrome_fuel_1
   - first:
-      213: 8255314341044953143
-    second: buildings_supply_plant
+      213: 155154578069820963
+    second: buildings_cosmodrome_fuel_2
   - first:
-      213: -7657187661756687099
-    second: buildings_farm
+      213: 1547512937382592380
+    second: buildings_cosmodrome_fuel_3
   - first:
-      213: 961677336216162819
-    second: buildings_mine_2
+      213: 7355294264590881080
+    second: buildings_cosmodrome_fuel_4
   - first:
-      213: -250298321781293072
-    second: buildings_mine_3
+      213: 5930041233155419632
+    second: buildings_cosmodrome_fuel_effect
   - first:
-      213: 3247767813255465682
-    second: buildings_solar_plant_1
+      213: -7265306096867377735
+    second: buildings_cosmodrome_middle_0
   - first:
-      213: 1775660474302345089
-    second: buildings_solar_plant_effect
+      213: 868213010950670729
+    second: buildings_cosmodrome_middle_1
   - first:
-      213: -2434219546015377611
-    second: buildings_supply_plant_1
+      213: -2892608360068583879
+    second: buildings_cosmodrome_middle_2
   - first:
-      213: -4401666002738899813
-    second: buildings_supply_plant_effect
+      213: 4996846600076130291
+    second: buildings_cosmodrome_middle_effect
   - first:
-      213: -7025564087743128460
-    second: buildings_supply_plant_2
+      213: -4680082364708884804
+    second: buildings_cosmodrome_depo_0
   - first:
-      213: -3636880086547968531
-    second: buildings_mine_effect
+      213: 4938501929027032099
+    second: buildings_cosmodrome_depo_1
   - first:
-      213: 5231429416509325250
-    second: buildings_factory
+      213: 8977574787618351315
+    second: buildings_cosmodrome_depo_2
   - first:
-      213: 2704936167174187159
-    second: buildings_factory_1
+      213: -497402927142868374
+    second: buildings_cosmodrome_depo_effect
   - first:
-      213: 2982747736380097290
-    second: buildings_factory_2
-  - first:
-      213: 7728155859371869844
-    second: buildings_factory_3
-  - first:
-      213: 7853409770426767552
-    second: buildings_factory_effect
-  - first:
-      213: -8408605906689737264
-    second: buildings_workshop
-  - first:
-      213: 3116890992287099372
-    second: buildings_workshop_1
-  - first:
-      213: -1982699832059996296
-    second: buildings_workshop_2
-  - first:
-      213: -2372858853108239839
-    second: buildings_workshop_3
-  - first:
-      213: -949520196465937679
-    second: buildings_workshop_effect
-  - first:
-      213: 1859044697333390108
-    second: buildings_empty
+      213: -1564103853927759158
+    second: buildings_cosmodrome_0
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -101,11 +77,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -144,6 +121,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
@@ -156,6 +134,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -168,6 +147,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -180,6 +160,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -192,6 +173,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -204,17 +186,31 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: buildings_background
+      name: buildings_cosmodrome_port_0
       rect:
         serializedVersion: 2
         x: 3
-        y: 107
+        y: 108
         width: 18
         height: 18
       alignment: 0
@@ -224,18 +220,81 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24dd26213dcd83010800000000000000
-      internalID: 1168926902407322946
+      spriteID: 23aabb6bc371274a0800000000000000
+      internalID: -6597184954613126606
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buildings_solar_plant
+      name: buildings_cosmodrome_port_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 108
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b7e343a63ddca750800000000000000
+      internalID: 6317667604031072180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buildings_cosmodrome_port_2
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 108
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e38037938e05c70f0800000000000000
+      internalID: -1117929649168250818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buildings_cosmodrome_port_effect
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 108
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 410cba74117630fb0800000000000000
+      internalID: -4682785863620640748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buildings_cosmodrome_fuel_0
       rect:
         serializedVersion: 2
         x: 3
-        y: 65
+        y: 88
         width: 18
         height: 18
       alignment: 0
@@ -245,18 +304,123 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81fc508ae1033fb50800000000000000
-      internalID: 6625692385018236696
+      spriteID: d3cf6fe305af06ba0800000000000000
+      internalID: -6097598672898950083
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buildings_supply_plant
+      name: buildings_cosmodrome_fuel_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 88
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7325fb00755bbd2a0800000000000000
+      internalID: -6711571434386271689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buildings_cosmodrome_fuel_2
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 88
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32690274448372200800000000000000
+      internalID: 155154578069820963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buildings_cosmodrome_fuel_3
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 88
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7fb20641ded97510800000000000000
+      internalID: 1547512937382592380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buildings_cosmodrome_fuel_4
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 88
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8315863e921431660800000000000000
+      internalID: 7355294264590881080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buildings_cosmodrome_fuel_effect
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 88
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fde5a5351dbb4250800000000000000
+      internalID: 5930041233155419632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buildings_cosmodrome_middle_0
       rect:
         serializedVersion: 2
         x: 3
-        y: 44
+        y: 68
         width: 18
         height: 18
       alignment: 0
@@ -266,18 +430,81 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7302c2797a4c09270800000000000000
-      internalID: 8255314341044953143
+      spriteID: 9bd7dbf19927c2b90800000000000000
+      internalID: -7265306096867377735
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buildings_farm
+      name: buildings_cosmodrome_middle_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 68
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 989461b22238c0c00800000000000000
+      internalID: 868213010950670729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buildings_cosmodrome_middle_2
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 68
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93e69cfa5046bd7d0800000000000000
+      internalID: -2892608360068583879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buildings_cosmodrome_middle_effect
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 68
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f7f7a2228d585540800000000000000
+      internalID: 4996846600076130291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buildings_cosmodrome_depo_0
       rect:
         serializedVersion: 2
         x: 3
-        y: 23
+        y: 48
         width: 18
         height: 18
       alignment: 0
@@ -287,18 +514,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50d1d7224643cb590800000000000000
-      internalID: -7657187661756687099
+      spriteID: cbee4fba2e10d0fb0800000000000000
+      internalID: -4680082364708884804
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buildings_solar_plant_1
+      name: buildings_cosmodrome_depo_1
       rect:
         serializedVersion: 2
-        x: 23
-        y: 65
+        x: 24
+        y: 48
         width: 18
         height: 18
       alignment: 0
@@ -308,18 +535,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2da0a066e93621d20800000000000000
-      internalID: 3247767813255465682
+      spriteID: 324dc32d655198440800000000000000
+      internalID: 4938501929027032099
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buildings_solar_plant_effect
+      name: buildings_cosmodrome_depo_2
       rect:
         serializedVersion: 2
-        x: 44
-        y: 65
+        x: 45
+        y: 48
         width: 18
         height: 18
       alignment: 0
@@ -329,18 +556,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18f2e742bc964a810800000000000000
-      internalID: 1775660474302345089
+      spriteID: 3d8ae7044b0c69c70800000000000000
+      internalID: 8977574787618351315
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buildings_supply_plant_1
+      name: buildings_cosmodrome_depo_effect
       rect:
         serializedVersion: 2
-        x: 23
-        y: 44
+        x: 67
+        y: 48
         width: 18
         height: 18
       alignment: 0
@@ -350,419 +577,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 537d07e483ae73ed0800000000000000
-      internalID: -2434219546015377611
+      spriteID: a6ae8615caed819f0800000000000000
+      internalID: -497402927142868374
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buildings_supply_plant_effect
+      name: buildings_cosmodrome_0
       rect:
         serializedVersion: 2
-        x: 44
-        y: 44
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b9495de67142ae2c0800000000000000
-      internalID: -4401666002738899813
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buildings_supply_plant_2
-      rect:
-        serializedVersion: 2
-        x: 65
-        y: 44
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 47c545b6fae208e90800000000000000
-      internalID: -7025564087743128460
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buildings_farm_1
-      rect:
-        serializedVersion: 2
-        x: 23
-        y: 23
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f3ea6c858f8141a60800000000000000
-      internalID: 7643761922474946111
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buildings_farm_effect
-      rect:
-        serializedVersion: 2
-        x: 44
-        y: 23
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ff77c781de15456b0800000000000000
-      internalID: -5308527982003062785
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buildings_mine
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 3
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 88dff84d8b2db2480800000000000000
-      internalID: -8922806545422484088
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buildings_mine_1
-      rect:
-        serializedVersion: 2
-        x: 23
-        y: 3
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 41b45c621dd712290800000000000000
-      internalID: -7916908332688520428
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buildings_mine_2
-      rect:
-        serializedVersion: 2
-        x: 43
-        y: 3
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 30255bd2170985d00800000000000000
-      internalID: 961677336216162819
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buildings_mine_3
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 3
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0ff7952a003c68cf0800000000000000
-      internalID: -250298321781293072
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buildings_mine_effect
-      rect:
-        serializedVersion: 2
-        x: 83
-        y: 3
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dedcd9e84d4378dc0800000000000000
-      internalID: -3636880086547968531
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buildings_factory
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 84
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2cf31964655c99840800000000000000
-      internalID: 5231429416509325250
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buildings_factory_1
-      rect:
-        serializedVersion: 2
-        x: 23
-        y: 84
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7982688dc1dd98520800000000000000
-      internalID: 2704936167174187159
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buildings_factory_2
-      rect:
-        serializedVersion: 2
-        x: 43
-        y: 84
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a0349815349d46920800000000000000
-      internalID: 2982747736380097290
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buildings_factory_3
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 84
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 496c6befeccef3b60800000000000000
-      internalID: 7728155859371869844
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buildings_factory_effect
-      rect:
-        serializedVersion: 2
-        x: 83
-        y: 84
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0c89ed9b39aecfc60800000000000000
-      internalID: 7853409770426767552
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buildings_workshop
-      rect:
-        serializedVersion: 2
-        x: 23
-        y: 106
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0ddb1838a71ae4b80800000000000000
-      internalID: -8408605906689737264
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buildings_workshop_1
-      rect:
-        serializedVersion: 2
-        x: 43
-        y: 106
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ce923eee7db614b20800000000000000
-      internalID: 3116890992287099372
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buildings_workshop_2
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 106
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 87756dde1090c74e0800000000000000
-      internalID: -1982699832059996296
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buildings_workshop_3
-      rect:
-        serializedVersion: 2
-        x: 83
-        y: 106
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 122b75ee179e11fd0800000000000000
-      internalID: -2372858853108239839
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buildings_workshop_effect
-      rect:
-        serializedVersion: 2
-        x: 104
-        y: 106
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1f2b69e7960a2d2f0800000000000000
-      internalID: -949520196465937679
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buildings_empty
-      rect:
-        serializedVersion: 2
-        x: 104
-        y: 84
-        width: 18
-        height: 18
+        x: 90
+        y: 32
+        width: 36
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -770,8 +598,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1b51267d47acc910800000000000000
-      internalID: 1859044697333390108
+      spriteID: ac201d2f4df2b4ae0800000000000000
+      internalID: -1564103853927759158
       vertices: []
       indices: 
       edges: []
@@ -787,36 +615,27 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      buildings_farm_1: 7643761922474946111
-      buildings_farm_effect: -5308527982003062785
-      buildings_factory: 5231429416509325250
-      buildings_mine_1: -7916908332688520428
-      buildings_supply_plant: 8255314341044953143
-      buildings_solar_plant: 6625692385018236696
-      buildings_workshop_1: 3116890992287099372
-      buildings_background: 1168926902407322946
-      buildings_mine_3: -250298321781293072
-      buildings_factory_3: 7728155859371869844
-      buildings_supply_plant_effect: -4401666002738899813
-      buildings_factory_1: 2704936167174187159
-      buildings_solar_plant_effect: 1775660474302345089
-      buildings_solar_plant_1: 3247767813255465682
-      buildings_mine_effect: -3636880086547968531
-      buildings_factory_2: 2982747736380097290
-      buildings_farm: -7657187661756687099
-      buildings_mine: -8922806545422484088
-      buildings_workshop_2: -1982699832059996296
-      buildings_workshop_effect: -949520196465937679
-      buildings_supply_plant_2: -7025564087743128460
-      buildings_workshop_3: -2372858853108239839
-      buildings_supply_plant_1: -2434219546015377611
-      buildings_factory_effect: 7853409770426767552
-      buildings_workshop: -8408605906689737264
-      buildings_empty: 1859044697333390108
-      buildings_mine_2: 961677336216162819
-  spritePackingTag: 
+      buildings_cosmodrome_0: -1564103853927759158
+      buildings_cosmodrome_depo_0: -4680082364708884804
+      buildings_cosmodrome_depo_1: 4938501929027032099
+      buildings_cosmodrome_depo_2: 8977574787618351315
+      buildings_cosmodrome_depo_effect: -497402927142868374
+      buildings_cosmodrome_fuel_0: -6097598672898950083
+      buildings_cosmodrome_fuel_1: -6711571434386271689
+      buildings_cosmodrome_fuel_2: 155154578069820963
+      buildings_cosmodrome_fuel_3: 1547512937382592380
+      buildings_cosmodrome_fuel_4: 7355294264590881080
+      buildings_cosmodrome_fuel_effect: 5930041233155419632
+      buildings_cosmodrome_middle_0: -7265306096867377735
+      buildings_cosmodrome_middle_1: 868213010950670729
+      buildings_cosmodrome_middle_2: -2892608360068583879
+      buildings_cosmodrome_middle_effect: 4996846600076130291
+      buildings_cosmodrome_port_0: -6597184954613126606
+      buildings_cosmodrome_port_1: 6317667604031072180
+      buildings_cosmodrome_port_2: -1117929649168250818
+      buildings_cosmodrome_port_effect: -4682785863620640748
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 
