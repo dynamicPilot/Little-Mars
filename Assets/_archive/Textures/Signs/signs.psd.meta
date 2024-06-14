@@ -120,7 +120,7 @@ TextureImporter:
       213: 5130029373405344370
     second: signs_menu
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -137,11 +137,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -180,6 +181,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
@@ -192,6 +194,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -204,6 +207,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -216,6 +220,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -228,6 +233,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -240,6 +246,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1075,48 +1095,47 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      signs_rocket_1: 2945347106008647225
-      signs_rocket_5: -369177047715181561
-      signs_arrow: 3671248769266048807
-      signs_rocket_3: -1244585338157411529
-      signs_metal: -4015053110850514199
-      UI_slot_small: 7143536599680955399
-      signs_goods: 570369605437288408
       UI_panel: -6303612653606922692
-      signs_checkmark: -6177745668595045113
-      signs_quit: -3541654970036748001
-      signs_soundsOn: -4192766365435336363
-      signs_quit_red: 5015498531010594062
-      signs_rocket_9: 1800573500578985294
-      signs_food: -7118366140832251292
-      signs_rocket_10: -8297076457979201443
-      signs_machines: 1014312589259936113
-      UI_slot_slotFrame: -4988363115180192691
-      signs_rotate: -7676459032210541816
-      signs_rocket_4: -4321936792142771793
       UI_panel_vertical_toLeft: 8989209993648422680
-      UI_slot_dashed: -2937953654953323102
-      signs_soundsOff: -7322962490421752431
-      signs_rocket_0: 5620976386525421396
-      signs_energy: -520509936069157319
-      signs_rocket_7: -5415589879563419706
-      signs_rocket_2: -3063845900688664062
-      signs_limitReached: -6277811909480139968
-      UI_slot: 9028995407489031984
-      signs_musicOn: 4569824791384506745
-      signs_musicOff: -5916734419976646268
-      signs_rocket_6: 418409284636949591
-      signs_menu: 5130029373405344370
-      signs_mountains_0: -8608232634064206986
       UI_panel_vertical_toRight: -3327347804532630309
-      signs_turnOnOff: -4734474400522991982
-      signs_coins: -3183823387430515487
-      signs_mountains_1: -3665671028337353499
-      signs_rocket_8: 3944510060147985840
+      UI_slot: 9028995407489031984
+      UI_slot_dashed: -2937953654953323102
+      UI_slot_slotFrame: -4988363115180192691
+      UI_slot_small: 7143536599680955399
       signs_air: 7774597396905839976
-  spritePackingTag: 
+      signs_arrow: 3671248769266048807
+      signs_checkmark: -6177745668595045113
+      signs_coins: -3183823387430515487
+      signs_energy: -520509936069157319
+      signs_food: -7118366140832251292
+      signs_goods: 570369605437288408
+      signs_limitReached: -6277811909480139968
+      signs_machines: 1014312589259936113
+      signs_menu: 5130029373405344370
+      signs_metal: -4015053110850514199
+      signs_mountains_0: -8608232634064206986
+      signs_mountains_1: -3665671028337353499
+      signs_musicOff: -5916734419976646268
+      signs_musicOn: 4569824791384506745
+      signs_quit: -3541654970036748001
+      signs_quit_red: 5015498531010594062
+      signs_rocket_0: 5620976386525421396
+      signs_rocket_1: 2945347106008647225
+      signs_rocket_10: -8297076457979201443
+      signs_rocket_2: -3063845900688664062
+      signs_rocket_3: -1244585338157411529
+      signs_rocket_4: -4321936792142771793
+      signs_rocket_5: -369177047715181561
+      signs_rocket_6: 418409284636949591
+      signs_rocket_7: -5415589879563419706
+      signs_rocket_8: 3944510060147985840
+      signs_rocket_9: 1800573500578985294
+      signs_rotate: -7676459032210541816
+      signs_soundsOff: -7322962490421752431
+      signs_soundsOn: -4192766365435336363
+      signs_turnOnOff: -4734474400522991982
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 
