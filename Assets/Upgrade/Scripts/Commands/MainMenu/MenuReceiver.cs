@@ -39,6 +39,7 @@ namespace LittleMars.Commands.MainMenu
         {
             // save
             Debug.Log("It was quit command");
+            Application.Quit();
         }
     }
 }
