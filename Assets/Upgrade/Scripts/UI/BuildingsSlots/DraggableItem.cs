@@ -26,6 +26,9 @@ namespace LittleMars.UI.BuildingSlots
         Vector2 _initialLocalObjectPosition;
         Vector2 _initialLocalPointerPosition;
 
+        Transform _parent;
+        int _index;
+
         [Inject]
         public void Constructor(GameUI gameUI, BuildingObject buildingObject, 
             SignalBus signalBus, UISoundSystem audioSystem)
@@ -39,9 +42,14 @@ namespace LittleMars.UI.BuildingSlots
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            _initialLocalObjectPosition = _rectTransform.localPosition;
+            // set as child of the canvas
+            _parent = _rectTransform.parent;
+            _index = _rectTransform.GetSiblingIndex();
+            _rectTransform.SetParent(_canvas.transform, true);
+            _rectTransform.SetAsLastSibling();
 
             // set local pointer position to word position
+            _initialLocalObjectPosition = _rectTransform.localPosition;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvas,
                 eventData.position, eventData.pressEventCamera, out _initialLocalPointerPosition);
 
@@ -66,6 +74,9 @@ namespace LittleMars.UI.BuildingSlots
         {
             RaycastAndGetTarget(eventData.position);
             _rectTransform.localPosition = _initialLocalObjectPosition;
+            _rectTransform.SetParent(_parent, true);
+            _rectTransform.SetSiblingIndex(_index);
+            
             _canvasGroup.blocksRaycasts = true;
             _image.maskable = true;
             OnEndDrag();
