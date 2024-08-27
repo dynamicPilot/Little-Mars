@@ -3009,7 +3009,7 @@ MonoBehaviour:
   _container: {fileID: 838235115}
   _layout: {fileID: 1722421145}
   _cellWidth: 60
-  _padding: 21
+  _padding: 25
 --- !u!1 &862953122
 GameObject:
   m_ObjectHideFlags: 0
@@ -3874,7 +3874,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 85182089}
   m_Direction: 0
   m_Value: 1
-  m_Size: 0.5000001
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
