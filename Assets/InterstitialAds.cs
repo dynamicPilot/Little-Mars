@@ -25,68 +25,68 @@ public class InterstitialAds : MonoBehaviour//, IUnityAdsListener
         dataSaveAndLoad = GameDataSaveAndLoad.Instance;
         radioControl = RadioControl.Instance;
     }
-    IEnumerator StartAdvertisement()
-    {
-        //Advertisement.AddListener(this);
-        Advertisement.Initialize(gameID, testMode);
+    //IEnumerator StartAdvertisement()
+    //{
+    //    //Advertisement.AddListener(this);
+    //    Advertisement.Initialize(gameID, testMode);
 
-        if (panel == null)
-        {
-            panel = GameObject.FindGameObjectWithTag("AdLoadingPanel");
-        }
+    //    if (panel == null)
+    //    {
+    //        panel = GameObject.FindGameObjectWithTag("AdLoadingPanel");
+    //    }
 
-        if (panel != null) panel.SetActive(true);
+    //    if (panel != null) panel.SetActive(true);
         
-        // for test --- rewrite it
-        yield return null;
-        //while (!Advertisement.IsReady(placementID))
-        //{
-        //    
-        //}
+    //    // for test --- rewrite it
+    //    yield return null;
+    //    //while (!Advertisement.IsReady(placementID))
+    //    //{
+    //    //    
+    //    //}
 
-        Advertisement.Show(placementID);
-    }
+    //    Advertisement.Show(placementID);
+    //}
 
-    public void ShowAds(string newState = "menu")
-    {
-        state = newState;
-        StartCoroutine(StartAdvertisement());
-        //Advertisement.Show(placementID);
-    }
+    //public void ShowAds(string newState = "menu")
+    //{
+    //    state = newState;
+    //    StartCoroutine(StartAdvertisement());
+    //    //Advertisement.Show(placementID);
+    //}
 
-    public void QuitAdsWhileLoadingTooLong()
-    {
-        StopAllCoroutines();
-        if (panel != null) panel.SetActive(false);
-        radioControl.ContinuePlayingRadio();
-        if (needLoadSceneAfterAd && dataSaveAndLoad!= null) dataSaveAndLoad.LoadSceneAfterAd(state);
-    }
+    //public void QuitAdsWhileLoadingTooLong()
+    //{
+    //    StopAllCoroutines();
+    //    if (panel != null) panel.SetActive(false);
+    //    radioControl.ContinuePlayingRadio();
+    //    if (needLoadSceneAfterAd && dataSaveAndLoad!= null) dataSaveAndLoad.LoadSceneAfterAd(state);
+    //}
 
-    public void OnUnityAdsDidError(string message)
-    {
-        if (panel != null) panel.SetActive(false);
-        radioControl.ContinuePlayingRadio();
+    //public void OnUnityAdsDidError(string message)
+    //{
+    //    if (panel != null) panel.SetActive(false);
+    //    radioControl.ContinuePlayingRadio();
 
-        //if (dataSaveAndLoad == null) dataSaveAndLoad = GameDataSaveAndLoad.Instance;
-        if (needLoadSceneAfterAd && dataSaveAndLoad != null) dataSaveAndLoad.LoadSceneAfterAd(state);
-    }
+    //    //if (dataSaveAndLoad == null) dataSaveAndLoad = GameDataSaveAndLoad.Instance;
+    //    if (needLoadSceneAfterAd && dataSaveAndLoad != null) dataSaveAndLoad.LoadSceneAfterAd(state);
+    //}
 
-    public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
-    {
-        radioControl.ContinuePlayingRadio();
+    //public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
+    //{
+    //    radioControl.ContinuePlayingRadio();
 
-        //if (dataSaveAndLoad == null) dataSaveAndLoad = GameDataSaveAndLoad.Instance;
-        if (needLoadSceneAfterAd && dataSaveAndLoad != null) dataSaveAndLoad.LoadSceneAfterAd(state);
-    }
+    //    //if (dataSaveAndLoad == null) dataSaveAndLoad = GameDataSaveAndLoad.Instance;
+    //    if (needLoadSceneAfterAd && dataSaveAndLoad != null) dataSaveAndLoad.LoadSceneAfterAd(state);
+    //}
 
-    public void OnUnityAdsDidStart(string placementId)
-    {
-        if (panel != null) panel.SetActive(false);
-        radioControl.PausePlayingRadio();
-    }
+    //public void OnUnityAdsDidStart(string placementId)
+    //{
+    //    if (panel != null) panel.SetActive(false);
+    //    radioControl.PausePlayingRadio();
+    //}
 
-    public void OnUnityAdsReady(string placementId)
-    {
+    //public void OnUnityAdsReady(string placementId)
+    //{
 
-    }
+    //}
 }

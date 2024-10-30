@@ -13,12 +13,12 @@ public class AskForAdNotificationPanel : NotificationPanelUI
 
     public void LoadAd()
     {
-        interstitialAds.ShowAds(nextSceneState);
+        //interstitialAds.ShowAds(nextSceneState);
     }
 
     public void SkipAd()
     {
-        GameDataSaveAndLoad.Instance.LoadSceneAfterAd(nextSceneState);
+        //GameDataSaveAndLoad.Instance.LoadSceneAfterAd(nextSceneState);
     }
 
     public override void ClosePanel()

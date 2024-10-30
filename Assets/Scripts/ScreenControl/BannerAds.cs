@@ -24,86 +24,86 @@ public class BannerAds : MonoBehaviour
 
     bool isAdsOn = false;
 
-    IEnumerator StartAdvertisement()
-    {
-        isAdsOn = false;
-        menuToMove.anchoredPosition = new Vector2(menuToMove.anchoredPosition.x, menuToMove.anchoredPosition.y + (initialBotAndTopPosition - menuToMove.anchoredPosition.y));
-        settingsPanelToMove.sizeDelta = new Vector2(settingsPanelToMove.rect.width, initialHeightForSettings);
-        SetAllLevelsToMove();
+    //IEnumerator StartAdvertisement()
+    //{
+    //    isAdsOn = false;
+    //    menuToMove.anchoredPosition = new Vector2(menuToMove.anchoredPosition.x, menuToMove.anchoredPosition.y + (initialBotAndTopPosition - menuToMove.anchoredPosition.y));
+    //    settingsPanelToMove.sizeDelta = new Vector2(settingsPanelToMove.rect.width, initialHeightForSettings);
+    //    SetAllLevelsToMove();
 
-        Advertisement.Initialize(gameID, testMode);
+    //    Advertisement.Initialize(gameID, testMode);
 
-        //while (!Advertisement.IsReady(placementID))
-        yield return null;
+    //    //while (!Advertisement.IsReady(placementID))
+    //    yield return null;
 
-        Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
-        Advertisement.Banner.Show(placementID);
+    //    Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
+    //    Advertisement.Banner.Show(placementID);
 
-        // move UI
-        isAdsOn = true;
-        menuToMove.anchoredPosition = new Vector2(menuToMove.anchoredPosition.x, menuToMove.anchoredPosition.y + (botAndTopToMovePosition - menuToMove.anchoredPosition.y));
-        settingsPanelToMove.sizeDelta = new Vector2 (settingsPanelToMove.rect.width, heightToMoveForSettings);
-        SetAllLevelsToMove();
+    //    // move UI
+    //    isAdsOn = true;
+    //    menuToMove.anchoredPosition = new Vector2(menuToMove.anchoredPosition.x, menuToMove.anchoredPosition.y + (botAndTopToMovePosition - menuToMove.anchoredPosition.y));
+    //    settingsPanelToMove.sizeDelta = new Vector2 (settingsPanelToMove.rect.width, heightToMoveForSettings);
+    //    SetAllLevelsToMove();
 
 
-    }
+    //}
 
-    private void OnEnable()
-    {
-        StartCoroutine(StartAdvertisement());
-    }
+    //private void OnEnable()
+    //{
+    //    StartCoroutine(StartAdvertisement());
+    //}
 
-    private void OnDestroy()
-    {
-        //StopAdvertisement();
+    //private void OnDestroy()
+    //{
+    //    //StopAdvertisement();
         
-    }
+    //}
 
-    public void StopAdvertisement()
-    {
-        //Debug.Log("BannerAds: stop");
-        StopAllCoroutines();
+    //public void StopAdvertisement()
+    //{
+    //    //Debug.Log("BannerAds: stop");
+    //    StopAllCoroutines();
 
-        isAdsOn = false;
-        Advertisement.Banner.Hide();
-        menuToMove.anchoredPosition = new Vector2(menuToMove.anchoredPosition.x, menuToMove.anchoredPosition.y + (initialBotAndTopPosition - menuToMove.anchoredPosition.y));
-        settingsPanelToMove.sizeDelta = new Vector2(settingsPanelToMove.rect.width, initialHeightForSettings);
-        SetAllLevelsToMove();
+    //    isAdsOn = false;
+    //    Advertisement.Banner.Hide();
+    //    menuToMove.anchoredPosition = new Vector2(menuToMove.anchoredPosition.x, menuToMove.anchoredPosition.y + (initialBotAndTopPosition - menuToMove.anchoredPosition.y));
+    //    settingsPanelToMove.sizeDelta = new Vector2(settingsPanelToMove.rect.width, initialHeightForSettings);
+    //    SetAllLevelsToMove();
 
-    }
+    //}
 
-    void SetAllLevelsToMove(int index = -1)
-    {
-        if (index >= 0)
-        {
-            if (isAdsOn)
-            {
-                levelPanelToMove[index].anchoredPosition = new Vector2(levelPanelToMove[index].anchoredPosition.x, levelPanelToMove[index].anchoredPosition.y + (botAndTopMovePositionToLevels - levelPanelToMove[index].anchoredPosition.y));
-            }
-            else
-            {
-                levelPanelToMove[index].anchoredPosition = new Vector2(levelPanelToMove[index].anchoredPosition.x, levelPanelToMove[index].anchoredPosition.y + (initialBotAndTopPositionToLevels - levelPanelToMove[index].anchoredPosition.y));
-            }
-            return;
-        }
+    //void SetAllLevelsToMove(int index = -1)
+    //{
+    //    if (index >= 0)
+    //    {
+    //        if (isAdsOn)
+    //        {
+    //            levelPanelToMove[index].anchoredPosition = new Vector2(levelPanelToMove[index].anchoredPosition.x, levelPanelToMove[index].anchoredPosition.y + (botAndTopMovePositionToLevels - levelPanelToMove[index].anchoredPosition.y));
+    //        }
+    //        else
+    //        {
+    //            levelPanelToMove[index].anchoredPosition = new Vector2(levelPanelToMove[index].anchoredPosition.x, levelPanelToMove[index].anchoredPosition.y + (initialBotAndTopPositionToLevels - levelPanelToMove[index].anchoredPosition.y));
+    //        }
+    //        return;
+    //    }
 
-        foreach (RectTransform rectTransform in levelPanelToMove)
-        {
-            if (isAdsOn)
-            {
-                rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, rectTransform.anchoredPosition.y + (botAndTopMovePositionToLevels - rectTransform.anchoredPosition.y));
-            }
-            else
-            {
-                rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, rectTransform.anchoredPosition.y + (initialBotAndTopPositionToLevels - rectTransform.anchoredPosition.y));
-            }
-        }
-    }
+    //    foreach (RectTransform rectTransform in levelPanelToMove)
+    //    {
+    //        if (isAdsOn)
+    //        {
+    //            rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, rectTransform.anchoredPosition.y + (botAndTopMovePositionToLevels - rectTransform.anchoredPosition.y));
+    //        }
+    //        else
+    //        {
+    //            rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, rectTransform.anchoredPosition.y + (initialBotAndTopPositionToLevels - rectTransform.anchoredPosition.y));
+    //        }
+    //    }
+    //}
 
-    public void AddToLevelsToMove(RectTransform newPage)
-    {
-        levelPanelToMove.Add(newPage);
-        SetAllLevelsToMove(levelPanelToMove.Count - 1);
-    }
+    //public void AddToLevelsToMove(RectTransform newPage)
+    //{
+    //    levelPanelToMove.Add(newPage);
+    //    SetAllLevelsToMove(levelPanelToMove.Count - 1);
+    //}
 
 }
