@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Advertisements;
+//using UnityEngine.Advertisements;
 
 public class InterstitialAds : MonoBehaviour//, IUnityAdsListener
 {
@@ -28,7 +28,7 @@ public class InterstitialAds : MonoBehaviour//, IUnityAdsListener
     IEnumerator StartAdvertisement()
     {
         //Advertisement.AddListener(this);
-        Advertisement.Initialize(gameID, testMode);
+        //Advertisement.Initialize(gameID, testMode);
 
         if (panel == null)
         {
@@ -44,13 +44,13 @@ public class InterstitialAds : MonoBehaviour//, IUnityAdsListener
         //    
         //}
 
-        Advertisement.Show(placementID);
+        //Advertisement.Show(placementID);
     }
 
     public void ShowAds(string newState = "menu")
     {
         state = newState;
-        StartCoroutine(StartAdvertisement());
+        //StartCoroutine(StartAdvertisement());
         //Advertisement.Show(placementID);
     }
 
@@ -71,13 +71,13 @@ public class InterstitialAds : MonoBehaviour//, IUnityAdsListener
         if (needLoadSceneAfterAd && dataSaveAndLoad != null) dataSaveAndLoad.LoadSceneAfterAd(state);
     }
 
-    public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
-    {
-        radioControl.ContinuePlayingRadio();
-
+    //public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
+    //{
+    //    radioControl.ContinuePlayingRadio();
+    //
         //if (dataSaveAndLoad == null) dataSaveAndLoad = GameDataSaveAndLoad.Instance;
-        if (needLoadSceneAfterAd && dataSaveAndLoad != null) dataSaveAndLoad.LoadSceneAfterAd(state);
-    }
+    //    if (needLoadSceneAfterAd && dataSaveAndLoad != null) dataSaveAndLoad.LoadSceneAfterAd(state);
+    //}
 
     public void OnUnityAdsDidStart(string placementId)
     {
