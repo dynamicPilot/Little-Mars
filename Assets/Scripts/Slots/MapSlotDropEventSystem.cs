@@ -55,14 +55,14 @@ public class MapSlotDropEventSystem : MonoBehaviour, IDropHandler, IPointerClick
                 // check for adding building according to resources and available amount
                 if (item == null)
                 {
-                    Debug.Log("BasicSlotDropEventSystem: no item");
+                    //Debug.Log("BasicSlotDropEventSystem: no item");
                     audioControl.PlayCanNotDo();
                     return; 
                 }
 
                 if (!inventory.CheckForResourcesBeforeBuilding(item))
                 {
-                    Debug.Log("BasicSlotDropEventSystem: no resources");
+                    //Debug.Log("BasicSlotDropEventSystem: no resources");
                     audioControl.PlayCanNotDo();
                     return;
                 }

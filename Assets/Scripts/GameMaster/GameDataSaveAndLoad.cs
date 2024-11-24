@@ -18,8 +18,8 @@ public class GameDataSaveAndLoad : Singleton<GameDataSaveAndLoad>
     private LoadNextScene loadNextScene;
     private int currentLevelIndex = 0;
 
-    [Header("For LO Only")]
-    [SerializeField] private AdsControl adsControl;
+    //[Header("For LO Only")]
+    //[SerializeField] private AdsControl adsControl;
     private void Awake()
     {
         LoadData();
@@ -69,6 +69,18 @@ public class GameDataSaveAndLoad : Singleton<GameDataSaveAndLoad>
         }
     }
 
+    public void LoadSceneAfterAdByStateIndex(int state)
+    {
+        if (state == 0)
+        {
+            loadNextScene.LoadMainManu();
+        }
+        else
+        {
+            loadNextScene.LoadSceneByName(currentLevel.SceneName);
+        }
+    }
+
     public void SaveCurrentLevel(bool needLoadNext = true, bool needLoadMenu = false)
     {
         AddCurrentLevelToCompletedLevels();
@@ -78,27 +90,11 @@ public class GameDataSaveAndLoad : Singleton<GameDataSaveAndLoad>
             if (needLoadMenu)
             {
                 SetNewCurrentLevel(levels[currentLevelIndex + 1], true, false);
-
-                if (adsControl.NeedAdAfterLevel(currentLevelIndex))
-                {
-                    adsControl.ShowAdAfterLevel("menu");
-                }
-                else
-                {
-                    loadNextScene.LoadMainManu();
-                }               
+                loadNextScene.LoadMainManu();
             }
             else if (needLoadNext)
             {
-                if (adsControl.NeedAdAfterLevel(currentLevelIndex))
-                {
-                    SetNewCurrentLevel(levels[currentLevelIndex + 1], true,false);
-                    adsControl.ShowAdAfterLevel("level");
-                }
-                else
-                {
-                    SetNewCurrentLevel(levels[currentLevelIndex + 1], true, needLoadNext);
-                }
+                SetNewCurrentLevel(levels[currentLevelIndex + 1], true, needLoadNext);
             }
             else
             {
@@ -109,18 +105,7 @@ public class GameDataSaveAndLoad : Singleton<GameDataSaveAndLoad>
         else
         {
             SaveData();
-
-            if (currentLevelIndex + 1 >= levels.Length && adsControl.NeedSpecialAfterLastLevel)
-            {
-                // last level --> show ads ask panel
-                adsControl.ShowAdAfterLevel("menu", true);
-                //askForAdPanel.OpenPanel();
-                //askForAdPanel.SetNextSceneState("menu");
-            }
-            else
-            {
-                loadNextScene.LoadMainManu();
-            }
+            loadNextScene.LoadMainManu();
         }
     }
 

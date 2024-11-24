@@ -1,94 +1,79 @@
 fileFormatVersion: 2
-guid: 8eb4a8c3b8b65604e9e899b8eb2bd659
+guid: 002f39eae3cc877489c2db181e64db5a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7475933621550951561
-    second: training_level_2_0
+      213: 6997157849988108206
+    second: buildings_large_mine_up_0
   - first:
-      213: -6829385463658484785
-    second: training_level_2_1
+      213: -2354930303784320707
+    second: buildings_large_mine_up_1
   - first:
-      213: -4970382823603109521
-    second: training_level_2_2
+      213: 3405665483527537271
+    second: buildings_large_mine_up_2
   - first:
-      213: 263106141375718680
-    second: training_level_2_3
+      213: 6821413390203441576
+    second: buildings_large_mine_up_3
   - first:
-      213: -6112545874014603081
-    second: training_level_2_4
+      213: 7198738877674185893
+    second: buildings_large_mine_middle_0
   - first:
-      213: -7747703256670786288
-    second: training_level_2_5
+      213: 1556478553166661495
+    second: buildings_large_mine_middle_1
   - first:
-      213: 1794059299619196434
-    second: training_level_2_6
+      213: -3590274509766585615
+    second: buildings_large_mine_middle_2
   - first:
-      213: 2843898101078120038
-    second: training_level_2_7
+      213: 2419594952025123939
+    second: buildings_large_mine_middle_3
   - first:
-      213: -2483785637320767971
-    second: training_level_2_8
+      213: -8204081830798343900
+    second: buildings_large_mine_left_0
   - first:
-      213: 3501002663384219785
-    second: training_level_2_9
+      213: -8553308384845999394
+    second: buildings_large_mine_left_1
   - first:
-      213: -1503724627325197239
-    second: training_level_2_10
+      213: -5061958952613881411
+    second: buildings_large_mine_left_2
   - first:
-      213: 6480316454503551413
-    second: training_level_2_11
+      213: -4797422268651920246
+    second: buildings_large_mine_left_3
   - first:
-      213: -5629948906505963220
-    second: training_level_2_12
+      213: -8124754704208401071
+    second: buildings_large_mine
   - first:
-      213: -3233517940515640270
-    second: training_level_2_13
+      213: -282489923095636349
+    second: buildings_large_mine_drag
   - first:
-      213: -7232312845506555269
-    second: training_level_2_14
+      213: 2260443549857574013
+    second: buildings_medium_farm_0
   - first:
-      213: 8259249691149790374
-    second: training_level_2_15
+      213: -4541573645850273433
+    second: buildings_medium_farm_1
   - first:
-      213: -358438481530062780
-    second: training_level_2_16
+      213: 732300943563176212
+    second: buildings_medium_farm_drag
   - first:
-      213: 3248557544340335259
-    second: training_level_2_17
+      213: 5601096052599890657
+    second: buildings_medium_farm
   - first:
-      213: 8005541519096884316
-    second: training_level_2_18
+      213: 5732905251506741450
+    second: buildings_medium_mine_up_0
   - first:
-      213: 7705877098342788586
-    second: training_level_2_19
+      213: 9027775601611827991
+    second: buildings_medium_mine_up_1
   - first:
-      213: -5834768230636977802
-    second: training_level_2_20
+      213: 348532605614938064
+    second: buildings_medium_mine_up_2
   - first:
-      213: 1277378816724487807
-    second: training_level_2_21
+      213: 989062375956911499
+    second: buildings_medium_mine_up_3
   - first:
-      213: -670135872686091755
-    second: training_level_2_22
+      213: -4458999924573698663
+    second: buildings_medium_mine
   - first:
-      213: -6448444641020835214
-    second: training_level_2_23
-  - first:
-      213: 906750069299461084
-    second: training_level_2_24
-  - first:
-      213: 5904827827902744988
-    second: training_level_2_25
-  - first:
-      213: -7861505948111781673
-    second: training_level_2_26
-  - first:
-      213: -5461651012479137096
-    second: training_level_2_27
-  - first:
-      213: -1117535834068066583
-    second: training_level_2_28
+      213: -1309684736726537689
+    second: buildings_medium_mine_drag
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -210,13 +195,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: training_level_2_0
+      name: buildings_large_mine_up_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 214
-        width: 44
-        height: 39
+        x: 2
+        y: 110
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +209,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7735e0bfaf5204890800000000000000
-      internalID: -7475933621550951561
+      spriteID: eaf80e5fdf5ea1160800000000000000
+      internalID: 6997157849988108206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: training_level_2_1
+      name: buildings_large_mine_up_1
       rect:
         serializedVersion: 2
-        x: 50
-        y: 214
-        width: 44
-        height: 39
+        x: 20
+        y: 110
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,20 +230,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcb6b6cba162931a0800000000000000
-      internalID: -6829385463658484785
+      spriteID: d31022c9d5b915fd0800000000000000
+      internalID: -2354930303784320707
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: training_level_2_2
+      name: buildings_large_mine_up_2
       rect:
         serializedVersion: 2
-        x: 98
-        y: 214
-        width: 44
-        height: 39
+        x: 40
+        y: 110
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,20 +251,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f610f69f727a50bb0800000000000000
-      internalID: -4970382823603109521
+      spriteID: 772c77996ba534f20800000000000000
+      internalID: 3405665483527537271
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: training_level_2_3
+      name: buildings_large_mine_up_3
       rect:
         serializedVersion: 2
-        x: 146
-        y: 214
-        width: 44
-        height: 39
+        x: 60
+        y: 110
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,20 +272,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8156cee34adb6a300800000000000000
-      internalID: 263106141375718680
+      spriteID: 8a15b2546578aae50800000000000000
+      internalID: 6821413390203441576
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: training_level_2_4
+      name: buildings_large_mine_middle_0
       rect:
         serializedVersion: 2
-        x: 194
-        y: 214
-        width: 44
-        height: 39
+        x: 2
+        y: 90
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,20 +293,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b8741ac9efdb2ba0800000000000000
-      internalID: -6112545874014603081
+      spriteID: 5a460926ede07e360800000000000000
+      internalID: 7198738877674185893
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: training_level_2_5
+      name: buildings_large_mine_middle_1
       rect:
         serializedVersion: 2
-        x: 3
-        y: 172
-        width: 44
-        height: 39
+        x: 20
+        y: 90
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -329,20 +314,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01d2009efe0aa7490800000000000000
-      internalID: -7747703256670786288
+      spriteID: 777430e5ff8b99510800000000000000
+      internalID: 1556478553166661495
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: training_level_2_6
+      name: buildings_large_mine_middle_2
       rect:
         serializedVersion: 2
-        x: 50
-        y: 172
-        width: 44
-        height: 39
+        x: 40
+        y: 90
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -350,20 +335,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21ec9cb7d67c5e810800000000000000
-      internalID: 1794059299619196434
+      spriteID: 1f2193ffa58cc2ec0800000000000000
+      internalID: -3590274509766585615
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: training_level_2_7
+      name: buildings_large_mine_middle_3
       rect:
         serializedVersion: 2
-        x: 98
-        y: 172
-        width: 44
-        height: 39
+        x: 60
+        y: 90
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -371,20 +356,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6665b2c514e877720800000000000000
-      internalID: 2843898101078120038
+      spriteID: 36c29cf0ac0249120800000000000000
+      internalID: 2419594952025123939
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: training_level_2_8
+      name: buildings_large_mine_left_0
       rect:
         serializedVersion: 2
-        x: 146
-        y: 172
-        width: 44
-        height: 39
+        x: 2
+        y: 70
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -392,20 +377,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d16474d5f12d78dd0800000000000000
-      internalID: -2483785637320767971
+      spriteID: 421470fba0f352e80800000000000000
+      internalID: -8204081830798343900
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: training_level_2_9
+      name: buildings_large_mine_left_1
       rect:
         serializedVersion: 2
-        x: 194
-        y: 172
-        width: 44
-        height: 39
+        x: 21
+        y: 70
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -413,20 +398,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98086bc8f5f069030800000000000000
-      internalID: 3501002663384219785
+      spriteID: ed252e2675b8c4980800000000000000
+      internalID: -8553308384845999394
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: training_level_2_10
+      name: buildings_large_mine_left_2
       rect:
         serializedVersion: 2
-        x: 3
-        y: 130
-        width: 44
-        height: 39
+        x: 40
+        y: 70
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -434,20 +419,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94466442b62b12be0800000000000000
-      internalID: -1503724627325197239
+      spriteID: db957d9e62f40c9b0800000000000000
+      internalID: -5061958952613881411
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: training_level_2_11
+      name: buildings_large_mine_left_3
       rect:
         serializedVersion: 2
-        x: 50
-        y: 130
-        width: 44
-        height: 39
+        x: 60
+        y: 70
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -455,20 +440,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b19dce2b75bee950800000000000000
-      internalID: 6480316454503551413
+      spriteID: a84247f4dd12c6db0800000000000000
+      internalID: -4797422268651920246
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: training_level_2_12
+      name: buildings_large_mine
       rect:
         serializedVersion: 2
-        x: 97
-        y: 130
-        width: 44
-        height: 39
+        x: 5
+        y: 37
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -476,20 +461,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c29fc1c5c476ed1b0800000000000000
-      internalID: -5629948906505963220
+      spriteID: 15d6970b4a21f3f80800000000000000
+      internalID: -8124754704208401071
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: training_level_2_13
+      name: buildings_large_mine_drag
       rect:
         serializedVersion: 2
-        x: 146
-        y: 130
-        width: 44
-        height: 39
+        x: 44
+        y: 37
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -497,20 +482,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23c66b4a09c3023d0800000000000000
-      internalID: -3233517940515640270
+      spriteID: 386d14169e4641cf0800000000000000
+      internalID: -282489923095636349
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: training_level_2_14
+      name: buildings_medium_farm_0
       rect:
         serializedVersion: 2
-        x: 194
-        y: 130
-        width: 44
-        height: 39
+        x: 2
+        y: 18
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -518,20 +503,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b72561319c9a1ab90800000000000000
-      internalID: -7232312845506555269
+      spriteID: d7c6518ae65be5f10800000000000000
+      internalID: 2260443549857574013
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: training_level_2_15
+      name: buildings_medium_farm_1
       rect:
         serializedVersion: 2
-        x: 3
-        y: 88
-        width: 44
-        height: 39
+        x: 21
+        y: 18
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -539,20 +524,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6acec30b5dfbe9270800000000000000
-      internalID: 8259249691149790374
+      spriteID: 76991d5d4d619f0c0800000000000000
+      internalID: -4541573645850273433
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: training_level_2_16
+      name: buildings_medium_farm_drag
       rect:
         serializedVersion: 2
-        x: 50
-        y: 88
-        width: 44
-        height: 39
+        x: 43
+        y: 1
+        width: 18
+        height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -560,20 +545,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 448f192a912960bf0800000000000000
-      internalID: -358438481530062780
+      spriteID: 41934c904d7a92a00800000000000000
+      internalID: 732300943563176212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: training_level_2_17
+      name: buildings_medium_farm
       rect:
         serializedVersion: 2
-        x: 97
-        y: 88
-        width: 44
-        height: 39
+        x: 62
+        y: 1
+        width: 18
+        height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -581,230 +566,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9a22deffd1351d20800000000000000
-      internalID: 3248557544340335259
+      spriteID: 1e22f081f271bbd40800000000000000
+      internalID: 5601096052599890657
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: training_level_2_18
+      name: buildings_medium_mine_up_0
       rect:
         serializedVersion: 2
-        x: 146
-        y: 88
-        width: 44
-        height: 39
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c5c2960b895691f60800000000000000
-      internalID: 8005541519096884316
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: training_level_2_19
-      rect:
-        serializedVersion: 2
-        x: 194
-        y: 88
-        width: 44
-        height: 39
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aed2a89b466c0fa60800000000000000
-      internalID: 7705877098342788586
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: training_level_2_20
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 46
-        width: 44
-        height: 39
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 671062a453db60fa0800000000000000
-      internalID: -5834768230636977802
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: training_level_2_21
-      rect:
-        serializedVersion: 2
-        x: 50
-        y: 46
-        width: 44
-        height: 39
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f7ec87614492ab110800000000000000
-      internalID: 1277378816724487807
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: training_level_2_22
-      rect:
-        serializedVersion: 2
-        x: 97
-        y: 46
-        width: 44
-        height: 39
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5129c4d69f233b6f0800000000000000
-      internalID: -670135872686091755
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: training_level_2_23
-      rect:
-        serializedVersion: 2
-        x: 146
-        y: 46
-        width: 44
-        height: 39
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 27a8e2aa3c58286a0800000000000000
-      internalID: -6448444641020835214
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: training_level_2_24
-      rect:
-        serializedVersion: 2
-        x: 194
-        y: 46
-        width: 44
-        height: 39
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cdbb7a4426c659c00800000000000000
-      internalID: 906750069299461084
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: training_level_2_25
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 4
-        width: 44
-        height: 39
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c990cf5df9922f150800000000000000
-      internalID: 5904827827902744988
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: training_level_2_26
-      rect:
-        serializedVersion: 2
-        x: 50
-        y: 4
-        width: 44
-        height: 39
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7d04d230ef156e290800000000000000
-      internalID: -7861505948111781673
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: training_level_2_27
-      rect:
-        serializedVersion: 2
-        x: 97
-        y: 4
-        width: 44
-        height: 39
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8ba470a57515434b0800000000000000
-      internalID: -5461651012479137096
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: training_level_2_28
-      rect:
-        serializedVersion: 2
-        x: 146
-        y: 4
-        width: 44
-        height: 39
+        x: 81
+        y: 110
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -812,8 +587,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ee5a927417bd70f0800000000000000
-      internalID: -1117535834068066583
+      spriteID: ac0e707b3fe5f8f40800000000000000
+      internalID: 5732905251506741450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buildings_medium_mine_up_1
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 110
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71be206141a194d70800000000000000
+      internalID: 9027775601611827991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buildings_medium_mine_up_2
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 90
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d7d156ee8c36d400800000000000000
+      internalID: 348532605614938064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buildings_medium_mine_up_3
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 90
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b859d9b9dfad9bd00800000000000000
+      internalID: 989062375956911499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buildings_medium_mine
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 37
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9958a4281337e12c0800000000000000
+      internalID: -4458999924573698663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buildings_medium_mine_drag
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 37
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72ae9a3cba013dde0800000000000000
+      internalID: -1309684736726537689
       vertices: []
       indices: 
       edges: []
@@ -829,35 +709,30 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      training_level_2_0: -7475933621550951561
-      training_level_2_1: -6829385463658484785
-      training_level_2_10: -1503724627325197239
-      training_level_2_11: 6480316454503551413
-      training_level_2_12: -5629948906505963220
-      training_level_2_13: -3233517940515640270
-      training_level_2_14: -7232312845506555269
-      training_level_2_15: 8259249691149790374
-      training_level_2_16: -358438481530062780
-      training_level_2_17: 3248557544340335259
-      training_level_2_18: 8005541519096884316
-      training_level_2_19: 7705877098342788586
-      training_level_2_2: -4970382823603109521
-      training_level_2_20: -5834768230636977802
-      training_level_2_21: 1277378816724487807
-      training_level_2_22: -670135872686091755
-      training_level_2_23: -6448444641020835214
-      training_level_2_24: 906750069299461084
-      training_level_2_25: 5904827827902744988
-      training_level_2_26: -7861505948111781673
-      training_level_2_27: -5461651012479137096
-      training_level_2_28: -1117535834068066583
-      training_level_2_3: 263106141375718680
-      training_level_2_4: -6112545874014603081
-      training_level_2_5: -7747703256670786288
-      training_level_2_6: 1794059299619196434
-      training_level_2_7: 2843898101078120038
-      training_level_2_8: -2483785637320767971
-      training_level_2_9: 3501002663384219785
+      buildings_large_mine: -8124754704208401071
+      buildings_large_mine_drag: -282489923095636349
+      buildings_large_mine_left_0: -8204081830798343900
+      buildings_large_mine_left_1: -8553308384845999394
+      buildings_large_mine_left_2: -5061958952613881411
+      buildings_large_mine_left_3: -4797422268651920246
+      buildings_large_mine_middle_0: 7198738877674185893
+      buildings_large_mine_middle_1: 1556478553166661495
+      buildings_large_mine_middle_2: -3590274509766585615
+      buildings_large_mine_middle_3: 2419594952025123939
+      buildings_large_mine_up_0: 6997157849988108206
+      buildings_large_mine_up_1: -2354930303784320707
+      buildings_large_mine_up_2: 3405665483527537271
+      buildings_large_mine_up_3: 6821413390203441576
+      buildings_medium_farm: 5601096052599890657
+      buildings_medium_farm_0: 2260443549857574013
+      buildings_medium_farm_1: -4541573645850273433
+      buildings_medium_farm_drag: 732300943563176212
+      buildings_medium_mine: -4458999924573698663
+      buildings_medium_mine_drag: -1309684736726537689
+      buildings_medium_mine_up_0: 5732905251506741450
+      buildings_medium_mine_up_1: 9027775601611827991
+      buildings_medium_mine_up_2: 348532605614938064
+      buildings_medium_mine_up_3: 989062375956911499
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -7,21 +7,20 @@ public class NotificationUI : MonoBehaviour
     [SerializeField] private WinningNotificationPanelUI winningNotification;
     [SerializeField] private GameOverNotificationPanelUI gameOverNotification;
     [SerializeField] private LevelStartNotificationPanelUI levelStartNotification;
-    [SerializeField] private AskForAdNotificationPanel askForAdNotificationPanel;
 
     [Header("Settings")]
     [SerializeField] private float waitingTime = 3f;
 
     private bool coroutineIsRunning = false;
 
-    public void ShowAskForAdNotificationPanel(UIFullLabel headerLabels, UIFullLabel detailsLabels, GameMaster.LANG language, string newState)
-    {
-        askForAdNotificationPanel.SetHeaderReadyText(headerLabels.GetLabelByLang(language).Label);
-        askForAdNotificationPanel.SetText(detailsLabels.GetLabelByLang(language).Label);
+    //public void ShowAskForAdNotificationPanel(UIFullLabel headerLabels, UIFullLabel detailsLabels, GameMaster.LANG language, AdsFlowActionsHolder.STATE newState)
+    //{
+    //    askForAdNotificationPanel.SetHeaderReadyText(headerLabels.GetLabelByLang(language).Label);
+    //    askForAdNotificationPanel.SetText(detailsLabels.GetLabelByLang(language).Label);
 
-        askForAdNotificationPanel.SetNextSceneState(newState);
-        askForAdNotificationPanel.OpenPanel();
-    }
+    //    askForAdNotificationPanel.SetNextSceneState(newState);
+    //    askForAdNotificationPanel.OpenPanel();
+    //}
 
     public void ShowReachLimitNotification(string limitDescription, GameMaster.LANG language)
     {

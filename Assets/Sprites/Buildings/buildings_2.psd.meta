@@ -1,31 +1,55 @@
 fileFormatVersion: 2
-guid: 6dfc9672df1d5ca42945eb7570208946
+guid: aeed0e02c87b8b647a6979b81a10c81e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7787343451972466102
-    second: level_image_3_start
+      213: 5851348231708954513
+    second: buildings_medium_solar_plant_0
   - first:
-      213: -5003087959020400790
-    second: level_image_3_winning
+      213: 5400440510195485793
+    second: buildings_medium_solar_plant_1
   - first:
-      213: 5474753570643019918
-    second: level_image_3_winning
+      213: -5517107695020307742
+    second: buildings_medium_solar_power_plant
   - first:
-      213: -6933934529716846700
-    second: level_image_1_start
+      213: 9203031185429786614
+    second: buildings_medium_supply_plant_0
   - first:
-      213: -6559670230340714738
-    second: level_image_2_winning
+      213: 5494566201023737199
+    second: buildings_medium_supply_plant_1
   - first:
-      213: -134980840314816576
-    second: level_images_gameOver_0
+      213: -6010635651413413969
+    second: buildings_medium_supply_plant_2
   - first:
-      213: 1239188294998045630
-    second: level_images_gameOver_1
+      213: 6159653198437313653
+    second: buildings_medium_supply_plant
   - first:
-      213: -4371220594416084257
-    second: level_images_gameOver_2
+      213: 5608695732372189285
+    second: buildings_medium_supply_plant_drag
+  - first:
+      213: 2507891631091962604
+    second: buildings_cosmodrome_0_drag
+  - first:
+      213: -7898103950652877547
+    second: buildings_medium_solar_power_plant_drag
+  - first:
+      213: -1208802136669065906
+    second: buildings_large_mine
+  - first:
+      213: -1613960897134141401
+    second: buildings_large_mine_drag
+  - first:
+      213: 5090796440608319498
+    second: buildings_large_mine_part_0
+  - first:
+      213: 4133995186192419557
+    second: buildings_large_mine_part_1
+  - first:
+      213: -411553996633617259
+    second: buildings_large_mine_part_2
+  - first:
+      213: -7504771659288662847
+    second: buildings_large_mine_part_03
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -147,13 +171,181 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: level_image_3_start
+      name: buildings_medium_solar_plant_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 108
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19f4f18073a243150800000000000000
+      internalID: 5851348231708954513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buildings_medium_solar_plant_1
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 108
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16cc4d0080832fa40800000000000000
+      internalID: 5400440510195485793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buildings_medium_solar_power_plant
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 93
+        width: 18
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ea8db248cb4f63b0800000000000000
+      internalID: -5517107695020307742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buildings_medium_supply_plant_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 70
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ff62687a1cb7bf70800000000000000
+      internalID: 9203031185429786614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buildings_medium_supply_plant_1
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 70
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6d23ee29de904c40800000000000000
+      internalID: 5494566201023737199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buildings_medium_supply_plant_2
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 70
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faf643388bee59ca0800000000000000
+      internalID: -6010635651413413969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buildings_medium_supply_plant
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 54
+        width: 18
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57c6470e2fb7b7550800000000000000
+      internalID: 6159653198437313653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buildings_medium_supply_plant_drag
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 54
+        width: 18
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5603b4d6d0716dd40800000000000000
+      internalID: 5608695732372189285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buildings_cosmodrome_0_drag
       rect:
         serializedVersion: 2
         x: 2
-        y: 98
-        width: 62
-        height: 28
+        y: 4
+        width: 36
+        height: 52
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +353,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b578c64c93321c60800000000000000
-      internalID: 7787343451972466102
+      spriteID: ce2596ea622ddc220800000000000000
+      internalID: 2507891631091962604
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_image_3_winning
+      name: buildings_medium_solar_power_plant_drag
       rect:
         serializedVersion: 2
-        x: 2
-        y: 67
-        width: 62
-        height: 28
+        x: 61
+        y: 93
+        width: 18
+        height: 34
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,134 +374,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6f0e8e3206719ab0800000000000000
-      internalID: -5003087959020400790
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: level_image_1_winning
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 36
-        width: 62
-        height: 28
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e888af2bd5b3afb40800000000000000
-      internalID: 7829307810736791919
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: level_image_1_start
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 5
-        width: 62
-        height: 28
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 49f79646847b5cf90800000000000000
-      internalID: -6933934529716846700
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: level_image_2_winning
-      rect:
-        serializedVersion: 2
-        x: 65
-        y: 98
-        width: 62
-        height: 28
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e0f36dc1eae57f4a0800000000000000
-      internalID: -6559670230340714738
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: level_images_gameOver_0
-      rect:
-        serializedVersion: 2
-        x: 65
-        y: 67
-        width: 62
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0c73d8114a3702ef0800000000000000
-      internalID: -134980840314816576
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: level_images_gameOver_1
-      rect:
-        serializedVersion: 2
-        x: 65
-        y: 36
-        width: 62
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eb33e25503b723110800000000000000
-      internalID: 1239188294998045630
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: level_images_gameOver_2
-      rect:
-        serializedVersion: 2
-        x: 65
-        y: 5
-        width: 62
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fda15f2770e4653c0800000000000000
-      internalID: -4371220594416084257
+      spriteID: 515d9368d4c446290800000000000000
+      internalID: -7898103950652877547
       vertices: []
       indices: 
       edges: []
@@ -325,14 +391,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      level_image_1_start: -6933934529716846700
-      level_image_1_winning: 7829307810736791919
-      level_image_2_winning: -6559670230340714738
-      level_image_3_start: 7787343451972466102
-      level_image_3_winning: -5003087959020400790
-      level_images_gameOver_0: -134980840314816576
-      level_images_gameOver_1: 1239188294998045630
-      level_images_gameOver_2: -4371220594416084257
+      buildings_cosmodrome_0_drag: 2507891631091962604
+      buildings_medium_solar_plant_0: 5851348231708954513
+      buildings_medium_solar_plant_1: 5400440510195485793
+      buildings_medium_solar_power_plant: -5517107695020307742
+      buildings_medium_solar_power_plant_drag: -7898103950652877547
+      buildings_medium_supply_plant: 6159653198437313653
+      buildings_medium_supply_plant_0: 9203031185429786614
+      buildings_medium_supply_plant_1: 5494566201023737199
+      buildings_medium_supply_plant_2: -6010635651413413969
+      buildings_medium_supply_plant_drag: 5608695732372189285
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
