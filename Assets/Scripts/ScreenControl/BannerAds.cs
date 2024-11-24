@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Advertisements;
+//using UnityEngine.Advertisements;
 
 public class BannerAds : MonoBehaviour
 {
@@ -26,31 +26,31 @@ public class BannerAds : MonoBehaviour
 
     IEnumerator StartAdvertisement()
     {
-        isAdsOn = false;
-        menuToMove.anchoredPosition = new Vector2(menuToMove.anchoredPosition.x, menuToMove.anchoredPosition.y + (initialBotAndTopPosition - menuToMove.anchoredPosition.y));
-        settingsPanelToMove.sizeDelta = new Vector2(settingsPanelToMove.rect.width, initialHeightForSettings);
-        SetAllLevelsToMove();
+        //isAdsOn = false;
+        //menuToMove.anchoredPosition = new Vector2(menuToMove.anchoredPosition.x, menuToMove.anchoredPosition.y + (initialBotAndTopPosition - menuToMove.anchoredPosition.y));
+        //settingsPanelToMove.sizeDelta = new Vector2(settingsPanelToMove.rect.width, initialHeightForSettings);
+        //SetAllLevelsToMove();
 
-        Advertisement.Initialize(gameID, testMode);
+        //Advertisement.Initialize(gameID, testMode);
 
         //while (!Advertisement.IsReady(placementID))
         yield return null;
 
-        Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
-        Advertisement.Banner.Show(placementID);
+        //Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
+        //Advertisement.Banner.Show(placementID);
 
         // move UI
-        isAdsOn = true;
-        menuToMove.anchoredPosition = new Vector2(menuToMove.anchoredPosition.x, menuToMove.anchoredPosition.y + (botAndTopToMovePosition - menuToMove.anchoredPosition.y));
-        settingsPanelToMove.sizeDelta = new Vector2 (settingsPanelToMove.rect.width, heightToMoveForSettings);
-        SetAllLevelsToMove();
+        //isAdsOn = true;
+        //menuToMove.anchoredPosition = new Vector2(menuToMove.anchoredPosition.x, menuToMove.anchoredPosition.y + (botAndTopToMovePosition - menuToMove.anchoredPosition.y));
+        //settingsPanelToMove.sizeDelta = new Vector2 (settingsPanelToMove.rect.width, heightToMoveForSettings);
+        //SetAllLevelsToMove();
 
 
     }
 
     private void OnEnable()
     {
-        StartCoroutine(StartAdvertisement());
+        //StartCoroutine(StartAdvertisement());
     }
 
     private void OnDestroy()
@@ -62,13 +62,13 @@ public class BannerAds : MonoBehaviour
     public void StopAdvertisement()
     {
         //Debug.Log("BannerAds: stop");
-        StopAllCoroutines();
+        //StopAllCoroutines();
 
-        isAdsOn = false;
-        Advertisement.Banner.Hide();
-        menuToMove.anchoredPosition = new Vector2(menuToMove.anchoredPosition.x, menuToMove.anchoredPosition.y + (initialBotAndTopPosition - menuToMove.anchoredPosition.y));
-        settingsPanelToMove.sizeDelta = new Vector2(settingsPanelToMove.rect.width, initialHeightForSettings);
-        SetAllLevelsToMove();
+        //isAdsOn = false;
+        //Advertisement.Banner.Hide();
+        //menuToMove.anchoredPosition = new Vector2(menuToMove.anchoredPosition.x, menuToMove.anchoredPosition.y + (initialBotAndTopPosition - menuToMove.anchoredPosition.y));
+        //settingsPanelToMove.sizeDelta = new Vector2(settingsPanelToMove.rect.width, initialHeightForSettings);
+        //SetAllLevelsToMove();
 
     }
 
