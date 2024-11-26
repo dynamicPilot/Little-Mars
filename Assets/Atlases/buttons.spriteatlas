@@ -44,22 +44,14 @@ SpriteAtlas:
       enableAlphaDilation: 1
     secondaryTextureSettings: {}
     variantMultiplier: 1
-    packables:
-    - {fileID: 21300000, guid: 59e9d8bdf14386b4895fadd514cf20f3, type: 3}
-    - {fileID: 21300000, guid: 744d6b048331fd145ab9ebf40e0c39df, type: 3}
+    packables: []
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
-    packedSpriteRenderDataKeys:
-    - 744d6b048331fd145ab9ebf40e0c39df: 21300000
-    - 59e9d8bdf14386b4895fadd514cf20f3: 21300000
+    packedSpriteRenderDataKeys: []
   m_MasterAtlas: {fileID: 0}
-  m_PackedSprites:
-  - {fileID: 21300000, guid: 744d6b048331fd145ab9ebf40e0c39df, type: 3}
-  - {fileID: 21300000, guid: 59e9d8bdf14386b4895fadd514cf20f3, type: 3}
-  m_PackedSpriteNamesToIndex:
-  - button_seaBlue_pressed
-  - button_seaBlue_normal
+  m_PackedSprites: []
+  m_PackedSpriteNamesToIndex: []
   m_RenderDataMap: {}
   m_Tag: buttons
   m_IsVariant: 0
