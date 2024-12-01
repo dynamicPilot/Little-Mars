@@ -32,6 +32,8 @@ namespace LittleMars.UI.MainMenu
             _levelIndex = info.Number - 1;
 
             //_onClick = onClick;
+            _button.onClick.RemoveAllListeners();
+            _button.enabled = true;
             _button.onClick.AddListener(delegate { onClick.SlotOnClick(_levelIndex); });
         }
 
@@ -41,6 +43,8 @@ namespace LittleMars.UI.MainMenu
             _number.text = "";
             _sign.enabled = false;
             _levelIndex = -1;
+            _button.enabled = false;
+            _button.onClick.RemoveAllListeners();
         }
 
         //public void OnPointerClick(PointerEventData eventData)
