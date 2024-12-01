@@ -253,9 +253,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8754145006158566724}
   - component: {fileID: 1904120862124040620}
-  - component: {fileID: 6128887282278929600}
-  - component: {fileID: 834095837505239219}
   - component: {fileID: 3785266929619194273}
+  - component: {fileID: 5792156581109148201}
   m_Layer: 5
   m_Name: LevelsMenu
   m_TagString: Untagged
@@ -294,44 +293,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3750570316948727934}
   m_CullTransparentMesh: 1
---- !u!114 &6128887282278929600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3750570316948727934}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 10
-    m_Right: 10
-    m_Top: 28
-    m_Bottom: 74
-  m_ChildAlignment: 0
-  m_StartCorner: 0
-  m_StartAxis: 0
-  m_CellSize: {x: 70, y: 78}
-  m_Spacing: {x: 2, y: 0}
-  m_Constraint: 1
-  m_ConstraintCount: 2
---- !u!114 &834095837505239219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3750570316948727934}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 1
-  m_VerticalFit: 1
 --- !u!114 &3785266929619194273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,6 +310,24 @@ MonoBehaviour:
   - {fileID: 2625729182648270184}
   - {fileID: 767480436143343113}
   - {fileID: 1573693749704583536}
+--- !u!114 &5792156581109148201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3750570316948727934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91109490c769bba47bd4fd23f92dbc47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _useId: 1
+  _id: levelMenu_window
+  _startOnEnable: 1
+  _duration: 0.25
+  _maxScale: 1.02
+  _unscaledTime: 0
 --- !u!1 &5313954586989522882
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,6 +1281,14 @@ PrefabInstance:
     - target: {fileID: 7572059752562287641, guid: b6ca3773d7bf57347a4c5793dd2f5b40, type: 3}
       propertyPath: m_Name
       value: UI_SideButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 7617566465453695206, guid: b6ca3773d7bf57347a4c5793dd2f5b40, type: 3}
+      propertyPath: _id
+      value: levelMenu_back_highlight
+      objectReference: {fileID: 0}
+    - target: {fileID: 7617566465453695206, guid: b6ca3773d7bf57347a4c5793dd2f5b40, type: 3}
+      propertyPath: _useId
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
