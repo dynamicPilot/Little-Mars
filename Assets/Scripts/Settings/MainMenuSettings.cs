@@ -4,7 +4,7 @@ using UnityEngine;
 using Zenject;
 
 
-namespace Assets.Upgrade.Scripts.Settings
+namespace Assets.Scripts.Settings
 {
     [CreateAssetMenu(menuName = "LittleMars/Settings/MainMenu Settings")]
     public class MainMenuSettings : ScriptableObjectInstaller<MainMenuSettings>

@@ -12,9 +12,11 @@ using LittleMars.SceneControls;
 using LittleMars.UI.MainMenu;
 using LittleMars.UI.Windows;
 using LittleMars.WindowManagers;
+using LittleMars.TimescaleControls;
 using System;
 using UnityEngine;
 using Zenject;
+using LittleMars.Settings;
 
 namespace LittleMars.Installers
 {
@@ -30,6 +32,8 @@ namespace LittleMars.Installers
             InstallLocalization();
             InstallSignals();
             InstallWindowManager();
+
+            InstallTimescale();
         }
 
         void InstallMenu()
@@ -37,6 +41,12 @@ namespace LittleMars.Installers
             Container.BindInterfacesAndSelfTo<MenuSceneControl>().AsSingle();
             Container.Bind<LevelsMenu>().AsSingle();
             Container.Bind<ISlotOnClick>().To<LevelsInfoSlotsByClick>().AsSingle();
+            
+        }
+
+        void InstallTimescale()
+        {
+            Container.BindInterfacesAndSelfTo<TimescaleControl>().AsSingle();   
         }
 
         void InstallWindowManager()
