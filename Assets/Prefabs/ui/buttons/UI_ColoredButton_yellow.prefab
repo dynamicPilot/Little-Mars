@@ -120,14 +120,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_ColoredButton_yellow
       objectReference: {fileID: 0}
-    - target: {fileID: 8782478928339632680, guid: 2de80e1f70b4c90469cc1bf83a13a55a, type: 3}
-      propertyPath: _id
-      value: MainMenu_highlight_2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8782478928339632680, guid: 2de80e1f70b4c90469cc1bf83a13a55a, type: 3}
-      propertyPath: _useId
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9168156930300727563, guid: 2de80e1f70b4c90469cc1bf83a13a55a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.8

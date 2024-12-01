@@ -6,16 +6,22 @@ using Zenject;
 
 namespace LittleMars.UI.MainMenu
 {
-    public class LevelInfoSlotUI : SlotUI, IPointerClickHandler
+    public class LevelInfoSlotUI : SlotUI //, IPointerClickHandler
     {
         [SerializeField] TextMeshProUGUI _number;
         [SerializeField] Image _isDoneSign;
+        [SerializeField] Button _button;
 
-        ISlotOnClick _onClick;
+        //ISlotOnClick _onClick;
         int _levelIndex;
         private void OnValidate()
         {
             _isDoneSign.enabled = false;
+        }
+
+        private void OnDisable()
+        {
+            _button.onClick.RemoveAllListeners();
         }
 
         public void SetLevelInfo(Common.Levels.LevelInfo info, ISlotOnClick onClick, bool isDone = false)
@@ -25,7 +31,8 @@ namespace LittleMars.UI.MainMenu
             _number.text = info.Number.ToString();
             _levelIndex = info.Number - 1;
 
-            _onClick = onClick;
+            //_onClick = onClick;
+            _button.onClick.AddListener(delegate { onClick.SlotOnClick(_levelIndex); });
         }
 
         public void SetEmpty()
@@ -36,10 +43,10 @@ namespace LittleMars.UI.MainMenu
             _levelIndex = -1;
         }
 
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            if (_levelIndex == -1 || _onClick == null) return;
-            _onClick.SlotOnClick(_levelIndex);
-        }
+        //public void OnPointerClick(PointerEventData eventData)
+        //{
+        //    if (_levelIndex == -1 || _onClick == null) return;
+        //    _onClick.SlotOnClick(_levelIndex);
+        //}
     }
 }

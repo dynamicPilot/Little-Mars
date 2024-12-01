@@ -170,15 +170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8738098607103919831, guid: 2de80e1f70b4c90469cc1bf83a13a55a, type: 3}
       propertyPath: m_Name
-      value: ColoredButton_green Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 8782478928339632680, guid: 2de80e1f70b4c90469cc1bf83a13a55a, type: 3}
-      propertyPath: _id
-      value: MainMenu_highlight_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8782478928339632680, guid: 2de80e1f70b4c90469cc1bf83a13a55a, type: 3}
-      propertyPath: _useId
-      value: 1
+      value: UI_ColoredButton_green
       objectReference: {fileID: 0}
     - target: {fileID: 9168156930300727563, guid: 2de80e1f70b4c90469cc1bf83a13a55a, type: 3}
       propertyPath: m_SizeDelta.x

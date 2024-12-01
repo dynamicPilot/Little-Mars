@@ -32,12 +32,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -26, y: -24.1}
-  m_SizeDelta: {x: 107.34055, y: 30}
+  m_AnchoredPosition: {x: -34, y: -24}
+  m_SizeDelta: {x: 82, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2499367637801833749
 CanvasRenderer:
@@ -59,11 +58,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492dfe3bca3c7e44cb3dfbfe53eaa65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _useId: 0
+  _id: blinkingGlow
+  _startOnEnable: 1
   _indicator: {fileID: 983849859520669469}
   _endFade: 0.3
   _period: 1.2
-  _needSetId: 1
-  _id: blinkingGlow
   _unscaledTime: 0
 --- !u!114 &983849859520669469
 MonoBehaviour:
