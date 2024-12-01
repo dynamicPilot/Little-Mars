@@ -13,23 +13,23 @@ namespace LittleMars.Animations
         [SerializeField] private Vector3 _minScale;
         [SerializeField] private Vector3 _maxScale;
         
-        float _signleMoveDuration;
+        float _singleMoveDuration;
 
         public override void StartAnimation()
         {
-            _signleMoveDuration = _period / 4f;
+            _singleMoveDuration = _period / 4f;
             ToMinScale();
         }
 
         void ToMinScale()
         {
-            _transform.DOScale(_minScale, _signleMoveDuration).SetId(_id).OnComplete(Scaling);
+            _transform.DOScale(_minScale, _singleMoveDuration).SetId(_id).OnComplete(Scaling);
         }
         void Scaling()
         {
             var sequence = DOTween.Sequence();
-            sequence.Append(_transform.DOScale(_maxScale, _signleMoveDuration * 2f))
-                .Append(_transform.DOScale(_minScale, _signleMoveDuration * 2f))
+            sequence.Append(_transform.DOScale(_maxScale, _singleMoveDuration * 2f))
+                .Append(_transform.DOScale(_minScale, _singleMoveDuration * 2f))
                 .SetEase(Ease.InOutSine)
                 .SetLoops(-1).SetId(_id);
         }
