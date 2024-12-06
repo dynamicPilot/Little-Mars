@@ -34,6 +34,11 @@ namespace LittleMars.UI.Elements.MenuScreens
             _signalBus.Subscribe<MenuScreenSetText>(OnMenuScreenSetText);
         }
 
+        private void OnEnable()
+        {
+            _image.SetActive(true);
+        }
+
         private void OnDestroy()
         {
             StopActiveCoroutine();

@@ -24,7 +24,10 @@ namespace LittleMars.UI.LevelMenus.Addons
             if (index < _displayUIs.Length)
             {
                 for (int i = index; i < _displayUIs.Length; i++)
+                {
                     _displayUIs[i].gameObject.SetActive(false);
+                    
+                }                   
             }
         }
     }
