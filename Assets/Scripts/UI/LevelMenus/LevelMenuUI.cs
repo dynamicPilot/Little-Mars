@@ -3,6 +3,7 @@ using LittleMars.Common;
 using LittleMars.Common.Signals;
 using LittleMars.LevelMenus;
 using LittleMars.UI.GoalDisplays;
+using LittleMars.UI.LevelMenus.Addons;
 using LittleMars.UI.Tooltip;
 using LittleMars.WindowManagers;
 using UnityEngine;
@@ -13,6 +14,9 @@ namespace LittleMars.UI.LevelMenus
 {
     public class LevelMenuUI : LevelMenuUIWithControls
     {
+        [Header("Menu Strategies")]
+        [SerializeField] MenuStrategiesBase _menuStrategies;
+
         [Inject]
         public void Constructor(LevelMenu levelMenu, Common.Levels.LevelInfo levelInfo, 
             SoundsForGameMenuUI sounds)
@@ -24,7 +28,7 @@ namespace LittleMars.UI.LevelMenus
 
         public override void OnOpenMenu(WindowContext context)
         {
-            //SetGoalDisplays(_levelMenu.GetStrategies());
+            if (_menuStrategies != null) _menuStrategies.Set(_levelMenu.GetStrategies());
             SetMenu();
             base.OnOpenMenu(context);
         }

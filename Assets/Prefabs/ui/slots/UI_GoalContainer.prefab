@@ -1029,7 +1029,7 @@ GameObject:
   - component: {fileID: 804315866233305106}
   - component: {fileID: 7787779153957859809}
   - component: {fileID: 7796398632122957636}
-  - component: {fileID: 9053178054913216347}
+  - component: {fileID: 5714256177399093955}
   - component: {fileID: 4264164035085856655}
   - component: {fileID: 4574069755273698816}
   - component: {fileID: 56189222579842425}
@@ -1105,7 +1105,7 @@ MonoBehaviour:
   _resourcePart: {fileID: 5550998220872757787}
   _timerPart: {fileID: 3355638393536643338}
   _tooltipInfo: {fileID: 4264164035085856655}
---- !u!114 &9053178054913216347
+--- !u!114 &5714256177399093955
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1114,14 +1114,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4781690755988704851}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0edfbce31f4f9894ab078b3a84a4b56d, type: 3}
+  m_Script: {fileID: 11500000, guid: df915083449854343aeef3456fa4f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rectTransform: {fileID: 804315866233305106}
   _button: {fileID: 4574069755273698816}
   _tooltipInfo: {fileID: 4264164035085856655}
-  _direction: 1
-  _offset: 5
 --- !u!114 &4264164035085856655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1191,7 +1188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _components:
-  - {fileID: 9053178054913216347}
+  - {fileID: 5714256177399093955}
   - {fileID: 4264164035085856655}
   _identifier: 
   _useSceneContext: 0

@@ -1,5 +1,4 @@
-﻿using LittleMars.Common.Signals;
-using LittleMars.Signals;
+﻿using LittleMars.Signals;
 using LittleMars.TooltipSystem;
 using LittleMars.UI.Tooltip;
 using LittleMars.UI.Windows;
@@ -12,7 +11,6 @@ namespace LittleMars.Installers
     public class WindowObjectInstaller : MonoInstaller<WindowObjectInstaller>
     {
         public override void InstallBindings()
-        {
-        }
+        { }
     }
 }
