@@ -9,7 +9,7 @@ using Zenject;
 
 namespace LittleMars.UI.LevelMenus
 {
-    public class LevelMenuUI : GameMenuUI
+    public class TempLevelMenuUI : GameMenuUI
     {
         [Header("UI Elements")]
         [Header("Image")]

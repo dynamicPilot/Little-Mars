@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b513cd8b602ddd438682d61dc901fa2, type: 3}
   m_Name: MainMenu_TimescaleSettings
   m_EditorClassIdentifier: 
-  TimescaleSet:
-    Settings:
-      InitialTimescale: 1
+  TimescaleSettings:
+    InitialTimescale: 1
