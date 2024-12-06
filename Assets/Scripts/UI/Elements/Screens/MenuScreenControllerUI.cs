@@ -7,12 +7,11 @@ namespace LittleMars.UI.Elements.MenuScreens
 {
     public class MenuScreenControllerUI : MonoBehaviour
     {
-        [SerializeField] int _id;
-
         [Header("UI Elements")]
         [SerializeField] Button _button;
         [SerializeField] TooltipInfo _tooltipInfo;
 
+        int _id;
         MenuScreenController _controller;
 
         [Inject]
