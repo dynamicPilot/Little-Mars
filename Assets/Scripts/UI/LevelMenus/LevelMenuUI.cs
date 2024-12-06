@@ -11,7 +11,7 @@ using Zenject;
 
 namespace LittleMars.UI.LevelMenus
 {
-    public class StartLevelMenuUI : LevelMenuUIWithControls
+    public class LevelMenuUI : LevelMenuUIWithControls
     {
         [Inject]
         public void Constructor(LevelMenu levelMenu, Common.Levels.LevelInfo levelInfo, 

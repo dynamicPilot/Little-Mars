@@ -1,17 +1,14 @@
 using LittleMars.UI.GoalDisplays;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace LittleMars.UI.LevelMenus.Addons
 {
-    public class MenuStrategies : MonoBehaviour
+    public class StartMenuStrategies : MenuStrategiesBase
     {
         [Header("Goals Display Slots")]
         [SerializeField] GoalDisplayUI[] _displayUIs;
 
-
-        void SetGoalDisplays(IGoalDisplayStrategy[] strategies)
+        public override void Set(IGoalDisplayStrategy[] strategies)
         {
             int index = 0;
             for (int i = 0; i < strategies.Length; i++)
