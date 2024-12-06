@@ -338,6 +338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7299511238756352990}
   - component: {fileID: 2242572238262582175}
+  - component: {fileID: 9160648005452980872}
   m_Layer: 5
   m_Name: Window
   m_TagString: Untagged
@@ -377,6 +378,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1842624978091196549}
   m_CullTransparentMesh: 1
+--- !u!114 &9160648005452980872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842624978091196549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91109490c769bba47bd4fd23f92dbc47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _useId: 1
+  _id: startMenu_window
+  _startOnEnable: 1
+  _duration: 0.25
+  _maxScale: 1.02
+  _unscaledTime: 1
 --- !u!1 &2267236939115928217
 GameObject:
   m_ObjectHideFlags: 0
@@ -2115,6 +2134,10 @@ PrefabInstance:
       propertyPath: _useId
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8279641569472203305, guid: 3f13ec97e8102bd4c9369f601bb1a975, type: 3}
+      propertyPath: _unscaledTime
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2154,6 +2177,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2118238355882889647, guid: f7015979551a564448bb338b9f6d1598, type: 3}
       propertyPath: _useId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118238355882889647, guid: f7015979551a564448bb338b9f6d1598, type: 3}
+      propertyPath: _unscaledTime
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2145730893653448016, guid: f7015979551a564448bb338b9f6d1598, type: 3}
@@ -2536,6 +2563,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6345545753595972624, guid: 0214392a988fb2e41a6909bddf13177b, type: 3}
       propertyPath: _useId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345545753595972624, guid: 0214392a988fb2e41a6909bddf13177b, type: 3}
+      propertyPath: _unscaledTime
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6389970501965039855, guid: 0214392a988fb2e41a6909bddf13177b, type: 3}
@@ -2937,6 +2968,10 @@ PrefabInstance:
       propertyPath: _useId
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3833443019359023945, guid: fa5454cf466f32241b5e5456d4e37ae6, type: 3}
+      propertyPath: _unscaledTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4156309865727917178, guid: fa5454cf466f32241b5e5456d4e37ae6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3256,6 +3291,10 @@ PrefabInstance:
       propertyPath: _useId
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3729762153659912423, guid: e716c7db939bf724c8a4dcd3da165d21, type: 3}
+      propertyPath: _unscaledTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7922728151018174798, guid: e716c7db939bf724c8a4dcd3da165d21, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3566,6 +3605,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7617566465453695206, guid: b6ca3773d7bf57347a4c5793dd2f5b40, type: 3}
       propertyPath: _useId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7617566465453695206, guid: b6ca3773d7bf57347a4c5793dd2f5b40, type: 3}
+      propertyPath: _unscaledTime
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
