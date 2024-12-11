@@ -1,11 +1,7 @@
 ﻿using LittleMars.AudioSystems;
-using LittleMars.Common;
-using LittleMars.Common.Signals;
 using LittleMars.UI.GoalDisplays;
 using LittleMars.UI.LevelMenus;
 using LittleMars.WindowManagers;
-using System;
-using System.Linq;
 using UnityEngine;
 using Zenject;
 
@@ -15,14 +11,12 @@ namespace LittleMars.UI.Achievements
     {
         [SerializeField] private GoalDisplayUI _displayUI;
 
-        SignalBus _signalBus;
         AchievementDisplayLevelMenu _achievementMenu;
 
         [Inject]
-        public void Constructor(SignalBus signalBus, AchievementDisplayLevelMenu achievementMenu,
+        public void Constructor(AchievementDisplayLevelMenu achievementMenu,
             SoundsForGameMenuUI sounds)
         {
-            _signalBus = signalBus;
             _achievementMenu = achievementMenu;
             _gameMenu = achievementMenu;
             _sounds = sounds;
@@ -33,16 +27,8 @@ namespace LittleMars.UI.Achievements
         }
 
         void Init() => SetButtons();
-        //{
-            //_signalBus.Subscribe<CallAchivementMenuSignal>(OnCallAchivementMenu);
-                  
-        //}
         
-        private void OnDestroy()
-        {
-            RemoveListeners();
-            //_signalBus?.TryUnsubscribe<CallAchivementMenuSignal>(OnCallAchivementMenu);
-        }
+        private void OnDestroy() => RemoveListeners();
 
         public override void OnOpenMenu(WindowContext context)
         {
@@ -90,12 +76,5 @@ namespace LittleMars.UI.Achievements
         {
             _displayUI.SetSlot(strategy);
         }
-
-        //protected override void Close()
-        //{
-        //    // signal
-        //    _signalBus.TryFire(new WindowIsClosedSignal { MenuState = (int) MenuState.achievement});
-        //    base.Close();
-        //}
     }
 }
