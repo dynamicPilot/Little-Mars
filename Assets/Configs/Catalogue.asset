@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: Catalogue
   m_EditorClassIdentifier: 
   Resources:
-    Energy: {fileID: 425383175, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
-    Supply: {fileID: -1036831400, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
-    Food: {fileID: 955785522, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
-    Metals: {fileID: 62905270, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
-    Machines: {fileID: 308360067, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
-    Goods: {fileID: -1938603965, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
-    Money: {fileID: -1619362539, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
+    Energy: {fileID: 21300000, guid: 969afb30bbdd68940aace7a26f28ab48, type: 3}
+    Supply: {fileID: 21300000, guid: f5dbb78564944ab4a804bca430aa438c, type: 3}
+    Food: {fileID: 21300000, guid: f5d802eeea0640d4889be8537201cbe4, type: 3}
+    Metals: {fileID: 21300000, guid: 93220651c0ca6284caaeb8d909897126, type: 3}
+    Machines: {fileID: 21300000, guid: 31cb44f217f66264682e5c3906c74deb, type: 3}
+    Goods: {fileID: 21300000, guid: b5feea5fdcb2a964fac8fa0d04087a9f, type: 3}
+    Money: {fileID: 21300000, guid: 7ff0c68002812064d9d2effaea37e0ca, type: 3}
   Buildings:
     Dome: {fileID: 1937459234, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
-    SolarPlant: {fileID: 1047183583, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
-    SupplyUnit: {fileID: -1542091369, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
+    SolarPlant: {fileID: 712839789, guid: c4bc815810a5fe44c8c37b009df2c5fb, type: 3}
+    SupplyUnit: {fileID: 1929444068, guid: 2f990773e6fbc6f47beb95f9f937f1a5, type: 3}
     Farm: {fileID: -1590278226, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
     Mine: {fileID: 1093994708, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
     Factory: {fileID: 1219344384, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
@@ -31,7 +31,7 @@ MonoBehaviour:
   Goal:
     Storage: {fileID: 21300000, guid: 554b27a86c7465b4dbcba4d455250467, type: 3}
     Production: {fileID: 21300000, guid: b0cba0a319a49104183c3fd15c09c699, type: 3}
-    Time: {fileID: -541044406, guid: 9f7d4464cf8daa5418920d6909679740, type: 3}
+    Time: {fileID: 21300000, guid: f639ad41ff594b14b805b035fb44da88, type: 3}
   Fields:
     Metals: {fileID: -168386757, guid: 41dbff3350adc8642966ca38ec19be75, type: 3}
   _other:
