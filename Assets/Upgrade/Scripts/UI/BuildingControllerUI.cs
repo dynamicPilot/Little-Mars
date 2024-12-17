@@ -144,6 +144,7 @@ namespace LittleMars.UI
 
         void OnStateChangedUpdate()
         {
+            Debug.Log("BuildingControllerUI: button change request");
             _stateButton.SetState(_building.State());
         }
 

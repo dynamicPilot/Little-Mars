@@ -12,7 +12,7 @@ namespace LittleMars.UI.Buttons
         [SerializeField] bool _updateOnClick = false;
 
         public Button Button { get => _button; }
-        States _state = States.on;
+        [SerializeField] States _state = States.on;
 
         public void SetState(States state)
         {
