@@ -5,6 +5,7 @@ using LittleMars.Common.Interfaces;
 using LittleMars.Common.Signals;
 using LittleMars.UI.Buttons;
 using LittleMars.UI.MenuControls;
+using LittleMars.UI.SlotUIFactories;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -20,20 +21,24 @@ namespace LittleMars.UI
         [SerializeField] Button _removeButton;
         [SerializeField] ButtonWithStateView _dayStateButton;
         [SerializeField] ButtonWithStateView _nightStateButton;
+        [SerializeField] SlotUI _targetSlot;
 
         IBuildingFacade _building = null;
         BuildingController _controller;
         SignalBus _signalBus;
         UISoundSystem _audioSystem;
+        BuildingSlotUISetter _slotSetter;
 
         bool _isListenersSet = false;
 
         [Inject]
-        public void Constructor(BuildingController controller, SignalBus signalBus, UISoundSystem audioSystem)
+        public void Constructor(BuildingController controller, SignalBus signalBus, 
+            UISoundSystem audioSystem, BuildingSlotUISetter slotSetter)
         {
             _controller = controller;
             _signalBus = signalBus;
             _audioSystem = audioSystem;
+            _slotSetter = slotSetter;
 
             Init();
         }
@@ -86,6 +91,7 @@ namespace LittleMars.UI
             if (!_isListenersSet) SetListeners();
 
             UpdateButtonsState();
+            UpdateTargetImageState();
             base.Open();
 
             _signalBus.Subscribe<BuildingStateChangedSignal>(OnBuildingStateChanged);
@@ -110,6 +116,12 @@ namespace LittleMars.UI
             _dayStateButton.SetState(_building.StateForPeriod(Period.day));
             Debug.Log("State for period. Night: " + _building.StateForPeriod(Period.night));
             _nightStateButton.SetState(_building.StateForPeriod(Period.night));
+        }
+
+        void UpdateTargetImageState()
+        {
+            BuildingType type = _building.Info().Type;
+            _slotSetter.SetSlot(_targetSlot, (int) type);
         }
 
         void TryChangeState()
