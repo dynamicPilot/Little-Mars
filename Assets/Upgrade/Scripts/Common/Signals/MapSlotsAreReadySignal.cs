@@ -6,6 +6,7 @@ namespace LittleMars.Common.Signals
 
     public struct StartBuildingPlacementSignal { }
     public struct BeginBuildingDragSignal{ }
+    public struct EndBuildingDragSignal { }
 
     public struct BuildingControllerOpenSignal
     {

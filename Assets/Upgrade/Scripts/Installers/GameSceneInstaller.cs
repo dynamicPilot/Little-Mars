@@ -319,6 +319,7 @@ namespace LittleMars.Installers
             Container.DeclareSignal<TryChangeBuildingStateSignal>();
 
             Container.DeclareSignal<BeginBuildingDragSignal>();
+            Container.DeclareSignal<EndBuildingDragSignal>();
             Container.DeclareSignal<StartBuildingPlacementSignal>();
             Container.DeclareSignal<BuildingControllerOpenSignal>();
 

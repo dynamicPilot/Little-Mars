@@ -104,6 +104,7 @@ namespace LittleMars.UI.BuildingSlots
         void OnEndDrag()
         {
             _audioSystem.PlayUISound(UISoundType.drop);
+            _signalBus.Fire<EndBuildingDragSignal>();
         }
 
     }

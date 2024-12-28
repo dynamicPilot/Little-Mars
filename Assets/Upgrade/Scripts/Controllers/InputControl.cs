@@ -14,6 +14,7 @@ namespace LittleMars.Controllers
         TouchControls _controls;
         bool _isViewActionMapEnabled = false;
         bool _isTooltipOnScreen = false;
+        bool _isLocked = false;
 
         public InputControl(SignalBus signalBus,Settings settings)
         {
@@ -23,6 +24,7 @@ namespace LittleMars.Controllers
 
             _isViewActionMapEnabled = false;
             _isTooltipOnScreen = false;
+            _isLocked = false;
         }
 
         public void Initialize()
@@ -33,6 +35,9 @@ namespace LittleMars.Controllers
 
             _signalBus.Subscribe<CallForTooltipSignal>(OnTooltipOnScreen);
             _signalBus.Subscribe<CallForHideTooltipSignal>(OnTooltipHide);
+
+            _signalBus.Subscribe<BeginBuildingDragSignal>(OnBeginLocked);
+            _signalBus.Subscribe<EndBuildingDragSignal>(OnEndLocked);
 
             _controls.Enable();
         }
@@ -45,7 +50,11 @@ namespace LittleMars.Controllers
             _signalBus?.TryUnsubscribe<CallForTooltipSignal>(OnTooltipOnScreen);
             _signalBus?.TryUnsubscribe<CallForHideTooltipSignal>(OnTooltipHide);
 
+            _signalBus?.TryUnsubscribe<BeginBuildingDragSignal>(OnBeginLocked);
+            _signalBus?.TryUnsubscribe<EndBuildingDragSignal>(OnEndLocked);
+
             _controls.Dispose();
+            //BeginBuildingDragSignal
         }
 
         void StartControl()
@@ -59,6 +68,7 @@ namespace LittleMars.Controllers
             Debug.Log("<< ----- End Control");
             _isViewActionMapEnabled = false;
             _isTooltipOnScreen = false;
+            _isLocked = false;
             _controls.Disable();
         }
 
@@ -78,7 +88,7 @@ namespace LittleMars.Controllers
 
         void StartTouch()
         {
-            if (CheckTouchPositionForBeInMapArea() && _isViewActionMapEnabled)
+            if (CheckTouchPositionForBeInMapArea() && _isViewActionMapEnabled && !_isLocked)
                 _signalBus.Fire<StartTouchSignal>();
         }
 
@@ -96,6 +106,16 @@ namespace LittleMars.Controllers
         void OnTooltipHide()
         {
             _isTooltipOnScreen = false;
+        }
+
+        void OnBeginLocked()
+        {
+            _isLocked = true;
+        }
+
+        void OnEndLocked()
+        {
+            _isLocked = false;
         }
 
         void TooltipStartTouch()
