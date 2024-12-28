@@ -97,6 +97,7 @@ namespace LittleMars.Controllers
         {
             var delta = _positioner.GetClarifiedMovingDelta(positionDelta * _settings.DistanceScale * REVERSE_MOVE_MULTIPLIER);
             _cameraMover.Move(delta, _duration);
+            //Debug.Log("move");
         }
 
         [Serializable]

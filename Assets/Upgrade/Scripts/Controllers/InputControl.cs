@@ -109,13 +109,16 @@ namespace LittleMars.Controllers
         }
 
         void OnBeginLocked()
-        {
+        {  
             _isLocked = true;
+            StopTouch();
+            Debug.Log("LOCKED: " + _isLocked);
         }
 
         void OnEndLocked()
         {
             _isLocked = false;
+            Debug.Log("LOCKED: " + _isLocked);
         }
 
         void TooltipStartTouch()
