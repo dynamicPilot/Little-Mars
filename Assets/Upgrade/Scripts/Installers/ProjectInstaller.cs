@@ -22,7 +22,6 @@ namespace LittleMars.Installers
         [Inject] Settings _settings;
         public override void InstallBindings()
         {
-            Debug.Log("Install buidings");
             Container.Bind<SceneLoader>().AsSingle();
             Container.Bind<ProjectSceneControl>().AsSingle();
             Container.Bind<LevelsCatalogue>().AsSingle();
@@ -37,6 +36,8 @@ namespace LittleMars.Installers
             InstallSounds();
             InstallWindows();
             InstallSignals();
+
+            //Debug.Log("ProjectInstaller: instaled");
         }
 
         void InstallPlayer()

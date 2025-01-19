@@ -31,6 +31,7 @@ namespace LittleMars.SaveSystem
             Debug.Log("Has binary file? " + hasFile);
             if (hasFile) return _binaryLoaderFactory.Create();
 
+            Debug.Log("No saves file -> set new game");
             return _emptyLoaderFactory.Create();
         }
 

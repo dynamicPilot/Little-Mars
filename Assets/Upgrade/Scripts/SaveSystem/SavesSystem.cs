@@ -26,23 +26,22 @@ namespace LittleMars.SaveSystem
 
         public void SaveData()
         {
-            Debug.Log("Save Data");
+            Debug.Log("SavesSystem: Save Data");
             _saver.SaveData();
         }
 
         public void LoadData()
         {
-            Debug.Log("Loading Data");
+            Debug.Log("SavesSystem: Load Data");
             var data = _loader.LoadData();
             CheckData(data);
         }
 
         void CheckData(PlayerData data)
         {
+            Debug.Log("SavesSystem: Check Data");
             if (data == null)
-            {
                 Debug.Log("Null data!");
-            }
             else
                 _signalBus.Fire(new DataIsLoadedSignal { PlayerData = data });
         }

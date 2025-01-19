@@ -38,27 +38,24 @@ namespace LittleMars.Configs
 
         void Save(PlayerConfig config)
         {
-            Debug.Log("Saving...");
             _converter.ToJson(config, _path, Newtonsoft.Json.Formatting.None);
+            Debug.Log("PlayerConfigSystem: Saved.");
         }
 
         void Load()
         {
-            Debug.Log("Loading...");
             if (File.Exists(_path))
             {
-                Debug.Log("Has confug");
                 var config = _converter.FromJson<PlayerConfig>(_path);
-                PrintConfig(config);
+                //PrintConfig(config);
                 _signalBus.Fire(new ConfigIsLoadedSignal { PlayerConfig = config, NeedUpdate = true });
+                Debug.Log("PlayerConfigSystem: Load.");
             }
             else
             {
-                Debug.Log("No confug");
                 var config = _provider.GetData();
-                Debug.Log("Creating config file " + config != null);
                 Save(config);
-                //_signalBus.Fire(new NoConfigIsLoadedSignal { PlayerConfig = config });
+                Debug.Log("PlayerConfigSystem: Created new config. Result: " + config != null);
                 _signalBus.Fire(new ConfigIsLoadedSignal { PlayerConfig = config, NeedUpdate = true });
             }
                 
@@ -66,9 +63,9 @@ namespace LittleMars.Configs
 
         void PrintConfig(PlayerConfig config)
         {
-            //Debug.Log($"Player Config : musicVolume {config.MusicVolume}, is Music on {config.IsMusicOn}.");
-            //Debug.Log($"Player Config : soundsVolume {config.SoundsVolume}, is Sounds on {config.IsSoundsOn}.");
-            //Debug.Log($"Player Config : langIndex {config.Lang}");
+            Debug.Log($"Player Config : musicVolume {config.MusicVolume}, is Music on {config.IsMusicOn}.");
+            Debug.Log($"Player Config : soundsVolume {config.SoundsVolume}, is Sounds on {config.IsSoundsOn}.");
+            Debug.Log($"Player Config : langIndex {config.Lang}");
         }
 
 

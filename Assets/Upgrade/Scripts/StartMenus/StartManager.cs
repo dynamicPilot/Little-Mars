@@ -28,13 +28,12 @@ namespace LittleMars.StartMenus
 
         void StartGame()
         {
-            Debug.Log("StartGame");
+            Debug.Log("StartManager: StartGame");
             _signalBus.Fire<StartLoadingSignal>();
         }
 
         void OnLangIsSet()
         {
-            Debug.Log("OnLangIsSet");
             _isLangSet = true;
 
             _signalBus.Unsubscribe<ConfigIsLoadedSignal>(OnLangIsSet);
@@ -43,7 +42,7 @@ namespace LittleMars.StartMenus
 
         void OnLoadingIsReady()
         {
-            Debug.Log("OnLoadingIsReady");
+            Debug.Log("StartManager: OnLoadingIsReady");
             _isLoaded = true;
             _signalBus.Unsubscribe<DataIsLoadedSignal>(OnLoadingIsReady);
 
@@ -59,7 +58,7 @@ namespace LittleMars.StartMenus
 
         void EndScene()
         {
-            Debug.Log("EndScene");
+            Debug.Log("StartManager: EndScene");
             _signalBus.Fire<EndSceneSignal>();
         }
 

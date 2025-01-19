@@ -15,16 +15,18 @@ namespace LittleMars.SaveSystem
         {
             _settings = settings;
             _checker = checker;
+            _mainPath = "";
         }
 
         public bool TryGetMainPath(out string path)
         {
             if (_mainPath == "")
             {
+                // set main path
                 _checker.CheckFolder(_settings.FolderName, true);
                 _mainPath = FormPathToFile(_settings.FileName, _settings.JsonFileEx);
             }
-
+            //Debug.Log("SavesSystemPathConstructor: Main path: " + _mainPath);
             path = _mainPath;
             return _checker.CheckFile(_mainPath);
         }

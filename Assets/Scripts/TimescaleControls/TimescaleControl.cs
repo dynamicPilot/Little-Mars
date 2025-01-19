@@ -18,7 +18,6 @@ namespace LittleMars.TimescaleControls
         public void Initialize()
         {
             Time.timeScale = _settings.InitialTimescale;
-            Debug.Log("TimeControl");
 
         }
 

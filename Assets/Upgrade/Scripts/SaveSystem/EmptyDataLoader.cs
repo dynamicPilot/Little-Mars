@@ -1,4 +1,5 @@
-﻿using Zenject;
+﻿using UnityEngine;
+using Zenject;
 using JsonConverter = LittleMars.Localization.JsonConverter;
 
 namespace LittleMars.SaveSystem
@@ -20,7 +21,9 @@ namespace LittleMars.SaveSystem
         public PlayerData LoadData()
         {
             var data = _dataProvider.GetEmptyData();
-            _pathConstructor.TryGetMainPath(out var path);
+            var res =_pathConstructor.TryGetMainPath(out var path);
+            // Debug.Log("EmptyDataLoader: get path for new data " + path + " is exist " + res);
+            // TODO: add message when res is false
             _converter.ToJson(data, path);
             return data;
         }

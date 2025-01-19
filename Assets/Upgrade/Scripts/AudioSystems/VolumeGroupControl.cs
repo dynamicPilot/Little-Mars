@@ -21,7 +21,7 @@ namespace LittleMars.AudioSystems
 
         public void UpdateVolume(float value, bool needSet = true)
         {
-            Debug.Log($"Update {_data.Parameter} volume {value}. CurrentVolume is {_volume}");
+            //Debug.Log($"VolumeGroupControl: Update {_data.Parameter} volume {value}. CurrentVolume is {_volume}");
             _volume = value;
             var realValue = FractionToRealValue(value);
             if (needSet) _data.Mixer.SetFloat(_data.Parameter, realValue);
@@ -40,7 +40,7 @@ namespace LittleMars.AudioSystems
 
         public void UpdateViaConfig(float volume, bool isOn)
         {
-            Debug.Log($"Update group via config {_data.Parameter}. Is on { isOn}.");
+            //Debug.Log($"VolumeGroupControl: Update group via config {_data.Parameter}. Is on { isOn}.");
             UpdateVolume(volume, isOn);
             UpdateIsMute(!isOn);
         }
@@ -69,14 +69,14 @@ namespace LittleMars.AudioSystems
 
         protected virtual void Mute()
         {
-            Debug.Log($"Mute {_data.Parameter}");
+            //Debug.Log($"VolumeGroupControl: Mute {_data.Parameter}");
             IsMute = true;
             _data.Mixer.SetFloat(_data.Parameter, _data.MinVolume);
         }
 
         protected virtual void UnMute()
         {
-            Debug.Log($"Unmute {_data.Parameter}");
+            //Debug.Log($"VolumeGroupControl: Unmute {_data.Parameter}");
             IsMute = false;
             _data.Mixer.SetFloat(_data.Parameter, _volume);
         }

@@ -15,7 +15,7 @@ namespace LittleMars.SceneControls
 
         protected override void Subscribe()
         {
-            Debug.Log("StartSceneControl : subscribe");
+            //Debug.Log("StartSceneControl : subscribe");
             _signalBus.Subscribe<EndSceneSignal>(Load);
         }
 
