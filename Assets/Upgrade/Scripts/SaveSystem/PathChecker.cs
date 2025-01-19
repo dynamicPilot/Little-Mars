@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using LittleMars.AudioSystems;
+using System.IO;
 using UnityEngine;
 
 namespace LittleMars.SaveSystem
@@ -14,13 +15,15 @@ namespace LittleMars.SaveSystem
 
         public bool CheckFolder(string path, bool createIfNot)
         {
+            
             var fullPath = string.Concat(_path, path);
             var isExist = Directory.Exists(fullPath);
 
             if (!isExist && createIfNot)
             {
-                Directory.CreateDirectory(path);
-                isExist = true;
+                Directory.CreateDirectory(fullPath);
+                isExist = Directory.Exists(fullPath);
+                Debug.Log("PathChecker: create folder " + fullPath + " is exist " + isExist);
             }
 
             return isExist;
